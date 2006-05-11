@@ -1,0 +1,276 @@
+Main
+../../../webviewer/26.jpg
+dgm4422abbf0194.htm
+
+
+
+(
+)
+Poner un mensaje
+../../../webviewer/42.jpg
+uc4422ac65030b.htm
+
+
+
+(
+theCliente ( Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b2650127.htm
+
+
+
+)
+(
+)
+Poner una queja
+../../../webviewer/42.jpg
+uc4422ac6f000e.htm
+
+
+
+(
+theCliente ( Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b26800d9.htm
+
+
+
+)
+(
+)
+Consultar los inmuebles de la agencia
+../../../webviewer/42.jpg
+uc4422ac78008b.htm
+
+
+
+(
+theCliente ( Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b27e00ba.htm
+
+
+
+)
+(
+)
+Registrar Cliente Web
+../../../webviewer/42.jpg
+uc4422b357007b.htm
+
+
+
+(
+theCliente ( Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b37502cf.htm
+
+
+
+)
+(
+Registrar Cliente web correcto
+../../../webviewer/22.jpg
+dgm442449a800bd.htm
+
+
+
+(
+)
+Registrar cliente web error: al validar campos
+../../../webviewer/22.jpg
+dgm4426e1450186.htm
+
+
+
+(
+)
+Registrar cliente web error: ya registrado
+../../../webviewer/22.jpg
+dgm4426e1f70128.htm
+
+
+
+(
+)
+)
+Alertar Agente
+../../../webviewer/42.jpg
+uc4422b37901d3.htm
+
+
+
+(
+)
+(
+Alertar Agente: Cliente ha hecho Login
+../../../webviewer/22.jpg
+dgm4424400a0198.htm
+
+
+
+(
+)
+Alertar Agente: Cliente Registrado pero no ha realizado login
+../../../webviewer/22.jpg
+dgm442442bc032e.htm
+
+
+
+(
+)
+Alertar Agente: Cliente No Registrado
+../../../webviewer/22.jpg
+dgm4424450101e6.htm
+
+
+
+(
+)
+Alertar Agente: Error en la ED al insertar mensaje (login)
+../../../webviewer/22.jpg
+dgm4424458801c7.htm
+
+
+
+(
+)
+Alertar Agente: Error en la ED al comprobar registro
+../../../webviewer/22.jpg
+dgm4424466603bb.htm
+
+
+
+(
+)
+Alertar Agente: Error en la ED al buscar
+../../../webviewer/22.jpg
+dgm44244778030f.htm
+
+
+
+(
+)
+Alertar Agente: Error en la ED al asignar mensajes (sin login)
+../../../webviewer/22.jpg
+dgm4424481a01d7.htm
+
+
+
+(
+)
+)
+Asignar agente a cliente
+../../../webviewer/42.jpg
+uc4422b385029e.htm
+
+
+
+(
+)
+(
+Asignar agente a cliente
+../../../webviewer/22.jpg
+dgm4424490502b1.htm
+
+
+
+(
+)
+Asignar agente a cliente: error al buscar un agente
+../../../webviewer/22.jpg
+dgm44244b2a00ec.htm
+
+
+
+(
+)
+)
+Associations
+../../../webviewer/assoccat.gif
+
+
+
+
+(
+Association (thePoner un mensaje:Poner un mensaje) (theCliente:Cliente)
+../../../webviewer/81.jpg
+../../../looseends/ass4422b2640221.htm
+
+
+
+(
+Poner un mensaje ( thePoner un mensaje )
+../../../webviewer/82.jpg
+../../../looseends/role4422b2650127.htm
+
+
+
+Cliente ( theCliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b2650129.htm
+
+
+
+)
+Association (thePoner una queja:Poner una queja) (theCliente:Cliente)
+../../../webviewer/81.jpg
+../../../looseends/ass4422b26701a4.htm
+
+
+
+(
+Poner una queja ( thePoner una queja )
+../../../webviewer/82.jpg
+../../../looseends/role4422b26800d9.htm
+
+
+
+Cliente ( theCliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b26800db.htm
+
+
+
+)
+Association (theConsultar los inmuebles de la agencia:Consultar los inmuebles de la agencia) (theCliente:Cliente)
+../../../webviewer/81.jpg
+../../../looseends/ass4422b27d0137.htm
+
+
+
+(
+Consultar los inmuebles de la agencia ( theConsultar los inmuebles de la agencia )
+../../../webviewer/82.jpg
+../../../looseends/role4422b27e00ba.htm
+
+
+
+Cliente ( theCliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b27e00bc.htm
+
+
+
+)
+Association (theCliente:Cliente) (theRegistrar Cliente Web:Registrar Cliente Web)
+../../../webviewer/81.jpg
+../../../looseends/ass4422b373009a.htm
+
+
+
+(
+Cliente ( theCliente )
+../../../webviewer/82.jpg
+../../../looseends/role4422b37502cd.htm
+
+
+
+Registrar Cliente Web ( theRegistrar Cliente Web )
+../../../webviewer/82.jpg
+../../../looseends/role4422b37502cf.htm
+
+
+
+)
+)

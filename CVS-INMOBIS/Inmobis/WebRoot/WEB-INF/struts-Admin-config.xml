@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />	
+  <form-beans >
+    <form-bean name="borraEmpleadoForm" type="com.inmobis.struts.form.BorraEmpleadoForm" />
+    <form-bean name="filtrarEmpleadoForm" type="com.inmobis.struts.form.FiltrarEmpleadoForm" />
+    <form-bean name="editaEmpleadoPrevForm" type="com.inmobis.struts.form.EditaEmpleadoPrevForm" />
+    <form-bean name="borraEmpleadoPrevForm" type="com.inmobis.struts.form.BorraEmpleadoPrevForm" />
+    <form-bean name="registraEmpleadoForm" type="com.inmobis.struts.form.RegistraEmpleadoForm"/>
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+
+  <action-mappings >
+    <action path="/registraEmpleado" 
+    	attribute="registraEmpleadoForm"
+    	input="/registraEmpleado.jsp"
+    	name="registraEmpleadoForm" 
+    	scope="request" 
+    	type="com.inmobis.struts.action.RegistraEmpleadoAction">
+    	<forward name="exito" path="/MenuAdministrador.jsp"></forward>
+    	<forward name="cancel" path="/MenuAdministrador.jsp"></forward>
+    	<forward name="reset" path="/registraEmpleado.jsp"></forward>
+    	<forward name="error" path="/registraEmpleado.jsp"></forward>
+    </action>
+    <action
+      attribute="filtrarEmpleadoForm"
+      input="/FiltrarEmpleado.jsp"
+      name="filtrarEmpleadoForm"
+      path="/filtrarEmpleado"
+      scope="request"
+      type="com.inmobis.struts.action.FiltrarEmpleadoAction">
+      <forward name="exito" path="/VerEmpleados.jsp" />
+      <forward name="error" path="/FiltrarEmpleado.jsp" />
+    </action>
+    <action
+      attribute="editaEmpleadoPrevForm"
+      input="/VerEmpleados.jsp"
+      name="editaEmpleadoPrevForm"
+      path="/editaEmpleadoPrev"
+      scope="request"
+      type="com.inmobis.struts.action.EditaEmpleadoPrevAction">
+      <forward name="exito" path="/editaEmpleado.jsp" />
+      <forward name="error" path="/VerEmpleados.jsp" />
+    </action>
+    <action
+      input="/editaEmpleado.jsp"
+      path="/editaEmpleado"
+      type="com.inmobis.struts.action.EditaEmpleadoAction" >
+      <forward name="error" path="/editaEmpleado.jsp" />
+      <forward name="exito" path="/verEmpleadosPrev.do" />
+      
+    </action>
+    <action
+      attribute="BorraEmpleadoPrevForm"
+      input="/VerEmpleados.jsp"
+      name="borraEmpleadoPrevForm"
+      path="/borraEmpleadoPrev"
+      scope="request"
+      type="com.inmobis.struts.action.BorraEmpleadoPrevAction">
+      <forward name="exito" path="/borraEmpleado.jsp" />
+      <forward name="error" path="/VerEmpleados.jsp" />
+    </action>
+    <action
+      attribute="borraEmpleadoForm"
+      input="/borraEmpleado.jsp"
+      name="borraEmpleadoForm"
+      path="/borraEmpleado"
+      scope="request"
+      type="com.inmobis.struts.action.BorraEmpleadoAction" >
+      <forward name="borraEmpleado" path="/borraEmpleado.jsp" />
+      <forward name="exito" path="/verEmpleadosPrev.do" />
+      
+      
+    </action>
+    <action
+      input="/MenuAdministrador.jsp"
+      path="/verEmpleadosPrev"
+      type="com.inmobis.struts.action.VerEmpleadosPrevAction" >
+      <forward name="exito" path="/VerEmpleados.jsp" />
+      <forward name="error" path="/MenuAdministrador.jsp" />
+    </action>
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+
+</struts-config>

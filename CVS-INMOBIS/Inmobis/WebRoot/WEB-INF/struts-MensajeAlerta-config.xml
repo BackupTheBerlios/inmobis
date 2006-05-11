@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />	
+  <form-beans >
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+
+  <action-mappings >
+    <action
+      input="/ListaMensajes.jsp"
+      path="/crearMensaje"
+      type="com.inmobis.struts.action.CrearMensajeAction">
+      <forward name="exito" path="/NuevoMensaje.jsp" />
+    </action>
+    <action
+      attribute="EnviarMensajeForm"
+      input="/NuevoMensaje.jsp"
+      name="EnviarMensajeForm"
+      path="/enviarMensaje"
+      scope="request"
+      type="com.inmobis.struts.action.EnviarMensajeAction" >
+      <forward name="exito" path="/listaMensajesPrev.do" />
+      <forward name="error" path="/NuevoMensaje.jsp" />
+    </action>
+
+    <action
+      input="/MenuAgente.jsp"
+      path="/listaMensajesPrev"
+      type="com.inmobis.struts.action.ListaMensajesPrevAction">
+      <forward name="exito" path="/ListaMensajes.jsp" />
+    </action>
+    <action
+      attribute="BorrarMensajeForm"
+      input="/ListaMensajes.jsp"
+      name="BorrarMensajeForm"
+      path="/borrarMensajePrev"
+      scope="request"
+      type="com.inmobis.struts.action.BorrarMensajePrevAction" >
+      <forward name="exito" path="/BorrarMensaje.jsp" />
+    </action>
+    <action
+      attribute="BorrarMensajeForm"
+      input="/BorrarMensaje.jsp"
+      name="BorrarMensajeForm"
+      path="/borrarMensaje"
+      scope="request"
+      type="com.inmobis.struts.action.BorrarMensajeAction" >
+      <forward name="Resultado" path="/listaMensajesPrev.do" />
+      <forward name="error" path="/BorrarMensaje.jsp" />
+    </action>
+    <action
+      attribute="VerMensajeForm"
+      input="/ListaMensajes.jsp"
+      name="VerMensajeForm"
+      path="/verMensaje"
+      scope="request"
+      type="com.inmobis.struts.action.VerMensajeAction" >
+      <forward name="exito" path="/VerMensaje.jsp" />
+      <forward name="error" path="/ListaMensajes.jsp" />
+    </action>
+    <action
+      attribute="AlertasForm"
+      input="/MenuAgente.jsp"
+      name="AlertasForm"
+      path="/listaAlertasPrev"
+      scope="request"
+      type="com.inmobis.struts.action.ListaAlertasPrevAction" >
+      <forward name="exito" path="/ListaAlertas.jsp" />
+    </action>
+    <action
+      attribute="AlertasForm"
+      input="/ListaAlertas.jsp"
+      name="AlertasForm"
+      path="/verAlerta"
+      scope="request"
+      type="com.inmobis.struts.action.VerAlertaAction" >
+      <forward name="exito" path="/VerAlerta.jsp" />
+    </action>
+    <action
+      attribute="AlertasForm"
+      input="/EditaAlerta.jsp"
+      name="AlertasForm"
+      path="/modificarAlerta"
+      scope="request"
+      type="com.inmobis.struts.action.ModificarAlertaAction">
+      <forward name="exito" path="/listaAlertasPrev.do" />
+      <forward name="error" path="/EditaAlerta.jsp" />
+    </action>
+    <action
+      attribute="AlertasForm"
+      input="/ListaAlertas.jsp"
+      name="AlertasForm"
+      path="/modificarAlertaPrev"
+      scope="request"
+      type="com.inmobis.struts.action.ModificarAlertaPrevAction">
+      <forward name="exito" path="/EditaAlerta.jsp" />
+      <forward name="error" path="/ListaAlertas.jsp" />
+    </action>
+    <action
+      attribute="AlertasForm"
+      input="/ListaAlertas.jsp"
+      name="AlertasForm"
+      path="/borrarAlertaPrev"
+      scope="request"
+      type="com.inmobis.struts.action.BorrarAlertaPrevAction" >
+      <forward name="exito" path="/borraAlerta.jsp" />
+      <forward name="error" path="/ListaAlertas.jsp" />
+    </action>
+
+    <action
+      input="/borraAlerta.jsp"
+      path="/borrarAlerta"
+      type="com.inmobis.struts.action.BorrarAlertaAction" >
+      <forward name="exito" path="/listaAlertasPrev.do" />
+      <forward name="error" path="/borraAlerta.jsp" />
+    </action>
+
+
+
+
+    
+
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+
+</struts-config>

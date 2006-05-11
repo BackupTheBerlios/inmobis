@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  
+  <form-beans >
+	<form-bean name="loginForm" type="com.inmobis.struts.form.LoginForm"/>
+    <form-bean name="registraClienteForm" type="com.inmobis.struts.form.RegistraClienteForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+  <action-mappings >
+    <action	path="/login"
+            type="com.inmobis.struts.action.LoginAction"
+            name="loginForm"
+			scope="request"
+           	input="/login.jsp"
+           	validate="true">
+		<forward name="fallo" path="/login.jsp"/>
+		
+		<forward name="exitoAdmin" path="/MenuAdministrador.jsp"/>
+		<forward name="exitoCliente" path="/MenuCliente.jsp"/>
+		<forward name="exitoAgente" path="/MenuAgente.jsp"/>
+      <forward name="exitoGerente" path="/MenuGerente.jsp" />
+   	</action>
+    <action path="/registraClienteCliente"
+    	attribute="registraClienteForm"
+    	input="/registraClienteCliente.jsp"
+    	name="registraClienteForm" 
+    	scope="request" 
+    	type="com.inmobis.struts.action.RegistraClienteClienteAction">
+    	<forward name="exito" path="/login.jsp"></forward>
+    	<forward name="cancel" path="/index.jsp"></forward>
+    	<forward name="reset" path="/registraClienteCliente.jsp"></forward>
+    	<forward name="error" path="/registraClienteCliente.jsp"></forward>
+    </action>   	
+  </action-mappings>
+</struts-config>
+

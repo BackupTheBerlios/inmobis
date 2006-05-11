@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />	
+  <form-beans >
+    <form-bean name="verQuejasPrevForm" type="com.inmobis.struts.form.VerQuejasPrevForm" />
+    <form-bean name="verQuejaForm" type="com.inmobis.struts.form.VerQuejaForm" />
+    <form-bean name="borrarQuejaForm" type="com.inmobis.struts.form.BorrarQuejaForm" />
+    <form-bean name="verAgentesPrevForm" type="com.inmobis.struts.form.VerAgentesPrevForm" />
+    <form-bean name="seguimientoAgenteForm" type="com.inmobis.struts.form.SeguimientoAgenteForm" />
+    <form-bean name="verClientesPrevForm" type="com.inmobis.struts.form.VerClientesPrevForm" />
+    <form-bean name="trapasarClientesForm" type="com.inmobis.struts.form.TrapasarClientesForm" />
+    <form-bean name="traspasarClientesPrevForm" type="com.inmobis.struts.form.TraspasarClientesPrevForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+
+  <action-mappings >
+    <action
+      attribute="verQuejasPrevForm"
+      input="/MenuGerente.jsp"
+      name="verQuejasPrevForm"
+      path="/verQuejasPrev"
+      scope="request"
+      type="com.inmobis.struts.action.VerQuejasPrevAction" >
+      <forward name="exito" path="/VerQuejas.jsp" />
+      <forward name="error" path="/MenuGerente.jsp" />
+    </action>
+    <action
+      attribute="verQuejaForm"
+      input="/VerQuejas.jsp"
+      name="verQuejaForm"
+      path="/verQueja"
+      scope="request"
+      type="com.inmobis.struts.action.VerQuejaAction" >
+      <forward name="error" path="/VerQuejas.jsp" />
+      <forward name="exito" path="/verQueja.jsp" />
+    </action>
+    <action
+      attribute="borrarQuejaForm"
+      input="/verQueja.jsp"
+      name="borrarQuejaForm"
+      path="/borrarQueja"
+      scope="request"
+      type="com.inmobis.struts.action.BorrarQuejaAction" >
+      <forward name="exito" path="/verQuejasPrev.do" />
+      <forward name="error" path="/verQueja.jsp" />
+    </action>
+    <action
+      attribute="verAgentesPrevForm"
+      input="/MenuGerente.jsp"
+      name="verAgentesPrevForm"
+      path="/verAgentesPrev"
+      scope="request"
+      type="com.inmobis.struts.action.VerAgentesPrevAction" >
+      <forward name="error" path="/MenuGerente.jsp" />
+      <forward name="exito" path="/VerEmpleados.jsp" />
+    </action>
+    <action
+      attribute="seguimientoAgenteForm"
+      input="/VerEmpleados.jsp"
+      name="seguimientoAgenteForm"
+      path="/seguimientoAgente"
+      scope="request"
+      type="com.inmobis.struts.action.SeguimientoAgenteAction" >
+      <forward name="error" path="/VerEmpleados.jsp" />
+      <forward name="exito" path="/VerAgente.jsp" />
+    </action>
+    <action
+      attribute="verClientesPrevForm"
+      input="/MenuGerente.jsp"
+      name="verClientesPrevForm"
+      path="/verClientesPrev"
+      scope="request"
+      type="com.inmobis.struts.action.VerClientesPrevAction" >
+      <forward name="error" path="/MenuGerente.jsp" />
+      <forward name="exito" path="/VerClientes.jsp" />
+      
+    </action>
+    <action
+      attribute="trapasarClientesForm"
+      input="/TraspasarClientes.jsp"
+      name="trapasarClientesForm"
+      path="/trapasarClientes"
+      scope="request"
+      type="com.inmobis.struts.action.TrapasarClientesAction">
+      <forward name="exito" path="/verClientesPrev.do" />
+      <forward name="error" path="/TraspasarClientes.jsp" />
+    </action>
+    <action
+      attribute="traspasarClientesPrevForm"
+      input="/VerClientes.jsp"
+      name="traspasarClientesPrevForm"
+      path="/traspasarClientesPrev"
+      scope="request"
+      type="com.inmobis.struts.action.TraspasarClientesPrevAction" >
+      <forward name="error" path="/VerClientes.jsp" />
+      <forward name="exito" path="/TraspasarClientes.jsp" />
+    </action>
+
+
+
+
+
+
+
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+
+</struts-config>

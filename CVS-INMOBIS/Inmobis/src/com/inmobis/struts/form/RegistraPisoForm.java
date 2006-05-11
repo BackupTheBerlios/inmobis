@@ -1,0 +1,176 @@
+package com.inmobis.struts.form;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.*;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
+import org.apache.log4j.Logger;
+
+import com.inmobis.struts.action.RegistraPisoAction;
+
+public class RegistraPisoForm extends ActionForm {
+	
+	private static final Logger i_log = Logger.getLogger(RegistraPisoForm.class);
+	//Datos inmueble
+	private String metros;
+	private String regimen;
+	private String precio;
+	private String datosDeInteres;
+    //Direccion
+	private String calle;
+	private String num;
+	private String piso;
+	private String codPostal;
+	private String poblacion;
+	private String provincia;
+	private String pais;
+
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		this.metros="";
+		this.regimen="";
+		this.precio="";
+		this.datosDeInteres="";
+		this.calle="";
+		this.num="";
+		this.piso="";
+		this.codPostal="";
+		this.poblacion="";
+		this.provincia="";
+		this.pais="";
+	}
+	
+	public ActionErrors validate(
+		ActionMapping mapping,
+		HttpServletRequest request) {
+		
+		ActionErrors errors=new ActionErrors();
+		
+		if (i_log.isInfoEnabled()){
+			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
+		}
+		//hay que rellenar el tamaño
+		if(metros.equals(""))
+			errors.add("metros", new ActionMessage("errors.metros.required"));
+		else{
+			try{
+				new Double(metros);
+			}catch (Exception e){
+				errors.add("metros", new ActionMessage("errors.metros.notValid"));
+			}
+		}
+			
+		//hay que rellenar el regimen
+		if(regimen.equals(""))
+			errors.add("regimen", new ActionMessage("errors.regimen.required"));
+		//hay que rellenar el precio
+		if(precio.equals(""))
+			errors.add("precio", new ActionMessage("errors.precio.required"));
+		else{
+			try{
+				new Double(metros);
+			}catch (Exception e){
+				errors.add("precio", new ActionMessage("errors.precio.notValid"));
+			}
+		}
+		//Hay que rellenar obligatoriamente todo menos el piso
+		if(calle.equals("") || num.equals("") || codPostal.equals("") || 
+				poblacion.equals("") || provincia.equals("") || pais.equals(""))
+			errors.add("registraPiso", new ActionMessage("errors.direccion.incomplete"));
+		//El numero solo puede contener digitos
+		if(!num.equals("")){
+			try{
+				new Integer(num).intValue();
+			}catch(Exception e){
+				errors.add("num", new ActionMessage("errors.num.notValid"));
+			}
+		}
+		//El codigo postal debe tenr 5 digitos
+		if(codPostal.length()!=5)
+			errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
+		else{
+			try{
+				new Integer(codPostal).intValue();
+			}catch(Exception e){
+				errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
+			}
+		}
+		if (i_log.isInfoEnabled()){
+			i_log.info("Despues de comprobar los erorres. Nº errores: "+errors.size());
+		}
+		return errors;
+	}
+	
+	//Getters
+	public String getMetros(){
+		return this.metros;
+	}
+	public String getRegimen(){
+		return this.regimen;
+	}
+	public String getPrecio(){
+		return this.precio;
+	}
+	public String getDatosInteres(){
+		return this.datosDeInteres;
+	}
+	public String getCalle(){
+		return this.calle;
+	}
+	public String getNum(){
+		return this.num;
+	}
+	public String getPiso(){
+		return this.piso;
+	}
+	public String getCodPostal(){
+		return this.codPostal;
+	}
+	public String getPoblacion(){
+		return this.poblacion;
+	}
+	public String getProvincia(){
+		return this.provincia;
+	}
+	public String getPais(){
+		return this.pais;
+	}
+	//Setters
+	public void setMetros(String m){
+		this.metros=m.trim();
+	}
+	public void setRegimen(String r){
+		this.regimen=r.trim();
+	}
+	public void setPrecio(String p){
+		this.precio=p.trim();
+	}
+	public void setDatosInteres(String di){
+		this.datosDeInteres=di.trim();
+	}
+	public void setCalle(String calle){
+		this.calle=calle.trim();
+	}
+	public void setNum(String num){
+		this.num=num.trim();
+	}
+	public void setPiso(String piso){
+		this.piso=piso.trim();
+	}
+	public void setCodPostal(String cp){
+		this.codPostal=cp.trim();
+	}
+	public void setPoblacion(String pob){
+		this.poblacion=pob.trim();
+	}
+	public void setProvincia(String prov){
+		this.provincia=prov.trim();
+	}
+	public void setPais(String pais){
+		this.pais=pais.trim();
+	}
+}
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+  <action-mappings >
+    <action
+      input="/PonerQueja.jsp"
+      path="/ponerQueja"
+      type="com.inmobis.struts.action.PonerQuejaAction">
+      <forward name="volver" path="/PonerQueja.jsp" />
+    </action>
+    <action
+      input="/FiltrarPisos.jsp"
+      path="/filtrarPiso"
+      type="com.inmobis.struts.action.FiltrarPisoAction">
+      <forward name="exito" path="/VerPisos.jsp" />
+    </action>
+
+    <action
+      input="/MenuGenerico.jsp"
+      path="/verPisos"
+      type="com.inmobis.struts.action.VerPisosAction">
+      <forward name="exito" path="/VerPisos.jsp" />
+    </action>
+    <action
+      input="/PonerMensaje.jsp"
+      path="/ponerMensaje"
+      type="com.inmobis.struts.action.PonerMensajeAction" >
+      <forward name="volver" path="/PonerMensaje.jsp" />
+    </action>
+    
+
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+</struts-config>

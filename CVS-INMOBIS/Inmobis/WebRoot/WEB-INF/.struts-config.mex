@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/editaCliente.do" location="465,210" dimension="166,88" />
+  <StrutsActivity path="/modifBajaClientePrev.do" location="660,90" dimension="181,88" />
+  <StrutsActivity path="/filtrarCliente.do" location="510,-75" dimension="166,88" />
+  <StrutsActivity path="/verClientesAgentePrev.do" location="165,150" dimension="196,88" />
+  <StrutsActivity path="/registraClienteAgente.do" location="150,285" dimension="181,88" />
+  <StrutsActivity path="/editaCliente.jsp" location="690,240" dimension="108,49" />
+  <StrutsActivity path="/VerClientes.jsp" location="405,90" dimension="109,54" />
+  <StrutsActivity path="/FiltrarCliente.jsp" location="315,-45" dimension="121,61" />
+  <StrutsActivity path="/MenuAgente.jsp" location="-60,390" dimension="117,57" />
+  <StrutsActivity path="/registraClienteAgente.jsp" location="-75,285" dimension="156,49" />
+  <StrutsTransition id="/modifBajaClientePrev.do,error,/VerClientes.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="660,129" />
+      <AbsolutePoint location="514,129" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraClienteAgente.do,cancel,/MenuAgente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="248,373" />
+      <AbsolutePoint location="248,435" />
+      <AbsolutePoint location="57,435" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuAgente.jsp,null,/verClientesAgentePrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-60,418" />
+      <AbsolutePoint location="-150,418" />
+      <AbsolutePoint location="-150,194" />
+      <AbsolutePoint location="165,194" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaCliente.do,exito,/verClientesAgentePrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="465,223" />
+      <AbsolutePoint location="361,223" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraClienteAgente.jsp,null,/registraClienteAgente.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="81,309" />
+      <AbsolutePoint location="150,309" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarCliente.do,exito,/VerClientes.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="510,-1" />
+      <AbsolutePoint location="481,-1" />
+      <AbsolutePoint location="481,90" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/EditaPiso.jsp,null,/EditaPiso.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="949,309" />
+      <AbsolutePoint location="1069,309" />
+      <AbsolutePoint location="1069,238" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaCliente.jsp,null,/editaCliente.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="690,264" />
+      <AbsolutePoint location="631,264" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/EditaPiso.do,EditarPiso,/EditaPiso.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,193" />
+      <AbsolutePoint location="902,193" />
+      <AbsolutePoint location="902,285" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/FiltrarCliente.jsp,null,/filtrarCliente.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="436,-31" />
+      <AbsolutePoint location="510,-31" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarCliente.do,error,/FiltrarCliente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="510,-61" />
+      <AbsolutePoint location="375,-61" />
+      <AbsolutePoint location="375,-45" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerClientes.jsp,null,/modifBajaClientePrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="514,99" />
+      <AbsolutePoint location="660,99" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/verClientesAgentePrev.do,exito,/VerClientes.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="263,150" />
+      <AbsolutePoint location="263,117" />
+      <AbsolutePoint location="405,117" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraClienteAgente.do,exito,/verClientesAgentePrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="240,285" />
+      <AbsolutePoint location="240,238" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/EditaPiso.do,exito,/PisoExito.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="964,150" />
+      <AbsolutePoint location="964,109" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaCliente.do,error,/editaCliente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="631,225" />
+      <AbsolutePoint location="744,225" />
+      <AbsolutePoint location="744,240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modifBajaClientePrev.do,exito,/editaCliente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="774,178" />
+      <AbsolutePoint location="774,240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerClientes.jsp,null,/FiltrarCliente.jsp,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="421,90" />
+      <AbsolutePoint location="421,16" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuAgente.jsp,null,/registraClienteAgente.jsp,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-1,390" />
+      <AbsolutePoint location="-1,334" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

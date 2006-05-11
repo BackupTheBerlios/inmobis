@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+   <data-sources>
+    
+   </data-sources>
+  
+  <form-beans >     
+    <form-bean name="registraPisoForm" type="com.inmobis.struts.form.RegistraPisoForm" />
+    <form-bean name="borraPisoForm" type="com.inmobis.struts.form.BorraPisoForm" />
+    <form-bean name="EditaPisoForm" type="com.inmobis.struts.form.EditaPisoForm" />
+    <form-bean name="verPisosAgenteForm" type="com.inmobis.struts.form.VerPisosAgenteForm" />
+    <form-bean name="filtrarPisoAgenteForm" type="com.inmobis.struts.form.FiltrarPisoAgenteForm" />
+    <form-bean name="verClientesSinAgenteForm" type="com.inmobis.struts.form.VerClientesSinAgenteForm" />
+    <form-bean name="asignarAgenteAClientesForm" type="com.inmobis.struts.form.AsignarAgenteAClientesForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+  <action-mappings >
+    <action path="/registraPiso"
+      attribute="registraPisoForm"
+      input="/registraPiso.jsp"
+      name="registraPisoForm"
+      scope="request"
+      type="com.inmobis.struts.action.RegistraPisoAction">
+      <forward name="exito" path="/MenuAgente.jsp" />
+      <forward name="cancel" path="/MenuAgente.jsp" />
+      <forward name="reset" path="/registraPiso.jsp" />
+      <forward name="error" path="/registraPiso.jsp" />
+    </action>
+
+<action
+      attribute="borraPisoForm"
+      input="/borraPiso.jsp"
+      name="borraPisoForm"
+      path="/borraPiso"
+      scope="request"
+      type="com.inmobis.struts.action.BorraPisoAction" >
+      <forward name="error" path="/borraPiso.jsp" />
+      <forward name="exito" path="/verPisosAgente.do" />
+      
+      
+      
+    </action>
+    
+    <action path="/EditaPiso"
+    	type="com.inmobis.struts.action.EditaPisoAction"
+    	attribute="EditaPisoForm"
+    	name="EditaPisoForm" scope="request" input="/EditaPiso.jsp"
+    	validate="true">
+      <forward name="error" path="/EditaPiso.jsp" />
+      <forward name="exito" path="/verPisosAgente.do" />
+    	
+    	
+    </action>
+    <action
+      attribute="verPisosAgenteForm"
+      input="/MenuAgente.jsp"
+      name="verPisosAgenteForm"
+      path="/verPisosAgente"
+      scope="request"
+      type="com.inmobis.struts.action.VerPisosAgenteAction" >
+      <forward name="exito" path="/VerPisosAgente.jsp" />
+      <forward name="error" path="/MenuAgente.jsp" />
+      
+    </action>
+    <action
+      attribute="filtrarPisoAgenteForm"
+      input="filtrarPisoAgente.jsp"
+      name="filtrarPisoAgenteForm"
+      path="/filtrarPisoAgente"
+      scope="request"
+      type="com.inmobis.struts.action.FiltrarPisoAgenteAction" >
+      <forward name="error" path="filtrarPisoAgente.jsp" />
+      <forward name="exito" path="/VerPisosAgente.jsp" />
+      
+    </action>
+    <action
+      input="/VerPisosAgente.jsp"
+      path="/editaPisoPrev"
+      type="com.inmobis.struts.action.EditaPisoPrevAction" >
+      <forward name="error" path="/VerPisosAgente.jsp" />
+      <forward name="exito" path="/EditaPiso.jsp" />
+    </action>
+    <action
+      input="/VerPisosAgente.jsp"
+      path="/borraPisoPrev"
+      type="com.inmobis.struts.action.BorraPisoPrevAction" >
+      <forward name="error" path="/VerPisosAgente.jsp" />
+      <forward name="exito" path="/borraPiso.jsp" />
+    </action>
+    <action
+      attribute="verClientesSinAgenteForm"
+      input="/MenuAgente.jsp"
+      name="verClientesSinAgenteForm"
+      path="/verClientesSinAgente"
+      scope="request"
+      type="com.inmobis.struts.action.VerClientesSinAgenteAction" >
+      <forward name="error" path="/MenuAgente.jsp" />
+      <forward name="exito" path="/VerClientesSinAgente.jsp" />
+    </action>
+    <action
+      attribute="asignarAgenteAClientesForm"
+      input="/VerClientesSinAgente.jsp"
+      name="asignarAgenteAClientesForm"
+      path="/asignarAgenteAClientes"
+      scope="request"
+      type="com.inmobis.struts.action.AsignarAgenteAClientesAction" >
+      <forward name="error" path="/VerClientesSinAgente.jsp" />
+      <forward name="exito" path="/verClientesSinAgente.do" />
+    </action>
+
+
+
+
+
+
+            
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+</struts-config>
+

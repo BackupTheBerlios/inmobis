@@ -1,0 +1,15 @@
+<Context >
+			  <Logger className="org.apache.catalina.logger.SystemOutLogger"
+					verbosity="4" timestamp="true" />
+
+			  <Resource name="jdbc/inmobis" auth="Container"
+						  type="javax.sql.DataSource"
+						  maxActive="100"
+						  maxIdle="30"
+						  maxWait="10000"
+						  username="root"
+						  password="root"
+						  driverClassName="com.mysql.jdbc.Driver"
+						  url="jdbc:mysql://localhost:3306/inmobis?autoReconnect=true"
+				   description="Base de Inmobis" />
+</Context>

@@ -1,0 +1,276 @@
+Main
+../../webviewer/26.jpg
+dgm441535d30050.htm
+
+
+
+(
+)
+Login
+../../webviewer/42.jpg
+uc441535d503da.htm
+
+
+
+(
+theUsuario ( Usuario )
+../../webviewer/82.jpg
+../../looseends/role441535e700cd.htm
+
+
+
+theLogin Administrador ( Login Administrador )
+../../webviewer/82.jpg
+../../looseends/role441535f902b1.htm
+
+
+
+theLogin Cliente ( Login Cliente )
+../../webviewer/82.jpg
+../../looseends/role4415360b02c1.htm
+
+
+
+theLogin Gerente ( Login Gerente )
+../../webviewer/82.jpg
+../../looseends/role4415361d01d6.htm
+
+
+
+theLogin Agente ( Login Agente )
+../../webviewer/82.jpg
+../../looseends/role4415363900dc.htm
+
+
+
+)
+(
+Login Correcto
+../../webviewer/22.jpg
+dgm44168f65006b.htm
+
+
+
+(
+)
+Login Campos Incompletos
+../../webviewer/22.jpg
+dgm4416b0d0038c.htm
+
+
+
+(
+)
+Login Datos Incorrectos
+../../webviewer/22.jpg
+dgm4416b1cc02b1.htm
+
+
+
+(
+)
+)
+Login Administrador
+../../webviewer/42.jpg
+uc441535e90169.htm
+
+
+
+(
+theLogin ( Login )
+../../webviewer/82.jpg
+../../looseends/role441535f902b3.htm
+
+
+
+)
+(
+Login Administrador Correcto
+../../webviewer/22.jpg
+dgm441690e20127.htm
+
+
+
+(
+)
+)
+Login Cliente
+../../webviewer/42.jpg
+uc4415360201a8.htm
+
+
+
+(
+theLogin ( Login )
+../../webviewer/82.jpg
+../../looseends/role4415360b02c3.htm
+
+
+
+)
+(
+Login Cliente Correcto
+../../webviewer/22.jpg
+dgm4416b0250031.htm
+
+
+
+(
+)
+)
+Login Gerente
+../../webviewer/42.jpg
+uc4415361202c1.htm
+
+
+
+(
+theLogin ( Login )
+../../webviewer/82.jpg
+../../looseends/role4415361d01e7.htm
+
+
+
+)
+(
+Login Gerente Correcto
+../../webviewer/22.jpg
+dgm4416b074007f.htm
+
+
+
+(
+)
+)
+Login Agente
+../../webviewer/42.jpg
+uc4415362e0253.htm
+
+
+
+(
+theLogin ( Login )
+../../webviewer/82.jpg
+../../looseends/role4415363900de.htm
+
+
+
+)
+(
+Login Agente Correcto
+../../webviewer/22.jpg
+dgm4416afc30254.htm
+
+
+
+(
+)
+)
+Associations
+../../webviewer/assoccat.gif
+
+
+
+
+(
+Association (theLogin:Login) (theUsuario:Usuario)
+../../webviewer/81.jpg
+../../looseends/ass441535e60205.htm
+
+
+
+(
+Login ( theLogin )
+../../webviewer/82.jpg
+../../looseends/role441535e700cd.htm
+
+
+
+Usuario ( theUsuario )
+../../webviewer/82.jpg
+../../looseends/role441535e700cf.htm
+
+
+
+)
+<<extend>> (theLogin:Login) (theLogin Administrador:Login Administrador)
+../../webviewer/81.jpg
+../../looseends/ass441535f80263.htm
+
+
+
+(
+Login ( theLogin )
+../../webviewer/82.jpg
+../../looseends/role441535f902b1.htm
+
+
+
+Login Administrador ( theLogin Administrador )
+../../webviewer/82.jpg
+../../looseends/role441535f902b3.htm
+
+
+
+)
+<<extend>> (theLogin:Login) (theLogin Cliente:Login Cliente)
+../../webviewer/81.jpg
+../../looseends/ass4415360b0021.htm
+
+
+
+(
+Login ( theLogin )
+../../webviewer/82.jpg
+../../looseends/role4415360b02c1.htm
+
+
+
+Login Cliente ( theLogin Cliente )
+../../webviewer/82.jpg
+../../looseends/role4415360b02c3.htm
+
+
+
+)
+<<extend>> (theLogin:Login) (theLogin Gerente:Login Gerente)
+../../webviewer/81.jpg
+../../looseends/ass4415361c0273.htm
+
+
+
+(
+Login ( theLogin )
+../../webviewer/82.jpg
+../../looseends/role4415361d01d6.htm
+
+
+
+Login Gerente ( theLogin Gerente )
+../../webviewer/82.jpg
+../../looseends/role4415361d01e7.htm
+
+
+
+)
+<<extend>> (theLogin:Login) (theLogin Agente:Login Agente)
+../../webviewer/81.jpg
+../../looseends/ass4415363800cd.htm
+
+
+
+(
+Login ( theLogin )
+../../webviewer/82.jpg
+../../looseends/role4415363900dc.htm
+
+
+
+Login Agente ( theLogin Agente )
+../../webviewer/82.jpg
+../../looseends/role4415363900de.htm
+
+
+
+)
+)

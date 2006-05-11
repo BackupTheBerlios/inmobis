@@ -1,0 +1,458 @@
+Main
+../../../webviewer/26.jpg
+dgm441534b80031.htm
+
+
+
+(
+)
+Registrar Cliente
+../../../webviewer/42.jpg
+uc441534c102e0.htm
+
+
+
+(
+theGestión Cliente ( Gestión Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd37009c.htm
+
+
+
+)
+(
+Registrar Cliente Correcto
+../../../webviewer/22.jpg
+dgm4416be930198.htm
+
+
+
+(
+)
+Registrar cliente error (campos incompletos)
+../../../webviewer/22.jpg
+dgm441844e303d8.htm
+
+
+
+(
+)
+Registrar Cliente Error (ya registrado)
+../../../webviewer/22.jpg
+dgm4418462300bb.htm
+
+
+
+(
+)
+Error en la ED
+../../../webviewer/22.jpg
+dgm4418469d032c.htm
+
+
+
+(
+)
+)
+Registrar Inmueble
+../../../webviewer/42.jpg
+uc441534ce033e.htm
+
+
+
+(
+theGestión Inmueble ( Gestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd02034b.htm
+
+
+
+)
+(
+Registrar Inmueble Correcto
+../../../webviewer/22.jpg
+dgm4416bf7101a8.htm
+
+
+
+(
+)
+Registrar Inmueble Error (Campos Incompletos)
+../../../webviewer/22.jpg
+dgm4418487f036b.htm
+
+
+
+(
+)
+Registrar Inmueble Error (ya registrado)
+../../../webviewer/22.jpg
+dgm4418497200da.htm
+
+
+
+(
+)
+Registrar Inmueble Error en la ED
+../../../webviewer/22.jpg
+dgm44184a73035b.htm
+
+
+
+(
+)
+)
+Baja Cliente
+../../../webviewer/42.jpg
+uc441534d802d0.htm
+
+
+
+(
+theGestión Cliente ( Gestión Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd4502ce.htm
+
+
+
+)
+(
+Dar de baja Cliente Correcto
+../../../webviewer/22.jpg
+dgm4416b92e014a.htm
+
+
+
+(
+)
+Dar de baja cliente datos incompletos
+../../../webviewer/22.jpg
+dgm441840350203.htm
+
+
+
+(
+)
+Dar de baja cliente datos incorrectos
+../../../webviewer/22.jpg
+dgm4418406a02fd.htm
+
+
+
+(
+)
+Dar de baja cliente error en la ED
+../../../webviewer/22.jpg
+dgm441840ed004e.htm
+
+
+
+(
+)
+)
+Baja Inmueble
+../../../webviewer/42.jpg
+uc441534e200dc.htm
+
+
+
+(
+theGestión Inmueble ( Gestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd0d00fa.htm
+
+
+
+)
+(
+Dar de baja inmueble correcto
+../../../webviewer/22.jpg
+dgm4416bb0d036d.htm
+
+
+
+(
+)
+Dar de baja inmueble error en la ED al buscar lista
+../../../webviewer/22.jpg
+dgm4418420a00da.htm
+
+
+
+(
+)
+Dar de baja inmueble
+../../../webviewer/22.jpg
+dgm441842d102af.htm
+
+
+
+(
+)
+)
+Consultar Inmueble
+../../../webviewer/42.jpg
+uc441534eb031f.htm
+
+
+
+(
+theGestión Inmueble ( Gestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd17034b.htm
+
+
+
+)
+(
+Consultar Inmueble Correcto
+../../../webviewer/22.jpg
+dgm4416bcf40021.htm
+
+
+
+(
+)
+)
+Gestión Inmueble
+../../../webviewer/42.jpg
+uc441534f5031f.htm
+
+
+
+(
+theAgente ( Agente )
+../../../webviewer/82.jpg
+../../../looseends/role4415353c033e.htm
+
+
+
+theRegistrar Inmueble ( Registrar Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd02034d.htm
+
+
+
+theBaja Inmueble ( Baja Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd0d00fc.htm
+
+
+
+theConsultar Inmueble ( Consultar Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd17034d.htm
+
+
+
+)
+(
+Gestión Inmueble: Quiero registrar un inmueble
+../../../webviewer/22.jpg
+dgm4419bd6c036b.htm
+
+
+
+(
+)
+Gestión inmueble: Quiero dar de baja un inmueble
+../../../webviewer/22.jpg
+dgm4419be450290.htm
+
+
+
+(
+)
+)
+Gestión Cliente
+../../../webviewer/42.jpg
+uc44153513011b.htm
+
+
+
+(
+theAgente ( Agente )
+../../../webviewer/82.jpg
+../../../looseends/role44153538039c.htm
+
+
+
+theRegistrar Cliente ( Registrar Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd37009e.htm
+
+
+
+theBaja Cliente ( Baja Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd4502d0.htm
+
+
+
+)
+(
+Gestión Cliente: Dar de alta un cliente
+../../../webviewer/22.jpg
+dgm4416bd4802e0.htm
+
+
+
+(
+)
+Gestión Cliente: Dar de baja un cliente
+../../../webviewer/22.jpg
+dgm4419bf6a000f.htm
+
+
+
+(
+)
+)
+Associations
+../../../webviewer/assoccat.gif
+
+
+
+
+(
+Association (theAgente:Agente) (theGestión Cliente:Gestión Cliente)
+../../../webviewer/81.jpg
+../../../looseends/ass44153538014a.htm
+
+
+
+(
+Agente ( theAgente )
+../../../webviewer/82.jpg
+../../../looseends/role44153538038c.htm
+
+
+
+Gestión Cliente ( theGestión Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role44153538039c.htm
+
+
+
+)
+Association (theAgente:Agente) (theGestión Inmueble:Gestión Inmueble)
+../../../webviewer/81.jpg
+../../../looseends/ass4415353a038c.htm
+
+
+
+(
+Agente ( theAgente )
+../../../webviewer/82.jpg
+../../../looseends/role4415353c032e.htm
+
+
+
+Gestión Inmueble ( theGestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4415353c033e.htm
+
+
+
+)
+<<include>> (theRegistrar Inmueble:Registrar Inmueble) (theGestión Inmueble:Gestión Inmueble)
+../../../webviewer/81.jpg
+../../../looseends/ass4419bd010280.htm
+
+
+
+(
+Registrar Inmueble ( theRegistrar Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd02034b.htm
+
+
+
+Gestión Inmueble ( theGestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd02034d.htm
+
+
+
+)
+<<include>> (theBaja Inmueble:Baja Inmueble) (theGestión Inmueble:Gestión Inmueble)
+../../../webviewer/81.jpg
+../../../looseends/ass4419bd0c008c.htm
+
+
+
+(
+Baja Inmueble ( theBaja Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd0d00fa.htm
+
+
+
+Gestión Inmueble ( theGestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd0d00fc.htm
+
+
+
+)
+<<include>> (theConsultar Inmueble:Consultar Inmueble) (theGestión Inmueble:Gestión Inmueble)
+../../../webviewer/81.jpg
+../../../looseends/ass4419bd17001f.htm
+
+
+
+(
+Consultar Inmueble ( theConsultar Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd17034b.htm
+
+
+
+Gestión Inmueble ( theGestión Inmueble )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd17034d.htm
+
+
+
+)
+<<include>> (theRegistrar Cliente:Registrar Cliente) (theGestión Cliente:Gestión Cliente)
+../../../webviewer/81.jpg
+../../../looseends/ass4419bd350399.htm
+
+
+
+(
+Registrar Cliente ( theRegistrar Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd37009c.htm
+
+
+
+Gestión Cliente ( theGestión Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd37009e.htm
+
+
+
+)
+<<include>> (theBaja Cliente:Baja Cliente) (theGestión Cliente:Gestión Cliente)
+../../../webviewer/81.jpg
+../../../looseends/ass4419bd44032c.htm
+
+
+
+(
+Baja Cliente ( theBaja Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd4502ce.htm
+
+
+
+Gestión Cliente ( theGestión Cliente )
+../../../webviewer/82.jpg
+../../../looseends/role4419bd4502d0.htm
+
+
+
+)
+)

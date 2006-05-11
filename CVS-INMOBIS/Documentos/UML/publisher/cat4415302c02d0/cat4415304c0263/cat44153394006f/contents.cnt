@@ -1,0 +1,564 @@
+Main
+../../../webviewer/26.jpg
+dgm441533ba00ae.htm
+
+
+
+(
+)
+Registrar
+../../../webviewer/42.jpg
+uc441533c90188.htm
+
+
+
+(
+theRegistrar Administrador ( Registrar Administrador )
+../../../webviewer/82.jpg
+../../../looseends/role4415340000ae.htm
+
+
+
+theRegistrar Gerente ( Registrar Gerente )
+../../../webviewer/82.jpg
+../../../looseends/role44153404039c.htm
+
+
+
+theRegistrar Agente ( Registrar Agente )
+../../../webviewer/82.jpg
+../../../looseends/role4415340801c7.htm
+
+
+
+theAdministrador ( Administrador )
+../../../webviewer/82.jpg
+../../../looseends/role4415342e0198.htm
+
+
+
+)
+(
+Registrar Correcto
+../../../webviewer/22.jpg
+dgm4416b28b006f.htm
+
+
+
+(
+)
+Regisrto Error: campos incompletos
+../../../webviewer/22.jpg
+dgm44183be00399.htm
+
+
+
+(
+)
+Registro Error: ya registrado
+../../../webviewer/22.jpg
+dgm44183d02029f.htm
+
+
+
+(
+)
+Registro error en la ED al registrar
+../../../webviewer/22.jpg
+dgm44183d6c004e.htm
+
+
+
+(
+)
+Registro error en la ED al validar ususario
+../../../webviewer/22.jpg
+dgm4426db8a015f.htm
+
+
+
+(
+)
+)
+Registrar Administrador
+../../../webviewer/42.jpg
+uc441533d50292.htm
+
+
+
+(
+theRegistrar ( Registrar )
+../../../webviewer/82.jpg
+../../../looseends/role4415340000b0.htm
+
+
+
+)
+(
+Registrar Administrador Correcto
+../../../webviewer/22.jpg
+dgm4416b3e9031f.htm
+
+
+
+(
+)
+)
+Registrar Gerente
+../../../webviewer/42.jpg
+uc441533e20169.htm
+
+
+
+(
+theRegistrar ( Registrar )
+../../../webviewer/82.jpg
+../../../looseends/role44153404039e.htm
+
+
+
+)
+(
+Registrar Gerente Correcto
+../../../webviewer/22.jpg
+dgm4416b6960215.htm
+
+
+
+(
+)
+)
+Registrar Agente
+../../../webviewer/42.jpg
+uc441533ec011b.htm
+
+
+
+(
+theRegistrar ( Registrar )
+../../../webviewer/82.jpg
+../../../looseends/role4415340801c9.htm
+
+
+
+)
+(
+Registrar Agente
+../../../webviewer/22.jpg
+dgm4416b6db0021.htm
+
+
+
+(
+)
+)
+Dar de baja
+../../../webviewer/42.jpg
+uc44153434030f.htm
+
+
+
+(
+theAdministrador ( Administrador )
+../../../webviewer/82.jpg
+../../../looseends/role4415343e033e.htm
+
+
+
+theBaja Administrador ( Baja Administrador )
+../../../webviewer/82.jpg
+../../../looseends/role441534660188.htm
+
+
+
+theBaja Gerente ( Baja Gerente )
+../../../webviewer/82.jpg
+../../../looseends/role4415346900bd.htm
+
+
+
+theBaja Agente ( Baja Agente )
+../../../webviewer/82.jpg
+../../../looseends/role4415346b03bb.htm
+
+
+
+)
+(
+Dar de Baja Correcto
+../../../webviewer/22.jpg
+dgm4416b759007f.htm
+
+
+
+(
+)
+Dar de Baja Error: campos incompletos
+../../../webviewer/22.jpg
+dgm44183e86034b.htm
+
+
+
+(
+)
+Dar de Baja Error: ya registrado
+../../../webviewer/22.jpg
+dgm44183f3e01a5.htm
+
+
+
+(
+)
+Dar de Baja Error en la ED al eliminar
+../../../webviewer/22.jpg
+dgm44183fa20232.htm
+
+
+
+(
+)
+Dar de Baja Error en la ED al validar
+../../../webviewer/22.jpg
+dgm44270ea403a4.htm
+
+
+
+(
+)
+)
+Baja Administrador
+../../../webviewer/42.jpg
+uc4415344201c7.htm
+
+
+
+(
+theDar de baja ( Dar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role44153466018a.htm
+
+
+
+)
+(
+Dar de Baja Administrador Correcto
+../../../webviewer/22.jpg
+dgm4416b87d02f0.htm
+
+
+
+(
+)
+Baja administrador Error (es el único)
+../../../webviewer/22.jpg
+dgm4427138c038c.htm
+
+
+
+(
+)
+Baja administrador Error (es él mismo)
+../../../webviewer/22.jpg
+dgm4427140100ce.htm
+
+
+
+(
+)
+)
+Baja Gerente
+../../../webviewer/42.jpg
+uc4415344b03ab.htm
+
+
+
+(
+theDar de baja ( Dar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role4415346900bf.htm
+
+
+
+)
+(
+Dar de Baja Gerente Correcto
+../../../webviewer/22.jpg
+dgm4416b83402d1.htm
+
+
+
+(
+)
+)
+Baja Agente
+../../../webviewer/42.jpg
+uc441534570282.htm
+
+
+
+(
+theDar de baja ( Dar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role4415346b03bd.htm
+
+
+
+)
+(
+Dar de Baja Agente Correcto
+../../../webviewer/22.jpg
+dgm4416b85b02c1.htm
+
+
+
+(
+)
+)
+Associations
+../../../webviewer/assoccat.gif
+
+
+
+
+(
+<<extend>> (theRegistrar:Registrar) (theRegistrar Administrador:Registrar Administrador)
+../../../webviewer/81.jpg
+../../../looseends/ass441533fe035d.htm
+
+
+
+(
+Registrar ( theRegistrar )
+../../../webviewer/82.jpg
+../../../looseends/role4415340000ae.htm
+
+
+
+Registrar Administrador ( theRegistrar Administrador )
+../../../webviewer/82.jpg
+../../../looseends/role4415340000b0.htm
+
+
+
+)
+<<extend>> (theRegistrar:Registrar) (theRegistrar Gerente:Registrar Gerente)
+../../../webviewer/81.jpg
+../../../looseends/ass4415340303ab.htm
+
+
+
+(
+Registrar ( theRegistrar )
+../../../webviewer/82.jpg
+../../../looseends/role44153404039c.htm
+
+
+
+Registrar Gerente ( theRegistrar Gerente )
+../../../webviewer/82.jpg
+../../../looseends/role44153404039e.htm
+
+
+
+)
+<<extend>> (theRegistrar:Registrar) (theRegistrar Agente:Registrar Agente)
+../../../webviewer/81.jpg
+../../../looseends/ass441534070159.htm
+
+
+
+(
+Registrar ( theRegistrar )
+../../../webviewer/82.jpg
+../../../looseends/role4415340801c7.htm
+
+
+
+Registrar Agente ( theRegistrar Agente )
+../../../webviewer/82.jpg
+../../../looseends/role4415340801c9.htm
+
+
+
+)
+Association (theRegistrar:Registrar) (theAdministrador:Administrador)
+../../../webviewer/81.jpg
+../../../looseends/ass4415342d014a.htm
+
+
+
+(
+Registrar ( theRegistrar )
+../../../webviewer/82.jpg
+../../../looseends/role4415342e0198.htm
+
+
+
+Administrador ( theAdministrador )
+../../../webviewer/82.jpg
+../../../looseends/role4415342e019a.htm
+
+
+
+)
+Association (theDar de baja:Dar de baja) (theAdministrador:Administrador)
+../../../webviewer/81.jpg
+../../../looseends/ass4415343d02f0.htm
+
+
+
+(
+Dar de baja ( theDar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role4415343e033e.htm
+
+
+
+Administrador ( theAdministrador )
+../../../webviewer/82.jpg
+../../../looseends/role4415343e0340.htm
+
+
+
+)
+<<extend>> (theDar de baja:Dar de baja) (theBaja Administrador:Baja Administrador)
+../../../webviewer/81.jpg
+../../../looseends/ass4415346501a8.htm
+
+
+
+(
+Dar de baja ( theDar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role441534660188.htm
+
+
+
+Baja Administrador ( theBaja Administrador )
+../../../webviewer/82.jpg
+../../../looseends/role44153466018a.htm
+
+
+
+)
+<<extend>> (theDar de baja:Dar de baja) (theBaja Gerente:Baja Gerente)
+../../../webviewer/81.jpg
+../../../looseends/ass4415346801a8.htm
+
+
+
+(
+Dar de baja ( theDar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role4415346900bd.htm
+
+
+
+Baja Gerente ( theBaja Gerente )
+../../../webviewer/82.jpg
+../../../looseends/role4415346900bf.htm
+
+
+
+)
+<<extend>> (theDar de baja:Dar de baja) (theBaja Agente:Baja Agente)
+../../../webviewer/81.jpg
+../../../looseends/ass4415346b0040.htm
+
+
+
+(
+Dar de baja ( theDar de baja )
+../../../webviewer/82.jpg
+../../../looseends/role4415346b03bb.htm
+
+
+
+Baja Agente ( theBaja Agente )
+../../../webviewer/82.jpg
+../../../looseends/role4415346b03bd.htm
+
+
+
+)
+Association (theAdministrador:Administrador) (theGestionar Alertas Condicionadas:Gestionar Alertas Condicionadas)
+../../../webviewer/81.jpg
+../../../looseends/ass44213d090120.htm
+
+
+
+(
+Administrador ( theAdministrador )
+../../../webviewer/82.jpg
+../../../looseends/role44213d0b0268.htm
+
+
+
+Gestionar Alertas Condicionadas ( theGestionar Alertas Condicionadas )
+../../../webviewer/82.jpg
+../../../looseends/role44213d0b0278.htm
+
+
+
+)
+<<include>> (theBorrar Alerta:Borrar Alerta) (theGestionar Alertas Condicionadas:Gestionar Alertas Condicionadas)
+../../../webviewer/81.jpg
+../../../looseends/ass44213d480045.htm
+
+
+
+(
+Borrar Alerta ( theBorrar Alerta )
+../../../webviewer/82.jpg
+../../../looseends/role44213d4a01bc.htm
+
+
+
+Gestionar Alertas Condicionadas ( theGestionar Alertas Condicionadas )
+../../../webviewer/82.jpg
+../../../looseends/role44213d4a01be.htm
+
+
+
+)
+<<include>> (theModificar alerta:Modificar alerta) (theGestionar Alertas Condicionadas:Gestionar Alertas Condicionadas)
+../../../webviewer/81.jpg
+../../../looseends/ass44213d6203c0.htm
+
+
+
+(
+Modificar alerta ( theModificar alerta )
+../../../webviewer/82.jpg
+../../../looseends/role44213d6402e5.htm
+
+
+
+Gestionar Alertas Condicionadas ( theGestionar Alertas Condicionadas )
+../../../webviewer/82.jpg
+../../../looseends/role44213d6402e7.htm
+
+
+
+)
+<<include>> (theVer lista de alertas:Ver lista de alertas) (theGestionar Alertas Condicionadas:Gestionar Alertas Condicionadas)
+../../../webviewer/81.jpg
+../../../looseends/ass44213dd6013f.htm
+
+
+
+(
+Ver lista de alertas ( theVer lista de alertas )
+../../../webviewer/82.jpg
+../../../looseends/role44213dd7017e.htm
+
+
+
+Gestionar Alertas Condicionadas ( theGestionar Alertas Condicionadas )
+../../../webviewer/82.jpg
+../../../looseends/role44213dd70180.htm
+
+
+
+)
+)

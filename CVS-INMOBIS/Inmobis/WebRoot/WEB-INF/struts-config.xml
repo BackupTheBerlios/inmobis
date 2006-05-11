@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+   <data-sources>
+    
+   </data-sources>
+  
+  <form-beans >
+    <form-bean name="editaClienteForm" type="com.inmobis.struts.form.EditaClienteForm" />
+    <form-bean name="borraEmpleadoForm" type="com.inmobis.struts.form.BorraEmpleadoForm" />
+    <form-bean name="borraClienteForm" type="com.inmobis.struts.form.BorraClienteForm" />
+    <form-bean name="modifBajaClientePrevForm" type="com.inmobis.struts.form.ModifBajaClientePrevForm" />
+    <form-bean name="filtrarClienteForm" type="com.inmobis.struts.form.FiltrarClienteForm" />
+    <form-bean name="verClientesAgentePrevForm" type="com.inmobis.struts.form.VerClientesAgentePrevForm" />
+  	<form-bean name="registraClienteForm" type="com.inmobis.struts.form.RegistraClienteForm"/>
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+  <action-mappings >
+    
+    <action path="/editaCliente"
+    	type="com.inmobis.struts.action.EditaClienteAction"
+    	name="editaClienteForm" scope="request" input="/editaCliente.jsp"
+    	validate="true">
+      <forward name="error" path="/editaCliente.jsp" />
+      <forward name="exito" path="/verClientesAgentePrev.do" />  	
+    </action>
+    
+    <action
+      attribute="modifBajaClientePrevForm"
+      input="/VerClientes.jsp"
+      name="modifBajaClientePrevForm"
+      path="/modifBajaClientePrev"
+      scope="request"
+      type="com.inmobis.struts.action.ModifBajaClientePrevAction" >
+      <forward name="error" path="/VerClientes.jsp" />
+      <forward name="exito" path="/editaCliente.jsp" />
+    </action>
+
+    <action
+      attribute="filtrarClienteForm"
+      input="/FiltrarCliente.jsp"
+      name="filtrarClienteForm"
+      path="/filtrarCliente"
+      scope="request"
+      type="com.inmobis.struts.action.FiltrarClienteAction" >
+      <forward name="error" path="/FiltrarCliente.jsp" />
+      <forward name="exito" path="/VerClientes.jsp" />  
+    </action>
+
+    <action
+      attribute="verClientesAgentePrevForm"
+      input="/MenuAgente.jsp"
+      name="verClientesAgentePrevForm"
+      path="/verClientesAgentePrev"
+      scope="request"
+      type="com.inmobis.struts.action.VerClientesAgentePrevAction" >
+      <forward name="exito" path="/VerClientes.jsp" />
+    </action>
+
+	<action path="/registraClienteAgente"
+    	attribute="registraClienteForm"
+    	input="/registraClienteAgente.jsp"
+    	name="registraClienteForm" 
+    	scope="request" 
+    	type="com.inmobis.struts.action.RegistraClienteAgenteAction">
+    	<forward name="cancel" path="/MenuAgente.jsp"></forward>    	
+        <forward name="exito" path="/VerClientes.jsp" /><!-- antes aqui ponia /verClientesAgentePrev.do -->
+        <forward name="error" path="/registraClienteAgente.jsp" />
+        <forward name="reset" path="/registraClienteAgente.jsp"></forward>
+    </action>
+    
+    
+    
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+</struts-config>
+
+
+
+    
+    
+

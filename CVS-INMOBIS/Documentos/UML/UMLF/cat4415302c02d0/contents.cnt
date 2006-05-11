@@ -1,0 +1,218 @@
+Gestión Actividades
+../webviewer/16.jpg
+cat4415304c0263/cat4415304c0263.htm
+
+cat4415304c0263/contents.cnt
+cat4415304c0263/
+Gestión Acceso
+../webviewer/16.jpg
+cat441535c00169/cat441535c00169.htm
+
+cat441535c00169/contents.cnt
+cat441535c00169/
+Main
+../webviewer/26.jpg
+dgm4415302c02d7.htm
+
+
+
+(
+)
+<<Actor>> Usuario
+../webviewer/41.jpg
+class44153278012b.htm
+
+
+
+(
+theLogin ( Login )
+../webviewer/82.jpg
+../looseends/role441535e700cf.htm
+
+
+
+)
+<<Actor>> Administrador
+../webviewer/41.jpg
+class4415328800dc.htm
+
+
+
+(
+theRegistrar ( Registrar )
+../webviewer/82.jpg
+../looseends/role4415342e019a.htm
+
+
+
+theDar de baja ( Dar de baja )
+../webviewer/82.jpg
+../looseends/role4415343e0340.htm
+
+
+
+theGestionar Alertas Condicionadas ( Gestionar Alertas Condicionadas )
+../webviewer/82.jpg
+../looseends/role44213d0b0268.htm
+
+
+
+)
+<<Actor>> Agente
+../webviewer/41.jpg
+class441532940169.htm
+
+
+
+(
+theGestión Cliente ( Gestión Cliente )
+../webviewer/82.jpg
+../looseends/role44153538038c.htm
+
+
+
+theGestión Inmueble ( Gestión Inmueble )
+../webviewer/82.jpg
+../looseends/role4415353c032e.htm
+
+
+
+theGestionar mensajes ( Gestionar mensajes )
+../webviewer/82.jpg
+../looseends/role44213b8102e5.htm
+
+
+
+theGestionar Alertas Condicionadas ( Gestionar Alertas Condicionadas )
+../webviewer/82.jpg
+../looseends/role44214e500086.htm
+
+
+
+)
+<<Actor>> Contable
+../webviewer/41.jpg
+class441532b7006f.htm
+
+
+
+(
+)
+Gestor Ordenes
+../webviewer/17.jpg
+class4419a2c3013d.htm
+
+
+
+(
+)
+Gestor Formularios
+../webviewer/17.jpg
+class4419a7a702ce.htm
+
+
+
+(
+)
+Estructura de Datos
+../webviewer/17.jpg
+class4419a80a02ce.htm
+
+
+
+(
+)
+Sistema
+../webviewer/17.jpg
+class4419ae720186.htm
+
+
+
+(
+)
+<<Actor>> Gerente
+../webviewer/41.jpg
+class441532800002.htm
+
+
+
+(
+theGestión de Proyectos ( Gestión de Proyectos )
+../webviewer/82.jpg
+../looseends/role442136f301be.htm
+
+
+
+theGestión de clientes ( Gestión de clientes )
+../webviewer/82.jpg
+../looseends/role442136f60096.htm
+
+
+
+theGestión de Inmuebles ( Gestión de Inmuebles )
+../webviewer/82.jpg
+../looseends/role442136fa0113.htm
+
+
+
+theGestionar quejas ( Gestionar quejas )
+../webviewer/82.jpg
+../looseends/role442136fd0190.htm
+
+
+
+theGestionar agentes ( Gestionar agentes )
+../webviewer/82.jpg
+../looseends/role442138470324.htm
+
+
+
+)
+<<Actor>> Cliente
+../webviewer/41.jpg
+class442162620159.htm
+
+
+
+(
+thePoner un mensaje ( Poner un mensaje )
+../webviewer/82.jpg
+../looseends/role4422b2650129.htm
+
+
+
+thePoner una queja ( Poner una queja )
+../webviewer/82.jpg
+../looseends/role4422b26800db.htm
+
+
+
+theConsultar los inmuebles de la agencia ( Consultar los inmuebles de la agencia )
+../webviewer/82.jpg
+../looseends/role4422b27e00bc.htm
+
+
+
+theRegistrar Cliente Web ( Registrar Cliente Web )
+../webviewer/82.jpg
+../looseends/role4422b37502cd.htm
+
+
+
+)
+Gestor Información
+../webviewer/17.jpg
+class4421745702ac.htm
+
+
+
+(
+)
+Associations
+../webviewer/assoccat.gif
+
+
+
+
+(
+)

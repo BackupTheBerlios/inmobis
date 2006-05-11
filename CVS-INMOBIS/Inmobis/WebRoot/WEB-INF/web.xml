@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml,
+      /WEB-INF/struts-login-config.xml,
+      /WEB-INF/struts-AgentePiso-config.xml,
+      /WEB-INF/struts-ClienteGenerico-config.xml,
+      /WEB-INF/struts-Gerente-config.xml,
+      /WEB-INF/struts-MensajeAlerta-config.xml,
+      /WEB-INF/struts-Admin-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <resource-ref>
+  	<res-ref-name>jdbc/inmobis</res-ref-name>
+  	<res-type>javax.sql.DataSource</res-type>
+  	<res-auth>Container</res-auth>
+  </resource-ref>
+
+  <filter>
+	  <filter-name>adminAccessFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>admin</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
+  <filter>
+	  <filter-name>agentAccessFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>agente</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
+
+  <filter-mapping>
+	  <filter-name>adminAccessFilter</filter-name>
+	  <url-pattern>/MenuAdministrador.jsp</url-pattern>
+  </filter-mapping>
+</web-app>
+

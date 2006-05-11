@@ -1,0 +1,528 @@
+/*---Variables generales de la página---*/
+body {
+	
+	line-height: 1.166;
+	margin: 0px;
+	padding: 0px;
+	
+	
+	
+}
+
+.txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+
+a:hover {
+	font-weight: bold;
+	color: #40680F;
+	text-decoration: none;
+	
+	
+}
+
+a:link, a:visited {
+
+	color: #40680F;
+	text-decoration: none;
+	
+}
+
+a.navbar-inferior1:link, a.navbar-inferior1:visited {
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+
+}
+
+a.navbar-inferior1:hover {
+	font-weight: bold;
+	color: #40680F;
+	text-decoration: none;
+	
+}
+
+
+/*----CABECERA---*/
+
+.principal {
+	width: 767px;
+	border: 0px;
+}
+
+.central {
+	background: url(../images/bg.jpg);
+	width: 767px;
+}
+
+
+table.cabecera {
+	width: 767px;
+	border: 0px;
+	
+	position: absolute; 
+	z-index: 1; 
+	top: 26px; 
+	left: 126px; 
+	
+	visibility: visible; 
+	display: block;
+}
+
+.cabecera-superior {
+	height: 51px;
+	width: 470px;
+	border: 0px;
+}
+
+img.cabecera-superior {
+	position: absolute; 
+	z-index: 1; 
+	top: 0px; 
+	left: 0px; 	
+	visibility: visible; 
+	display: block;
+}
+
+.cabecera-superior2 {
+	height: 51px;
+	width: 297px;
+	border-bottom-width: 0px;
+}
+
+img.cabecera-superior2 {
+	position: absolute; 
+	z-index: 1; 
+	top: 0px; 
+	left: 470px; 	
+	visibility: visible; 
+	display: block;
+}
+
+.cabecera-logo {
+	height: 149px;
+	width: 470px;
+}
+
+img.cabecera-logo {
+	position: absolute;
+	z-index: 1;
+	top: 51px;
+	left: 0px;
+	visibility: visible;
+	display: block;	
+}
+
+.cabecera-logo2 {
+	width: 297px;
+	height: 149px;
+	border-bottom-width: 0px;
+}
+
+img.cabecera-logo2 {
+	position: absolute; 
+	z-index: 1; 
+	top: 51px; 
+	left: 470px; 	
+	visibility: visible; 
+	display: block;
+}
+
+/*---Barra de Navegación---*/
+
+.tnav {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover.tnav {
+	
+	font-weight: bold;
+	color: #40680F;
+	text-decoration: none;
+}
+
+.navbar {
+	background: url(../images/navbar.jpg);
+	height: 52px;
+	width: 767px;
+	border: 0px;
+}
+
+table.cabecera-logo {
+	position: absolute; 
+	z-index: 1; 
+	top: 200px;
+	left: 0px;
+	visibility: visible;
+	display: block;
+}
+
+.navbar-boton1 {
+	width: 104px;
+	text-align: center;
+}
+
+.navbar-boton2 {
+	width: 99px;
+	text-align: center;
+}
+
+.navbar-boton3 {
+	width: 101px;
+	text-align: center;
+}
+
+.navbar-boton4 {
+	width: 98px;
+	text-align: center;
+}
+
+.navbar-boton5 {
+	width: 101px;
+	text-align: center;
+}
+
+.navbar-boton6 {
+	width: 100px;
+	text-align: center;
+}
+
+.navbar-espacio {
+	width: 82px;
+}
+
+/*---FINAL---*/
+
+/*---Barra de Navegación Inferior---*/
+.btmnav {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+.bnav {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #4E7F12;
+	text-decoration: none;
+}
+
+
+
+
+/*---PARTE PRINCIPAL DE LA PÁGINA---*/
+
+
+
+
+
+.main {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	text-align: justify;
+}
+
+/*---PARTE FINAL---*/
+
+td.navbar-inferior1 {
+	width: 767px;
+	height: 44px;
+	background: url(../images/btmbar.jpg);
+}
+
+table.navbar-inferior1 {
+	width: 350px;
+	border: 0px;
+	
+	
+}
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/***********************************************/
+/* Layout Divs                                 */
+/***********************************************/
+#pagecell1{
+	position: absolute;
+	top: 250px;
+	left: 2px;
+	right: 0px;
+	width: 98%;
+	background-color: #ffffff;
+	bottom: 200px;
+}
+
+
+
+#pageNav{
+	float: left;
+	width: 178px;
+	padding: 0px;
+	background-color: #F5f7f7;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	font: 12px Verdana,sans-serif;
+}
+
+#content{
+	padding: 0px 10px 0px 0px;
+	margin:0px 0px 0px 178px;
+	border-left: 1px solid #ccd2d2;
+}
+
+
+/***********************************************/
+/* Component Divs                              */
+/***********************************************/
+
+
+
+/************** pageName styles ****************/
+
+#pageName{
+	padding: 0px 0px 14px 10px;
+	margin: 0px;
+	border-bottom:1px solid #ccd2d2;
+}
+
+#pageName h2{
+	font: bold 175% Arial,sans-serif;
+	color: #000000;
+	margin:0px;
+	padding: 0px;
+}
+
+#pageName img{
+	position: absolute;
+	top: 0px;
+	right: 6px;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+
+/************** feature styles *****************/
+
+.feature{
+	padding: 0px 0px 10px 10px;
+	font-size: 80%;
+	min-height: 200px;
+	height: 200px;
+}
+html>body .feature {height: auto;}
+
+.feature h3{
+	font: bold 175% Arial,sans-serif;
+	color: #000000;
+	padding: 30px 0px 5px 0px;
+}
+
+.feature img{
+	float: center;
+	padding: 10px 10px 0px 0px;
+	border: 0px;
+	
+}
+
+.feature p{
+	text-align: justify;
+}
+
+
+/*.feature table{
+	background: Black;
+}*/
+
+.feature th{
+	background: #CED6F0;
+	color: #345891;
+	font: bold 15px Arial;
+	text-align: center;
+}
+
+.feature td{
+	color: #457FB1;
+	background: White;
+	font: normal 15px Arial;
+
+	vertical-align: top;
+
+}
+
+.feature a{
+	background: White;
+}
+
+
+/************** siteInfo styles ****************/
+
+#siteInfo{
+	clear: both;
+	border-top: 1px solid #cccccc;
+	font-size: 12px;
+	color: #cccccc;
+	padding: 10px 10px 10px 10px;
+	margin-top: 0px;
+}
+
+#siteInfo img{
+	padding: 4px 4px 4px 0px;
+	vertical-align: middle;
+}
+
+
+/************ sectionLinks styles **************/
+
+#sectionLinks{
+	margin: 0px;
+	padding: 0px;
+
+
+width: 178px;
+font-weight: bold;
+color: #40680F;
+}
+
+#sectionLinks h3{
+	padding: 10px 0px 2px 10px;
+	border-bottom: 1px solid #cccccc;
+
+	padding: 0px;
+	margin: 0px 0px 0px 0px;
+	background: Black;
+	color: Red;
+	font: 14px Verdana,sans-serif;
+	font-weight: bold;
+}
+
+#sectionLinks a:link, #sectionLinks a:visited {
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	background-image:  url(images/bg_nav.jpg);
+	font-weight: bold;
+	padding: 3px 0px 3px 10px;
+	color: #40680F;
+}
+
+#sectionLinks a:hover {
+	border-top: 1px solid #cccccc;
+	background-color: #D0F89F;
+	background-image: none;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#sectionLinks2{
+	margin: 0px;
+	padding: 0px;
+
+
+width: 178px;
+font-weight: bold;
+color: #40680F;
+}
+
+#sectionLinks2 h3{
+	padding: 10px 0px 2px 10px;
+	border-bottom: 1px solid #cccccc;
+
+	padding: 0px;
+	margin: 0px 0px 0px 0px;
+	background: Black;
+	color: Red;
+	font: 14px Verdana,sans-serif;
+	font-weight: bold;
+}
+
+#sectionLinks2 a:link, #sectionLinks2 a:visited {
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	background-image:  url(images/bg_nav.jpg);
+	font-weight: bold;
+	padding: 3px 0px 3px 10px;
+	color: #40680F;
+}
+
+#sectionLinks2 a:hover {
+	border-top: 1px solid #cccccc;
+	background-color: #D0F89F;
+	background-image: none;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#sectionLinks2 input { 
+	color:#40680F;
+	width:178px; 
+}
+
+/********************************************************/
+
+form { 
+
+	border:0px; 
+}
+
+td, input, select, textarea
+{ 
+	font-size:12px; 
+	font-family:Arial,sans-serif; 
+	font-weight:bold; 
+}
+
+
+
+input {
+	color:#40680F;	
+}
+
+select, textarea {
+	color:#40680F;
+		
+}
+
+.Area, .Campo { 
+	background-color:#40680F; 
+	width:178px; 
+	border:1px solid #DDDDDD; 
+}
+
+.Seleccion { 
+	background-color:#DDFFFF; 
+	width:178px; 
+	border:1px solid #DDDDDD; 
+}
+
+.Check, .Radio { 
+	background-color:#DDFFFF; 
+	border:1px solid #DDDDDD; 
+}
+
+.boton { 
+ 	background-color:#00FFFF; 
+	color:#FF0000; 
+	width:178px; 
+	border:1px solid #DDDDDD; 
+}
+
+
+/********************* end **********************/
