@@ -15,6 +15,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import com.inmobis.bbdd.cliente.*;
 
 import com.inmobis.struts.form.VerClientesPrevForm;
 
@@ -53,6 +54,16 @@ public class VerClientesPrevAction extends Action {
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
 		Vector listaClientes = consultar.listar(form);
+		 
+		int i = 0;
+		while (i<listaClientes.size()){
+			System.out.println("Id Cliente: "+((ClienteBean)listaClientes.get(i)).getIdCliente());
+			System.out.println("Dni Cliente: "+((ClienteBean)listaClientes.get(i)).getDni());
+			System.out.println("Nombre Cliente: "+((ClienteBean)listaClientes.get(i)).getNombreCliente());
+			System.out.println("Apellido1 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido1());
+			System.out.println("Apellido2 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido2());
+			System.out.println("Fecha Nacimiento Cliente: "+((ClienteBean)listaClientes.get(i)).getFechNacimiento());
+		}
 		
 		if (listaClientes.equals(null)){
 			if (log.isInfoEnabled()){
@@ -69,6 +80,7 @@ public class VerClientesPrevAction extends Action {
 			return mapping.findForward("exito");
 		}
 	}
-
+    
+   
 }
 
