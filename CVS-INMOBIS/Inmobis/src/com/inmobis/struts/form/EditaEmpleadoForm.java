@@ -8,10 +8,9 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-public class EditaClienteForm extends ActionForm {
-	private static final Logger i_log = Logger.getLogger(RegistraClienteForm.class);
+public class EditaEmpleadoForm extends ActionForm{
+	private static final Logger i_log = Logger.getLogger(RegistraEmpleadoForm.class);
 	//datos de login
-	private String nombreUsuario;
 	private String password;
 	private String passwordAgain;
 	//datos personales
@@ -21,7 +20,9 @@ public class EditaClienteForm extends ActionForm {
 	private String diaNacimiento;
 	private String mesNacimiento;
 	private String anioNacimiento;
-	private String dni;
+	private String nif;
+	private String tipoEmpleado;
+	private String porcentaje;
 	//telefono
 	private String telefono1;
 	private String telefono2;
@@ -35,26 +36,19 @@ public class EditaClienteForm extends ActionForm {
 	private String poblacion;
 	private String provincia;
 	private String pais;
-	//Identificador del agente que lo registra
-	private String idAgente;
 	
-	/**
-	 * Resets data fields to initial values on loginform
-	 * @param mapping
-	 * @param request
-	 */
-	public void reset(ActionMapping mapping, HttpServletRequest request)
-	{
-		this.nombreUsuario="";
-		this.password="";
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.passwordAgain="";
+		this.nombre="";
 		this.nombre="";
 		this.apellido1="";
 		this.apellido2="";
-		this.dni="";
 		this.diaNacimiento="";
 		this.mesNacimiento="";
 		this.anioNacimiento="";
+		this.nif="";
+		this.tipoEmpleado="";
+		this.porcentaje="";
 		this.telefono1="";
 		this.telefono2="";
 		this.email="";
@@ -65,30 +59,24 @@ public class EditaClienteForm extends ActionForm {
 		this.poblacion="";
 		this.provincia="";
 		this.pais="";
-		this.idAgente="";
 	}
 	
-	
-	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request)
-	{
+	public ActionErrors validate(ActionMapping mapping,
+								HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
 		if (i_log.isInfoEnabled()){
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
 		}
 		
-		if(nombreUsuario.equals("") && password.equals("") && nombre.equals("") &&
-				apellido1.equals("") && apellido2.equals("") && diaNacimiento.equals("") &&
-				mesNacimiento.equals("") && anioNacimiento.equals("") && dni.equals("") &&
+		//.
+		
+		if(nombre.equals("") &&	apellido1.equals("") && apellido2.equals("") &&
+				diaNacimiento.equals("") &&	mesNacimiento.equals("") && anioNacimiento.equals("") && 
 				telefono1.equals("") && telefono2.equals("") && email.equals("") && calle.equals("") &&
 				num.equals("") && piso.equals("") && codPostal.equals("") &&poblacion.equals("")&&
 				provincia.equals("") && pais.equals(""))
 			errors.add("editaCliente", new ActionMessage("error.editaCliente.invalid"));
-		
-		//El nombre de usuario tiene que tener al menos 2 caractereres
-		if(!nombreUsuario.equals("") && nombreUsuario.length() < 2){
-			errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.required"));	
-		}
 		
 		//La contraseña tiene que tener al menos 4 caracteres
 		if(!password.equals("") && password.length() < 4)
@@ -108,21 +96,23 @@ public class EditaClienteForm extends ActionForm {
 		if (!apellido2.equals("") && !esNombre(apellido2))
 			errors.add("apellido2", new ActionMessage("errors.realName.incomplete"));
 		
-		//La fecha se comprueba en el jsp
+		//Si he seleccionado agente, tengo que rellenar porcentaje
+		if (tipoEmpleado.equals("agente") && porcentaje.equals(""))
+			errors.add("tipoEmpleado", new ActionMessage("errors.porcentaje.required"));
 		
 		//El nif tiene que tener longitud 8
-		if (!dni.equals(""))
-			if (dni.length()!=8)
+		if (!nif.equals(""))
+			if (nif.length()!=8)
 				errors.add("nif", new ActionMessage("errors.nif.notValid"));
 			else{
 				try{
-					new Integer(dni).intValue();
+					new Integer(nif).intValue();
 				}
 				catch(Exception e){
 					errors.add("nif", new ActionMessage("errors.nif.notValid"));
 				}
 			}
-		//eL telefono tiene que tener 9 cifras
+		//El telefono tiene que tener 9 cifras
 		if (!telefono1.equals(""))
 			if(telefono1.length()==9){
 				try{
@@ -145,12 +135,14 @@ public class EditaClienteForm extends ActionForm {
 			}
 			else
 				errors.add("telefono2", new ActionMessage("errors.telefono2.notValid"));
+		
 		//La direcion de correo debe ser valida 
 		if(!email.equals("")){
 			String[] tokens = email.split("@");
 			//Solo puede haber una arroba y no puede haber espacios
 			if(tokens.length==2){
-				String[] tokens2 = tokens[1].split("\\.");
+				String dominio=tokens[1];
+				String[] tokens2 = dominio.split("\\.");
 				//Pero puede haber muchos puntos (@domain.co.uk)
 				if(tokens2.length>1){
 					boolean tokens2valid=true;
@@ -171,14 +163,15 @@ public class EditaClienteForm extends ActionForm {
 			else
 				errors.add("email" , new ActionMessage("errors.email.notValid"));
 		}
-		
-		//Los nombres de calle, poblacion, provincia y pais solo pueden tener letras
+	   
+		//Los nombres de poblacion, provincia y pais solo pueden tener letras
 		if(!poblacion.equals("") &&!esNombre(poblacion))
 			errors.add("poblacion", new ActionMessage("errors.poblacion.notValid"));
 		if(!provincia.equals("") &&!esNombre(provincia))
 			errors.add("provincia", new ActionMessage("errors.provincia.notValid"));
 		if(!pais.equals("") &&!esNombre(pais))
 			errors.add("pais", new ActionMessage("errors.pais.notValid"));
+		
 		//El numero solo puede contener digitos
 		if(!num.equals("")){
 			try{
@@ -199,29 +192,28 @@ public class EditaClienteForm extends ActionForm {
 				}
 			}
 		}
+		
 		if (i_log.isInfoEnabled()){
 			i_log.info("Despues de comprobar los errores. Nº errores: "+errors.size());
-		}	
+		}
+		
 		return errors;
-			
 	}
-
-	//Metodo para saber si una cadena solo tiene letras y espacios
+	
+	//Metodo para saber si una cadena solo tiene letras
 	boolean esNombre(String cadena){
 		boolean valido=true;
 		char[] chars = cadena.toCharArray();
 		int i=0;
 		while(i<chars.length && valido){
-			if (!Character.isLetter(chars[i]) && !Character.isSpace(chars[i]))
+			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]))
 				valido=false;	
 			i++;
 		}
 		return valido;
 	}
 	
-	public String getNombreUsuario(){
-		return this.nombreUsuario;
-	}
+//	Getters
 	public String getPassword(){
 		return this.password;
 	}
@@ -237,14 +229,20 @@ public class EditaClienteForm extends ActionForm {
 	public String getApellido2(){
 		return this.apellido2;
 	}
-	public String getDni(){
-		return this.dni;
-	}
 	public String getTelefono1(){
 		return this.telefono1;
 	}
 	public String getTelefono2(){
 		return this.telefono2;
+	}
+	public String getNif(){
+		return this.nif;
+	}
+	public String getTipoEmpleado(){
+		return this.tipoEmpleado;
+	}
+	public String getPorcentaje(){
+		return this.porcentaje;
 	}
 	public String getEmail(){
 		return this.email;
@@ -279,14 +277,9 @@ public class EditaClienteForm extends ActionForm {
 	public String getPais(){
 		return this.pais;
 	}
-	public String getIdAgente(){
-		return this.idAgente;
-	}
+	
 	//Setters
 	
-	public void setNombreUsuario(String nUsuario){
-		this.nombreUsuario=nUsuario.trim();
-	}
 	public void setPassword(String pass){
 		this.password=pass.trim();
 	}
@@ -302,26 +295,32 @@ public class EditaClienteForm extends ActionForm {
 	public void setApellido2(String ap2){
 		this.apellido2=ap2.trim();
 	}
-	public void setDni(String dni){
-		this.dni=dni.trim();
-	}
 	public void setTelefono1(String tlf1){
 		this.telefono1=tlf1.trim();
 	}
 	public void setTelefono2(String tlf2){
 		this.telefono2=tlf2.trim();
 	}
+	public void setNif(String nif){
+		this.nif=nif.trim();
+	}
+	public void setTipoEmpleado(String tEmp){
+		this.tipoEmpleado=tEmp.trim();
+	}
+	public void setPorcentaje(String p){
+		this.porcentaje=p.trim();
+	}
 	public void setEmail(String email){
 		this.email=email.trim();
 	}
-	public void setDiaNacimiento(String fecha){
-		this.diaNacimiento=fecha.trim();
+	public void setDiaNacimiento(String dia){
+		this.diaNacimiento=dia.trim();
 	}
-	public void setMesNacimiento(String fecha){
-		this.mesNacimiento=fecha.trim();
+	public void setMesNacimiento(String mes){
+		this.mesNacimiento=mes.trim();
 	}
-	public void setAnioNacimiento(String fecha){
-		this.anioNacimiento=fecha.trim();
+	public void setAnioNacimiento(String anio){
+		this.anioNacimiento=anio.trim();
 	}
 	public void setCalle(String calle){
 		this.calle=calle.trim();
@@ -344,8 +343,4 @@ public class EditaClienteForm extends ActionForm {
 	public void setPais(String pais){
 		this.pais=pais.trim();
 	}
-	public void setIdAgente(String idA){
-		this.idAgente=idA.trim();
-	}
-
 }

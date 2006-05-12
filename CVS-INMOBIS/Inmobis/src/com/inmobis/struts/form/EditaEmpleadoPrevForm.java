@@ -12,8 +12,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 
-//TODO hay que ver que campos del empleado puede editar el administrador
-//, y cuales no tiene sentido editar (fechaNacimiento, nombre, DNI?)
+//TODO esta mal, lo que deberia hacer es verificar que hay uno y solo uno seleccionado para editar
+//Si no hay ninguno o hay mas de uno, da error
 public class EditaEmpleadoPrevForm extends ActionForm {
 
 	private static final Logger i_log = Logger.getLogger(RegistraEmpleadoForm.class);
