@@ -24,7 +24,7 @@ CON UN ANCHO DE 767 px -->
             <!--pagecell1-->
             <div id="pageName"> 
                 
-              <h2>P&aacute;gina de Edición </h2>
+              <h2>P&aacute;gina de Edición de piso </h2>
               </div>
               <div id="pageNav"> 
                 <div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
@@ -41,15 +41,6 @@ CON UN ANCHO DE 767 px -->
 					</tr>
 				</table>
 				<table width="100%">
-				<!--  <tr>
-						<td>
-							<fmt:message key="editaPiso.idInmueble"/>
-						</td>
-						<td>
-							<html:text 	property="idInmueble" size="15"	maxlength="15" />
-							<html:errors property="idInmueble" />
-						</td>
-					</tr>-->
 					<tr>
 						<td>
 							<fmt:message key="editaPiso.numHab"/>
@@ -111,6 +102,69 @@ CON UN ANCHO DE 767 px -->
 						<td>
 							<html:textarea 	property="datosDeInteres" />
 							<html:errors property="datosDeInteres" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.calle"/>	
+						</td>
+						<td>
+							<html:text 	property="calle" size="15" maxlength="30" />
+							<html:errors property="calle" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.num"/>	
+						</td>
+						<td>
+							<html:text 	property="num" size="8"	maxlength="8" />
+							<html:errors property="num" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.piso"/>	
+						</td>
+						<td>
+							<html:text 	property="piso" size="3" maxlength="3" />
+							<html:errors property="piso" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.codPostal"/>	
+						</td>
+						<td>
+							<html:text 	property="codPostal" size="5" maxlength="5" />
+							<html:errors property="codPostal" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.poblacion"/>	
+						</td>
+						<td>
+							<html:text 	property="poblacion" size="15" maxlength="15" />
+							<html:errors property="poblacion" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.provincia"/>	
+						</td>
+						<td>
+							<html:text 	property="provincia" size="15" maxlength="15" />
+							<html:errors property="provincia" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.pais"/>	
+						</td>
+						<td>
+							<html:text 	property="pais" size="15" maxlength="15" />
+							<html:errors property="pais" />
 						</td>
 					</tr>
 				</table>
