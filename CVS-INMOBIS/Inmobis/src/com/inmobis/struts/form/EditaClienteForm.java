@@ -9,7 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 public class EditaClienteForm extends ActionForm {
-	private static final Logger i_log = Logger.getLogger(RegistraClienteForm.class);
+	private static final Logger i_log = Logger.getLogger(EditaClienteForm.class);
 	//datos de login
 	private String nombreUsuario;
 	private String password;

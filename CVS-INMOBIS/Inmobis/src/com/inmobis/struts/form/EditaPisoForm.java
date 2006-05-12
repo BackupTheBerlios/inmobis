@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionMessage;
 
 public class EditaPisoForm extends ActionForm {
 	
-	private static final Logger i_log = Logger.getLogger(RegistraPisoForm.class);
+	private static final Logger i_log = Logger.getLogger(EditaPisoForm.class);
 	//Datos inmueble
     private String numHab;
     private String tipo;
