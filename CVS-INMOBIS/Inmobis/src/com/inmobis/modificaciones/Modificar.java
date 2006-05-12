@@ -1,5 +1,8 @@
 package com.inmobis.modificaciones;
 
-public abstract class Modificar {
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMessages;
 
+public abstract class Modificar {
+	public abstract ActionMessages modifica(ActionForm form);
 }
