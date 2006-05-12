@@ -28,6 +28,24 @@ public class RegistraPisoForm extends ActionForm {
 	private String poblacion;
 	private String provincia;
 	private String pais;
+	private String numHab;
+	private String zona;
+
+	public String getNumHab() {
+		return numHab;
+	}
+
+	public void setNumHab(String numHab) {
+		this.numHab = numHab;
+	}
+
+	public String getZona() {
+		return zona;
+	}
+
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
 
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.metros="";

@@ -135,17 +135,28 @@
 							<html:errors property="provincia" />
 						</td>
 	  				</tr> 
-	  				<%-- <tr>
+	  				<tr>
 	    				<td align="right">
-							<fmt:message key="registraPiso.datosDeInteres"/>
+							<fmt:message key="registraPiso.zona"/>
 						</td>
 	  					<td align="left">
-							<html:text 	property="datosDeInteres" 
+							<html:text 	property="zona" 
 	    								size="15" 
 	    								maxlength="15" />
-							<html:errors property="datosDeInteres" />
+							<html:errors property="zona" />
 						</td>
-	  				</tr> --%>
+	  				</tr> 
+	  				<tr>
+	    				<td align="right">
+							<fmt:message key="registraPiso.numHab"/>
+						</td>
+	  					<td align="left">
+							<html:text 	property="numHab" 
+	    								size="15" 
+	    								maxlength="15" />
+							<html:errors property="numHab" />
+						</td>
+	  				</tr> 
 	  				<tr>
 						<td colspan="2" align="center">
 							<html:submit>

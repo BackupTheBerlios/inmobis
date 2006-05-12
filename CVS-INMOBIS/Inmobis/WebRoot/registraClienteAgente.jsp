@@ -159,6 +159,20 @@ CON UN ANCHO DE 767 px -->
   </td>
 
  </tr>
+  <tr>
+  
+  <td width="45%" align="right">   
+		<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.dni"/>
+</td>
+  <td width="5%"></td>
+  <td width="50%" align="left">
+<html:text 	property="dni" 
+		size="15" 
+	    	maxlength="15" />
+<html:errors property="dni" />
+  </td>
+
+ </tr>
  <tr>
   
   <td width="45%" align="right">   
