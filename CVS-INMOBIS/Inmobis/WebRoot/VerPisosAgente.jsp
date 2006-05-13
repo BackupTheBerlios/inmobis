@@ -86,7 +86,7 @@
 		                -->
 		<td>
 		 <a href="verPisosAgente.do?codigo=<bean:write name=""inmueble""
-          property="codigo" />"><img alt="Eliminar el inmuebles" /></a>
+          property="codigo" />ELIMINAR</a>
       </td>
     </tr>
       </logic:iterate>

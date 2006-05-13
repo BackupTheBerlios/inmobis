@@ -58,7 +58,7 @@
 								<fmt:message key="menuAgente.button.clientes2"/>
 							</html:submit>
 				</html:form>
-				 <html:form action="registraClienteCliente.do" >					
+				 <html:form action="verPisosAgente.do" >					
 							<html:submit>
 								<fmt:message key="menuAgente.button.inmuebles"/>
 							</html:submit>
