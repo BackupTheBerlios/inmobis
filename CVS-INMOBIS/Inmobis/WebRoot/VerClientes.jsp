@@ -1,4 +1,7 @@
-<html>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+ <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld" %>
+ <%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %><html>
 <head>
 <title>&copy INMOBIS: Listado Clientes Agente</title>
 <meta http-equiv="Content-Type" content="text/html;">
@@ -9,7 +12,7 @@
 
 <%@ include file="cabecera.htm" %>
 
-<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
+<!-- Aquï¿½ es donde va la PARTE PRINCIPAL DE LA Pï¿½GINA 
 CON UN ANCHO DE 767 px -->
 
 
@@ -20,34 +23,42 @@ CON UN ANCHO DE 767 px -->
               <h2>P&aacute;gina Principal </h2>
               </div>
               <div id="pageNav"> 
-                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiación</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
+                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaciï¿½n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
               </div>
               <div id="content"> 
                 <div class="feature"> 
                    <table border="0" cellpading="0" cellspacing="0" width="100%">
-						 <!-- zona de código-->
-					<table border="0" cellpading="0" cellspacing="0" width="100%">
-						<logic:iterate id="VerClientesAgentePrevForm" name="ClienteBean">
-						<tr>
+						 <!-- zona de cï¿½digo-->
+<table border="0" cellpading="0" cellspacing="0" width="100%">
+    <tr>   
+        <th><bean:message key=" app.Nombre" /></th>
+        <th><bean:message key="app.Apellido1" /></th>
+        <th><bean:message key="app.Apellido2" /></th>
+      
+         <th colspan="2"></th>
+      
+      </tr>
+      <!-- iterate over the results of the query -->
+      <logic:iterate id="cliente" name="listaClientes">   
+    <tr>
+      <td> 
+            <bean:write name="cliente" property="nombre" />
+      </td>
+      <td>
+            <bean:write name="cliente" property="apellido1" />
+      </td>
+      <td>
+            <bean:write name="cliente" property="apellido2" />
+      </td>
+      					 
+						  <!--
 						  <td>
-					            <bean:write name="VerClientesAgentePrevForm" property="nombre" />
-						  </td>
-						  <td>
-					            <bean:write name="VerClientesAgentePrevForm" property="apellido1" />
-						  </td>
-						  <td>
-					            <bean:write name="VerClientesAgentePrevForm" property="apellido2" />
-						  </td>
-						 
-						   <td>
-					            <bean:write name="VerClientesAgentePrevForm" property="fechNacimiento" />
-						  </td>				  
-						  <td>
-					            <a href="ModifBajaClientePrev.do?idCliente=<bean:write name='VerClientesAgentePrevForm' property='idCliente' />
-					            +&apellido1=+<bean:write name='VerClientesAgentePrevForm' property='apellido1' />
-					            +&apellido2=+<bean:write name='VerClientesAgentePrevForm' property='apellido2' />"								
+					            <a href="ModifBajaClientePrev.do?idCliente=<bean:write name='cliente' property='idCliente' />
+					            +&apellido1=+<bean:write name='cliente' property='apellido1' />
+					            +&apellido2=+<bean:write name='clientem' property='apellido2' />"								
 					            >MODIFICAR</a>
 						  </td>
+						  -->
 						  
 						</tr>
 				      </logic:iterate>
@@ -63,7 +74,7 @@ CON UN ANCHO DE 767 px -->
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
                 | &copy;2006 INMOBIS Real Estate</div>
 
-<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA PÁGINA -->
+<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA Pï¿½GINA -->
 
 			
 

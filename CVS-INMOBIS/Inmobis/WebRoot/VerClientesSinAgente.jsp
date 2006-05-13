@@ -1,4 +1,7 @@
-<html>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+ <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld" %>
+ <%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %><html>
 <head>
 <title>&copy INMOBIS: Listado Clientes Sin Agente</title>
 <meta http-equiv="Content-Type" content="text/html;">
@@ -9,7 +12,7 @@
 
 <%@ include file="cabecera.htm" %>
 
-<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
+<!-- Aquï¿½ es donde va la PARTE PRINCIPAL DE LA Pï¿½GINA 
 CON UN ANCHO DE 767 px -->
 
 
@@ -20,36 +23,44 @@ CON UN ANCHO DE 767 px -->
               <h2>P&aacute;gina Principal </h2>
               </div>
               <div id="pageNav"> 
-                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiación</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
+                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaciï¿½n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
               </div>
               <div id="content"> 
                 <div class="feature"> 
-                   <table border="0" cellpading="0" cellspacing="0" width="100%">
-						 <!-- zona de código-->
-					<table border="0" cellpading="0" cellspacing="0" width="100%">
-						<logic:iterate id="VerClientesSinAgentePrevForm" name="ClienteBean">
-						<tr>
-						  <td>
-					            <bean:write name="VerClientesSinAgentePrevForm" property="nombre" />
-						  </td>
-						  <td>
-					            <bean:write name="VerClientesSinAgentePrevForm" property="apellido1" />
-						  </td>
-						  <td>
-					            <bean:write name="VerClientesSinAgentePrevForm" property="apellido2" />
-						  </td>
-			  
+<table border="0" cellpading="0" cellspacing="0" width="100%">
+    <tr>   
+        <th><bean:message key=" app.Nombre" /></th>
+        <th><bean:message key="app.Apellido1" /></th>
+        <th><bean:message key="app.Apellido2" /></th>
+      
+         <th colspan="2"></th>
+      
+      </tr>
+      <!-- iterate over the results of the query -->
+      <logic:iterate id="cliente" name="listaClientes">   
+    <tr>
+      <td> 
+            <bean:write name="cliente" property="nombre" />
+      </td>
+      <td>
+            <bean:write name="cliente" property="apellido1" />
+      </td>
+      <td>
+            <bean:write name="cliente" property="apellido2" />
+      </td>
+      
+     		  <!--
 						  <td>
 					            <a href="AsignarAgenteAClientes.do?codigo=<
-								<bean:write name="VerClientesSinAgentePrevForm" property="idCliente" />
-								<bean:write name="VerClientesSinAgentePrevForm" property="nombre" />
-								<bean:write name="VerClientesSinAgentePrevForm" property="apeliido1" />
-								<bean:write name="VerClientesSinAgentePrevForm" property="apellido2" />
+								<bean:write name="cliente" property="idCliente" />
+								<bean:write name="cliente" property="nombre" />
+								<bean:write name="cliente" property="apeliido1" />
+								<bean:write name="cliente" property="apellido2" />
 							  /> 
 							  
 							  ASIGNAR</a>
 						  </td>
-						  
+						  -->
 						</tr>
 				      </logic:iterate>
 					</table>
@@ -64,7 +75,7 @@ CON UN ANCHO DE 767 px -->
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
                 | &copy;2006 INMOBIS Real Estate</div>
 
-<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA PÁGINA -->
+<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA Pï¿½GINA -->
 
 			
 
