@@ -67,7 +67,6 @@ public class VerPisosAgenteAction extends Action {
 			return (mapping.findForward("error"));
 		}
 		else{
-			((VerPisosAgenteForm)form).setListaInmuebles(listaInmuebles);
 			if (log.isInfoEnabled()){
 				log.info("VerPisosAgenteAction 3: Se ha realizado el listado con éxito");
 				int i=0;
@@ -81,6 +80,7 @@ public class VerPisosAgenteAction extends Action {
 					i++;
 				}
 			}
+			request.setAttribute("listaInmuebles",listaInmuebles);
 			return (mapping.findForward("exito"));
 		}
 	}

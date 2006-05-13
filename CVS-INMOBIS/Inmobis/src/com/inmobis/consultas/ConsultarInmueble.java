@@ -20,7 +20,7 @@ public class ConsultarInmueble extends Consultar{
 		//se crea un bean del inmueble
 		InmuebleBean e = new InmuebleBean();
 //		LLamada al gestor de la base de datos 
-		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("piso",e);
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",e);
 		try{
 			if(log.isInfoEnabled()){
 				log.info("ConsultarInmueble 1: Se van a listar todos los inmuebles disponibles en la bd " );
