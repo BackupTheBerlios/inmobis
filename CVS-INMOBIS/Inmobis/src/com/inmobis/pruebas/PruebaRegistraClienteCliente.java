@@ -2,7 +2,7 @@ package com.inmobis.pruebas;
 
 import servletunit.struts.MockStrutsTestCase; 
 import java.io.File;
-import com.inmobis.struts.form.RegistraClienteForm;
+//import com.inmobis.struts.form.RegistraClienteForm;
 
 public class PruebaRegistraClienteCliente extends MockStrutsTestCase {
 	
