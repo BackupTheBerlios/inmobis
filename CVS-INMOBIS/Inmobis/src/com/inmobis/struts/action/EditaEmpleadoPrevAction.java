@@ -11,35 +11,18 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-/** 
- * MyEclipse Struts
- * Creation date: 04-19-2006
- * 
- * XDoclet definition:
- * @struts.action validate="true"
- */
+//Una vez que se haya validado en el form, se va directamente editarEmpleado
+//
 public class EditaEmpleadoPrevAction extends Action {
 
-	// --------------------------------------------------------- Instance Variables
-
-	// --------------------------------------------------------- Methods
-
-	/** 
-	 * Method execute
-	 * @param mapping
-	 * @param form
-	 * @param request
-	 * @param response
-	 * @return ActionForward
-	 */
+	
 	public ActionForward execute(
 		ActionMapping mapping,
 		ActionForm form,
 		HttpServletRequest request,
 		HttpServletResponse response) {
-
-		// TODO Auto-generated method stub
-		return null;
+		//Coger los datos de la lista que le llega al form y pasarselos al jsp de editarEmpleado
+		return mapping.findForward("exito");
 	}
 
 }
