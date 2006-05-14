@@ -41,9 +41,11 @@
       
       </tr>
       <!-- iterate over the results of the query -->
-      <logic:iterate id="inmueble" name="listaInmuebles">   
+      <!-- logic:iterate id="inmueble" name="listaInmuebles"  -->   
+      <logic:iterate id="inmueble"  name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean" >   
     <tr>
       <td> 
+			<html:text name="inmueble" property="numHab" ></html:text>
             <bean:write name="inmueble" property="numHab" />
       </td>
       <td>
@@ -85,8 +87,7 @@
 							</td>  
 		                -->
 		<td>
-		 <a href="verPisosAgente.do?codigo=<bean:write name=""inmueble""
-          property="codigo" />ELIMINAR</a>
+		  <!--  <a href="verPisosAgente.do?codigo=<bean:write name="inmueble" property="codigo" />ELIMINAR</a> -->
       </td>
     </tr>
       </logic:iterate>
