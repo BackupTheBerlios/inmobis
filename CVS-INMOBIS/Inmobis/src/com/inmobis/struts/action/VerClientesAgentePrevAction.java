@@ -54,19 +54,12 @@ public class VerClientesAgentePrevAction extends Action {
 		}
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
+		//ActionForm form2 = null;
 		Vector listaClientes = consultar.listar(form);
 		
-		int i = 0;
-		while (i<listaClientes.size()){
-			System.out.println("Id Cliente: "+((ClienteBean)listaClientes.get(i)).getIdCliente());
-			System.out.println("Dni Cliente: "+((ClienteBean)listaClientes.get(i)).getDni());
-			System.out.println("Nombre Cliente: "+((ClienteBean)listaClientes.get(i)).getNombreCliente());
-			System.out.println("Apellido1 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido1());
-			System.out.println("Apellido2 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido2());
-			System.out.println("Fecha Nacimiento Cliente: "+((ClienteBean)listaClientes.get(i)).getFechNacimiento());
-		}
 		
-		if (listaClientes.equals(null)){
+		
+		if ((listaClientes.size()==1)&&(((Integer)listaClientes.get(0)).equals(new Integer (1)))/*listaClientes.equals(null)*/){
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
@@ -75,6 +68,17 @@ public class VerClientesAgentePrevAction extends Action {
 			return (mapping.findForward("error"));
 		}
 		else{
+			
+			/*int i = 0;
+			while (i<listaClientes.size()){
+				System.out.println("Id Cliente: "+((ClienteBean)listaClientes.get(i)).getIdCliente());
+				System.out.println("Dni Cliente: "+((ClienteBean)listaClientes.get(i)).getDni());
+				System.out.println("Nombre Cliente: "+((ClienteBean)listaClientes.get(i)).getNombreCliente());
+				System.out.println("Apellido1 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido1());
+				System.out.println("Apellido2 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido2());
+				System.out.println("Fecha Nacimiento Cliente: "+((ClienteBean)listaClientes.get(i)).getFechNacimiento());
+			}*/
+			
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction 3: Se ha realizado el listado con éxito");
 			}
