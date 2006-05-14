@@ -1,13 +1,7 @@
-<html>
-<head>
-<title>&copy INMOBIS Real Estate</title>
-<meta http-equiv="Content-Type" content="text/html;">
-<link href="estilo/estilo.css" rel="stylesheet" type="text/css">
-
-</head>
-<body bgcolor="#ffffff">
-
-<%@ include file="cabecera.htm" %>
+<%--El título de la página se debe pasar como parámetro a la cabecera--%>
+<%String tituloPag = "&copy INMOBIS Real Estate";%>
+<%boolean esIndex=true; %>
+<%@ include file="cabecera.jsp" %>
 
 <!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
