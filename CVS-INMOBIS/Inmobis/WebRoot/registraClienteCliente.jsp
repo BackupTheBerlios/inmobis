@@ -1,37 +1,15 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--El título de la página se debe pasar como parámetro a la cabecera--%>
+<%String tituloPag = "INMOBIS Real Estate - Registro de usuario";%>
+<%boolean esIndex=false; %>
+<%@ include file="cabecera.jsp" %>
 
-<%-- JSTL tag libs --%>
-<%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld" %>
-
-<%-- Struts provided Taglibs --%>
-<%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %>
-<html>
-<html:html locale="true"/>
-<head>
-    <fmt:setBundle basename="com.inmobis.struts.ApplicationResources" />
-	<title><fmt:message key="registraCliente.title"/></title>
-<meta http-equiv="Content-Type" content="text/html;">
-<link href="estilo/estilo.css" rel="stylesheet" type="text/css">
-</head>
-<body bgcolor="#ffffff">
-
-<%@ include file="cabecera.htm" %>
-
-
-<!-- Aqu� es donde va la PARTE PRINCIPAL DE LA P�GINA 
+<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
 
-            <!--pagecell1-->
-            <div id="pageName"> 
-                
-              <h2>P&aacute;gina de Registro </h2>
-              </div>
-              <div id="pageNav"> 
-                <div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-		<html:errors property="registraClienteCliente"/>
-	      </div>
+<!--El menu izquierdo que tienen todas las paginas-->
+<%@ include file="menu_izdo_general.jsp" %>
 		
-	
+	<html:errors property="registraClienteCliente"/>	
 	<html:form action="registraClienteCliente.do?esAgente=0"  >
 
 	      <div id="content"> 
