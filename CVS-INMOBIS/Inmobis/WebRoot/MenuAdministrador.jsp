@@ -36,7 +36,7 @@
 				
 				
 				<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->
-                		<html:form action="registraClienteCliente.do" >					
+                		<html:form action="VerEmpleadosPrev.do" >					
 							<html:submit>
 								<fmt:message key="menuAdministrador.button.lista"/>
 							</html:submit>
@@ -72,7 +72,7 @@
                 | &copy;2006 INMOBIS Real Estate</div>
 </body>
 </html>
-<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA PÃGINA -->
+<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA PÃ?GINA -->
 
 			
 

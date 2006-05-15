@@ -39,13 +39,14 @@ public class ConsultarCliente extends Consultar{
 		
 		
 		
+		
 		try{
-			if ((((FiltrarClienteForm)datosBusqueda).getNombreCliente()).equals("") &&
+			/*if ((((FiltrarClienteForm)datosBusqueda).getNombreCliente()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getApellido1()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getApellido2()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getIdCliente()).equals("") &&
-					(((FiltrarClienteForm)datosBusqueda).getDniCliente()).equals("")/*datosBusqueda.equals(null)*/){
+					(((FiltrarClienteForm)datosBusqueda).getDniCliente()).equals("")datosBusqueda.equals(null)){*/
 				
 				c.setNombre("");
 				c.setApellido1("");
@@ -66,9 +67,10 @@ public class ConsultarCliente extends Consultar{
 							 "identificador: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getIdCliente());
 				}*/
 				
-				
-				datos = ((ClienteBD)gestorCliente.getBean()).listarClientes();
-			}
+				ClienteBD cBD = new ClienteBD((ClienteBean)gestorCliente.getBean());
+				datos = cBD.listarClientes();
+				//datos = ((ClienteBean)gestorCliente.getBean()).listarClientes();
+			/*}
 			else {
 			
 				c.setNombre(((FiltrarClienteForm)datosBusqueda).getNombreCliente());
@@ -93,7 +95,7 @@ public class ConsultarCliente extends Consultar{
 				
 				datos = ((ClienteBD)gestorCliente.getBean()).BusquedaDetallada();
 			
-			}
+			}*/
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarCliente 3: Fallo en la busqueda en la base de datos " );
@@ -101,5 +103,21 @@ public class ConsultarCliente extends Consultar{
 			return error;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
 		}
 		return datos;
-	}	
+	}
+	
+	public static void main(String [] args){
+		Consultar  c= new ConsultarCliente();
+		ActionForm f =null;
+		Vector r = c.listar(f);
+		
+		int i=0;
+		while(i<r.size()){
+			System.out.println("Nombre: "+ ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getNombreCliente()+
+					 "Apellido1: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getApellido1() + 
+					 "Apellido2: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getApellido2()+ 
+					 "Fecha de Nacimiento: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getFechNacimiento() + 
+					 "identificador: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getIdCliente());
+		}
+		
+	}
 }

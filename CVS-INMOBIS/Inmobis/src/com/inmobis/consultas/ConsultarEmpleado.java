@@ -22,17 +22,24 @@ public class ConsultarEmpleado extends Consultar{
 				
 		//se crea el empleado bean		
 		EmpleadoBean e = new EmpleadoBean();
-		e.setIdEmpleado(((FiltrarEmpleadoForm)datosBusqueda).getIdEmpleado());
+		/*e.setIdEmpleado(((FiltrarEmpleadoForm)datosBusqueda).getIdEmpleado());
 		e.setNombre(((FiltrarEmpleadoForm)datosBusqueda).getNombreEmpleado());
 		e.setApellido1(((FiltrarEmpleadoForm)datosBusqueda).getApellido1());
 		e.setApellido2(((FiltrarEmpleadoForm)datosBusqueda).getApellido2());
 		e.setFechNacimiento(((FiltrarEmpleadoForm)datosBusqueda).getFechaNacimiento());		
-		e.setIdDni(((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado());
+		e.setIdDni(((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado());*/
+		
+		e.setIdEmpleado("");
+		e.setNombre("");
+		e.setApellido1("");
+		e.setApellido2("");
+		e.setFechNacimiento("");		
+		e.setIdDni("");
 		
 		//se crea el empleado dase de datos		
 		GestorEmpleadoBD gestorEmpleado = (GestorEmpleadoBD) CreadorGestores.crearGestor("empleado",e);
 		
-		if(log.isInfoEnabled()){
+		/*if(log.isInfoEnabled()){
 			log.info("ConsultarEmpleado 1: Antes de entrar en la base de datos " );
 			log.info("ConsultarEmpleado 2:  " +
 					"Nombre: "+ ((EmpleadoBean)gestorEmpleado.getBean()).getNombreEmpleado() +
@@ -41,17 +48,20 @@ public class ConsultarEmpleado extends Consultar{
 					 "Fecha de Nacimiento: " + ((EmpleadoBean)gestorEmpleado.getBean()).getFechNacimiento() + 
 					 "identificador: " + ((EmpleadoBean)gestorEmpleado.getBean()).getIdEmpleado()+
 					 "dni: " + ((EmpleadoBean)gestorEmpleado.getBean()).getIdEmpleado());
-		}
+		}*/
 		
 		try{
-			if (((FiltrarEmpleadoForm)datosBusqueda).getIdEmpleado().equals("") &&
+			/*if (((FiltrarEmpleadoForm)datosBusqueda).getIdEmpleado().equals("") &&
 				    ((FiltrarEmpleadoForm)datosBusqueda).getNombreEmpleado().equals("") &&
 				    ((FiltrarEmpleadoForm)datosBusqueda).getApellido1().equals("") &&
 				    ((FiltrarEmpleadoForm)datosBusqueda).getApellido2().equals("") &&
 				    ((FiltrarEmpleadoForm)datosBusqueda).getFechaNacimiento().equals("")&&
-				    ((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado().equals("") )
-				datos = ((EmpleadoBD)gestorEmpleado.getBean()).listarEmpleados();
-			else datos = ((EmpleadoBD)gestorEmpleado.getBean()).BusquedaDetallada();			
+				    ((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado().equals("") ){*/
+				EmpleadoBD cBD= new EmpleadoBD((EmpleadoBean)gestorEmpleado.getBean());
+				datos=cBD.listarEmpleados();
+			/*}
+				//datos = ((EmpleadoBD)gestorEmpleado.getBean()).listarEmpleados();
+			else datos = ((EmpleadoBD)gestorEmpleado.getBean()).BusquedaDetallada();	*/		
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarEmpleado 3: Fallo en la busqueda en la base de datos " );
