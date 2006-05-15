@@ -7,6 +7,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
+<%String subtitulo="P&aacutegina de filtrado";%>
 <%@ include file="menu_izdo_general.jsp" %>
               <div id="content"> 
                 <div class="feature">
