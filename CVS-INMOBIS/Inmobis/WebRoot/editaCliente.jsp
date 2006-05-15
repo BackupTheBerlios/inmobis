@@ -1,34 +1,15 @@
-<%@ page contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1" language="java" %>
+<%--El título de la página se debe pasar como parámetro a la cabecera--%>
+<%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de cliente";%>
+<%boolean esIndex=false; %>
+<%@include file="cabecera.jsp" %>
 
-<%-- JSTL tag libs --%>
-<%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld" %>
-
-<%-- Struts provided Taglibs --%>
-<%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %>
-<html>
-<html:html locale="true"/>
-<head>
-    <fmt:setBundle basename="com.inmobis.struts.ApplicationResources" />
-	<title><fmt:message key="editaCliente.title"/></title>
-<meta http-equiv="Content-Type" content="text/html;" charset=iso-8859-1>
-<link href="estilo/estilo.css" rel="stylesheet" type="text/css">
-</head>
-<body bgcolor="#ffffff">
-
-<%@ include file="cabecera.htm" %>
-
-
-<!-- Aqu? es donde va la PARTE PRINCIPAL DE LA PAGINA 
+<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
 
-            <!--pagecell-->
-            <div id="pageName"> 
-                
-              <h2>P&aacute;gina de Edici&oacute;n de clientes</h2>
-              </div>
-              <div id="pageNav"> 
-                <div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-	      </div>
+<!--El menu izquierdo que tienen todas las paginas-->
+<%String subtitulo="P&aacute;gina de Edici&oacute;n";%>
+<%String tipoMenu="general";%>
+<%@ include file="menu_izdo.jsp" %>
 	      <div id="content"> 
 			<div class="feature">
 				<html:errors property="editaCliente"/>
