@@ -48,8 +48,7 @@ public class EditaPisoAction extends Action
 			if(bCancel.booleanValue())
 				return (mapping.findForward("cancel"));
 		
-		//Edito los datos del usuario
-		session.setAttribute("idInmueble",((EditaPisoForm)form).getIdInmueble());
+
 		session.setAttribute("metros",((EditaPisoForm)form).getMetros());
 		session.setAttribute("datosdeinteres",((EditaPisoForm)form).getDatosDeInteres());
 		session.setAttribute("precio",((EditaPisoForm)form).getPrecio());
