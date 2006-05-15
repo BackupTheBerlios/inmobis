@@ -1,28 +1,18 @@
-<html>
-<head>
-<title>&copy INMOBIS: Eliminar Empleado</title>
-<meta http-equiv="Content-Type" content="text/html;">
-<link href="estilo/estilo.css" rel="stylesheet" type="text/css">
-
-</head>
-<body bgcolor="#ffffff">
-
-<%@ include file="cabecera.htm" %>
+<%--Librería específica de esta página: Logic, para usar el iterator--%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%--El título de la página se debe pasar como parámetro a la cabecera--%>
+<%String tituloPag = "&copy INMOBIS:Eliminar Empleado";%>
+<%boolean esIndex=true;//Se refiere a la cabecera sencilla que no incluye librerías %>
+<%@include file="cabecera.jsp" %>
 
 <!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
 
-
-
-            <!--pagecell1-->
-            <div id="pageName"> 
-                
-              <h2>P&aacute;gina Principal </h2>
-              </div>
-              <div id="pageNav"> 
-                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiación</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-              </div>
-              <div id="content"> 
+<!--El menu izquierdo que tienen todas las paginas-->
+<%String subtitulo="P&aacute;gina Principal";%>
+<%String tipoMenu="general";%>
+<%@ include file="menu_izdo.jsp" %>              
+	<div id="content"> 
                 <div class="feature"> 
                   <p> ¿ESTA SEGURO DE ELIMINAR EL SIGUIENTE EMPLEADO? </p>
 				  <table border="0" cellpading="0" cellspacing="0" width="100%">
@@ -37,19 +27,12 @@ CON UN ANCHO DE 767 px -->
 						  <td>
 					            <bean:write name="borraEmpleadoPrevForm" property="apellido2" />
 						  </td>						  
-						  <td>
-					          <CENTER></CENTER>  <a href="borraEmpleado.do?idEmpleado=<bean:write name="borraEmpleadoPrevForm"
-						      property="idEmpleado" /> ELIMINAR </a></CENTER>
+						  <td align="center">
+							<a href="borraEmpleado.do?idEmpleado=<bean:write name='borraEmpleadoPrevForm' property='idEmpleado'/>"> ELIMINAR </a>
 						  </td>
 						</tr>
 				      </logic:iterate>
 					</table>
-					
-					
-					
-					
-					
-					
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

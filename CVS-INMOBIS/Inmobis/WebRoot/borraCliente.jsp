@@ -1,3 +1,5 @@
+<%--Librería específica de esta página: Logic, para usar el iterator--%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS:Eliminar Cliente";%>
 <%boolean esIndex=true;//Se refiere a la cabecera sencilla que no incluye librerías %>
@@ -13,22 +15,22 @@ CON UN ANCHO DE 767 px -->
               <div id="content"> 
                 <div class="feature"> 
                   <p> ¿ESTA SEGURO DE ELIMINAR EL SIGUIENTE CLIENTE? </p>
-				  <table border="0" cellpading="0" cellspacing="0" width="100%">
+				  <table width="100%">
 						<logic:iterate id="borraClienteForm" name="ClienteBean">
 						<tr>
-						  <td>
-					            <bean:write name="borraClienteForm" property="nombre" />
-						  </td>
-						  <td>
-					            <bean:write name="borraClienteForm" property="apellido1" />
-						  </td>
-						  <td>
-					            <bean:write name="borraClienteForm" property="apellido2" />
-						  </td>						  
-						  <td>
-					          <CENTER></CENTER>  <a href="borraCliente.do?idCliente=<bean:write name="borraClienteForm"
-						      property="idCliente" /> ELIMINAR </a></CENTER>
-						  </td>
+							<td>
+								<bean:write name="borraClienteForm" property="nombre" />
+							</td>
+							<td>
+								<bean:write name="borraClienteForm" property="apellido1" />
+							</td>
+							<td>
+								<bean:write name="borraClienteForm" property="apellido2" />
+							</td>						  
+							<td align="center">
+								<a href="borraCliente.do?idCliente=<bean:write name='borraClienteForm'
+								  property='idCliente' />"> ELIMINAR </a>
+							</td>
 						</tr>
 				      </logic:iterate>
 					</table>					
