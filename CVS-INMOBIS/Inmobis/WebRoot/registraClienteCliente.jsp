@@ -8,8 +8,8 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
 <%String subtitulo="P&aacute;gina de Registro";%>
-<%boolean esGeneral=true;%>
-<%@ include file="menu_izdo_general.jsp" %>
+<%String tipoMenu="general";%>
+<%@ include file="menu_izdo.jsp" %>
 		
 	<html:errors property="registraClienteCliente"/>	
 	<html:form action="registraClienteCliente.do?esAgente=0"  >
