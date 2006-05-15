@@ -1,4 +1,4 @@
- <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ <%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
  <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
  <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld" %>
  <%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %>
@@ -19,7 +19,7 @@
      <div id="pageNav"> 
      <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a>
      						<a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a>
-     						<a href="login.jsp">Financiaciï¿½n</a><a href="login.jsp">Hipotecas</a>
+     						<a href="login.jsp">Financiación</a><a href="login.jsp">Hipotecas</a>
      						<a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a>
      						<a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
 	</div>
@@ -105,7 +105,7 @@
               <!--<div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
                 | &copy;2006 INMOBIS Real Estate</div>
 
-<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA Pï¿½GINA -->
+<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA P?GINA -->
 
 			
 

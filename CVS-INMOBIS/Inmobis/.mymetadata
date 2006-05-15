@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="Inmobis"
+  name="CVS-INMOBIS"
   id="myeclipse.1142238338848"
   context-root="/Inmobis"
   j2ee-spec="1.4"
-  archive="Inmobis.war">
+  archive="CVS-INMOBIS.war">
   <attributes>
     <attribute name="webrootdir" value="/WebRoot" />
   </attributes>
