@@ -17,11 +17,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-import com.inmobis.INMOCTES;
 import com.inmobis.consultas.Consultar;
 import com.inmobis.consultas.CreadorConsultar;
-import com.inmobis.struts.form.LoginForm;
-import com.inmobis.struts.form.VerPisosAgenteForm;
 import com.inmobis.bbdd.inmueble.*;
 
 
@@ -85,8 +82,6 @@ public class VerPisosAgenteAction extends Action {
 			}
 			HttpSession session = request.getSession(true);
 			session.setAttribute("listaInmuebles",listaInmuebles);
-			
-			//request.setAttribute("listaInmuebles",listaInmuebles);
 			return (mapping.findForward("exito"));
 		}
 	}
