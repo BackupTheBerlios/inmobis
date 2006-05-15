@@ -34,31 +34,55 @@ CON UN ANCHO DE 767 px -->
         <th><bean:message key=" app.Nombre" /></th>
         <th><bean:message key="app.Apellido1" /></th>
         <th><bean:message key="app.Apellido2" /></th>
-      
+        <th><bean:message key=" app.IdCliente" /></th>
+        <th><bean:message key=" app.DniCliente" /></th>
+        <th><bean:message key=" app.FechNac" /></th> 
          <th colspan="2"></th>
       
       </tr>
       <!-- iterate over the results of the query -->
-      <logic:iterate id="cliente" name="listaClientes">   
+      <logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
     <tr>
       <td> 
-            <bean:write name="cliente" property="nombre" />
+            <html:text name="cliente" property="nombreCliente" ></html:text>
+            <bean:write name="cliente" property="nombreCliente" />
       </td>
+      
       <td>
+            <html:text name="cliente" property="apellido1" ></html:text>
             <bean:write name="cliente" property="apellido1" />
       </td>
+      
       <td>
+            <html:text name="cliente" property="apellido2" ></html:text>
             <bean:write name="cliente" property="apellido2" />
       </td>
+    
+      <td>
+            <html:text name="cliente" property="idCliente" ></html:text>
+            <bean:write name="cliente" property="idCliente" />
+      </td>
+         
+      <td>
+            <html:text name="cliente" property="dni" ></html:text>
+            <bean:write name="cliente" property="dni" />
+      </td>
+      <td>
+            <html:text name="cliente" property="fechNacimiento" ></html:text>
+            <bean:write name="cliente" property="fechNacimiento" />
+      </td> 
       					 
-						  <!--
+						  
 						  <td>
-					            <a href="ModifBajaClientePrev.do?idCliente=<bean:write name='cliente' property='idCliente' />
+					            <a href="ModifBajaClientePrev.do?nombreCliente=<bean:write name='cliente' property='nombre' />
 					            +&apellido1=+<bean:write name='cliente' property='apellido1' />
-					            +&apellido2=+<bean:write name='clientem' property='apellido2' />"								
+					            +&apellido2=+<bean:write name='cliente' property='apellido2' />
+					            +&idcliente=+<bean:write name='cliente' property='idcliente' />
+					            +&dnicliente=+<bean:write name='cliente' property='dnicliente' />
+					            +&fechnac=+<bean:write name='cliente' property='fechnac' />"		
 					            >MODIFICAR</a>
 						  </td>
-						  -->
+						  
 						  
 						</tr>
 				      </logic:iterate>
