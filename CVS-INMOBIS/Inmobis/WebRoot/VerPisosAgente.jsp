@@ -42,27 +42,27 @@
       	<logic:iterate id="inmueble"  name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean" >   
     	<tr>
       		<td>
-      			<html:text name="inmueble" property="zona" ></html:text>
+      			<html:text name="inmueble" property="zona" size="15" maxlength="15" ></html:text>
             	<bean:write name="inmueble" property="zona" />
       		</td>
       		<td> 
-				<html:text name="inmueble" property="numHab" ></html:text>
+				<html:text name="inmueble" property="numHab" size="1" maxlength="1"></html:text>
             	<bean:write name="inmueble" property="numHab" />
       		</td>
       		<td>
-            	<html:text name="inmueble" property="metros" ></html:text>
+            	<html:text name="inmueble" property="metros" size="2" maxlength="4"></html:text>
             	<bean:write name="inmueble" property="metros" />
       		</td>
       		<td>
-            	<html:text name="inmueble" property="regimen" ></html:text>
+            	<html:text name="inmueble" property="regimen" size="5" maxlength="5"></html:text>
             	<bean:write name="inmueble" property="regimen" />
       		</td>
       		<td>
-      			<html:text name="inmueble" property="tipo" ></html:text>
+      			<html:text name="inmueble" property="tipo" size="9" maxlength="15"></html:text>
             	<bean:write name="inmueble" property="tipo" /> 
       		</td>
       		<td>
-      			<html:text name="inmueble" property="precio" ></html:text>
+      			<html:text name="inmueble" property="precio" size="5" maxlength="4"></html:text>
             	<bean:write name="inmueble" property="precio" /> 
       		</td>
       		<td>
