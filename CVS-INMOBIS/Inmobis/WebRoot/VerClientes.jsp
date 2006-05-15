@@ -16,6 +16,7 @@ CON UN ANCHO DE 767 px -->
                 <div class="feature">
 				<!-- zona de codigo-->
 					<table width="100%">
+						<!--
 						<tr> 
 							<td><fmt:message key=" app.Nombre" /></td>
 							<td><fmt:message key="app.Apellido1" /></td>
@@ -23,14 +24,14 @@ CON UN ANCHO DE 767 px -->
 							<td><fmt:message key=" app.IdCliente" /></td>
 							<td><fmt:message key=" app.DniCliente" /></td>
 							<td><fmt:message key=" app.FechNac" /></td>
+							<td>&nbsp;</td>
 						 </tr>
-						</table>
-						<table width="100%">
+						 -->
 						 <!-- iterate over the results of the query -->
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<html:text name="cliente" size="15" property="nombreCliente" ></html:text>
+									<html:text name="cliente" property="nombreCliente" ></html:text>
 									<bean:write name="cliente" property="nombreCliente" />
 								</td>							  
 								<td>
@@ -40,11 +41,15 @@ CON UN ANCHO DE 767 px -->
 								<td>
 									<html:text name="cliente" property="apellido2" ></html:text>
 									<bean:write name="cliente" property="apellido2" />
-								</td>							
+								</td>
+							</tr>
+							<tr>
+								<!-- MEJOR NO MOSTRAR LOS IDS POR PANTALLA
 								<td>
 									<html:text name="cliente" property="idCliente" ></html:text>
 									<bean:write name="cliente" property="idCliente" />
-								</td>								 
+								</td>
+								-->
 								<td>
 									<html:text name="cliente" property="dni" ></html:text>
 									<bean:write name="cliente" property="dni" />
@@ -56,6 +61,11 @@ CON UN ANCHO DE 767 px -->
 								<td>
 									<a href="ModifBajaClientePrev.do?nombreCliente=<bean:write name='cliente' property='nombre' />+&apellido1=+<bean:write name='cliente' property='apellido1' />+&apellido2=+<bean:write name='cliente' property='apellido2' />+&idcliente=+<bean:write name='cliente' property='idcliente' />+&dnicliente=+<bean:write name='cliente' property='dnicliente' />+&fechnac=+<bean:write name='cliente' property='fechnac' />">MODIFICAR</a>
 								</td>							  
+							</tr>
+							<tr>
+								<td colspan="3">
+									<br><br>
+								</td>
 							</tr>
 					</logic:iterate>
 					</table>
