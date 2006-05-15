@@ -1,7 +1,7 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Filtrado de pisos";%>
 <%boolean esIndex=false; %>
-<%@ include file="cabecera.jsp" %>
+<%@include file="cabecera.jsp" %>
 
 <!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
