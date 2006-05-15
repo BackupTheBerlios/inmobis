@@ -4,6 +4,8 @@
 package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionMessages;
@@ -56,7 +58,11 @@ public class VerClientesAgentePrevAction extends Action {
 		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
 		//ActionForm form2 = null;
 		Vector listaClientes = consultar.listar(form);
+		 
 		
+		HttpSession session = request.getSession(true);
+		session.setAttribute("listaClientes",listaClientes);
+		//request.setAttribute(\"listaConcellos\",vec_concellos);
 		
 		
 		if ((listaClientes.size()==1)&&(((Integer)listaClientes.get(0)).equals(new Integer (1)))/*listaClientes.equals(null)*/){
