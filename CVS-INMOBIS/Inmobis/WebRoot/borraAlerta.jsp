@@ -1,5 +1,5 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
-<%String tituloPag = "&copy INMOBIS Real Estate";%>
+<%String tituloPag = "&copy INMOBIS Real Estate:Eliminar Alerta";%>
 <%boolean esIndex=false; %>
 <%@include file="cabecera.jsp" %>
 
@@ -7,7 +7,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
-<%String subtitulo="P&aacute;gina de borrado de alertas";%>
+<%String subtitulo="P&aacute;gina Principal";%>
 <%String tipoMenu="general";%>
 <%@ include file="menu_izdo.jsp" %>
 
