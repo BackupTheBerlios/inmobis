@@ -6,16 +6,11 @@
 <!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
 
+<!--El menu izquierdo que tienen todas las paginas-->
+<%String subtitulo="P&aacute;gina de Registro";%>
+<%boolean esGeneral=true;%>
+<%@ include file="menu_izdo_general.jsp" %>
 
-
-            <!--pagecell1-->
-            <div id="pageName"> 
-                
-              <h2>P&aacute;gina Principal </h2>
-              </div>
-              <div id="pageNav"> 
-                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiación</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-              </div>
               <div id="content"> 
                 <div class="feature"> 
                   <h3>&iquest;Qu&eacute; es <img src="images/inmobis1.jpg" title="INMOBIS" alt="INMOBIS" width="333"></h3><br><br>

@@ -8,6 +8,7 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del login-->
 <%String subtitulo="P&aacute;gina de Login";%>
+<%boolean esGeneral=false;%>
 <%@ include file="menu_izdo_login.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
