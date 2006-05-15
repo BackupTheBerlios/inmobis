@@ -7,6 +7,8 @@ import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -53,6 +55,9 @@ public class VerEmpleadosPrevAction extends Action {
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("empleado");
 		Vector listaEmpleados = consultar.listar(form);
+		
+		HttpSession session = request.getSession(true);
+		session.setAttribute("listaEmpleados",listaEmpleados);
 		
 		if (listaEmpleados.equals(null)){
 			if (log.isInfoEnabled()){

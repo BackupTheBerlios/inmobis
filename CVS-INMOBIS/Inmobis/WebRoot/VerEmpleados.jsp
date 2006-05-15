@@ -42,12 +42,15 @@ CON UN ANCHO DE 767 px -->
       <logic:iterate id="empleado" name="listaEmpleados">   
     <tr>
       <td> 
+            <html:text name="empleado" property="nombre" ></html:text>
             <bean:write name="empleado" property="nombre" />
       </td>
       <td>
+            <html:text name="empleado" property="apellido1" ></html:text>
             <bean:write name="empleado" property="apellido1" />
       </td>
       <td>
+            <html:text name="empleado" property="apellido2" ></html:text>
             <bean:write name="empleado" property="apellido2" />
       </td>
 
