@@ -18,15 +18,13 @@ CON UN ANCHO DE 767 px -->
 						<html:form action="filtrarEmpleado.do">
 							<table width="100%">
 								<tr>
-									<td><H2>Rellene los campos por los que desee filtrar</H2></td>
-									<!--<td><H2><fmt:message key="filtrarEmpleado.message"/></H2></td>-->
+									<td><H2><fmt:message key="filtrarEmpleado.message"/></H2></td>
 								</tr>
 							</table>							
 							<table border="0" width="100%">
 								<tr>
 									<td>
-										Nombre:
-										<!--<fmt:message key="filtrarEmpleado.nombreEmpleado"/>-->
+										<fmt:message key="filtrarEmpleado.nombreEmpleado"/>
 									</td>
 									<td>
 										<html:text 	property="nombreEmpleado" 
@@ -37,8 +35,7 @@ CON UN ANCHO DE 767 px -->
 								</tr>	
 								<tr>
 									<td>
-										Primer Apellido:
-										<!--<fmt:message key="filtrarEmpleado.apellido1"/>-->
+										<fmt:message key="filtrarEmpleado.apellido1"/>
 									</td>
 									<td>
 										<html:text 	property="apellido1" 
@@ -49,8 +46,7 @@ CON UN ANCHO DE 767 px -->
 								</tr>	
 								<tr>
 									<td>
-										Segundo Apellido:
-										<!--<fmt:message key="filtrarEmpleado.apellido2"/>-->
+										<fmt:message key="filtrarEmpleado.apellido2"/>
 									</td>
 									<td>
 										<html:text 	property="apellido2" 
@@ -61,8 +57,7 @@ CON UN ANCHO DE 767 px -->
 								</tr>
 								<tr>
 									<td>
-										Fecha de Nacimiento:
-										<!--<fmt:message key="filtrarEmpleado.fechaNacimiento"/>-->
+										<fmt:message key="filtrarEmpleado.fechaNacimiento"/>
 									</td>
 									<td>
 										<html:text 	property="fechaNacimiento" 
@@ -73,8 +68,7 @@ CON UN ANCHO DE 767 px -->
 								</tr>
 								<tr>
 									<td>
-										N&uacute;mero de DNI:
-										<!--<fmt:message key="filtrarEmpleado.dni"/>-->
+										<fmt:message key="filtrarEmpleado.dni"/>
 									</td>
 									<td>
 										<html:text 	property="dniEmpleado" 
@@ -88,12 +82,9 @@ CON UN ANCHO DE 767 px -->
 							<table width="100%">
 								<tr>
 									<td align="center">
-										<html:submit>Buscar</html:submit>
-										<!--
 										<html:submit>
 											<fmt:message key="filtrarEmpleado.button.buscar"/>
 										</html:submit>
-										-->
 									</td>
 								</tr>
 							</table>
