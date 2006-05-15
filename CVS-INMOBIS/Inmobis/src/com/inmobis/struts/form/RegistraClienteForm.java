@@ -92,9 +92,9 @@ public class RegistraClienteForm extends ActionForm{
 		if (diaNacimiento.equals("") || mesNacimiento.equals("") || anioNacimiento.equals("")){
 			errors.add("registraClienteCliente", new ActionMessage("errors.fecha.notValid"));
 		}
-		//El nif tiene que tener longitud 9
-//		if (dni==null || dni.equals("") || dni.length()!=9)
-//			errors.add("nif", new ActionMessage("errors.nif.notValid"));
+		//El nif tiene que tener longitud 8
+		if (dni==null || dni.equals("") || dni.length()!=8)
+			errors.add("dni", new ActionMessage("errors.dni.notValid"));
 		//Tiene que haber al menos 1 telefono de 9 cifras
 		if (telefono1.equals("")|| telefono1.length()!=9 )
 			errors.add("telefono1", new ActionMessage("errors.telefono1.notValid"));

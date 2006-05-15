@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionMessage;
 public class EditaPisoForm extends ActionForm {
 	
 	private static final Logger i_log = Logger.getLogger(EditaPisoForm.class);
+	private String idInmueble;
 	//Datos inmueble
     private String numHab;
     private String tipo;
@@ -32,6 +33,7 @@ public class EditaPisoForm extends ActionForm {
 	private String pais;
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
+    	this.idInmueble="";
     	this.numHab="";
     	this.tipo="";
     	this.zona="";
@@ -56,39 +58,34 @@ public class EditaPisoForm extends ActionForm {
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
 		}
 		
-		if(numHab.equals("") && tipo.equals("") && zona.equals("") && metros.equals("") && regimen.equals("") &&
-				precio.equals("") && datosDeInteres.equals("") && calle.equals("") && num.equals("") && piso.equals("") &&
-				codPostal.equals("") && poblacion.equals("") && provincia.equals("") && pais.equals(""))
-			errors.add("editaPiso", new ActionMessage("error.editaPiso.invalid"));
-		
-		//El numHab tiene que ser un numero
-		if(!numHab.equals("")){
-			try{
-				new Integer(numHab);
-			}catch (Exception e){
-				errors.add("numHab", new ActionMessage("errors.numHab.notValid"));
-			}
-		}
-		
-		//El tamaño tiene que ser un numero
-		if(!metros.equals("")){
+//		hay que rellenar el tamaño
+		if(metros.equals(""))
+			errors.add("metros", new ActionMessage("errors.metros.required"));
+		else{
 			try{
 				new Double(metros);
 			}catch (Exception e){
 				errors.add("metros", new ActionMessage("errors.metros.notValid"));
 			}
 		}
-		//TODO tipo y regimen?? van a ser comboboxes
-		//La poblacion, provincia y pais solo pueden tener letras
-		if(!zona.equals("") && !esNombre(zona))
-			errors.add("zona", new ActionMessage("errors.zona.notValid"));
-		if(!poblacion.equals("") && !esNombre(poblacion))
-			errors.add("poblacion", new ActionMessage("errors.poblacion.notValid"));
-		if(!provincia.equals("") && !esNombre(provincia))
-			errors.add("provincia", new ActionMessage("errors.provincia.notValid"));
-		if(!pais.equals("") && !esNombre(pais))
-			errors.add("pais", new ActionMessage("errors.pais.notValid"));
-		
+			
+		//hay que rellenar el regimen
+		if(regimen.equals(""))
+			errors.add("regimen", new ActionMessage("errors.regimen.required"));
+		//hay que rellenar el precio
+		if(precio.equals(""))
+			errors.add("precio", new ActionMessage("errors.precio.required"));
+		else{
+			try{
+				new Double(metros);
+			}catch (Exception e){
+				errors.add("precio", new ActionMessage("errors.precio.notValid"));
+			}
+		}
+		//Hay que rellenar obligatoriamente todo menos el piso
+		if(calle.equals("") || num.equals("") || codPostal.equals("") || 
+				poblacion.equals("") || provincia.equals("") || pais.equals(""))
+			errors.add("registraPiso", new ActionMessage("errors.direccion.incomplete"));
 		//El numero solo puede contener digitos
 		if(!num.equals("")){
 			try{
@@ -98,17 +95,69 @@ public class EditaPisoForm extends ActionForm {
 			}
 		}
 		//El codigo postal debe tenr 5 digitos
-		if (!codPostal.equals("")){
-			if(codPostal.length()!=5)
+		if(codPostal.length()!=5)
+			errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
+		else{
+			try{
+				new Integer(codPostal).intValue();
+			}catch(Exception e){
 				errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
-			else{
-				try{
-					new Integer(codPostal).intValue();
-				}catch(Exception e){
-					errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
-				}
 			}
 		}
+		
+//		if(numHab.equals("") && tipo.equals("") && zona.equals("") && metros.equals("") && regimen.equals("") &&
+//				precio.equals("") && datosDeInteres.equals("") && calle.equals("") && num.equals("") && piso.equals("") &&
+//				codPostal.equals("") && poblacion.equals("") && provincia.equals("") && pais.equals(""))
+//			errors.add("editaPiso", new ActionMessage("error.editaPiso.invalid"));
+//		
+//		//El numHab tiene que ser un numero
+//		if(!numHab.equals("")){
+//			try{
+//				new Integer(numHab);
+//			}catch (Exception e){
+//				errors.add("numHab", new ActionMessage("errors.numHab.notValid"));
+//			}
+//		}
+//		
+//		//El tamaño tiene que ser un numero
+//		if(!metros.equals("")){
+//			try{
+//				new Double(metros);
+//			}catch (Exception e){
+//				errors.add("metros", new ActionMessage("errors.metros.notValid"));
+//			}
+//		}
+//		//TODO tipo y regimen?? van a ser comboboxes
+//		//La poblacion, provincia y pais solo pueden tener letras
+//		if(!zona.equals("") && !esNombre(zona))
+//			errors.add("zona", new ActionMessage("errors.zona.notValid"));
+//		if(!poblacion.equals("") && !esNombre(poblacion))
+//			errors.add("poblacion", new ActionMessage("errors.poblacion.notValid"));
+//		if(!provincia.equals("") && !esNombre(provincia))
+//			errors.add("provincia", new ActionMessage("errors.provincia.notValid"));
+//		if(!pais.equals("") && !esNombre(pais))
+//			errors.add("pais", new ActionMessage("errors.pais.notValid"));
+//		
+//		//El numero solo puede contener digitos
+//		if(!num.equals("")){
+//			try{
+//				new Integer(num).intValue();
+//			}catch(Exception e){
+//				errors.add("num", new ActionMessage("errors.num.notValid"));
+//			}
+//		}
+//		//El codigo postal debe tenr 5 digitos
+//		if (!codPostal.equals("")){
+//			if(codPostal.length()!=5)
+//				errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
+//			else{
+//				try{
+//					new Integer(codPostal).intValue();
+//				}catch(Exception e){
+//					errors.add("codPostal", new ActionMessage("errors.direccion.CPnotValid"));
+//				}
+//			}
+//		}
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("Despues de comprobar los erorres. Nº errores: "+errors.size());
@@ -130,6 +179,9 @@ public class EditaPisoForm extends ActionForm {
 	}
 	
 	//getters
+	public String getIdInmueble(){
+		return idInmueble;
+	}
 	public String getNumHab() {
 		return numHab;
 	}
@@ -173,6 +225,9 @@ public class EditaPisoForm extends ActionForm {
 		return this.pais;
 	}
 	//setters
+	public void setIdInmueble(String id){
+		this.idInmueble=id.trim();
+	}
 	public void setNumHab(String numHab) {
 		this.numHab = numHab.trim();
 	}	
