@@ -31,8 +31,8 @@ CON UN ANCHO DE 767 px -->
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<% String prueba= "<bean:write name='cliente' property='nombreCliente' />"%>
-									<%%>
+									<html:text name="cliente" property="nombreCliente" ></html:text>
+									<bean:write name="cliente" property="nombreCliente" />
 								</td>							  
 								<td>
 									<html:text name="cliente" property="apellido1" ></html:text>
