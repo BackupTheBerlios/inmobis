@@ -12,8 +12,8 @@ CON UN ANCHO DE 767 px -->
 <%@ include file="menu_izdo.jsp" %>
 	      <div id="content"> 
 			<div class="feature">
-				<html:errors property="editaEmpleadoPrev"/>
-				<html:form action="editaEmpleadoPrev.do"  >				
+				<html:errors property="editaEmpleado"/>
+				<html:form action="editaEmpleado.do"  >				
 				<table width="100%">
 					<tr>
 						<td>

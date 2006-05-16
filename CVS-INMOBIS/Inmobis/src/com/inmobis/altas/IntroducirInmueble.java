@@ -27,6 +27,9 @@ public class IntroducirInmueble extends Introducir{
 		inmueble.setMetros(((RegistraPisoForm)datosInmueble).getMetros());
 		inmueble.setPrecio(((RegistraPisoForm)datosInmueble).getPrecio());
 		inmueble.setRegimen(((RegistraPisoForm)datosInmueble).getRegimen());
+		inmueble.setNumHab(((RegistraPisoForm)datosInmueble).getNumHab());
+		inmueble.setTipo(((RegistraPisoForm)datosInmueble).getTipo());
+		inmueble.setZona(((RegistraPisoForm)datosInmueble).getZona());
 		inmueble.setDatosDeInteres(((RegistraPisoForm)datosInmueble).getDatosInteres());
 		inmueble.setIdInmueble(gc.asignaCodigoInmueble());
 		if(i_log.isInfoEnabled())

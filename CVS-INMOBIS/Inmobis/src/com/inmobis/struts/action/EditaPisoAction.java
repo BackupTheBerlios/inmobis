@@ -6,24 +6,15 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
-//import org.apache.log4j.Logger;
-import java.util.*;
-
 import com.inmobis.modificaciones.CreadorModificar;
 import com.inmobis.modificaciones.Modificar;
-import com.inmobis.struts.form.EditaClienteForm;
 import com.inmobis.struts.form.EditaPisoForm;
 
-/**
- * @author Mike Robinson
- *
- */
 public class EditaPisoAction extends Action 
 
 {

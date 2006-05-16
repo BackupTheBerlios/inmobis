@@ -158,9 +158,9 @@ CON UN ANCHO DE 767 px -->
 							</html:submit>
 						</td>
 						<td>
-							<html:reset>
+							<html:cancel>
 								<fmt:message key="editaPiso.button.cancelar"/>
-							</html:reset>
+							</html:cancel>
 						</td>
 					</tr>
 				</table>

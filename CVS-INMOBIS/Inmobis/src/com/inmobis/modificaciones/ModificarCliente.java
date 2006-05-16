@@ -27,6 +27,7 @@ public class ModificarCliente extends Modificar{
 		cliente.setApellido1(((EditaClienteForm)datosCliente).getApellido1());
 		cliente.setApellido2(((EditaClienteForm)datosCliente).getApellido2());
 		cliente.setNombre(((EditaClienteForm)datosCliente).getNombre());
+		cliente.setDni(((EditaClienteForm)datosCliente).getDni());
 		String dia =(((EditaClienteForm)datosCliente).getDiaNacimiento());
 		String mes =(((EditaClienteForm)datosCliente).getMesNacimiento());
 		String anio =(((EditaClienteForm)datosCliente).getAnioNacimiento());
@@ -34,8 +35,9 @@ public class ModificarCliente extends Modificar{
 		if(i_log.isInfoEnabled())
 			i_log.info("Fecha: " + fecha);
 		cliente.setFechNacimiento(fecha);
-		//generar el idCliente para la BBDD con la funcion de Esther
-		cliente.setIdCliente(((EditaClienteForm)datosCliente).getIdUsuario());
+		//TODO cambiar cuando tenga acceso al id
+		//cliente.setIdCliente(((EditaClienteForm)datosCliente).getIdUsuario());
+		cliente.setIdCliente("C101");
 		
 		CreadorGestores creador = new CreadorGestores();
 		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
@@ -72,17 +74,17 @@ public class ModificarCliente extends Modificar{
 		
 		//TODO UPDATE no INSERT desde la interfaz
 		try{
-			gestorCliente.insertaLogin(login);
+			//gestorCliente.insertaLogin(login);
 			try{
 				gestorCliente.update();
-				gestorCliente.insertaDir(direccion);
-				gestorCliente.insertaMail(mail);
-				gestorCliente.insertaTelf(telefono);
+				//gestorCliente.insertaDir(direccion);
+				//gestorCliente.insertaMail(mail);
+				//gestorCliente.insertaTelf(telefono);
 			}
 			catch(Exception e){
-				errors.add("EditaClienteForm", new ActionMessage(e.toString()));
+				errors.add("editaCliente", new ActionMessage(e.toString()));
 				if(i_log.isInfoEnabled())
-					i_log.info("Fallo en BBDD al registrar nuevo cliente:" + e.toString());
+					i_log.info("Fallo en BBDD al actualizar cliente:" + e.toString());
 			}
 		}
 		catch (Exception e){

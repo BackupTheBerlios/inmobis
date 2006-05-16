@@ -39,6 +39,7 @@ public class IntroducirCliente extends Introducir{
 		cliente.setApellido1(((RegistraClienteForm)datosCliente).getApellido1());
 		cliente.setApellido2(((RegistraClienteForm)datosCliente).getApellido2());
 		cliente.setNombre(((RegistraClienteForm)datosCliente).getNombre());
+		cliente.setDni(((RegistraClienteForm)datosCliente).getDni());
 		String dia =(((RegistraClienteForm)datosCliente).getDiaNacimiento());
 		String mes =(((RegistraClienteForm)datosCliente).getMesNacimiento());
 		String anio =(((RegistraClienteForm)datosCliente).getAnioNacimiento());
