@@ -151,11 +151,13 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
                       MysqlUtils.toMysqlString(inmueble.getPrecio()) + ", ");
      sqlString.append("datosdeinteres=" +
                       MysqlUtils.toMysqlString(inmueble.getdatosDeInteres()));
-     sqlString.append("WHERE IdInmueble=" +
+     sqlString.append(" WHERE IdInmueble=" +
                       MysqlUtils.toMysqlString(inmueble.getIdInmueble()));
+     
+     if(milog.isInfoEnabled())
+			milog.info(sqlString.toString());
+     
      stmt.execute(sqlString.toString());
-
-
         }
    catch (Exception ex) {
     throw new RowNotFoundException();

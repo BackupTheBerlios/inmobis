@@ -9,7 +9,7 @@
   <form-beans >     
     <form-bean name="registraPisoForm" type="com.inmobis.struts.form.RegistraPisoForm" />
     <form-bean name="borraPisoForm" type="com.inmobis.struts.form.BorraPisoForm" />
-    <form-bean name="EditaPisoForm" type="com.inmobis.struts.form.EditaPisoForm" />
+    <form-bean name="editaPisoForm" type="com.inmobis.struts.form.EditaPisoForm" />
     <form-bean name="verPisosAgenteForm" type="com.inmobis.struts.form.VerPisosAgenteForm" />
     <form-bean name="filtrarPisoAgenteForm" type="com.inmobis.struts.form.FiltrarPisoAgenteForm" />
     <form-bean name="verClientesSinAgenteForm" type="com.inmobis.struts.form.VerClientesSinAgenteForm" />
@@ -48,10 +48,13 @@
     <action path="/EditaPiso"
     	type="com.inmobis.struts.action.EditaPisoAction"
     	attribute="EditaPisoForm"
-    	name="EditaPisoForm" scope="request" input="/EditaPiso.jsp"
+    	name="editaPisoForm" 
+    	scope="request" 
+    	input="/EditaPiso.jsp"
     	validate="true">
       <forward name="error" path="/EditaPiso.jsp" />
       <forward name="exito" path="/verPisosAgente.do" />
+      <forward name="cancel" path="/verPisosAgente.do" />
     	
     	
     </action>

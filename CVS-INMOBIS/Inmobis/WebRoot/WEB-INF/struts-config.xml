@@ -20,9 +20,13 @@
   <global-forwards ></global-forwards>
   <action-mappings >
     
-    <action path="/editaCliente"
+    <action 
+    	path="/editaCliente"
+    	attribute="editaCliente"
+    	input="/editaCliente.jsp"
     	type="com.inmobis.struts.action.EditaClienteAction"
-    	name="editaClienteForm" scope="request" input="/editaCliente.jsp"
+    	name="editaClienteForm" 
+    	scope="request"
     	validate="true">
       <forward name="error" path="/editaCliente.jsp" />
       <forward name="exito" path="/verClientesAgentePrev.do" />  	
@@ -78,9 +82,3 @@
 
   <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
 </struts-config>
-
-
-
-    
-    
-

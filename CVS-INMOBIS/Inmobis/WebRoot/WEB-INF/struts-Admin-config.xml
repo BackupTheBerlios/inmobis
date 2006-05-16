@@ -4,6 +4,7 @@
 <struts-config>
   <data-sources />	
   <form-beans >
+  	<form-bean name="editaEmpleadoForm" type="com.inmobis.struts.form.EditaEmpleadoForm" />
     <form-bean name="borraEmpleadoForm" type="com.inmobis.struts.form.BorraEmpleadoForm" />
     <form-bean name="filtrarEmpleadoForm" type="com.inmobis.struts.form.FiltrarEmpleadoForm" />
     <form-bean name="editaEmpleadoPrevForm" type="com.inmobis.struts.form.EditaEmpleadoPrevForm" />
@@ -47,8 +48,11 @@
       <forward name="error" path="/VerEmpleados.jsp" />
     </action>
     <action
+      attribute="editaEmpleadoForm"
       input="/editaEmpleado.jsp"
+      name="editaEmpleadoForm"
       path="/editaEmpleado"
+      scope="request"
       type="com.inmobis.struts.action.EditaEmpleadoAction" >
       <forward name="error" path="/editaEmpleado.jsp" />
       <forward name="exito" path="/verEmpleadosPrev.do" />
