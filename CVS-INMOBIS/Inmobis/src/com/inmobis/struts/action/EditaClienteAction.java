@@ -16,10 +16,6 @@ import com.inmobis.modificaciones.Modificar;
 import com.inmobis.struts.form.EditaClienteForm;
 import com.inmobis.struts.form.RegistraClienteForm;
 
-/**
- * @author Mike Robinson
- *
- */
 public class EditaClienteAction extends Action {
 
 	private static final Logger i_log = Logger.getLogger(EditaClienteAction.class);
