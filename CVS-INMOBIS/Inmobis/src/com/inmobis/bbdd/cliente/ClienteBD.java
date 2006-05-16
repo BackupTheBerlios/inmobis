@@ -492,6 +492,37 @@ public class ClienteBD implements BDObject,GestorClienteBD{
  mailCliente=miMail;
  mail.insert();
  }
+ 
+ public void updateLogin (UsuarioLoginBean miLogin) throws RowNotFoundException {
+
+	   UsuarioLoginBD login = new UsuarioLoginBD(miLogin);
+	   loginCliente=miLogin;
+	   login.update();
+
+	 }
+
+public void updateDir (InfoDirBean miDireccion) throws RowNotFoundException {
+
+ InfoDirClientesBD direccion = new InfoDirClientesBD(miDireccion);
+ dirCliente=miDireccion;
+ direccion.update();
+
+}
+
+public void updateTelf (InfoTelfBean miTelefono)throws RowNotFoundException {
+
+InfoTelfClientesBD telefono=new InfoTelfClientesBD (miTelefono);
+telfCliente=miTelefono;//Bean de las direcciones
+telefono.update();
+
+}
+
+public void updateMail (InfoMailBean miMail) throws RowNotFoundException {
+
+InfoMailClientesBD mail=new InfoMailClientesBD (miMail);
+mailCliente=miMail;
+mail.update();
+}
 
   /*public static void main(String[] args) {
     ClienteBean cliente=new ClienteBean();

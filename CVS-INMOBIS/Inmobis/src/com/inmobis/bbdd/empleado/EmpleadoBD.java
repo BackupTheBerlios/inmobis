@@ -510,6 +510,38 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
   mailEmpleado=miMail;
   mail.insert();
   }
+  
+  
+  public void updateLogin (UsuarioLoginBean miLogin) throws RowNotFoundException {
+
+	   UsuarioLoginBD login = new UsuarioLoginBD(miLogin);
+	   loginEmpleado=miLogin;
+	   login.update();
+
+	 }
+ 
+ public void updateDir (InfoDirBean miDireccion) throws RowNotFoundException {
+
+   InfoDirEmpleadosBD direccion = new InfoDirEmpleadosBD(miDireccion);
+   dirEmpleado=miDireccion;
+   direccion.update();
+
+ }
+
+ public void updateTelf (InfoTelfBean miTelefono) throws RowNotFoundException {
+
+  InfoTelfEmpleadosBD telefono=new InfoTelfEmpleadosBD (miTelefono);
+  telfEmpleado=miTelefono;
+  telefono.update();
+
+ }
+
+ public void updateMail (InfoMailBean miMail) throws RowNotFoundException {
+
+ InfoMailEmpleadosBD mail=new InfoMailEmpleadosBD (miMail);
+ mailEmpleado=miMail;
+ mail.update();
+ }
 
   public static void main(String[] args) {
    /* EmpleadoBD user = new EmpleadoBD();

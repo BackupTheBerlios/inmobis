@@ -365,6 +365,14 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
       direccion.insert();
 
     }
+   
+   public void updateDir (InfoDirBean miDireccion) throws RowNotFoundException {
+
+	      InfoDirInmueblesBD direccion = new InfoDirInmueblesBD(miDireccion);
+	      dirInmueble=miDireccion;
+	      direccion.update();
+
+	    }
 
 
 }

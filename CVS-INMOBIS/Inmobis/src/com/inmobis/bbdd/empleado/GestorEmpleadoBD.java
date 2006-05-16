@@ -39,6 +39,12 @@ public interface GestorEmpleadoBD extends BDObject {
   void insertaDir (InfoDirBean miDireccion) throws RowExistsException;
   void insertaTelf (InfoTelfBean miTelefono) throws RowExistsException;
   void insertaMail (InfoMailBean miMail) throws RowExistsException;
+  void updateLogin (UsuarioLoginBean miLogin) throws RowNotFoundException;
+  void updateDir (InfoDirBean miDireccion) throws RowNotFoundException;
+  void updateTelf (InfoTelfBean miTelefono) throws RowNotFoundException;
+  void updateMail (InfoMailBean miMail) throws RowNotFoundException;
+  
+  
   int getNumAdmin() throws RowNotFoundException;
   Vector BusquedaDetallada ();
   Vector  listarEmpleados() throws RowNotFoundException;

@@ -40,6 +40,11 @@ public interface GestorClienteBD extends BDObject{
   void insertaDir (InfoDirBean miDireccion)throws RowExistsException;
   void insertaTelf (InfoTelfBean miTelefono)throws RowExistsException;
   void insertaMail (InfoMailBean miMail)throws RowExistsException;
+  void updateLogin (UsuarioLoginBean milogin)throws RowNotFoundException;
+  void updateDir (InfoDirBean miDireccion)throws RowNotFoundException;
+  void updateTelf (InfoTelfBean miTelefono)throws RowNotFoundException;
+  void updateMail (InfoMailBean miMail)throws RowNotFoundException;
+
   Vector BusquedaDetallada ();
   Vector  listarClientes() throws RowNotFoundException;
 }

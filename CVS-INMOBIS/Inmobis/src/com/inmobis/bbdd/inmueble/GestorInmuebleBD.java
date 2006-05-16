@@ -20,6 +20,7 @@ public interface GestorInmuebleBD extends BDObject{
  void consultaDir (String descDir) throws RowNotFoundException;
  void deleteDir (String descDir)throws RowNotFoundException;
  void insertaDir (InfoDirBean miDireccion)throws RowExistsException;
+ void updateDir (InfoDirBean miDireccion)throws RowNotFoundException;
  Vector BusquedaDetallada ();
  Vector  listarInmuebles() throws RowNotFoundException;
  }
