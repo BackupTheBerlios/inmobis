@@ -373,6 +373,18 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	      direccion.update();
 
 	    }
+   
+   public  void asociarClienteInmueble (String idCliente,String idInmueble) throws
+   RowExistsException {
+   String id=null;
+   RelClientesInmueblesBean clienteInmuebleBean= new RelClientesInmueblesBean();
+  
+   clienteInmuebleBean.setIdCliente(idCliente);
+   clienteInmuebleBean.setIdInmueble(idInmueble);
+   RelClientesInmueblesBD clienteInmuebleBD=new RelClientesInmueblesBD(clienteInmuebleBean);
+   clienteInmuebleBD.insert();
+
+}
 
 
 }

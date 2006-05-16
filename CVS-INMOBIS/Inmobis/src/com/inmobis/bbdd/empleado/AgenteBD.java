@@ -267,4 +267,39 @@ public class AgenteBD {
 	    return listaClientesAgentes;
 
 	  }
+	 
+	 public  Vector listarInmueblesAgentes() throws RowNotFoundException {
+		   Vector listaInmueblesAgentes = new Vector();
+
+		   try {
+		     Connection conn = ConnectionManager.getConection();
+		     Statement stmt = conn.createStatement();
+		     ResultSet rs = null;
+		  
+		     
+		     rs = stmt.executeQuery("select * from TInmueble where idInmueble in (select idInmueble from TClientesInmuebles where idCliente in(select idCliente from TAgentesClientes where idAgente="
+		                            +MysqlUtils.toMysqlString(agente.getIdAgente())+"))");
+
+		    
+		     while (rs.next()) {
+		       InmuebleBean inmueble = new InmuebleBean();
+		       inmueble.setIdInmueble(rs.getString("idInmueble"));
+		       inmueble.setNumHab(rs.getString("numHab"));
+		       inmueble.setMetros(rs.getString("metros"));
+		       inmueble.setRegimen(rs.getString("regimen"));
+		       inmueble.setTipo(rs.getString("tipo"));
+		       inmueble.setZona(rs.getString("zona"));
+		       inmueble.setPrecio(rs.getString("precio"));
+		       inmueble.setDatosDeInteres(rs.getString("datosdeinteres"));
+		       listaInmueblesAgentes.add(inmueble);
+
+		     }
+
+		   }
+		   catch (Exception ex) {
+		     throw new RowNotFoundException();
+		   }
+		   return listaInmueblesAgentes;
+
+		 }
 }

@@ -44,7 +44,7 @@ public interface GestorEmpleadoBD extends BDObject {
   void updateTelf (InfoTelfBean miTelefono) throws RowNotFoundException;
   void updateMail (InfoMailBean miMail) throws RowNotFoundException;
   
-  
+  Vector listarInmueblesAgentes() throws RowNotFoundException;
   int getNumAdmin() throws RowNotFoundException;
   Vector BusquedaDetallada ();
   Vector  listarEmpleados() throws RowNotFoundException;
