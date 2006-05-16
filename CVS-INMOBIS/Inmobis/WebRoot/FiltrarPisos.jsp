@@ -13,9 +13,16 @@ CON UN ANCHO DE 767 px -->
 
               <div id="content"> 
                 <div class="feature"> 
-					<center>
-						<h3><FONT COLOR="RED">EN CONSTRUCCI&Oacute;N</FONT></h3>
-					</center>                  
+					<table width="100%">
+						<tr>
+							<td>
+								<IMG SRC="images/enconstruccion.gif" WIDTH="81" HEIGHT="50" BORDER="0" ALT="">
+							</td>
+							<td>
+								<h3><FONT COLOR="RED"> EN CONSTRUCCI&Oacute;N</FONT></h3>
+							</td>
+						</tr>
+					</table>                  
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
