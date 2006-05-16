@@ -1,30 +1,17 @@
- <%@ page contentType="text/html;charset=UTF-8" language="java" %>
- <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
- <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld" %>
- <%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %><html>
-<head>
-<title>&copy INMOBIS: Listado Empleados</title>
-<meta http-equiv="Content-Type" content="text/html;">
-<link href="estilo/estilo.css" rel="stylesheet" type="text/css">
+<%--Librería específica de esta página: Logic, para usar el iterator--%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%--El título de la página se debe pasar como parámetro a la cabecera--%>
+<%String tituloPag = "&copy INMOBIS: Listado de empleados";%>
+<%boolean esIndex=false; %>
+<%@ include file="cabecera.jsp" %>
 
-</head>
-<body bgcolor="#ffffff">
-
-<%@ include file="cabecera.htm" %>
-
-<!-- Aqu� es donde va la PARTE PRINCIPAL DE LA P�GINA 
+<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
 
-
-
-            <!--pagecell1-->
-            <div id="pageName"> 
-                
-              <h2>P&aacute;gina Principal </h2>
-              </div>
-              <div id="pageNav"> 
-                <div id="sectionLinks"> <a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci�n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-              </div>
+<!--El menu izquierdo que tienen todas las paginas-->
+<%String subtitulo="Listado de empleados";%>
+<%boolean esGenerico=true;%>
+<%@ include file="menu_izdo_general.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
                    <table border="0" cellpading="0" cellspacing="0" width="100%">
