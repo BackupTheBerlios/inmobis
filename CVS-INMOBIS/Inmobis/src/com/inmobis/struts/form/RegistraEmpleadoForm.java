@@ -18,7 +18,6 @@ public class RegistraEmpleadoForm extends ActionForm{
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
-	private String fechaNacimiento;
 	private String diaNacimiento;
 	private String mesNacimiento;
 	private String anioNacimiento;
@@ -43,7 +42,9 @@ public class RegistraEmpleadoForm extends ActionForm{
 		this.nombre="";
 		this.apellido1="";
 		this.apellido2="";
-		this.fechaNacimiento="";
+		this.diaNacimiento="";
+		this.mesNacimiento="";
+		this.anioNacimiento="";
 		this.nif="";
 		this.tipoEmpleado="";
 		this.porcentaje="";
@@ -171,7 +172,7 @@ public class RegistraEmpleadoForm extends ActionForm{
 		char[] chars = cadena.toCharArray();
 		int i=0;
 		while(i<chars.length && valido){
-			if (!Character.isLetter(chars[i]))
+			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]));
 				valido=false;	
 			i++;
 		}

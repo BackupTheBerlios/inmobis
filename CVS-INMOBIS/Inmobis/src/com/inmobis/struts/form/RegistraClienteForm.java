@@ -192,7 +192,7 @@ public class RegistraClienteForm extends ActionForm{
 		char[] chars = cadena.toCharArray();
 		int i=0;
 		while(i<chars.length && valido){
-			if (!Character.isLetter(chars[i]))
+			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]));
 				valido=false;	
 			i++;
 		}
@@ -304,7 +304,7 @@ public class RegistraClienteForm extends ActionForm{
 		this.anioNacimiento=anio.trim();
 	}
 	public void setDni(String dni){
-		this.dni=dni;
+		this.dni=dni.trim();
 	}
 	public void setCalle(String calle){
 		this.calle=calle.trim();
@@ -334,8 +334,4 @@ public class RegistraClienteForm extends ActionForm{
 		this.esAgente=esA;
 	}
 	
-	public static void main(String[] args) {
-		String dni = "";
-		System.out.println("".equals(dni));
-	}
 }

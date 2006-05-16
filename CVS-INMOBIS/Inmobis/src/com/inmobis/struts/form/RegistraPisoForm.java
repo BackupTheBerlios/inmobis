@@ -20,6 +20,9 @@ public class RegistraPisoForm extends ActionForm {
 	private String regimen;
 	private String precio;
 	private String datosDeInteres;
+	private String numHab;
+	private String zona;
+	private String tipo;
     //Direccion
 	private String calle;
 	private String num;
@@ -28,26 +31,12 @@ public class RegistraPisoForm extends ActionForm {
 	private String poblacion;
 	private String provincia;
 	private String pais;
-	private String numHab;
-	private String zona;
 
-	public String getNumHab() {
-		return numHab;
-	}
-
-	public void setNumHab(String numHab) {
-		this.numHab = numHab;
-	}
-
-	public String getZona() {
-		return zona;
-	}
-
-	public void setZona(String zona) {
-		this.zona = zona;
-	}
-
+	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		this.numHab="";
+		this.tipo="";
+		this.zona="";
 		this.metros="";
 		this.regimen="";
 		this.precio="";
@@ -69,6 +58,25 @@ public class RegistraPisoForm extends ActionForm {
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
+		}
+		
+		//hay que rellenar la zona
+		if(zona.equals(""))
+			errors.add("zona", new ActionMessage("errors.zona.required"));
+		
+		//hay que rellenar el tipo
+		if(tipo.equals("") || !esNombre(tipo))
+			errors.add("tipo", new ActionMessage("errors.tipo.required"));
+		
+		//hay que rellenar en numHab
+		if(numHab.equals(""))
+			errors.add("numHab", new ActionMessage("errors.numHab.required"));
+		else{
+			try{
+				new Integer(numHab);
+			}catch (Exception e){
+				errors.add("numHab", new ActionMessage("errors.numHab.notValid"));
+			}
 		}
 		//hay que rellenar el tamaño
 		if(metros.equals(""))
@@ -98,6 +106,14 @@ public class RegistraPisoForm extends ActionForm {
 		if(calle.equals("") || num.equals("") || codPostal.equals("") || 
 				poblacion.equals("") || provincia.equals("") || pais.equals(""))
 			errors.add("registraPiso", new ActionMessage("errors.direccion.incomplete"));
+		
+		if(!esNombre(poblacion))
+			errors.add("poblacion", new ActionMessage("errors.poblacion.notValid"));
+		if(!esNombre(provincia))
+			errors.add("provincia", new ActionMessage("errors.provincia.notValid"));
+		if(!esNombre(pais))
+			errors.add("pais", new ActionMessage("errors.pais.notValid"));
+		
 		//El numero solo puede contener digitos
 		if(!num.equals("")){
 			try{
@@ -122,7 +138,29 @@ public class RegistraPisoForm extends ActionForm {
 		return errors;
 	}
 	
+	//Metodo para saber si una cadena solo tiene letras
+	boolean esNombre(String cadena){
+		boolean valido=true;
+		char[] chars = cadena.toCharArray();
+		int i=0;
+		while(i<chars.length && valido){
+			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]));
+				valido=false;	
+			i++;
+		}
+		return valido;
+	}
+	
 	//Getters
+	public String getTipo() {
+		return tipo;
+	}
+	public String getZona() {
+		return zona;
+	}
+	public String getNumHab() {
+		return numHab;
+	}
 	public String getMetros(){
 		return this.metros;
 	}
@@ -157,6 +195,15 @@ public class RegistraPisoForm extends ActionForm {
 		return this.pais;
 	}
 	//Setters
+	public void setTipo(String tipo) {
+		this.zona = tipo.trim();
+	}
+	public void setNumHab(String numHab) {
+		this.numHab = numHab.trim();
+	}
+	public void setZona(String zona) {
+		this.zona = zona.trim();
+	}
 	public void setMetros(String m){
 		this.metros=m.trim();
 	}
