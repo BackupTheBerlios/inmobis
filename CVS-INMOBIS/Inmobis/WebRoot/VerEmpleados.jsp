@@ -10,8 +10,8 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
 <%String subtitulo="Listado de empleados";%>
-<%boolean esGenerico=true;%>
-<%@ include file="menu_izdo_general.jsp" %>
+<%String tipoMenu="gerente";//Se supone que sólo los gerentes ven sus empleados ¿?%>
+<%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
                    <table border="0" cellpading="0" cellspacing="0" width="100%">
