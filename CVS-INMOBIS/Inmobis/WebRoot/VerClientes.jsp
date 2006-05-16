@@ -10,8 +10,8 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
 <%String subtitulo="Listado de clientes";%>
-<%boolean esGenerico=true;%>
-<%@ include file="menu_izdo_general.jsp" %>
+<%String tipoMenu="agente";%>
+<%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature">
 				<!-- zona de codigo-->
@@ -31,8 +31,8 @@ CON UN ANCHO DE 767 px -->
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<html:text name="cliente" property="nombreCliente" ></html:text>
-									<bean:write name="cliente" property="nombreCliente" />
+									<% String prueba= "<bean:write name='cliente' property='nombreCliente' />"%>
+									<%%>
 								</td>							  
 								<td>
 									<html:text name="cliente" property="apellido1" ></html:text>
