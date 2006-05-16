@@ -59,35 +59,35 @@
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 		<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->
 		<html:form action="verClientesAgentePrev.do" >					
-					<html:submit>
-						<fmt:message key="menuAgente.button.clientes"/>
-					</html:submit>
+			<html:submit>
+				<fmt:message key="menuAgente.button.clientes"/>
+			</html:submit>
 		 </html:form>
 
 		 <html:form action="registraClienteCliente.do" >					
-					<html:submit>
-						<fmt:message key="menuAgente.button.alertas"/>
-					</html:submit>
+			<html:submit>
+				<fmt:message key="menuAgente.button.alertas"/>
+			</html:submit>
 		</html:form>
 		 <html:form action="registraClienteCliente.do" >					
-					<html:submit>
-						<fmt:message key="menuAgente.button.mensajes"/>
-					</html:submit>
+			<html:submit>
+				<fmt:message key="menuAgente.button.mensajes"/>
+			</html:submit>
 		</html:form>
 		<html:form action="registraClienteCliente.do" >					
-					<html:submit>
-						<fmt:message key="menuAgente.button.clientes2"/>
-					</html:submit>
+			<html:submit>
+				<fmt:message key="menuAgente.button.clientes2"/>
+			</html:submit>
 		</html:form>
 		 <html:form action="verPisosAgente.do" >					
-					<html:submit>
-						<fmt:message key="menuAgente.button.inmuebles"/>
-					</html:submit>
+			<html:submit>
+				<fmt:message key="menuAgente.button.inmuebles"/>
+			</html:submit>
 		</html:form>
 		<html:form action="registraClienteCliente.do" >					
-					<html:submit>
-						<fmt:message key="menuAgente.button.registraCliente"/>
-					</html:submit>
+			<html:submit>
+				<fmt:message key="menuAgente.button.registraCliente"/>
+			</html:submit>
 		</html:form>
 	</div>
 </div><!--del pageNav-->	
