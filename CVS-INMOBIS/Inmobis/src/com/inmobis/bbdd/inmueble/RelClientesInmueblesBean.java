@@ -1,4 +1,4 @@
-package dbtest;
+package com.inmobis.bbdd.inmueble;
 
 /**
  * <p>Title: </p>

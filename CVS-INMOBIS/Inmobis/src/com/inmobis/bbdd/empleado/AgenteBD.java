@@ -8,6 +8,7 @@ import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.cliente.ClienteBean;
+import com.inmobis.bbdd.inmueble.InmuebleBean;
 
 /**
  * <p>Title: </p>

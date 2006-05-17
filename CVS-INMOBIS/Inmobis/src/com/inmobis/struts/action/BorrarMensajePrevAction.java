@@ -3,8 +3,6 @@
 
 package com.inmobis.struts.action;
 
-import Unknown;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +10,8 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import com.inmobis.struts.form.MensajeForm;
 
 /** 
  * MyEclipse Struts
@@ -39,7 +39,7 @@ public class BorrarMensajePrevAction extends Action {
 		ActionForm form,
 		HttpServletRequest request,
 		HttpServletResponse response) {
-		Unknown BorrarMensajeForm = (Unknown) form;
+		MensajeForm BorrarMensajeForm = (MensajeForm) form;
 		// TODO Auto-generated method stub
 		return null;
 	}

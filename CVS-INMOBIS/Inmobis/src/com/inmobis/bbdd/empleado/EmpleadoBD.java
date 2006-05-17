@@ -556,4 +556,9 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
     System.out.println(emp.getApellido2());*/
   }
 
+public Vector listarInmueblesAgentes() throws RowNotFoundException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }
