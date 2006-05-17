@@ -94,26 +94,8 @@
       <forward name="error" path="/VerPisosAgente.jsp" />
       <forward name="exito" path="/borraPiso.jsp" />
     </action>
-    <action
-      attribute="verClientesSinAgenteForm"
-      input="/MenuAgente.jsp"
-      name="verClientesSinAgenteForm"
-      path="/verClientesSinAgente"
-      scope="request"
-      type="com.inmobis.struts.action.VerClientesSinAgenteAction" >
-      <forward name="error" path="/MenuAgente.jsp" />
-      <forward name="exito" path="/VerClientesSinAgente.jsp" />
-    </action>
-    <action
-      attribute="asignarAgenteAClientesForm"
-      input="/VerClientesSinAgente.jsp"
-      name="asignarAgenteAClientesForm"
-      path="/asignarAgenteAClientes"
-      scope="request"
-      type="com.inmobis.struts.action.AsignarAgenteAClientesAction" >
-      <forward name="error" path="/VerClientesSinAgente.jsp" />
-      <forward name="exito" path="/verClientesSinAgente.do" />
-    </action>
+    
+    
 
 
 
