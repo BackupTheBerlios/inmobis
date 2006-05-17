@@ -74,8 +74,8 @@ public class RegistraEmpleadoForm extends ActionForm{
 		if (diaNacimiento.equals("") || mesNacimiento.equals("") || anioNacimiento.equals("")){
 			errors.add("anioNacimiento", new ActionMessage("errors.fecha.notValid"));
 		}
-		//El nif tiene que tener longitud 9
-		if (nif.equals("") || nif.length()!=9)
+		//El nif tiene que tener longitud 8
+		if (nif.equals("") || nif.length()!=8)
 			errors.add("nif", new ActionMessage("errors.nif.notValid"));
 		//Si he seleccionado agente, tengo que rellenar porcentaje
 		if (tipoEmpleado.equals("agente") && porcentaje.equals(""))
@@ -142,6 +142,9 @@ public class RegistraEmpleadoForm extends ActionForm{
 			errors.add("provincia", new ActionMessage("errors.provincia.notValid"));
 		if(!esNombre(pais))
 			errors.add("pais", new ActionMessage("errors.pais.notValid"));
+		if (i_log.isInfoEnabled()){
+			i_log.info("Nombre: "+nombre+" Apellidos: "+ apellido1 + apellido2 +" Residencia: "+poblacion+provincia+pais);
+		}
 		//El numero solo puede contener digitos
 		if(!num.equals("")){
 			try{
@@ -172,7 +175,7 @@ public class RegistraEmpleadoForm extends ActionForm{
 		char[] chars = cadena.toCharArray();
 		int i=0;
 		while(i<chars.length && valido){
-			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]));
+			if ((!Character.isLetter(chars[i])) && (!Character.isSpace(chars[i])))
 				valido=false;	
 			i++;
 		}
@@ -296,4 +299,5 @@ public class RegistraEmpleadoForm extends ActionForm{
 	public void setPais(String pais){
 		this.pais=pais.trim();
 	}
+	
 }

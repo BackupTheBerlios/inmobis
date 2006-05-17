@@ -192,7 +192,7 @@ public class RegistraClienteForm extends ActionForm{
 		char[] chars = cadena.toCharArray();
 		int i=0;
 		while(i<chars.length && valido){
-			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]));
+			if (!Character.isLetter(chars[i])&& !Character.isSpace(chars[i]))
 				valido=false;	
 			i++;
 		}
