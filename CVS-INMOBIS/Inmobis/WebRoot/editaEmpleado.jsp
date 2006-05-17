@@ -58,17 +58,15 @@ CON UN ANCHO DE 767 px -->
 							<html:errors property="apellido2" />
 						</td>
 					</tr>
-					<!--Cambiar esto a con Javascript o incluir fecha.jsp
 					<tr>
 						<td>
-							<fmt:message key="editaEmpleado.fechaNacimiento"/>
+							<fmt:message key="editaCliente.fechaNacimiento"/>
 						</td> 
-						<td>
-							
-							<html:text 	property="fechaNacimiento" size="10" maxlength="10" />
-							<html:errors property="fechaNacimiento" />
+						<td>							
+							<%@ include file="fecha.jsp" %>
 						</td>
-					 </tr>-->
+					 </tr>
+					 <tr>
 					 <tr>
 						<td>
 							<fmt:message key="editaEmpleado.tipoEmpleado"/>

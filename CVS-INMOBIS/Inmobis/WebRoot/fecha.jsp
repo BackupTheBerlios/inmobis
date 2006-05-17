@@ -99,7 +99,7 @@ Mes
 	 int anio=1900;
 	 %>
 	 <html:option value="<%=("")%>">
-Anio
+Año
 	      </html:option>
 	 <%
 	 while (anio<=2006)
