@@ -5,16 +5,20 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import java.util.Vector;
+
+import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.consultas.*;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
+import com.inmobis.consultas.CreadorConsultar;
 import com.inmobis.struts.form.FiltrarPisoAgenteForm;
 
 /** 
@@ -48,16 +52,29 @@ public class FiltrarPisoAgenteAction extends Action {
 
 		ActionMessages errors= new ActionMessages();
 		
+		
+		if (log.isInfoEnabled()){
+			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getMetros());
+			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getNumHab());
+			log.info("FiltrarPisoAgenteForm 4: " + ((FiltrarPisoAgenteForm)form).getPrecio());
+			log.info("FiltrarPisoAgenteForm 5: " + ((FiltrarPisoAgenteForm)form).getRegimen());
+			log.info("FiltrarPisoAgenteForm 6: " + ((FiltrarPisoAgenteForm)form).getTipo());
+			log.info("FiltrarPisoAgenteForm 7: " + ((FiltrarPisoAgenteForm)form).getZona());
+			log.info("FiltrarPisoAgenteForm 8: " + ((FiltrarPisoAgenteForm)form).getDatosDeInteres());
+		}
+		
 		if (log.isInfoEnabled()){
 			log.info("FiltrarPisoAgente 1: Antes de entrar en la base de datos");
 		}
 		
-		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
+		//Consultar consultar=CreadorConsultar.CreaConsultar("inmuebleCondicion");
+		ConsultarInmuebleCondicion consultar = new ConsultarInmuebleCondicion();
 		Vector listaInmuebles = consultar.listar(form);
 	
 		if (listaInmuebles.equals(null)){
 			if (log.isInfoEnabled()){
-				log.info("FiltrarPisoAgente 2: Ha habido un error en la búsqueda en la bbdd");
+				log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
+				
 			}
 			errors.add("listainmuebles", new ActionMessage("errors.listainmuebles.bbdd"));
 			saveErrors(request,errors);
@@ -65,8 +82,21 @@ public class FiltrarPisoAgenteAction extends Action {
 		}
 		else{
 			if (log.isInfoEnabled()){
-				log.info("FiltrarPisoAgente 3: Se ha realizado la busqueda con éxito");
+				log.info("FiltrarPisoAgenteAction 3: Se ha realizado la busqueda con éxito");
+				log.info("FiltrarPisoAgenteAction 3: " + listaInmuebles.size());
+				int i=0;
+				while (i<listaInmuebles.size()){
+					log.info("Identificador: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getIdInmueble());
+					log.info("Zona: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getZona());
+					log.info("Metros: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getMetros());
+					log.info("Precio: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getPrecio());
+					log.info("Regimen: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getRegimen());
+					log.info("Datos Interes: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getdatosDeInteres());
+					i++;
+				}
 			}
+			HttpSession session = request.getSession(true);
+			session.setAttribute("listaInmuebles",listaInmuebles);
 			return mapping.findForward("exito");
 		}
 		

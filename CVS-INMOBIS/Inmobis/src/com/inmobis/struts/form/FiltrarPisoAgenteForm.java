@@ -4,11 +4,11 @@
 package com.inmobis.struts.form;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+
 
 /** 
  * MyEclipse Struts
@@ -20,7 +20,6 @@ import org.apache.struts.action.ActionMessage;
 public class FiltrarPisoAgenteForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
-	 private String idInmueble;
 	 private String metros;
 	 private String regimen;
 	 private String precio;
@@ -55,7 +54,6 @@ public class FiltrarPisoAgenteForm extends ActionForm {
 		 */
 		public void reset(ActionMapping mapping, HttpServletRequest request) {
 			this.datosDeInteres = "";
-			this.idInmueble = "";
 			this.metros = "";
 			this.precio = "";
 			this.regimen = "";
@@ -76,9 +74,8 @@ public class FiltrarPisoAgenteForm extends ActionForm {
 		
 		ActionErrors errors= new ActionErrors();
 		
-		if (idInmueble.equals(null) && metros.equals(null) && regimen.equals(null) &&
-				precio.equals(null) && datosDeInteres.equals(null) && numHab.equals(null) &&
-				tipo.equals(null) && zona.equals(null))
+		if (metros.equals(null) && regimen.equals(null) &&precio.equals(null) && datosDeInteres.equals(null) && 
+				numHab.equals(null) && tipo.equals(null) && zona.equals(null))
 			errors.add("vacio", new ActionMessage("errors.vacio.required"));
 			
 		return errors;
@@ -91,14 +88,6 @@ public class FiltrarPisoAgenteForm extends ActionForm {
 
 	public void setDatosDeInteres(String datosDeInteres) {
 		this.datosDeInteres = datosDeInteres;
-	}
-
-	public String getIdInmueble() {
-		return idInmueble;
-	}
-
-	public void setIdInmueble(String idInmueble) {
-		this.idInmueble = idInmueble;
 	}
 
 	public String getMetros() {
