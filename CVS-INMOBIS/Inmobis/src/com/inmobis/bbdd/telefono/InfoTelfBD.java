@@ -103,8 +103,8 @@ public class InfoTelfBD implements BDObject {
       Statement stmt = conn.createStatement();
       ResultSet rs = null;
 
-      StringBuffer sqlString = new StringBuffer("UPDATE" + nombreTabla );
-      sqlString.append("set IdGeneral=" +
+      StringBuffer sqlString = new StringBuffer("UPDATE " + nombreTabla );
+      sqlString.append(" set IdGeneral=" +
                        MysqlUtils.toMysqlString(telefono.getIdGeneral()) + ", ");
       sqlString.append("descTelefono=" +
                        MysqlUtils.toMysqlString(telefono.getDescTelefono()) +
@@ -114,8 +114,8 @@ public class InfoTelfBD implements BDObject {
 
       sqlString.append("telefono2=" +
                        MysqlUtils.toMysqlString(telefono.getTelefono2()));
-      sqlString.append("WHERE IdGeneral=" +
-                       MysqlUtils.toMysqlString(telefono.getIdGeneral())+"AND descTelefono="+
+      sqlString.append(" WHERE IdGeneral=" +
+                       MysqlUtils.toMysqlString(telefono.getIdGeneral())+" AND descTelefono="+
                                 MysqlUtils.toMysqlString(telefono.getDescTelefono()));
       stmt.execute(sqlString.toString());
 

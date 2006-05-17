@@ -57,11 +57,11 @@ public class ModificarInmueble extends Modificar{
 		//TODO Actualizar direccion con update del gestor
 		try{
 			gestorInmueble.update();
-			//gestorInmueble.insertaDir(direccion);
+			gestorInmueble.updateDir(direccion);
 			if(i_log.isInfoEnabled())
 				i_log.info("Actualizado el piso de la calle :" + direccion.getCalle());
 		}catch (Exception e) {
-			errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+			errors.add("EditaPiso", new ActionMessage("errors.bbdd.clave"));
 			if(i_log.isInfoEnabled())
 				i_log.info("Fallo en identificadores de tabla de BBDD :" + e.toString());
 		}

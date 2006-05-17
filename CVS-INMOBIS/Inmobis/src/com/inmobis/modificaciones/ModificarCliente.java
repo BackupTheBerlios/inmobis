@@ -7,6 +7,8 @@ import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.altas.IntroducirCliente;
 import com.inmobis.bbdd.CreadorGestores;
+import com.inmobis.bbdd.RowExistsException;
+import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.cliente.GestorClienteBD;
 import com.inmobis.bbdd.direccion.InfoDirBean;
@@ -72,14 +74,13 @@ public class ModificarCliente extends Modificar{
 		login.setPassword(((EditaClienteForm)datosCliente).getPassword());
 		login.setTipoUsuario("cliente");
 		
-		//TODO UPDATE no INSERT desde la interfaz
 		try{
-			//gestorCliente.insertaLogin(login);
+			gestorCliente.updateLogin(login);
 			try{
 				gestorCliente.update();
-				//gestorCliente.insertaDir(direccion);
-				//gestorCliente.insertaMail(mail);
-				//gestorCliente.insertaTelf(telefono);
+				gestorCliente.updateDir(direccion);
+				gestorCliente.updateMail(mail);
+				gestorCliente.updateTelf(telefono);
 			}
 			catch(Exception e){
 				errors.add("editaCliente", new ActionMessage(e.toString()));
@@ -87,7 +88,12 @@ public class ModificarCliente extends Modificar{
 					i_log.info("Fallo en BBDD al actualizar cliente:" + e.toString());
 			}
 		}
-		catch (Exception e){
+//		catch (RowExistsException e){
+//			errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.duplicated"));
+//			if(i_log.isInfoEnabled())
+//				i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());
+//		}
+		catch (RowNotFoundException e){
 			errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.duplicated"));
 			if(i_log.isInfoEnabled())
 				i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());

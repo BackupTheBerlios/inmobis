@@ -114,8 +114,8 @@ public class InfoDirBD implements BDObject {
      Statement stmt = conn.createStatement();
      ResultSet rs = null;
 
-     StringBuffer sqlString = new StringBuffer("UPDATE" + nombreTabla );
-     sqlString.append("set IdGeneral=" +
+     StringBuffer sqlString = new StringBuffer("UPDATE " + nombreTabla );
+     sqlString.append(" set IdGeneral=" +
                       MysqlUtils.toMysqlString(direccion.getIdGeneral()) + ", ");
      sqlString.append("descDir=" +
                       MysqlUtils.toMysqlString(direccion.getDescDir()) +
@@ -125,18 +125,22 @@ public class InfoDirBD implements BDObject {
      sqlString.append("num=" +
                       MysqlUtils.toMysqlString(direccion.getNum()) + ", ");
      sqlString.append("piso=" +
-                      MysqlUtils.toMysqlString(direccion.getPiso()));
+                      MysqlUtils.toMysqlString(direccion.getPiso())+ ", ");
      sqlString.append("codPostal=" +
-                      MysqlUtils.toMysqlString(direccion.getCodPostal()));
+                      MysqlUtils.toMysqlString(direccion.getCodPostal())+ ", ");
      sqlString.append("poblacion=" +
-                      MysqlUtils.toMysqlString(direccion.getPoblacion()));
+                      MysqlUtils.toMysqlString(direccion.getPoblacion())+ ", ");
      sqlString.append("provincia=" +
-                      MysqlUtils.toMysqlString(direccion.getProvincia()));
+                      MysqlUtils.toMysqlString(direccion.getProvincia())+ ", ");
      sqlString.append("pais=" +
                       MysqlUtils.toMysqlString(direccion.getPais()));
-     sqlString.append("WHERE IdGeneral=" +
-                      MysqlUtils.toMysqlString(direccion.getIdGeneral())+"AND descDir="+
+     sqlString.append(" WHERE IdGeneral=" +
+                      MysqlUtils.toMysqlString(direccion.getIdGeneral())+" AND descDir="+
                                MysqlUtils.toMysqlString(direccion.getDescDir()));
+     
+     if (milog.isInfoEnabled()){
+			milog.info("comando sql: "+sqlString);
+  }
      stmt.execute(sqlString.toString());
 
 

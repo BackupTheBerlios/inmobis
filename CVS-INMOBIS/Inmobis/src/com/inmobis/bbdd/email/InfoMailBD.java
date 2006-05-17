@@ -102,8 +102,8 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
      Statement stmt = conn.createStatement();
      ResultSet rs = null;
 
-     StringBuffer sqlString = new StringBuffer("UPDATE" + nombreTabla );
-     sqlString.append("set IdGeneral=" +
+     StringBuffer sqlString = new StringBuffer("UPDATE " + nombreTabla );
+     sqlString.append(" set IdGeneral=" +
                       MysqlUtils.toMysqlString(mail.getIdGeneral()) + ", ");
      sqlString.append("dirMail=" +
                       MysqlUtils.toMysqlString(mail.getDirMail()) +
@@ -111,8 +111,8 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
 
      sqlString.append("descMail=" +
                       MysqlUtils.toMysqlString(mail.getDescMail()));
-     sqlString.append("WHERE IdGeneral=" +
-                      MysqlUtils.toMysqlString(mail.getIdGeneral())+"AND descMail="+
+     sqlString.append(" WHERE IdGeneral=" +
+                      MysqlUtils.toMysqlString(mail.getIdGeneral())+" AND descMail="+
                                MysqlUtils.toMysqlString(mail.getDescMail()));
      stmt.execute(sqlString.toString());
 

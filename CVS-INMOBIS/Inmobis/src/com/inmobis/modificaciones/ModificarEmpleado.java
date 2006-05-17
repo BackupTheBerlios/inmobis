@@ -83,12 +83,12 @@ public class ModificarEmpleado extends Modificar{
 		//El nombre de usuario del empleado será el DNI, que es unico
 		//TODO con update.
 		try{
-			gestorEmpleado.insertaLogin(login);
+			gestorEmpleado.updateLogin(login);
 			try{
 				gestorEmpleado.update();
-				gestorEmpleado.insertaDir(direccion);
-				gestorEmpleado.insertaMail(mail);
-				gestorEmpleado.insertaTelf(telefono);
+				gestorEmpleado.updateDir(direccion);
+				gestorEmpleado.updateMail(mail);
+				gestorEmpleado.updateTelf(telefono);
 			}
 			catch(Exception e){
 				errors.add("editaEmpleado", new ActionMessage(e.toString()));
@@ -161,6 +161,11 @@ public class ModificarEmpleado extends Modificar{
 			errors.add("nif", new ActionMessage("errors.empleado.duplicated"));
 			if(i_log.isInfoEnabled())
 				i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());
+		}
+		catch (RowNotFoundException e){
+			errors.add("editaEmpleado", new ActionMessage("errors.bbdd.clave"));
+			if(i_log.isInfoEnabled())
+				i_log.info("Error fatal en BBDD, no se ha encontrado la clave");
 		}
 		return errors;
 	}

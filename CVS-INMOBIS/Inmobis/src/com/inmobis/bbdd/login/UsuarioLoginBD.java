@@ -116,7 +116,7 @@ public class UsuarioLoginBD implements BDObject {
                       ", ");
      sqlString.append("tipoUsuario=" +
                       MysqlUtils.toMysqlString(login.getTipoUsuario()));
-     sqlString.append("WHERE nombreUsuario=" +
+     sqlString.append(" WHERE nombreUsuario=" +
                       MysqlUtils.toMysqlString(login.getNombreUsuario()));
      stmt.execute(sqlString.toString());
 
