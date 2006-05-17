@@ -10,7 +10,7 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
 <%String subtitulo="Listado de clientes";%>
-<%String tipoMenu="agente";%>
+<%String tipoMenu="general";%>
 <%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature">

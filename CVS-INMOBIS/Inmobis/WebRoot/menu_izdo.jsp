@@ -116,10 +116,27 @@
 	</div>
 </div><!--del pageNav-->
 <%}else if(tipoMenu=="gerente"){%>
-	<div id="sectionLinks2">
-		<h3>MEN&Uacute; GERENTE</h3>
-		<br><br>
-		<FONT SIZE="2px" COLOR="RED">EN CONSTRUCCIÓN</FONT>
+	<html:errors property="menuGerente"/>
+	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
+	 <div id="sectionLinks2">
+		<h3>&nbsp;<fmt:message key="menuGerente.message"/></h3>			
+
+		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
+		<html:form action="verAgentesPrev.do" >
+			<html:submit>
+				<fmt:message key="menuGerente.button.agentes"/>
+			</html:submit>
+		 </html:form>
+		 <html:form action="verClientesPrev.do" >					
+			<html:submit>
+				<fmt:message key="menuGerente.button.clientes"/>
+			</html:submit>
+		</html:form>
+		<html:form action="verQuejasPrev.do" >					
+			<html:submit>
+				<fmt:message key="menuGerente.button.quejas"/>
+			</html:submit>
+		</html:form>
 	</div>
 </div><!--del pageNav-->
 <%}%>
