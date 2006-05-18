@@ -27,6 +27,9 @@ CON UN ANCHO DE 767 px -->
 							<fmt:message key="editaPiso.numHab"/>
 						</td>
 						<td>
+							<!--El id se pasa oculto para que no lo vea el usuario-->
+							<html:hidden property="idInmueble" />
+							<!--El numero de habitaciones y lo demas es normal-->
 							<html:text 	property="numHab" size="15"	maxlength="15" />
 							<html:errors property="numHab" />
 						</td>

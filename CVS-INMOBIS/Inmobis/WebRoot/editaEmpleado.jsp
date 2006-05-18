@@ -27,19 +27,13 @@ CON UN ANCHO DE 767 px -->
 							<fmt:message key="editaEmpleado.nombre"/>
 						</td>   
 						<td>
+							<!--El id se pasa oculto para que no lo vea el usuario-->
+							<html:hidden property="idUsuario" />
+							<!--El nombre de usuario y lo demas es normal-->
 							<html:text 	property="nombre" size="15" maxlength="15" />
 							<html:errors property="nombre" />
 						</td>
 					</tr>  
-					<tr>
-						<td>   
-							<fmt:message key="editaEmpleado.nif"/>
-						</td>   
-						<td>
-							<html:text 	property="nif" size="10" maxlength="10" />
-							<html:errors property="nif" />
-						</td>
-					</tr>
 					<tr>
 						<td>   
 							<fmt:message key="editaEmpleado.apellido1"/>
@@ -56,6 +50,15 @@ CON UN ANCHO DE 767 px -->
 						<td>
 							<html:text 	property="apellido2" size="15" maxlength="30" />
 							<html:errors property="apellido2" />
+						</td>
+					</tr>
+					<tr>
+						<td>   
+							<fmt:message key="editaEmpleado.nif"/>
+						</td>   
+						<td>
+							<html:text 	property="nif" size="10" maxlength="10" />
+							<html:errors property="nif" />
 						</td>
 					</tr>
 					<tr>
