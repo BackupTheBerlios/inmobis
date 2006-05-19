@@ -391,7 +391,7 @@ public class EditaClienteForm extends ActionForm {
 	//Setters
 	
 	public void setIdUsuario(String id){
-		this.idUsuario=id;
+		this.idUsuario=id.trim();
 	}
 	public void setNombreUsuario(String nUsuario){
 		this.nombreUsuario=nUsuario.trim();
