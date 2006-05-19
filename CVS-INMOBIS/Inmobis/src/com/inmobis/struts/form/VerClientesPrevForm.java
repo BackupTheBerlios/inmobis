@@ -25,6 +25,8 @@ public class VerClientesPrevForm extends ActionForm {
 	private String apellido2;
 	private String fechaNacimiento;
 	private String dniCliente;
+	
+	private boolean esBusqueda;
 	// --------------------------------------------------------- Methods
 
 	/** 
@@ -59,6 +61,8 @@ public class VerClientesPrevForm extends ActionForm {
 		this.idCliente="";
 		this.nombreCliente="";
 		this.dniCliente="";
+		
+		this.esBusqueda=false;
 	}
 
 	public String getApellido1() {
@@ -107,6 +111,14 @@ public class VerClientesPrevForm extends ActionForm {
 
 	public void setDniCliente(String dniCliente) {
 		this.dniCliente = dniCliente;
+	}
+
+	public boolean isEsBusqueda() {
+		return esBusqueda;
+	}
+
+	public void setEsBusqueda(boolean esBusqueda) {
+		this.esBusqueda = esBusqueda;
 	}
 
 }

@@ -5,6 +5,8 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
@@ -16,6 +18,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import com.inmobis.bbdd.cliente.*;
+import com.inmobis.INMOCTES;
 
 import com.inmobis.struts.form.VerClientesPrevForm;
 
@@ -52,20 +55,26 @@ public class VerClientesPrevAction extends Action {
 			log.info("VerClientesPrevAction 1: Antes de entrar en la base de datos");
 		}
 		
-		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
-		Vector listaClientes = consultar.listar(form);
-		 
-		int i = 0;
-		while (i<listaClientes.size()){
-			System.out.println("Id Cliente: "+((ClienteBean)listaClientes.get(i)).getIdCliente());
-			System.out.println("Dni Cliente: "+((ClienteBean)listaClientes.get(i)).getDni());
-			System.out.println("Nombre Cliente: "+((ClienteBean)listaClientes.get(i)).getNombreCliente());
-			System.out.println("Apellido1 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido1());
-			System.out.println("Apellido2 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido2());
-			System.out.println("Fecha Nacimiento Cliente: "+((ClienteBean)listaClientes.get(i)).getFechNacimiento());
-		}
+		HttpSession session = request.getSession(true);
 		
-		if (listaClientes.equals(null)){
+		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
+		ActionForm formClientesGerente = new VerClientesPrevForm();
+		
+		String uG = session.getAttribute(INMOCTES.tipoUsuario).toString();
+		
+		
+		Vector listaClientes = null;
+		//ActionForm form2 = null;
+		if (uG.equals("gerente"))
+			listaClientes = consultar.listar(formClientesGerente);
+		//else listaClientes = null;
+		 
+		
+		
+		session.setAttribute("listaClientes",listaClientes);
+		 
+				
+		if (listaClientes==null){
 			if (log.isInfoEnabled()){
 				log.info("VerClientesPrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}

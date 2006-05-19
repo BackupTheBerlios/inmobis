@@ -5,9 +5,8 @@ import java.util.Vector;
 import org.apache.struts.action.ActionForm;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.BDObject;
-import com.inmobis.bbdd.cliente.ClienteBD;
-import com.inmobis.bbdd.cliente.ClienteBean;
-import com.inmobis.bbdd.cliente.GestorClienteBD;
+import com.inmobis.bbdd.empleado.*;
+import com.inmobis.bbdd.cliente.*;
 import com.inmobis.struts.form.*;
 import com.inmobis.struts.action.*;
 import org.apache.log4j.Logger;
@@ -24,7 +23,7 @@ public class ConsultarCliente extends Consultar{
 		Vector error = new Vector();
 		error.add(new Integer(1));
 		//se crea el cliente bean
-		ClienteBean c = new ClienteBean();
+		
 		/*c.setNombre(((FiltrarClienteForm)datosBusqueda).getNombreCliente());
 		c.setApellido1(((FiltrarClienteForm)datosBusqueda).getApellido1());
 		c.setApellido2(((FiltrarClienteForm)datosBusqueda).getApellido2());
@@ -32,70 +31,62 @@ public class ConsultarCliente extends Consultar{
 		c.setIdCliente(((FiltrarClienteForm)datosBusqueda).getIdCliente());
 		c.setDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());*/
 		
-		//LLamada al gestor de la base de datos 
-		//CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente;
+		 
+		
+		
 
 		
 		
 		
 		
 		try{
+			
+			if (datosBusqueda.getClass().equals("VerClientesPrevForm"))
+			{
 			/*if ((((FiltrarClienteForm)datosBusqueda).getNombreCliente()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getApellido1()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getApellido2()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getIdCliente()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getDniCliente()).equals("")datosBusqueda.equals(null)){*/
+		
+				if (((VerClientesPrevForm)datosBusqueda).isEsBusqueda()==false)
+				{
 				
-				c.setNombre("");
-				c.setApellido1("");
-				c.setApellido2("");
-				c.setFechNacimiento("");
-				c.setIdCliente("");
-				c.setDni("");
+					ClienteBean c = new ClienteBean();
+					c.setNombre("");
+					c.setApellido1("");
+					c.setApellido2("");
+					c.setFechNacimiento("");
+					c.setIdCliente("");
+					c.setDni("");
 				
-				gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",c);
+					//					LLamada al gestor de la base de datos
+					GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",c);
 				
-				/*if(log.isInfoEnabled()){
-					log.info("ConsultarCliente 1: Antes de entrar en la base de datos " );
-					log.info("ConsultarCliente 2:  " +
-							"Nombre: "+ ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getNombreCliente()+
-							 "Apellido1: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getApellido1() + 
-							 "Apellido2: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getApellido2()+ 
-							 "Fecha de Nacimiento: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getFechNacimiento() + 
-							 "identificador: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getIdCliente());
-				}*/
 				
-				ClienteBD cBD = new ClienteBD((ClienteBean)gestorCliente.getBean());
-				datos = cBD.listarClientes();
-				//datos = ((ClienteBean)gestorCliente.getBean()).listarClientes();
-			/*}
-			else {
-			
-				c.setNombre(((FiltrarClienteForm)datosBusqueda).getNombreCliente());
-				c.setApellido1(((FiltrarClienteForm)datosBusqueda).getApellido1());
-				c.setApellido2(((FiltrarClienteForm)datosBusqueda).getApellido2());
-				c.setFechNacimiento(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento());
-				c.setIdCliente(((FiltrarClienteForm)datosBusqueda).getIdCliente());
-				c.setDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());
-				
-				gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",c);
-				
-				if(log.isInfoEnabled()){
-					log.info("ConsultarCliente 1: Antes de entrar en la base de datos " );
-					log.info("ConsultarCliente 2:  " +
-							"Nombre: "+ ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getNombreCliente()+
-							 "Apellido1: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getApellido1() + 
-							 "Apellido2: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getApellido2()+ 
-							 "Fecha de Nacimiento: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getFechNacimiento() + 
-							 "identificador: " + ((ClienteBean)((ClienteBD)gestorCliente.getBean()).getBean()).getIdCliente());
+					datos = gestorCliente.listarClientes();				
 				}
+			}
+			/*else {
+			   if (datosBusqueda.getClass().equals("VerClientesAgentePrevForm"))
+				//AgenteBean a = new AgenteBean();
+			   {
+				   EmpleadoBean a = new EmpleadoBean();				
 				
 				
-				datos = ((ClienteBD)gestorCliente.getBean()).BusquedaDetallada();
-			
-			}*/
+				   a.setNombre(((FiltrarClienteForm)datosBusqueda).getNombreCliente());
+				   a.setApellido1(((FiltrarClienteForm)datosBusqueda).getApellido1());
+				   a.setApellido2(((FiltrarClienteForm)datosBusqueda).getApellido2());
+				   a.setFechNacimiento(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento());
+				   a.setIdEmpleado(((FiltrarClienteForm)datosBusqueda).getIdCliente());
+				   a.setIdDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());
+				
+				   GestorEmpleadoBD gestorAgente = (GestorEmpleadoBD)CreadorGestores.crearGestor("agente",a);				
+				
+				   datos = gestorAgente.BusquedaDetallada();
+			   }
+		    }*/
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarCliente 3: Fallo en la busqueda en la base de datos " );

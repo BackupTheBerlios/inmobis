@@ -18,6 +18,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.inmobis.bbdd.cliente.ClienteBean;
+import com.inmobis.INMOCTES;
 import com.inmobis.consultas.CreadorConsultar;
 import com.inmobis.consultas.Consultar;
 import com.inmobis.struts.form.VerClientesAgentePrevForm;
@@ -55,17 +56,23 @@ public class VerClientesAgentePrevAction extends Action {
 			log.info("VerClientesAgentePrevAction 1: Antes de entrar en la base de datos");
 		}
 		
-		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
-		//ActionForm form2 = null;
-		Vector listaClientes = consultar.listar(form);
-		 
-		
 		HttpSession session = request.getSession(true);
-		session.setAttribute("listaClientes",listaClientes);
+		
+		Consultar consultar=CreadorConsultar.CreaConsultar("agente");
+		//ActionForm form2 = null;
+		ActionForm formClientesAgente = new VerClientesAgentePrevForm();
+		
+		formClientesAgente.reset(mapping,request);		
+		
+		Vector listaClientesAgente = null;	
+		
+		listaClientesAgente = consultar.listar(formClientesAgente);		
+		
+		session.setAttribute("listaClientesAgente",listaClientesAgente);
 		//request.setAttribute(\"listaConcellos\",vec_concellos);
 		
 		
-		if ((listaClientes.size()==1)&&(((Integer)listaClientes.get(0)).equals(new Integer (1)))/*listaClientes.equals(null)*/){
+		if (/*(listaClientes.size()==1)&&(((Integer)listaClientes.get(0)).equals(new Integer (1)))*/listaClientesAgente.equals(null)){
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
@@ -73,17 +80,7 @@ public class VerClientesAgentePrevAction extends Action {
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
-		else{
-			
-			/*int i = 0;
-			while (i<listaClientes.size()){
-				System.out.println("Id Cliente: "+((ClienteBean)listaClientes.get(i)).getIdCliente());
-				System.out.println("Dni Cliente: "+((ClienteBean)listaClientes.get(i)).getDni());
-				System.out.println("Nombre Cliente: "+((ClienteBean)listaClientes.get(i)).getNombreCliente());
-				System.out.println("Apellido1 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido1());
-				System.out.println("Apellido2 Cliente: "+((ClienteBean)listaClientes.get(i)).getApellido2());
-				System.out.println("Fecha Nacimiento Cliente: "+((ClienteBean)listaClientes.get(i)).getFechNacimiento());
-			}*/
+		else{			
 			
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction 3: Se ha realizado el listado con éxito");

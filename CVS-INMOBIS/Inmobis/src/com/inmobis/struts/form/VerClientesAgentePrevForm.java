@@ -19,21 +19,33 @@ import org.apache.struts.action.ActionMapping;
 public class VerClientesAgentePrevForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
-	private String idCliente;
+	/*private String idCliente;
 	private String nombreCliente;
 	private String apellido1;
 	private String apellido2;
 	private String fechaNacimiento;
-	private String dniCliente;
+	private String dniCliente;*/
+	
+	private boolean esBusqueda;
+	
+	private String idAgente;
 	// --------------------------------------------------------- Methods
 
-	public String getDniCliente() {
+	public String getIdAgente() {
+		return idAgente;
+	}
+
+	public void setIdAgente(String idAgente) {
+		this.idAgente = idAgente;
+	}
+
+	/*public String getDniCliente() {
 		return dniCliente;
 	}
 
 	public void setDniCliente(String dniCliente) {
 		this.dniCliente = dniCliente;
-	}
+	}*/
 
 	/** 
 	 * Method validate
@@ -47,8 +59,8 @@ public class VerClientesAgentePrevForm extends ActionForm {
 
 		ActionErrors errors= new ActionErrors();
 		
-		if (apellido1.equals(null) && apellido2.equals(null) && fechaNacimiento.equals(null) &&
-				idCliente.equals(null) && nombreCliente.equals(null) && dniCliente.equals(null))
+		if (/*apellido1.equals(null) && apellido2.equals(null) && fechaNacimiento.equals(null) &&
+				idCliente.equals(null) && nombreCliente.equals(null) && dniCliente.equals(null)*/idAgente.equals(null))
 			errors.add("vacio", new ActionMessage("errors.vacio.required"));
 			
 		return errors;
@@ -61,15 +73,19 @@ public class VerClientesAgentePrevForm extends ActionForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
-		this.apellido1="";
+		/*this.apellido1="";
 		this.apellido2="";
 		this.fechaNacimiento="";
 		this.idCliente="";
 		this.nombreCliente="";
-		this.dniCliente = "";
+		this.dniCliente = "";*/
+		
+		this.idAgente=request.getSession(true).toString();
+		
+		this.esBusqueda = true;
 	}
 
-	public String getApellido1() {
+	/*public String getApellido1() {
 		return apellido1;
 	}
 
@@ -107,6 +123,14 @@ public class VerClientesAgentePrevForm extends ActionForm {
 
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
+	}*/
+
+	public boolean isEsBusqueda() {
+		return esBusqueda;
+	}
+
+	public void setEsBusqueda(boolean esBusqueda) {
+		this.esBusqueda = esBusqueda;
 	}
 
 }
