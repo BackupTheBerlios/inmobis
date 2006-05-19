@@ -135,8 +135,7 @@ public class InfoDirBD implements BDObject {
      sqlString.append("pais=" +
                       MysqlUtils.toMysqlString(direccion.getPais()));
      sqlString.append(" WHERE IdGeneral=" +
-                      MysqlUtils.toMysqlString(direccion.getIdGeneral())+" AND descDir="+
-                               MysqlUtils.toMysqlString(direccion.getDescDir()));
+                      MysqlUtils.toMysqlString(direccion.getIdGeneral()));
      
      if (milog.isInfoEnabled()){
 			milog.info("comando sql: "+sqlString);

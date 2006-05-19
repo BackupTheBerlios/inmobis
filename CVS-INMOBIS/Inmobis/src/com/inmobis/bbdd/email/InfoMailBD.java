@@ -112,8 +112,7 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
      sqlString.append("descMail=" +
                       MysqlUtils.toMysqlString(mail.getDescMail()));
      sqlString.append(" WHERE IdGeneral=" +
-                      MysqlUtils.toMysqlString(mail.getIdGeneral())+" AND descMail="+
-                               MysqlUtils.toMysqlString(mail.getDescMail()));
+                      MysqlUtils.toMysqlString(mail.getIdGeneral()));
      stmt.execute(sqlString.toString());
 
 

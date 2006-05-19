@@ -115,8 +115,8 @@ public class InfoTelfBD implements BDObject {
       sqlString.append("telefono2=" +
                        MysqlUtils.toMysqlString(telefono.getTelefono2()));
       sqlString.append(" WHERE IdGeneral=" +
-                       MysqlUtils.toMysqlString(telefono.getIdGeneral())+" AND descTelefono="+
-                                MysqlUtils.toMysqlString(telefono.getDescTelefono()));
+                       MysqlUtils.toMysqlString(telefono.getIdGeneral()));
+                             
       stmt.execute(sqlString.toString());
 
 

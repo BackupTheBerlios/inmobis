@@ -108,7 +108,7 @@ public class UsuarioLoginBD implements BDObject {
      sqlString.append("set idUsuario=" +
                       MysqlUtils.toMysqlString(login.getIdUsuario()) + ", ");
      sqlString.append("nombreUsuario=" +
-                 MysqlUtils.toMysqlString(login.getPassword()) +
+                 MysqlUtils.toMysqlString(login.getNombreUsuario()) +
                  ", ");
 
      sqlString.append("password=" +
@@ -116,8 +116,8 @@ public class UsuarioLoginBD implements BDObject {
                       ", ");
      sqlString.append("tipoUsuario=" +
                       MysqlUtils.toMysqlString(login.getTipoUsuario()));
-     sqlString.append(" WHERE nombreUsuario=" +
-                      MysqlUtils.toMysqlString(login.getNombreUsuario()));
+     sqlString.append(" WHERE idUsuario=" +
+                      MysqlUtils.toMysqlString(login.getIdUsuario()));
      stmt.execute(sqlString.toString());
 
 
