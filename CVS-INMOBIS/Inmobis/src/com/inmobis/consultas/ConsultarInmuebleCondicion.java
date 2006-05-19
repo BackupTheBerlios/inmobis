@@ -20,20 +20,20 @@ public class ConsultarInmuebleCondicion extends Consultar{
 		//se crea el empleado bean		
 		InmuebleBean i = new InmuebleBean();
 		//se rellena el bean
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getMetros().equals(null)))
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getMetros().equals(null)))
 			i.setMetros(((FiltrarPisoAgenteForm)datosBusqueda).getMetros());
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getRegimen().equals(null)))
-			//i.setRegimen(((FiltrarPisoAgenteForm)datosBusqueda).getRegimen());
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecio().equals(null)))
-			//i.setPrecio(((FiltrarPisoAgenteForm)datosBusqueda).getPrecio());
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getDatosDeInteres().equals(null)))
-			//i.setDatosDeInteres(((FiltrarPisoAgenteForm)datosBusqueda).getDatosDeInteres());
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getNumHab().equals(null)))
-			//i.setNumHab(((FiltrarPisoAgenteForm)datosBusqueda).getNumHab());
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getTipo().equals(null)))
-			//i.setTipo(((FiltrarPisoAgenteForm)datosBusqueda).getTipo());
-		//if (!(((FiltrarPisoAgenteForm)datosBusqueda).getZona().equals(null)))
-			//i.setZona(((FiltrarPisoAgenteForm)datosBusqueda).getZona());
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getRegimen().equals(null)))
+			i.setRegimen(((FiltrarPisoAgenteForm)datosBusqueda).getRegimen());
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecio().equals(null)))
+			i.setPrecio(((FiltrarPisoAgenteForm)datosBusqueda).getPrecio());
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getDatosDeInteres().equals(null)))
+			i.setDatosDeInteres(((FiltrarPisoAgenteForm)datosBusqueda).getDatosDeInteres());
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getNumHab().equals(null)))
+			i.setNumHab(((FiltrarPisoAgenteForm)datosBusqueda).getNumHab());
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getTipo().equals(null)))
+			i.setTipo(((FiltrarPisoAgenteForm)datosBusqueda).getTipo());
+		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getZona().equals(null)))
+			i.setZona(((FiltrarPisoAgenteForm)datosBusqueda).getZona());
 		
 		//se crea el inmueble dase de datos		
 		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",i);

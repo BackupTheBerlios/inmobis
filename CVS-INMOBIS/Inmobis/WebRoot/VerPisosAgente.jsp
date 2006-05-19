@@ -69,11 +69,11 @@ CON UN ANCHO DE 767 px -->
 				<td>
 					<a href="borraPisoPrev.do?idinmueble=<bean:write name='inmueble' property='idInmueble'/>
 					   +&inmueble=<bean:write name='inmueble' property='zona' />
-					   +&numHab=+<bean:write name='numHab' property='numHab' />
-					   +&metros=+<bean:write name='metros' property='metros' />
-					   +&regimen=+<bean:write name='regimen' property='regimen' />
-					   +&tipo=+<bean:write name='tipo' property='tipo' />
-					   +&precio=+<bean:write name='precio' property='precio' />"	
+					   +&numHab=+<bean:write name='inmueble' property='numHab' />
+					   +&metros=+<bean:write name='inmueble' property='metros' />
+					   +&regimen=+<bean:write name='inmueble' property='regimen' />
+					   +&tipo=+<bean:write name='inmueble' property='tipo' />
+					   +&precio=+<bean:write name='inmueble' property='precio' />"	
 					   >ELIMINAR</a>
 				</td>
 			</tr>
