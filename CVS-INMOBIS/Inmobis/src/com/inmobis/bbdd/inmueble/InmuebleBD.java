@@ -270,6 +270,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
    
    public Vector BusquedaDetallada () {
 	   Vector inmueblesEncontrados = new Vector();
+	   if (milog.isInfoEnabled()){
+			milog.info("InmuebleBD 4:estoy al principio de busquedaDetallada");
+	    }
 	     try {
 	       conn = ConnectionManager.getConection();
 	       Statement stmt = conn.createStatement();
@@ -339,6 +342,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	    	 if (conn != null) 
 	    		 try{conn.close();}catch(SQLException e){}
 	    } //Liberamos la conexion pase lo que pase
+	     if (milog.isInfoEnabled()){
+				milog.info("InmuebleBD 5:estoy al final de busquedaDetallada");
+		    }
 	     return inmueblesEncontrados;
   }
 

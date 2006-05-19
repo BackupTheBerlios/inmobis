@@ -18,7 +18,6 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import com.inmobis.consultas.CreadorConsultar;
 import com.inmobis.struts.form.FiltrarPisoAgenteForm;
 
 /** 
@@ -54,13 +53,13 @@ public class FiltrarPisoAgenteAction extends Action {
 		
 		
 		if (log.isInfoEnabled()){
-			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getMetros());
-			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getNumHab());
-			log.info("FiltrarPisoAgenteForm 4: " + ((FiltrarPisoAgenteForm)form).getPrecio());
-			log.info("FiltrarPisoAgenteForm 5: " + ((FiltrarPisoAgenteForm)form).getRegimen());
-			log.info("FiltrarPisoAgenteForm 6: " + ((FiltrarPisoAgenteForm)form).getTipo());
-			log.info("FiltrarPisoAgenteForm 7: " + ((FiltrarPisoAgenteForm)form).getZona());
-			log.info("FiltrarPisoAgenteForm 8: " + ((FiltrarPisoAgenteForm)form).getDatosDeInteres());
+			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetros());
+			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getNumHab());
+			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getPrecio());
+			log.info("FiltrarPisoAgenteForm 4: " + ((FiltrarPisoAgenteForm)form).getRegimen());
+			log.info("FiltrarPisoAgenteForm 5: " + ((FiltrarPisoAgenteForm)form).getTipo());
+			log.info("FiltrarPisoAgenteForm 6: " + ((FiltrarPisoAgenteForm)form).getZona());
+			log.info("FiltrarPisoAgenteForm 7: " + ((FiltrarPisoAgenteForm)form).getDatosDeInteres());
 		}
 		
 		if (log.isInfoEnabled()){
@@ -74,34 +73,40 @@ public class FiltrarPisoAgenteAction extends Action {
 		if (listaInmuebles.equals(null)){
 			if (log.isInfoEnabled()){
 				log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
-				
 			}
 			errors.add("listainmuebles", new ActionMessage("errors.listainmuebles.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
 		else{
-			if (log.isInfoEnabled()){
-				log.info("FiltrarPisoAgenteAction 3: Se ha realizado la busqueda con éxito");
-				log.info("FiltrarPisoAgenteAction 3: " + listaInmuebles.size());
-				int i=0;
-				while (i<listaInmuebles.size()){
-					log.info("Identificador: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getIdInmueble());
-					log.info("Zona: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getZona());
-					log.info("Metros: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getMetros());
-					log.info("Precio: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getPrecio());
-					log.info("Regimen: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getRegimen());
-					log.info("Datos Interes: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getdatosDeInteres());
-					i++;
+			if (listaInmuebles.size()==0){
+				if (log.isInfoEnabled()){
+					log.info("FiltrarPisoAgenteAction 3: Ha habido un error en la búsqueda en la bbdd");	
 				}
+				errors.add("listainmuebles", new ActionMessage("errors.listainmuebles.vacia"));
+				saveErrors(request,errors);
+				return (mapping.findForward("error"));
 			}
-			HttpSession session = request.getSession(true);
-			session.setAttribute("listaInmuebles",listaInmuebles);
-			return mapping.findForward("exito");
-		}
-		
-		
+			else{
+				if (log.isInfoEnabled()){
+					log.info("FiltrarPisoAgenteAction 4: Se ha realizado la busqueda con éxito");
+					log.info("FiltrarPisoAgenteAction 5: " + listaInmuebles.size());
+					int i=0;
+					while (i<listaInmuebles.size()){
+						log.info("Identificador: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getIdInmueble());
+						log.info("Zona: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getZona());
+						log.info("Metros: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getMetros());
+						log.info("Precio: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getPrecio());
+						log.info("Regimen: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getRegimen());
+						log.info("Datos Interes: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getdatosDeInteres());
+						i++;
+					}
+				}
+				HttpSession session = request.getSession(true);
+				session.setAttribute("listaInmuebles",listaInmuebles);
+				return mapping.findForward("exito");
+			}
+		}	
 	}
-
 }
 
