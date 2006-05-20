@@ -78,12 +78,11 @@ CON UN ANCHO DE 767 px -->
 									</td>
 								</tr>								
 							</table>
+							<br><br>
 							<table width="100%">
 								<tr>
 									<td align="center">
-										<html:submit>
-											<fmt:message key="filtrarCliente.button.buscar"/>
-										</html:submit>
+										<html:image value="submit" src="images/buscarBtn.jpg"/>
 									</td>
 								</tr>
 							</table>

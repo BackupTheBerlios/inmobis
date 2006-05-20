@@ -76,15 +76,13 @@ CON UN ANCHO DE 767 px -->
 													maxlength="15" />
 										<html:errors property="dniEmpleado" />
 									</td>
-								</tr>	
-								
+								</tr>								
 							</table>
+							<br><br>
 							<table width="100%">
 								<tr>
 									<td align="center">
-										<html:submit>
-											<fmt:message key="filtrarEmpleado.button.buscar"/>
-										</html:submit>
+										<html:image value="submit" src="images/buscarBtnGA.GIF"/>
 									</td>
 								</tr>
 							</table>
