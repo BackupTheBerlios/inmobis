@@ -138,8 +138,7 @@ CON UN ANCHO DE 767 px -->
 							<fmt:message key="editaPiso.provincia"/>	
 						</td>
 						<td>
-							<html:text 	property="provincia" size="15" maxlength="15" />
-							<html:errors property="provincia" />
+							<%@ include file="provincia.jsp" %>
 						</td>
 					</tr>
 					<tr>
