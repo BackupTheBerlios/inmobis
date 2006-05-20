@@ -22,11 +22,11 @@ CON UN ANCHO DE 767 px -->
 							</table>							
 							<table border="0" width="100%">
 								<tr>
-									<td>
+									<td width="30%">
 										<fmt:message key="filtrarPisos.metros"/>
 									</td>
 									<td>
-										<html:text 	property="metros" size="40" maxlength="40" />
+										<html:text 	property="metros" size="10" maxlength="10" />
 										<html:errors property="metros" />
 									</td>
 								</tr>	
@@ -35,7 +35,10 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.regimen"/>
 									</td>
 									<td>
-										<html:text 	property="regimen" size="20" maxlength="20" />
+										<html:select property="regimen" size="1">
+											<html:option value="alquiler">Alquiler</html:option>
+											<html:option value="venta">Venta</html:option>
+										</html:select>
 										<html:errors property="regimen" />
 									</td>
 								</tr>	
@@ -44,10 +47,11 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.precio"/>
 									</td>
 									<td>
-										<html:text 	property="precio" size="20" maxlength="20" />
+										<html:text 	property="precio" size="10" maxlength="10" />
 										<html:errors property="precio" />
 									</td>
 								</tr>
+								<!-- ESTO NO TIENE SENTIDO EN UN FILTRAR
 								<tr>
 									<td>
 										<fmt:message key="filtrarPisos.datosdeinteres"/>
@@ -57,15 +61,23 @@ CON UN ANCHO DE 767 px -->
 										<html:errors property="datosDeInteres" />
 									</td>
 								</tr>
+								-->
 								<tr>
 									<td>
 										<fmt:message key="filtrarPisos.numhab"/>
 									</td>
 									<td>
-										<html:text 	property="numHab" size="15" maxlength="15" />
+										<html:select property="numHab" size="1">
+											<html:option value="1">Una</html:option>
+											<html:option value="2">Dos</html:option>
+											<html:option value="3">Tres</html:option>
+											<html:option value="4">Cuatro</html:option>
+											<html:option value="5">Cinco</html:option>
+										</html:select>
 										<html:errors property="numHab" />
 									</td>
 								</tr>
+								<!--ESTO DEBERÍA SER OTRO SELECT??????????    *********************************-->
 								<tr>
 									<td>
 										<fmt:message key="filtrarPisos.tipo"/>
