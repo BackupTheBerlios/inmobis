@@ -2,7 +2,8 @@
 <%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de empleado";%>
 <%boolean esIndex=false; %>
 <%@include file="cabecera.jsp" %>
-
+<script>
+</script>
 <!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
 
@@ -54,7 +55,7 @@ CON UN ANCHO DE 767 px -->
 					</tr>
 					<tr>
 						<td>   
-							<fmt:message key="editaEmpleado.nif"/>
+							<fmt:message key="editaEmpleado.dni"/>
 						</td>   
 						<td>
 							<html:text 	property="nif" size="10" maxlength="10" />
@@ -75,19 +76,27 @@ CON UN ANCHO DE 767 px -->
 							<fmt:message key="editaEmpleado.tipoEmpleado"/>
 						</td> 
 						<td>
-							<html:text 	property="tipoEmpleado" size="10" maxlength="10" />
+							<html:select property="tipoEmpleado" size="1">
+								<html:option value="agente">Agente</html:option>
+								<html:option value="gerente">Gerente</html:option>
+								<html:option value="contable">Contable</html:option>
+								<html:option value="administrador">Administrador</html:option>
+							</html:select>
 							<html:errors property="tipoEmpleado" />
 						</td>
-					 </tr>
-					 <tr>
-						<td>
+					</tr>
+					<!--Esto no va por ahora-->
+					<div id="PorcentajeEmpleado" style="visibility:hidden">
+					<tr>
+						<td>		
 							<fmt:message key="editaEmpleado.porcentaje"/>
-						</td> 
-						<td>
+						</td> 							
+						<td>							
 							<html:text 	property="porcentaje" size="10" maxlength="10" />
-							<html:errors property="porcentaje" />
+							<html:errors property="porcentaje" />								
 						</td>
-					 </tr>
+					</tr>
+					</div>					
 					 <tr>
 						<td>
 							<fmt:message key="editaEmpleado.telefono1"/>
