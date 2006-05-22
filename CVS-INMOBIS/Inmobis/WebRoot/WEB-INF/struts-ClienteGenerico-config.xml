@@ -24,12 +24,7 @@
       type="com.inmobis.struts.action.VerPisosAction">
       <forward name="exito" path="/VerPisos.jsp" />
     </action>
-    <action
-      input="/PonerMensaje.jsp"
-      path="/ponerMensaje"
-      type="com.inmobis.struts.action.PonerMensajeAction" >
-      <forward name="volver" path="/PonerMensaje.jsp" />
-    </action>
+    
     
 
 
