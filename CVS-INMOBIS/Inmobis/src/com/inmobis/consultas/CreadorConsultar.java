@@ -1,11 +1,6 @@
 package com.inmobis.consultas;
 
-import com.inmobis.consultas.Consultar;
-import com.inmobis.consultas.ConsultarAgente;
-import com.inmobis.consultas.ConsultarCliente;
-import com.inmobis.consultas.ConsultarEmpleado;
-import com.inmobis.consultas.ConsultarInmueble;
-import com.inmobis.consultas.ConsultarInmuebleCondicion;
+//import com.inmobis.consultas.*;
 
 
 public class CreadorConsultar {
@@ -15,6 +10,7 @@ public class CreadorConsultar {
 		if (Usuario.equals("cliente")) return new ConsultarCliente();
 		if (Usuario.equals("inmueble")) return new ConsultarInmueble();
 		if (Usuario.equals("inmuebleCondicion")) return new ConsultarInmuebleCondicion();
+		if (Usuario.equals("mensaje")) return new ConsultarMensaje();
 		return null;
 	}
 

@@ -33,6 +33,7 @@
       path="/listaMensajesPrev"
       type="com.inmobis.struts.action.ListaMensajesPrevAction">
       <forward name="exito" path="/ListaMensajes.jsp" />
+      <forward name="error" path="/MenuCliente.jsp" />
     </action>
     <action
       attribute="BorrarMensajeForm"
