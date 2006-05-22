@@ -20,33 +20,15 @@ import org.apache.struts.action.ActionMessage;
 public class FiltrarPisoAgenteForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
-	 private String metros;
+	 private String metrosMin,metrosMax;
 	 private String regimen;
-	 private String precio;
+	 private String precioMin,precioMax;
 	 private String datosDeInteres;
 	 private String numHab;
 	 private String tipo;
 	 private String zona;
 	// --------------------------------------------------------- Methods
 
-	public String getNumHab() {
-		return numHab;
-	}
-	public void setNumHab(String numHab) {
-		this.numHab = numHab;
-	}
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-	public String getZona() {
-		return zona;
-	}
-	public void setZona(String zona) {
-		this.zona = zona;
-	}
 		/** 
 		 * Method reset
 		 * @param mapping
@@ -54,8 +36,10 @@ public class FiltrarPisoAgenteForm extends ActionForm {
 		 */
 		public void reset(ActionMapping mapping, HttpServletRequest request) {
 			this.datosDeInteres = "";
-			this.metros = "";
-			this.precio = "";
+			this.metrosMin = "";
+			this.metrosMax = "";
+			this.precioMin = "";
+			this.precioMax = "";
 			this.regimen = "";
 			this.numHab = "";
 			this.tipo ="";
@@ -74,45 +58,65 @@ public class FiltrarPisoAgenteForm extends ActionForm {
 		
 		ActionErrors errors= new ActionErrors();
 		
-		if (metros.equals(null) && regimen.equals(null) &&precio.equals(null) && datosDeInteres.equals(null) && 
-				numHab.equals(null) && tipo.equals(null) && zona.equals(null))
+		if (metrosMin== "" && metrosMax=="" && regimen=="" && precioMin == "" && precioMax=="" && datosDeInteres=="" && 
+				numHab=="" && tipo=="" && zona=="")
 			errors.add("vacio", new ActionMessage("errors.vacio.required"));
-			
+		
 		return errors;
 	}
-
-
 	public String getDatosDeInteres() {
 		return datosDeInteres;
 	}
-
 	public void setDatosDeInteres(String datosDeInteres) {
 		this.datosDeInteres = datosDeInteres;
 	}
-
-	public String getMetros() {
-		return metros;
+	public String getMetrosMax() {
+		return metrosMax;
 	}
-
-	public void setMetros(String metros) {
-		this.metros = metros;
+	public void setMetrosMax(String metrosMax) {
+		this.metrosMax = metrosMax;
 	}
-
-	public String getPrecio() {
-		return precio;
+	public String getMetrosMin() {
+		return metrosMin;
 	}
-
-	public void setPrecio(String precio) {
-		this.precio = precio;
+	public void setMetrosMin(String metrosMin) {
+		this.metrosMin = metrosMin;
 	}
-
+	public String getPrecioMax() {
+		return precioMax;
+	}
+	public void setPrecioMax(String precioMax) {
+		this.precioMax = precioMax;
+	}
+	public String getPrecioMin() {
+		return precioMin;
+	}
+	public void setPrecioMin(String precioMin) {
+		this.precioMin = precioMin;
+	}
 	public String getRegimen() {
 		return regimen;
 	}
-
 	public void setRegimen(String regimen) {
 		this.regimen = regimen;
 	}
-
+	public String getNumHab() {
+		return numHab;
+	}
+	public void setNumHab(String numHab) {
+		this.numHab = numHab;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public String getZona() {
+		return zona;
+	}
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
 }
 
