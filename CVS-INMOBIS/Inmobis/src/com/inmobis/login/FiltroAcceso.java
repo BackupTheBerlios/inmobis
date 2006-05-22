@@ -39,7 +39,7 @@ public class FiltroAcceso implements Filter {
     
     HttpSession session = req.getSession();
     String userName = (String) session.getAttribute(INMOCTES.userName);
-    ActionErrors errors = new ActionErrors();
+    ActionMessages errors = new ActionMessages();
     if ((userName == null)||(userName.trim().equals(""))) {
 		errors.add("userName", new ActionMessage("error.password.invalid"));
     }
