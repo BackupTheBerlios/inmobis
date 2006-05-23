@@ -87,8 +87,7 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.tipo"/>
 									</td>
 									<td>
-										<html:text 	property="tipo" size="15" maxlength="15" />
-										<html:errors property="tipo" />
+										<%@ include file="tipoInmueble.jsp" %>
 									</td>
 								</tr>
 								<tr>
