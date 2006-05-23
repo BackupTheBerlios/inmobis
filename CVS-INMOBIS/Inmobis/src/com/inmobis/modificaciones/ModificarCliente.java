@@ -7,7 +7,6 @@ import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.altas.IntroducirCliente;
 import com.inmobis.bbdd.CreadorGestores;
-import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.cliente.GestorClienteBD;
@@ -16,7 +15,6 @@ import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 import com.inmobis.struts.form.EditaClienteForm;
-import com.inmobis.struts.form.RegistraClienteForm;
 
 public class ModificarCliente extends Modificar{
 	
@@ -66,7 +64,6 @@ public class ModificarCliente extends Modificar{
 		//Rellenamos el bean
 		mail.setDirMail(((EditaClienteForm)datosCliente).getEmail());
 		
-		//TODO se puede modificar la info de login?
 		//Creamos un Bean de Login asociado al cliente ya creado
 		UsuarioLoginBean login=gestorCliente.newInfoLoginClientes(cliente.getIdCliente());
 		//Rellenamos el bean
@@ -98,7 +95,6 @@ public class ModificarCliente extends Modificar{
 			if(i_log.isInfoEnabled())
 				i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());
 		}
-		//TODO Asignar el agente si este se ha modificado
 		return errors;
 	}
 }

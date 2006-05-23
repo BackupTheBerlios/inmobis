@@ -1,7 +1,5 @@
 package com.inmobis.struts.action;
 
-import java.util.Vector;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +9,6 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.direccion.InfoDirBean;
@@ -19,11 +16,7 @@ import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 import com.inmobis.consultas.Consultar;
-import com.inmobis.consultas.ConsultarCliente;
 import com.inmobis.consultas.CreadorConsultar;
-import com.inmobis.modificaciones.CreadorModificar;
-import com.inmobis.modificaciones.Modificar;
-import com.inmobis.struts.form.EditaClienteForm;
 import com.inmobis.struts.form.EditaClientePrevForm;
 
 public class EditaClientePrevAction extends Action{
