@@ -26,8 +26,10 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.metros"/>
 									</td>
 									<td>
-										<html:text 	property="metros" size="10" maxlength="10" />
-										<html:errors property="metros" />
+										de&nbsp;&nbsp;<html:text property="metrosMax" size="5" maxlength="10" />
+										a&nbsp;&nbsp;<html:text property="metrosMin" size="5" maxlength="10" />&nbsp;m&sup2;
+										<html:errors property="metrosMax" />
+										<html:errors property="metrosMin" />
 									</td>
 								</tr>	
 								<tr>
@@ -47,8 +49,10 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.precio"/>
 									</td>
 									<td>
-										<html:text 	property="precio" size="10" maxlength="10" />
-										<html:errors property="precio" />
+										de&nbsp;&nbsp;<html:text property="precioMax" size="5" maxlength="10" />
+										a&nbsp;&nbsp;<html:text property="precioMin" size="5" maxlength="10" />&nbsp;Euros
+										<html:errors property="precioMax" />
+										<html:errors property="precioMin" />
 									</td>
 								</tr>
 								<!-- ESTO NO TIENE SENTIDO EN UN FILTRAR
