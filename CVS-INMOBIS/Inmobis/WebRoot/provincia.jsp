@@ -30,7 +30,7 @@
 	<html:option value="Lugo"/>
 	<html:option value="Madrid"/>
 	<html:option value="Malaga"/>
-	<html:option value="Mayorca"/>
+	<html:option value="Mallorca"/>
 	<html:option value="Menorca"/>
 	<html:option value="Murcia"/>
 	<html:option value="Navarra"/>
@@ -39,7 +39,7 @@
 	<html:option value="Pontevedra"/>
 	<html:option value="Salamanca"/>
 	<html:option value="Santa Cruz de Tenerife"/>
-	<html:option value="Segobia"/>
+	<html:option value="Segovia"/>
 	<html:option value="Sevilla"/>	
 	<html:option value="Soria"/>
 	<html:option value="Tarragona"/>
