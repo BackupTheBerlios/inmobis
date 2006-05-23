@@ -95,11 +95,10 @@ CON UN ANCHO DE 767 px -->
 									<td align="right">
 										<fmt:message key="registraPiso.regimen"/>
 									</td>
-									<td>
-										<html:select property="regimen" size="1">
-											<html:option value="alquiler">Alquiler</html:option>
-											<html:option value="venta">Venta</html:option>
-										</html:select>
+									<td align="left">
+										<html:text 	property="regimen" 
+													size="15" 
+													maxlength="15" />
 										<html:errors property="regimen" />
 									</td>
 								</tr> 
@@ -138,7 +137,10 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="registraPiso.provincia"/>
 									</td>
 									<td align="left">
-										<%@ include file="provincia.jsp" %>
+										<html:text 	property="provincia" 
+													size="15" 
+													maxlength="15" />
+										<html:errors property="provincia" />
 									</td>
 								</tr> 
 								<tr>
@@ -156,14 +158,10 @@ CON UN ANCHO DE 767 px -->
 									<td align="right">
 										<fmt:message key="registraPiso.numHab"/>
 									</td>
-									<td>
-										<html:select property="numHab" size="1">
-											<html:option value="1">Una</html:option>
-											<html:option value="2">Dos</html:option>
-											<html:option value="3">Tres</html:option>
-											<html:option value="4">Cuatro</html:option>
-											<html:option value="5">Cinco</html:option>
-										</html:select>
+									<td align="left">
+										<html:text 	property="numHab" 
+													size="15" 
+													maxlength="15" />
 										<html:errors property="numHab" />
 									</td>
 								</tr> 
