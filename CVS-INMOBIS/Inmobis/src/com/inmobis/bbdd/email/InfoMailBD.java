@@ -27,6 +27,41 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
     return mail;
   }
 
+ public void selectAll () throws RowNotFoundException {
+
+     try {
+
+       conn = ConnectionManager.getConection();
+       Statement stmt = conn.createStatement();
+       ResultSet rs = null;
+
+       rs = stmt.executeQuery("SELECT * FROM "+ nombreTabla + " WHERE idGeneral=" +
+                              MysqlUtils.toMysqlString(mail.getIdGeneral()));
+       if (rs.next()) {
+         mail.setIdGeneral(rs.getString("idGeneral"));
+         mail.setDirMail(rs.getString("dirMail"));
+         mail.setDescMail(rs.getString("descMail"));
+
+
+       }
+       else {
+    	   throw new RowNotFoundException(); 
+       }
+
+
+     }
+     catch(Exception ex)
+       {
+        System.out.println(ex);
+       }
+     finally{
+    	 if (conn != null) 
+    		 try{conn.close();}catch(SQLException e){}
+    } //Liberamos la conexion pase lo que pase
+
+
+  }
+  
   public void select () throws RowNotFoundException {
 
      try {
@@ -36,7 +71,7 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
        ResultSet rs = null;
 
        rs = stmt.executeQuery("SELECT * FROM "+ nombreTabla + " WHERE idGeneral=" +
-                              MysqlUtils.toMysqlString(mail.getIdGeneral())+"AND descMail= "+
+                              MysqlUtils.toMysqlString(mail.getIdGeneral())+" AND descMail= "+
                                MysqlUtils.toMysqlString(mail.getDescMail()));
        if (rs.next()) {
          mail.setIdGeneral(rs.getString("idGeneral"));

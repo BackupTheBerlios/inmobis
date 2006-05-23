@@ -28,6 +28,41 @@ public class InfoTelfBD implements BDObject {
      return telefono;
    }
 
+  public void selectAll () throws RowNotFoundException {
+
+      try {
+
+        conn = ConnectionManager.getConection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = null;
+
+        rs = stmt.executeQuery("SELECT * FROM " + nombreTabla + " WHERE idGeneral =" +
+                               MysqlUtils.toMysqlString(telefono.getIdGeneral()));
+        if (rs.next()) {
+          telefono.setIdGeneral(rs.getString("idGeneral"));
+          telefono.setDescTelefono(rs.getString("descTelefono"));
+          telefono.setTelefono(rs.getString("telefono"));
+          telefono.setTelefono2(rs.getString("telefono2"));
+
+        }
+        else {
+        	throw new RowNotFoundException();
+        }
+
+
+      }
+      catch(Exception ex)
+        {
+         System.out.println(ex);
+        }
+	     finally{
+	    	 if (conn != null) 
+	    		 try{conn.close();}catch(SQLException e){}
+	    } //Liberamos la conexion pase lo que pase
+
+
+   }
+  
    public void select () throws RowNotFoundException {
 
       try {
@@ -37,7 +72,7 @@ public class InfoTelfBD implements BDObject {
         ResultSet rs = null;
 
         rs = stmt.executeQuery("SELECT * FROM " + nombreTabla + " WHERE idGeneral =" +
-                               MysqlUtils.toMysqlString(telefono.getIdGeneral())+"AND descTelefono ="+
+                               MysqlUtils.toMysqlString(telefono.getIdGeneral())+" AND descTelefono ="+
                                 MysqlUtils.toMysqlString(telefono.getDescTelefono()));
         if (rs.next()) {
           telefono.setIdGeneral(rs.getString("idGeneral"));

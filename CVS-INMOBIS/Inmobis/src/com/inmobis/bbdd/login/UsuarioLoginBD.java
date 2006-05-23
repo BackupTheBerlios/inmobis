@@ -32,6 +32,44 @@ public class UsuarioLoginBD implements BDObject {
     return login;
   }
 
+ public void selectAll () throws RowNotFoundException {
+
+     try {
+
+    	if (milog.isInfoEnabled()){
+ 			milog.info("idUsuario: "+login.idUsuario);
+ 		}
+
+       conn = ConnectionManager.getConection();
+       Statement stmt = conn.createStatement();
+       ResultSet rs = null;
+
+
+       rs = stmt.executeQuery("SELECT * FROM TLogin WHERE idUsuario=" +
+                              MysqlUtils.toMysqlString(login.getIdUsuario()));
+       if (rs.next()) {
+         login.setIdUsuario(rs.getString("idUsuario"));
+         login.setNombreUsuario(rs.getString("nombreUsuario"));
+         login.setPassword(rs.getString("password"));
+         login.setTipoUsuario(rs.getString("tipoUsuario"));
+       }
+       else {
+    	   throw new RowNotFoundException();
+       }
+       if (milog.isInfoEnabled()){
+			milog.info("Despues de la selectAll Usuario tengo Usuario: "+login.getNombreUsuario()+" pass: "+login.getPassword());
+		}       
+     }
+     catch(Exception ex)
+       {
+        System.out.println(ex);
+       }
+     finally{
+    	 if (conn != null) 
+    		 try{conn.close();}catch(SQLException e){}
+    } //Liberamos la conexion pase lo que pase
+  }
+ 
  public void select () throws RowNotFoundException {
 
      try {

@@ -28,7 +28,49 @@ public class InfoDirBD implements BDObject {
  public Object getBean() {
     return direccion;
   }
+ 
+ public void selectAll () throws RowNotFoundException {
 
+     try {
+
+       conn = ConnectionManager.getConection();
+       Statement stmt = conn.createStatement();
+       ResultSet rs = null;
+
+       rs = stmt.executeQuery("SELECT * FROM "+nombreTabla+" WHERE idGeneral=" +
+                              MysqlUtils.toMysqlString(direccion.getIdGeneral()));
+                              
+       if (rs.next()) {
+         direccion.setIdGeneral(rs.getString("idGeneral"));
+         direccion.setDescDir(rs.getString("descDir"));
+         direccion.setCalle(rs.getString("calle"));
+         direccion.setNum(rs.getString("num"));
+         direccion.setPiso(rs.getString("piso"));
+         direccion.setCodPostal(rs.getString("codPostal"));
+         direccion.setPoblacion(rs.getString("poblacion"));
+         direccion.setProvincia(rs.getString("provincia"));
+         direccion.setPais(rs.getString("pais"));
+
+       }
+       else {
+    	   throw new RowNotFoundException();
+       }
+
+
+     }
+     catch(Exception ex)
+       {
+        System.out.println(ex);
+       }
+     finally{
+    	 if (conn != null) 
+    		 try{conn.close();}catch(SQLException e){}
+    } //Liberamos la conexion pase lo que pase
+
+
+  }
+
+ 	
   public void select () throws RowNotFoundException {
 
      try {
@@ -38,8 +80,9 @@ public class InfoDirBD implements BDObject {
        ResultSet rs = null;
 
        rs = stmt.executeQuery("SELECT * FROM "+nombreTabla+" WHERE idGeneral=" +
-                              MysqlUtils.toMysqlString(direccion.getIdGeneral())+"AND descDir="+
-                               MysqlUtils.toMysqlString(direccion.getDescDir()));
+                              MysqlUtils.toMysqlString(direccion.getIdGeneral())+
+                              " AND descDir="+MysqlUtils.toMysqlString(direccion.getDescDir()));
+                              
        if (rs.next()) {
          direccion.setIdGeneral(rs.getString("idGeneral"));
          direccion.setDescDir(rs.getString("descDir"));

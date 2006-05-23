@@ -36,14 +36,11 @@ public class EditaClientePrevAction extends Action{
 			HttpServletRequest request,
 			HttpServletResponse response) {
 			
-		//TODO Coger los datos de la lista que le llega al form y pasarselos al jsp de editarEmpleado
+		//Coger los datos de la lista que le llega al form, obtener los
+		//datos que faltan de la BBDD y pasarselos al jsp de editaUsuario
 		if (i_log.isInfoEnabled()){
-			i_log.info("Voy a coger los datos del usuario: "+((EditaClientePrevForm)form).getNombre());
+			i_log.info("Voy a coger los datos del usuario: "+((EditaClientePrevForm)form).getIdUsuario());
 		}
-		//Accedo a los datos del usuario
-		//En teoria el vector debería tener 1 elemento
-		//En el caso del mail(opcional) tambien puede estar vacio
-		
 		ClienteBean cliente=new ClienteBean();
 		cliente.setNombre(((EditaClientePrevForm)form).getNombre());
 		cliente.setApellido1(((EditaClientePrevForm)form).getApellido1());
@@ -52,46 +49,27 @@ public class EditaClientePrevAction extends Action{
 		cliente.setFechNacimiento(((EditaClientePrevForm)form).getFechaNacimiento());
 		cliente.setIdCliente(((EditaClientePrevForm)form).getIdUsuario());
 		
-		Consultar consult=CreadorConsultar.CreaConsultar("telefono");
-		Vector telefonos=consult.listar(form);
+		Consultar consult=CreadorConsultar.CreaConsultar("cliente");
+		InfoDirBean dir=consult.getDir(form);
+		InfoTelfBean telf=consult.getTelf(form);
+		UsuarioLoginBean login=consult.getLogin(form);
+		InfoMailBean mail=consult.getMail(form);
 		
-		//TODO ver de donde se coge la direccion
-		consult=CreadorConsultar.CreaConsultar("cliente");
-		//direccion=((ConsultarCliente)consult).obtenerDir(cliente);
-		
-		consult=CreadorConsultar.CreaConsultar("mail");
-		Vector mails=consult.listar(form);
-		
-		consult=CreadorConsultar.CreaConsultar("login");
-		Vector logins=consult.listar(form);
-		
-		if(telefonos.size()<1 && mails.size()<1 && logins.size()<1){
-			//saveErrors(request, errors);
-			if (i_log.isInfoEnabled()){
-				i_log.info("No he encontrado datos extra");
-			}
-			return (mapping.findForward("error"));
-		}
 		if (i_log.isInfoEnabled()){
-			i_log.info("Hay datos extras");
+			i_log.info("Direccion "+dir.getCalle());
+			i_log.info("telefono "+telf.getTelefono());
+			i_log.info("Login "+login.getNombreUsuario());
+			//Ojo con este que no siempre hay email
+			i_log.info("mail "+mail.getDirMail());
 		}
-		
 		//Poner los datos en una variable de sesion
-		
 		HttpSession session = request.getSession(true);
-		
 		session.setAttribute("cliente",cliente);
-		InfoDirBean direccion=((InfoDirBean)direcciones.elementAt(0));
-		session.setAttribute("direccion",direccion);
-		InfoTelfBean telefono=((InfoTelfBean)telefonos.elementAt(0));
-		session.setAttribute("telefono",telefono);
-		UsuarioLoginBean login=((UsuarioLoginBean)logins.elementAt(0));
+		session.setAttribute("direccion",dir);
 		session.setAttribute("login",login);
-		if (mails.size()!=0){
-			InfoMailBean mail=((InfoMailBean)mails.elementAt(0));
-			session.setAttribute("mail",mail);
-		}
-		String fecha= cliente.getFechNacimiento();
+		session.setAttribute("telefono",telf);
+		session.setAttribute("mail",mail);
+		String fecha=((EditaClientePrevForm)form).getFechaNacimiento();
 		String[] componentes=fecha.split("-");
 		if (i_log.isInfoEnabled()){
 			i_log.info("Dia:"+componentes[2].toString()+" Mes:"+componentes[1].toString()+" Año:"+componentes[0].toString());
@@ -99,6 +77,7 @@ public class EditaClientePrevAction extends Action{
 		session.setAttribute("dia",componentes[2].toString());
 		session.setAttribute("mes",componentes[1].toString());
 		session.setAttribute("anio",componentes[0].toString());
+		
 		return (mapping.findForward("exito"));
 		}
 

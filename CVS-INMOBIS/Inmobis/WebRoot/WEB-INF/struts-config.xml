@@ -7,6 +7,7 @@
    </data-sources>
   
   <form-beans >
+  	<form-bean name="editaClientePrevForm" type="com.inmobis.struts.form.EditaClientePrevForm" />
     <form-bean name="editaClienteForm" type="com.inmobis.struts.form.EditaClienteForm" />
     <form-bean name="borraEmpleadoForm" type="com.inmobis.struts.form.BorraEmpleadoForm" />
     <form-bean name="borraClienteForm" type="com.inmobis.struts.form.BorraClienteForm" />
@@ -19,6 +20,19 @@
   <global-exceptions />
   <global-forwards ></global-forwards>
   <action-mappings >
+   
+    <action 
+    	path="/editaClientePrev"
+    	attribute="editaClientePrev"
+    	input="/editaClientePrev.jsp"
+    	type="com.inmobis.struts.action.EditaClientePrevAction"
+    	name="editaClientePrevForm" 
+    	scope="request"
+    	validate="true">
+    	<!-- En realidad viene de verClientesAgente.jsp y en caso error habría que redireccionar a VerClientesAgente-->
+      <forward name="error" path="/login.jsp" />
+      <forward name="exito" path="/editaCliente.jsp" />  	
+    </action>
     
     <action 
     	path="/editaCliente"

@@ -406,30 +406,59 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 	 return login;
 	 }
  
- public void consultaLogin (String nombreUsuario)throws RowNotFoundException {
-	   loginCliente=newInfoLoginClientes(nombreUsuario);
-	   UsuarioLoginBD login = new UsuarioLoginBD(loginCliente);
-	   login.select();
+//public void _consultaLogin (String nombreUsuario)throws RowNotFoundException {
+// this.loginCliente=newInfoLoginClientes(nombreUsuario);
+// UsuarioLoginBD login = new UsuarioLoginBD(this.loginCliente);
+// login.select();
+//
+//}
+//
+//public void _consultaDir (String descDir)throws RowNotFoundException {
+// this.dirCliente=newInfoDirClientes(descDir);//Bean de las direcciones
+// InfoDirClientesBD direccion = new InfoDirClientesBD(this.dirCliente);
+// direccion.select();
+//
+//}
+//public void _consultaTelf (String descTelf) throws RowNotFoundException {
+//this.telfCliente=newInfoTelfClientes(descTelf);//Bean de las direcciones
+//InfoTelfClientesBD telefono = new InfoTelfClientesBD(this.telfCliente);
+//telefono.select();
+//}
+//
+//public void _consultaMail (String descMail) throws RowNotFoundException {
+//this.mailCliente=newInfoMailClientes(descMail);//Bean de las direcciones
+//InfoMailClientesBD mail = new InfoMailClientesBD(this.mailCliente);
+//mail.select();
+//}
+ 
+ public void consultaLogin (String idUsuario)throws RowNotFoundException {
+	   this.loginCliente=new UsuarioLoginBean();
+	   this.loginCliente.setIdUsuario(idUsuario);
+	   UsuarioLoginBD login = new UsuarioLoginBD(this.loginCliente);
+	   login.selectAll();
 
 	 }
  
- public void consultaDir (String descDir)throws RowNotFoundException {
-   dirCliente=newInfoDirClientes(descDir);//Bean de las direcciones
-   InfoDirClientesBD direccion = new InfoDirClientesBD(dirCliente);
-   direccion.select();
+ public void consultaDir (String idGeneral)throws RowNotFoundException {
+   this.dirCliente=new InfoDirBean();//Bean de las direcciones
+   this.dirCliente.setIdGeneral(idGeneral);
+   InfoDirClientesBD direccion = new InfoDirClientesBD(this.dirCliente);
+   direccion.selectAll();
 
  }
 
- public void consultaTelf (String descTelf) throws RowNotFoundException {
-  telfCliente=newInfoTelfClientes(descTelf);//Bean de las direcciones
-  InfoTelfClientesBD telefono = new InfoTelfClientesBD(telfCliente);
-  telefono.select();
+ public void consultaTelf (String idGeneral) throws RowNotFoundException {
+  this.telfCliente=new InfoTelfBean();//Bean de las direcciones
+  this.telfCliente.setIdGeneral(idGeneral);
+  InfoTelfClientesBD telefono = new InfoTelfClientesBD(this.telfCliente);
+  telefono.selectAll();
  }
 
- public void consultaMail (String descMail) throws RowNotFoundException {
- mailCliente=newInfoMailClientes(descMail);//Bean de las direcciones
- InfoMailClientesBD mail = new InfoMailClientesBD(mailCliente);
- mail.select();
+ public void consultaMail (String idGeneral) throws RowNotFoundException {
+ this.mailCliente=new InfoMailBean();//Bean de las direcciones
+ this.mailCliente.setIdGeneral(idGeneral);
+ InfoMailClientesBD mail = new InfoMailClientesBD(this.mailCliente);
+ mail.selectAll();
  }
 
 
