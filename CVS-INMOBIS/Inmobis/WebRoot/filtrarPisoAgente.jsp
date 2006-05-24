@@ -1,7 +1,7 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Filtrado de pisos";%>
 <%boolean esIndex=false; %>
-<%@include file="cabecera.jsp" %>
+<%@ include file="cabecera.jsp" %>
 
 <!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
 CON UN ANCHO DE 767 px -->
@@ -26,8 +26,8 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.metros"/>
 									</td>
 									<td>
-										de&nbsp;&nbsp;<html:text property="metrosMax" size="5" maxlength="10" />
-										a&nbsp;&nbsp;<html:text property="metrosMin" size="5" maxlength="10" />&nbsp;m&sup2;
+										de&nbsp;&nbsp;<html:text property="metrosMin" size="5" maxlength="10" />
+										a&nbsp;&nbsp;<html:text property="metrosMax" size="5" maxlength="10" />&nbsp;m&sup2;
 										<html:errors property="metrosMax" />
 										<html:errors property="metrosMin" />
 									</td>
