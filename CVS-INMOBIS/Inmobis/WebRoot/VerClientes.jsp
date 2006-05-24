@@ -1,5 +1,6 @@
 <%--Librería específica de esta página: Logic, para usar el iterator--%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS: Listado Clientes Agente";%>
 <%boolean esIndex=false; %>
