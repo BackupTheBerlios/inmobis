@@ -53,6 +53,7 @@ public class FiltrarPisoAgenteAction extends Action {
 		
 		
 		if (log.isInfoEnabled()){
+			//la jsp coge los valores min y max al reves!!!!!
 			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetrosMin());
 			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetrosMax());
 			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getNumHab());

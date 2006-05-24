@@ -23,10 +23,16 @@ public class ConsultarInmuebleCondicion extends Consultar{
 		Integer preciomin,preciomax;
 		if(!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMin()).equals("") &&
 				!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMax()).equals("")){
+			if(log.isInfoEnabled()){
+				log.info("ConsultarInmuebleCondicion 1: estoy declarando preciomin y preciomax ");
+			}
 			preciomin= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMin());
 			preciomax= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMax());
 		}
 		else{
+			if(log.isInfoEnabled()){
+				log.info("ConsultarInmuebleCondicion 2: estoy declarando preciomin y preciomax vacios");
+			}
 			preciomin = new Integer(-1);
 			preciomax = new Integer (-1);
 		}
@@ -35,16 +41,27 @@ public class ConsultarInmuebleCondicion extends Consultar{
 		Integer metrosmax;
 		if(!(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMin()).equals("") &&
 				!(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMax()).equals("")){
+			if(log.isInfoEnabled()){
+				log.info("ConsultarInmuebleCondicion 3: estoy declarando metrosmin y metrosmax ");
+			}
 			metrosmin= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMin());
 			metrosmax= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMax());
 		}
 		else{
+			if(log.isInfoEnabled()){
+				log.info("ConsultarInmuebleCondicion 4: estoy declarando metrosmin y metrosmax vacios ");
+			}
 			metrosmin = new Integer(-1);
 			metrosmax = new Integer (-1);
 		}
 		
 		while (preciomin.intValue() <= preciomax.intValue()){
 			while (metrosmin.intValue() <= metrosmax.intValue()){
+				if(log.isInfoEnabled()){
+					log.info("ConsultarInmuebleCondicion 5: estoy en el bucle ");
+					log.info("ConsultarInmuebleCondicion 5:  " + metrosmin.toString());
+					log.info("ConsultarInmuebleCondicion 5:  " + preciomin.toString());
+				}
 				//se crea el empleado bean		
 				InmuebleBean i = new InmuebleBean();
 				//se rellena el bean
@@ -65,12 +82,12 @@ public class ConsultarInmuebleCondicion extends Consultar{
 			GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",i);
 			
 			if(log.isInfoEnabled()){
-				log.info("ConsultarInmuebleCondicion 1: Antes de entrar en la base de datos ");
+				log.info("ConsultarInmuebleCondicion 6: Antes de entrar en la base de datos ");
 			}
 			try{
 				datos = gestorInmueble.BusquedaDetallada();
 				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion 2: voy a copiar al vector final ");
+					log.info("ConsultarInmuebleCondicion 7: voy a copiar al vector final ");
 				}
 				//se introducen los nuevos inmuebles buscados en el vector final
 				int j=0;
@@ -78,11 +95,11 @@ public class ConsultarInmuebleCondicion extends Consultar{
 					datosfinal.add(datos.elementAt(j));
 				}
 				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion 3:la lista se generó con éxito ");
+					log.info("ConsultarInmuebleCondicion 8:la lista se generó con éxito ");
 				}
 			}catch (Exception E){
 				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion4: Fallo en la busqueda en la base de datos " );
+					log.info("ConsultarInmuebleCondicion 9: Fallo en la busqueda en la base de datos " );
 				}
 				return datosfinal;
 			}
@@ -90,6 +107,9 @@ public class ConsultarInmuebleCondicion extends Consultar{
 		}//fin del whilemetros
 		preciomin++;
 	}//fin del whileprecio
+	if(log.isInfoEnabled()){
+		log.info("ConsultarInmuebleCondicion 10: he acabado de buscar ");
+	}
 	return datosfinal;
 	}
 }
