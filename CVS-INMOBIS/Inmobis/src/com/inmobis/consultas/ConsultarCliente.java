@@ -4,17 +4,94 @@ import java.util.Vector;
 
 import org.apache.struts.action.ActionForm;
 import com.inmobis.bbdd.CreadorGestores;
-import com.inmobis.bbdd.BDObject;
-import com.inmobis.bbdd.empleado.*;
+
 import com.inmobis.bbdd.cliente.*;
 import com.inmobis.struts.form.*;
 import com.inmobis.struts.action.*;
 import org.apache.log4j.Logger;
+import com.inmobis.bbdd.RowNotFoundException;
+import com.inmobis.bbdd.direccion.InfoDirBean;
+import com.inmobis.bbdd.email.InfoMailBean;
+import com.inmobis.bbdd.login.UsuarioLoginBean;
+import com.inmobis.bbdd.telefono.InfoTelfBean;
 
 
 public class ConsultarCliente extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(FiltrarClienteAction.class);
+	
+	public UsuarioLoginBean getLogin(ActionForm datosCliente){
+		ClienteBean cliente=new ClienteBean();
+		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
+		CreadorGestores creador = new CreadorGestores();
+		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		UsuarioLoginBean login=new UsuarioLoginBean();
+		try {
+			gestorCliente.consultaLogin(((EditaClientePrevForm)datosCliente).getIdUsuario());
+			login=gestorCliente.getLoginBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error" );
+		}
+		if(log.isInfoEnabled())
+			log.info("login "+login.getNombreUsuario() );
+		return login;
+	}
+	
+	public InfoDirBean getDir(ActionForm datosCliente){
+		ClienteBean cliente=new ClienteBean();
+		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
+		CreadorGestores creador = new CreadorGestores();
+		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		InfoDirBean direccion=new InfoDirBean();
+		try {
+			gestorCliente.consultaDir(((EditaClientePrevForm)datosCliente).getIdUsuario());
+			direccion=gestorCliente.getDireccionBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error" );
+		}
+		if(log.isInfoEnabled())
+			log.info("direccion "+direccion.getCalle() );
+		return direccion;
+	}
+	
+	public InfoTelfBean getTelf(ActionForm datosCliente){
+		ClienteBean cliente=new ClienteBean();
+		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
+		CreadorGestores creador = new CreadorGestores();
+		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		InfoTelfBean telf=new InfoTelfBean();
+		try {
+			gestorCliente.consultaTelf(((EditaClientePrevForm)datosCliente).getIdUsuario());
+			telf=gestorCliente.getTelefonoBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error" );
+		}
+		if(log.isInfoEnabled())
+			log.info("telefono "+telf.getTelefono());
+		return telf;
+	}
+	
+	public InfoMailBean getMail(ActionForm datosCliente){
+		ClienteBean cliente=new ClienteBean();
+		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
+		CreadorGestores creador = new CreadorGestores();
+		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		InfoMailBean mail=new InfoMailBean();
+		try {
+			gestorCliente.consultaMail(((EditaClientePrevForm)datosCliente).getIdUsuario());
+			mail=gestorCliente.getMailBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error" );
+		}
+		if(log.isInfoEnabled())
+			log.info("mail "+mail.getDirMail() );
+		return mail;
+	}
+
 	
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos
