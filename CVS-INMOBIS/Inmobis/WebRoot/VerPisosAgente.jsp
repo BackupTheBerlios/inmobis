@@ -15,67 +15,62 @@ CON UN ANCHO DE 767 px -->
 <%@ include file="menu_izdo.jsp" %>
 <div id="content"> 
 	<div class="feature">     
- 		<table width="100%" valign="top">
+ 		<table width="100%">
 			<tr>
-				<td>
+				<th>
 					Zona
-				</td>
-				<td>
+				</th>
+				<th>
 					n&ordm; de hab
-				</td>
-				<td>
+				</th>
+				<th>
 					m&sup2;
-				</td>
-				<td>
+				</th>
+				<th>
 					R&eacute;gimen
-				</td>
-				<td>
+				</th>
+				<th>
 					Tipo
-				</td>
-				<td>
+				</th>
+				<th>
 					Precio
-				</td>
-				<td>
-					&nbsp;
-				</td>
+				</th>
+				<th>
+					Opciones
+				</th>
 			</tr>
 			<!-- iterate over the results of the query -->
 			<logic:iterate id="inmueble"  name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean" >   
 			<tr>
 				<td>
-					<html:text name="inmueble" property="zona" size="15" maxlength="15" ></html:text>
 					<bean:write name="inmueble" property="zona"/>
-					</td>
-				<td> 
-					<html:text name="inmueble" property="numHab" size="1" maxlength="1"></html:text>
+				</td>
+				<td>
 					<bean:write name="inmueble" property="numHab" />
 				</td>
 				<td>
-					<html:text name="inmueble" property="metros" size="2" maxlength="4"></html:text>
 					<bean:write name="inmueble" property="metros" />
 				</td>
 				<td>
-					<html:text name="inmueble" property="regimen" size="5" maxlength="5"></html:text>
 					<bean:write name="inmueble" property="regimen" />
 				</td>
 				<td>
-					<html:text name="inmueble" property="tipo" size="9" maxlength="15"></html:text>
 					<bean:write name="inmueble" property="tipo" /> 
 				</td>
 				<td>
-					<html:text name="inmueble" property="precio" size="5" maxlength="4"></html:text>
 					<bean:write name="inmueble" property="precio" /> 
-				</td>
-				<td>		
+				</td>		
 				<td>
-					<a href="borraPisoPrev.do?idinmueble=<bean:write name='inmueble' property='idInmueble'/>
-					   +&inmueble=<bean:write name='inmueble' property='zona' />
-					   +&numHab=+<bean:write name='inmueble' property='numHab' />
-					   +&metros=+<bean:write name='inmueble' property='metros' />
-					   +&regimen=+<bean:write name='inmueble' property='regimen' />
-					   +&tipo=+<bean:write name='inmueble' property='tipo' />
-					   +&precio=+<bean:write name='inmueble' property='precio' />"	
-					   >ELIMINAR</a>
+					<table width="100%">
+						<tr>
+							<td>
+								<a href="borraPisoPrev.do?idinmueble=<bean:write name='inmueble' property='idInmueble'/>+&inmueble=<bean:write name='inmueble' property='zona' /> +&numHab=+<bean:write name='inmueble' property='numHab' /> +&metros=+<bean:write name='inmueble' property='metros' />+&regimen=+<bean:write name='inmueble' property='regimen' />+&tipo=+<bean:write name='inmueble' property='tipo' />	   +&precio=+<bean:write name='inmueble' property='precio' />"><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
+							</td>
+							<td align="right">
+								<a href="editaPisoPrev.do?idinmueble=<bean:write name='inmueble' property='idInmueble'/>+&inmueble=<bean:write name='inmueble' property='zona' />+&numHab=+<bean:write name='inmueble' property='numHab' />+&metros=+<bean:write name='inmueble' property='metros' />+&regimen=+<bean:write name='inmueble' property='regimen' />+&tipo=+<bean:write name='inmueble' property='tipo' />+&precio=+<bean:write name='inmueble' property='precio' />"><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+							</td>
+						</tr>
+					</table>
 				</td>
 			</tr>
 			</logic:iterate>
