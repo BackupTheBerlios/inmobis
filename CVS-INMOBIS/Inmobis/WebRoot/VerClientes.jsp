@@ -17,30 +17,25 @@ CON UN ANCHO DE 767 px -->
                 <div class="feature">
 				<!-- zona de codigo-->
 					<table width="100%">
-						<!--
 						<tr> 
-							<td><fmt:message key=" app.Nombre" /></td>
-							<td><fmt:message key="app.Apellido1" /></td>
-							<td><fmt:message key="app.Apellido2" /></td>
-							<td><fmt:message key=" app.IdCliente" /></td>
-							<td><fmt:message key=" app.DniCliente" /></td>
-							<td><fmt:message key=" app.FechNac" /></td>
-							<td>&nbsp;</td>
+							<th><fmt:message key=" app.Nombre" /></th>
+							<th><fmt:message key="app.Apellido1" /></th>
+							<th><fmt:message key="app.Apellido2" /></th>
+							<!--<th><fmt:message key=" app.IdCliente" /></th>-->
+							<th><fmt:message key=" app.DniCliente" /></th>
+							<th><fmt:message key=" app.FechNac" /></th>
+							<th>Opciones</th>
 						 </tr>
-						 -->
 						 <!-- iterate over the results of the query -->
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<html:text name="cliente" property="nombreCliente" ></html:text>
 									<bean:write name="cliente" property="nombreCliente" />
 								</td>							  
 								<td>
-									<html:text name="cliente" property="apellido1" ></html:text>
 									<bean:write name="cliente" property="apellido1" />
 								</td>							  
 								<td>
-									<html:text name="cliente" property="apellido2" ></html:text>
 									<bean:write name="cliente" property="apellido2" />
 								</td>
 							</tr>
@@ -52,21 +47,14 @@ CON UN ANCHO DE 767 px -->
 								</td>
 								-->
 								<td>
-									<html:text name="cliente" property="dni" ></html:text>
 									<bean:write name="cliente" property="dni" />
 								</td>
 								<td>
-									<html:text name="cliente" property="fechNacimiento" ></html:text>
 									<bean:write name="cliente" property="fechNacimiento" />
 								</td> 
 								<td>
-									<a href="ModifBajaClientePrev.do?nombreCliente=<bean:write name='cliente' property='nombre' />+&apellido1=+<bean:write name='cliente' property='apellido1' />+&apellido2=+<bean:write name='cliente' property='apellido2' />+&idcliente=+<bean:write name='cliente' property='idcliente' />+&dnicliente=+<bean:write name='cliente' property='dnicliente' />+&fechnac=+<bean:write name='cliente' property='fechnac' />">MODIFICAR</a>
+									<a href="ModifBajaClientePrev.do?nombreCliente=<bean:write name='cliente' property='nombre' />+&apellido1=+<bean:write name='cliente' property='apellido1' />+&apellido2=+<bean:write name='cliente' property='apellido2' />+&idcliente=+<bean:write name='cliente' property='idcliente' />+&dnicliente=+<bean:write name='cliente' property='dnicliente' />+&fechnac=+<bean:write name='cliente' property='fechnac' />"><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar Elemento"></a>
 								</td>							  
-							</tr>
-							<tr>
-								<td colspan="3">
-									<br><br>
-								</td>
 							</tr>
 					</logic:iterate>
 					</table>

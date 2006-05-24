@@ -15,32 +15,25 @@ CON UN ANCHO DE 767 px -->
 <%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
-                   <table border="0" cellpading="0" cellspacing="0" width="100%">
+                   <table width="100%">
 						 <!-- zona de c�digo-->
-<tr>   
-        <th><bean:message key=" app.Nombre" /></th>
-        <th><bean:message key="app.Apellido1" /></th>
-        <th><bean:message key="app.Apellido2" /></th>
-
-        
-         <th colspan="2"></th>
-      
-      </tr>
-      <!-- iterate over the results of the query -->
-      <logic:iterate id="empleado" name="listaEmpleados">   
-    <tr>
-      <td> 
-            <html:text name="empleado" property="nombre" ></html:text>
-            <bean:write name="empleado" property="nombre" />
-      </td>
-      <td>
-            <html:text name="empleado" property="apellido1" ></html:text>
-            <bean:write name="empleado" property="apellido1" />
-      </td>
-      <td>
-            <html:text name="empleado" property="apellido2" ></html:text>
-            <bean:write name="empleado" property="apellido2" />
-      </td>
+						<tr>   
+							<th><fmt:message key="app.Nombre" /></th>
+							<th><fmt:message key="app.Apellido1" /></th>
+							<th><fmt:message key="app.Apellido2" /></th>      
+						</tr>
+						<!-- iterate over the results of the query -->
+						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean">   
+						<tr>
+							  <td> 
+									<bean:write name="empleado" property="nombre" />
+							  </td>
+							  <td>
+									<bean:write name="empleado" property="apellido1" />
+							  </td>
+							  <td>
+									<bean:write name="empleado" property="apellido2" />
+							  </td>
 
    					<!--	  <td>
 					            <a href="EditaEmpleadoPrev.do?datos=<

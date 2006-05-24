@@ -8,7 +8,7 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
 <%String subtitulo="P&aacute;gina Principal";%>
-<%String tipoMenu="general";%>
+<%String tipoMenu="inicio";%>
 <%@ include file="menu_izdo.jsp" %>
 
               <div id="content"> 

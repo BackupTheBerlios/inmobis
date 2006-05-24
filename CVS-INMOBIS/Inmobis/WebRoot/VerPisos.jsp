@@ -16,15 +16,15 @@ CON UN ANCHO DE 767 px -->
               <div id="content"> 
                 <div class="feature"> 
                    
-					<table width="100%">
+					<table width="100%" border="1" bordercolor="#457FB1">
 						<tr>   
-					       <td><bean:message key="app.numHab" /></td>
-						   <td><bean:message key="app.metros" /></td>
-					       <td><bean:message key=" app.regimen" /></td>
-					       <td><bean:message key="app.tipo" /></td>
-						   <td><bean:message key="app.zona" /></td>
-						   <td><bean:message key=" app.precio" /></td>
-						   <td><bean:message key="app.datosdeinteres" /></td>  
+					       <th><bean:message key="app.numHab" /></th>
+						   <th><bean:message key="app.metros" /></th>
+					       <th><bean:message key="app.regimen" /></th>
+					       <th><bean:message key="app.tipo" /></th>
+						   <th><bean:message key="app.zona" /></th>
+						   <th><bean:message key="app.precio" /></th>
+						   <!--<th><bean:message key="app.datosdeinteres" /></th>-->  
    						</tr>
 						<logic:iterate id="inmueble" name="listaInmuebles">   
 					    <tr>

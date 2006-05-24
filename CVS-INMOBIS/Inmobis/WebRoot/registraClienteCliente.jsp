@@ -46,7 +46,7 @@ CON UN ANCHO DE 767 px -->
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.password"/>
 					</td>
 					<td>
-						<html:password 	property="password" redisplay="false"	maxlength="15" />
+						<html:password 	property="password" redisplay="false" maxlength="15" />
 						<html:errors property="password" />
 					</td>
 				</tr>
@@ -181,8 +181,7 @@ CON UN ANCHO DE 767 px -->
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.provincia"/>
 					</td>
 					<td>
-						<html:text 	property="provincia" maxlength="25" />
-						<html:errors property="provincia" />
+						<%@ include file="provincia.jsp" %>
 					</td>
 				</tr>
 				<tr>
