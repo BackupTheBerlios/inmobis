@@ -1,5 +1,6 @@
 <%--Librería específica de esta página: Logic, para usar el iterator--%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS: Listado de pisos del agente";%>
 <%boolean esIndex=false; %>
@@ -43,8 +44,8 @@ CON UN ANCHO DE 767 px -->
 			<tr>
 				<td>
 					<html:text name="inmueble" property="zona" size="15" maxlength="15" ></html:text>
-					<bean:write name="inmueble" property="zona" />
-				</td>
+					<bean:write name="inmueble" property="zona"/>
+					</td>
 				<td> 
 					<html:text name="inmueble" property="numHab" size="1" maxlength="1"></html:text>
 					<bean:write name="inmueble" property="numHab" />
