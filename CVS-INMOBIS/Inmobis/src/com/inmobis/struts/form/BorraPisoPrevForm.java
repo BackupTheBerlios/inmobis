@@ -1,6 +1,5 @@
 package com.inmobis.struts.form;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -19,12 +18,12 @@ public class BorraPisoPrevForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
 	String idInmueble;
-	String zona;
+	/*String zona;
 	String numHab;
 	String metros;
 	String regimen;
 	String tipo;
-	String precio;
+	String precio;*/
 	// --------------------------------------------------------- Methods
 	/** 
 	 * Method reset
@@ -33,12 +32,12 @@ public class BorraPisoPrevForm extends ActionForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.idInmueble = "";
-		this.metros="";
+		/*this.metros="";
 		this.numHab="";
 		this.precio="";
 		this.regimen="";
 		this.tipo="";
-		this.zona="";
+		this.zona="";*/
 	}
 
 	/** 
@@ -66,7 +65,7 @@ public class BorraPisoPrevForm extends ActionForm {
 		this.idInmueble = idInmueble;
 	}
 
-	public String getMetros() {
+	/*public String getMetros() {
 		return metros;
 	}
 
@@ -112,6 +111,6 @@ public class BorraPisoPrevForm extends ActionForm {
 
 	public void setZona(String zona) {
 		this.zona = zona;
-	}
+	}*/
 }
 

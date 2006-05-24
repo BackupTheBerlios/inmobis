@@ -71,12 +71,12 @@
     </action>
     <action
       attribute="filtrarPisoAgenteForm"
-      input="filtrarPisoAgente.jsp"
+      input="/filtrarPisoAgente.jsp"
       name="filtrarPisoAgenteForm"
       path="/filtrarPisoAgente"
       scope="request"
       type="com.inmobis.struts.action.FiltrarPisoAgenteAction" >
-      <forward name="error" path="filtrarPisoAgente.jsp" />
+      <forward name="error" path="/filtrarPisoAgente.jsp" />
       <forward name="exito" path="/VerPisosAgente.jsp" />
       
     </action>
