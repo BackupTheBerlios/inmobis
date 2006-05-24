@@ -53,9 +53,11 @@ public class FiltrarPisoAgenteAction extends Action {
 		
 		
 		if (log.isInfoEnabled()){
-			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetros());
+			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetrosMin());
+			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetrosMax());
 			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getNumHab());
-			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getPrecio());
+			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getPrecioMin());
+			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getPrecioMax());
 			log.info("FiltrarPisoAgenteForm 4: " + ((FiltrarPisoAgenteForm)form).getRegimen());
 			log.info("FiltrarPisoAgenteForm 5: " + ((FiltrarPisoAgenteForm)form).getTipo());
 			log.info("FiltrarPisoAgenteForm 6: " + ((FiltrarPisoAgenteForm)form).getZona());
