@@ -52,7 +52,6 @@ public class BorraPisoPrevAction extends Action {
 		
 		if (log.isInfoEnabled()){
 			log.info("BorrarPisoPrevForm 1: " + ((BorraPisoPrevForm)form).getIdInmueble());
-			log.info("BorrarPisoPrevForm 2: " + ((BorraPisoPrevForm)form).getInmueble());
 			log.info("BorrarPisoPrevForm 3: " + ((BorraPisoPrevForm)form).getMetros());
 			log.info("BorrarPisoPrevForm 4: " + ((BorraPisoPrevForm)form).getNumHab());
 			log.info("BorrarPisoPrevForm 5: " + ((BorraPisoPrevForm)form).getPrecio());
