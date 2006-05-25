@@ -5,6 +5,10 @@ import java.util.*;
 import org.apache.struts.action.ActionForm;
 import org.apache.log4j.Logger;
 
+import com.inmobis.bbdd.CreadorGestores;
+import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
+import com.inmobis.bbdd.inmueble.InmuebleBean;
+import com.inmobis.bbdd.inmueble.InmuebleBD;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.struts.form.*;
