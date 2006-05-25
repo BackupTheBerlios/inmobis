@@ -3,21 +3,24 @@
 	<h2><%= subtitulo%></h2>
 </div>
 <div id="pageNav"> 
-<%if(tipoMenu=="inicio"){%>
-	<div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-	</div><!--del pageNav-->
-<%}else if(tipoMenu=="general"){%>				
+<%if(tipoMenu=="general"){%>				
 	<div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuGenerico.message"/></h3>
-		<a href="verPisos.do">
-			<fmt:message key="menuGenerico.button.inmuebles"/>
-		</a>
-		<a href="PonerQueja.jsp">
-			<fmt:message key="menuGenerico.button.quejas"/>
+		<a href="index.jsp">
+			<fmt:message key="menuGenerico.principal"/>
 		</a>
 		<a href="login.jsp">
-			<fmt:message key="menuGenerico.button.identificarse"/>
+			<fmt:message key="menuGenerico.identificarse"/>
 		</a>
+		<a href="registraClienteCliente.jsp">
+			<fmt:message key="menuGenerico.registrarse"/>
+		</a>
+		<a href="verPisos.do">
+			<fmt:message key="menuGenerico.inmuebles"/>
+		</a>
+		<a href="PonerQueja.jsp">
+			<fmt:message key="menuGenerico.quejas"/>
+		</a>		
 		<!--<html:form action="registraClienteCliente.do" >
 			<html:submit>
 				<fmt:message key="menuGenerico.button.inmuebles"/>
@@ -69,10 +72,10 @@
 	<div id="sectionLinks2">	
 		<h3>&nbsp;<fmt:message key="menuAdministrador.message"/></h3>	
 		<a href="VerEmpleadosPrev.do">
-			<fmt:message key="menuAdministrador.button.lista"/>
+			<fmt:message key="menuAdministrador.lista"/>
 		</a>
 		<a href="registraClienteCliente.jsp">
-			<fmt:message key="menuAdministrador.button.registra"/>
+			<fmt:message key="menuAdministrador.registra"/>
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 		<!--<html:form action="VerEmpleadosPrev.do" >					
@@ -93,19 +96,19 @@
 	<div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuAgente.message"/></h3> 
 		<a href="verClientesAgentePrev.do">
-			<fmt:message key="menuAgente.button.clientes"/>
+			<fmt:message key="menuAgente.clientes"/>
 		</a>
 		<a href="listaAlertasPrev">
-			<fmt:message key="menuAgente.button.alertas"/>
+			<fmt:message key="menuAgente.alertas"/>
 		</a>
 		<a href="listaMensajesPrev.do">
-			<fmt:message key="menuAgente.button.mensajes"/>
+			<fmt:message key="menuAgente.mensajes"/>
 		</a>		 
 		<a href="verPisosAgente.do">
-			<fmt:message key="menuAgente.button.inmuebles"/>
+			<fmt:message key="menuAgente.inmuebles"/>
 		</a>
 		<a href="registraClienteAgente.jsp">
-			<fmt:message key="menuAgente.button.registraCliente"/>
+			<fmt:message key="menuAgente.registraCliente"/>
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 		<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->
@@ -140,15 +143,18 @@
 	<html:errors property="menuCliente"/>
 	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
 	 <div id="sectionLinks2">
-		<h3>&nbsp;<fmt:message key="menuCliente.message"/></h3>			
+		<h3>&nbsp;<fmt:message key="menuCliente.message"/></h3>	
+		<a href="registraClienteCliente.jsp">
+			<fmt:message key="menuCliente.registrar"/>
+		</a>
 		<a href="verPisos.do">
-			<fmt:message key="menuCliente.button.inmuebles"/>
+			<fmt:message key="menuCliente.inmuebles"/>
 		</a>
 		<a href="PonerQueja.jsp">
-			<fmt:message key="menuCliente.button.quejas"/>
+			<fmt:message key="menuCliente.quejas"/>
 		</a>
 		<a href="PonerMensaje.jsp">
-			<fmt:message key="menuCliente.button.mensajes"/>
+			<fmt:message key="menuCliente.mensajes"/>
 		</a>		 
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 		<!--<html:form action="registraClienteCliente.do" >
@@ -174,13 +180,13 @@
 	 <div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuGerente.message"/></h3>			
 		<a href="verAgentesPrev.do">
-			<fmt:message key="menuGerente.button.agentes"/>
+			<fmt:message key="menuGerente.agentes"/>
 		</a>
 		<a href="verClientesPrev.do">
-			<fmt:message key="menuGerente.button.clientes"/>
+			<fmt:message key="menuGerente.clientes"/>
 		</a>
 		<a href="verQuejasPrev.do">
-			<fmt:message key="menuGerente.button.quejas"/>
+			<fmt:message key="menuGerente.quejas"/>
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 		<!--<html:form action="verAgentesPrev.do" >
@@ -200,4 +206,9 @@
 		</html:form>-->
 	</div>
 </div><!--del pageNav-->
+<!--El menu inicial que había
+<%}else if(tipoMenu=="inicio"){%>
+	<div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
+	</div>
+	-->
 <%}%>
