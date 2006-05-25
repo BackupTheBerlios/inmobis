@@ -406,12 +406,12 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 	 return login;
 	 }
  
-//public void _consultaLogin (String nombreUsuario)throws RowNotFoundException {
-// this.loginCliente=newInfoLoginClientes(nombreUsuario);
-// UsuarioLoginBD login = new UsuarioLoginBD(this.loginCliente);
-// login.select();
-//
-//}
+public void consultaLoginPorNombreUsuario (String nombreUsuario)throws RowNotFoundException {
+ this.loginCliente=newInfoLoginClientes(nombreUsuario);
+ UsuarioLoginBD login = new UsuarioLoginBD(this.loginCliente);
+ login.select();
+
+}
 //
 //public void _consultaDir (String descDir)throws RowNotFoundException {
 // this.dirCliente=newInfoDirClientes(descDir);//Bean de las direcciones
@@ -431,7 +431,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 //mail.select();
 //}
  
- public void consultaLogin (String idUsuario)throws RowNotFoundException {
+ public void consultaLoginPorId (String idUsuario)throws RowNotFoundException {
 	   this.loginCliente=new UsuarioLoginBean();
 	   this.loginCliente.setIdUsuario(idUsuario);
 	   UsuarioLoginBD login = new UsuarioLoginBD(this.loginCliente);
@@ -439,7 +439,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 
 	 }
  
- public void consultaDir (String idGeneral)throws RowNotFoundException {
+ public void consultaDirPorId (String idGeneral)throws RowNotFoundException {
    this.dirCliente=new InfoDirBean();//Bean de las direcciones
    this.dirCliente.setIdGeneral(idGeneral);
    InfoDirClientesBD direccion = new InfoDirClientesBD(this.dirCliente);
@@ -447,14 +447,14 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 
  }
 
- public void consultaTelf (String idGeneral) throws RowNotFoundException {
+ public void consultaTelfPorId (String idGeneral) throws RowNotFoundException {
   this.telfCliente=new InfoTelfBean();//Bean de las direcciones
   this.telfCliente.setIdGeneral(idGeneral);
   InfoTelfClientesBD telefono = new InfoTelfClientesBD(this.telfCliente);
   telefono.selectAll();
  }
 
- public void consultaMail (String idGeneral) throws RowNotFoundException {
+ public void consultaMailPorId (String idGeneral) throws RowNotFoundException {
  this.mailCliente=new InfoMailBean();//Bean de las direcciones
  this.mailCliente.setIdGeneral(idGeneral);
  InfoMailClientesBD mail = new InfoMailClientesBD(this.mailCliente);

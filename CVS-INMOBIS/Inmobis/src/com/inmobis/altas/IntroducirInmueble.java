@@ -1,6 +1,5 @@
 package com.inmobis.altas;
 
-
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
@@ -8,9 +7,11 @@ import org.apache.struts.action.ActionForm;
 
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.GeneradorDeCodigos;
-import com.inmobis.bbdd.direccion.InfoDirBD;
+import com.inmobis.bbdd.RowExistsException;
+import com.inmobis.bbdd.RowNotFoundException;
+import com.inmobis.bbdd.cliente.ClienteBean;
+import com.inmobis.bbdd.cliente.GestorClienteBD;
 import com.inmobis.bbdd.direccion.InfoDirBean;
-import com.inmobis.bbdd.direccion.InfoDirInmueblesBD;
 import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.struts.form.RegistraPisoForm;
@@ -49,16 +50,25 @@ public class IntroducirInmueble extends Introducir{
 		direccion.setProvincia(((RegistraPisoForm)datosInmueble).getProvincia());
 		direccion.setPais(((RegistraPisoForm)datosInmueble).getPais());
 		
-		//Pasamos los Bean a Objetos BD
-		InfoDirBD direccionBD= new InfoDirInmueblesBD(direccion);
-		
-		try{
-			gestorInmueble.insert();
-			gestorInmueble.insertaDir(direccion);
-		}catch (Exception e) {
-			errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+		//TODO probar y revisar
+		ClienteBean cliente=new ClienteBean();
+		GestorClienteBD gestorCliente=(GestorClienteBD)gestor.crearGestor("cliente",cliente);
+		try {
+			gestorCliente.consultaLoginPorNombreUsuario(((RegistraPisoForm)datosInmueble).getNombreUsuario());
+			try {
+				gestorInmueble.insert();
+				gestorInmueble.insertaDir(direccion);
+				gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
+			} catch (RowExistsException e) {
+				errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+				if(i_log.isInfoEnabled())
+					i_log.info("Fallo en identificadores de tabla de BBDD :" + e.toString());
+			}
+		} catch (RowNotFoundException e1) {
+			//TODO mensaje de error
+			errors.add("registraPiso", new ActionMessage("errors.cliente.notFound"));
 			if(i_log.isInfoEnabled())
-				i_log.info("Fallo en identificadores de tabla de BBDD :" + e.toString());
+				i_log.info("No se ha encontrado el cliente indicado");
 		}
 		
 		return errors;
