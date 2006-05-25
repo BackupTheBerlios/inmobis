@@ -35,7 +35,10 @@ CON UN ANCHO DE 767 px -->
 					<td width="40%">
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.nombreUsuario"/>
 					</td>
-					<td>		
+					<td>	
+						<!--El identificador de agente al que se asocia-->
+						<html:hidden property="idAgente"/>
+						<!--El input correspondiente-->
 						<html:text 	property="nombreUsuario" maxlength="15" />
 						<html:errors property="nombreUsuario" />
 					</td>
