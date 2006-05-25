@@ -43,27 +43,9 @@ public class FiltrarPisoAgenteForm extends ActionForm {
 			this.regimen = "";
 			this.numHab = "";
 			this.tipo ="";
-			this.zona = "";
-			
+			this.zona = "";	
 		}
-	/** 
-	 * Method validate
-	 * @param mapping
-	 * @param request
-	 * @return ActionErrors
-	 */
-	public ActionErrors validate(
-		ActionMapping mapping,
-		HttpServletRequest request) {
-		
-		ActionErrors errors= new ActionErrors();
-		
-		if (metrosMin== "" && metrosMax=="" && regimen=="" && precioMin == "" && precioMax=="" && datosDeInteres=="" && 
-				numHab=="" && tipo=="" && zona=="")
-			errors.add("vacio", new ActionMessage("errors.vacio.required"));
-		
-		return errors;
-	}
+
 	public String getDatosDeInteres() {
 		return datosDeInteres;
 	}
