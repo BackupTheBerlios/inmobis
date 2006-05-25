@@ -28,10 +28,10 @@ public interface GestorClienteBD extends BDObject{
   InfoTelfBean newInfoTelfClientes(String desctelf);
   String [] getIdMails();
   InfoMailBean newInfoMailClientes(String descMail);
-  void consultaLogin (String nombreUsuario) throws RowNotFoundException;
-  void consultaDir (String descDir) throws RowNotFoundException;
-  void consultaTelf (String descTelf) throws RowNotFoundException;
-  void consultaMail (String descMail) throws RowNotFoundException;
+  void consultaLogin (String idUsuario) throws RowNotFoundException;
+  void consultaDir (String idUsuario) throws RowNotFoundException;
+  void consultaTelf (String idUsuario) throws RowNotFoundException;
+  void consultaMail (String idUsuario) throws RowNotFoundException;
   void deleteLogin (String nombreUsuario) throws RowNotFoundException;
   void deleteDir (String descDir) throws RowNotFoundException;
   void deleteTelf (String descTel) throws RowNotFoundException;
