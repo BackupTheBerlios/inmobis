@@ -53,19 +53,15 @@ public class FiltrarPisoAgenteAction extends Action {
 		
 		
 		if (log.isInfoEnabled()){
-			//la jsp coge los valores min y max al reves!!!!!
 			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetrosMin());
-			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getMetrosMax());
-			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getNumHab());
-			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getPrecioMin());
-			log.info("FiltrarPisoAgenteForm 1: " + ((FiltrarPisoAgenteForm)form).getPrecioMax());
-			log.info("FiltrarPisoAgenteForm 4: " + ((FiltrarPisoAgenteForm)form).getRegimen());
-			log.info("FiltrarPisoAgenteForm 5: " + ((FiltrarPisoAgenteForm)form).getTipo());
-			log.info("FiltrarPisoAgenteForm 6: " + ((FiltrarPisoAgenteForm)form).getZona());
-			log.info("FiltrarPisoAgenteForm 7: " + ((FiltrarPisoAgenteForm)form).getDatosDeInteres());
-		}
-		
-		if (log.isInfoEnabled()){
+			log.info("FiltrarPisoAgenteForm 2: " + ((FiltrarPisoAgenteForm)form).getMetrosMax());
+			log.info("FiltrarPisoAgenteForm 3: " + ((FiltrarPisoAgenteForm)form).getNumHab());
+			log.info("FiltrarPisoAgenteForm 4: " + ((FiltrarPisoAgenteForm)form).getPrecioMin());
+			log.info("FiltrarPisoAgenteForm 5: " + ((FiltrarPisoAgenteForm)form).getPrecioMax());
+			log.info("FiltrarPisoAgenteForm 6: " + ((FiltrarPisoAgenteForm)form).getRegimen());
+			log.info("FiltrarPisoAgenteForm 7: " + ((FiltrarPisoAgenteForm)form).getTipo());
+			log.info("FiltrarPisoAgenteForm 8: " + ((FiltrarPisoAgenteForm)form).getZona());
+			//log.info("FiltrarPisoAgenteForm 9: " + ((FiltrarPisoAgenteForm)form).getDatosDeInteres());
 			log.info("FiltrarPisoAgente 1: Antes de entrar en la base de datos");
 		}
 		
@@ -96,12 +92,10 @@ public class FiltrarPisoAgenteAction extends Action {
 					log.info("FiltrarPisoAgenteAction 5: " + listaInmuebles.size());
 					int i=0;
 					while (i<listaInmuebles.size()){
-						log.info("Identificador: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getIdInmueble());
 						log.info("Zona: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getZona());
 						log.info("Metros: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getMetros());
 						log.info("Precio: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getPrecio());
 						log.info("Regimen: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getRegimen());
-						log.info("Datos Interes: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getdatosDeInteres());
 						i++;
 					}
 				}

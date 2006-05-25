@@ -49,8 +49,8 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="filtrarPisos.precio"/>
 									</td>
 									<td>
-										de&nbsp;&nbsp;<html:text property="precioMax" size="5" maxlength="10" />
-										a&nbsp;&nbsp;<html:text property="precioMin" size="5" maxlength="10" />&nbsp;Euros
+										de&nbsp;&nbsp;<html:text property="precioMin" size="5" maxlength="10" />
+										a&nbsp;&nbsp;<html:text property="precioMax" size="5" maxlength="10" />&nbsp;Euros
 										<html:errors property="precioMax" />
 										<html:errors property="precioMin" />
 									</td>
