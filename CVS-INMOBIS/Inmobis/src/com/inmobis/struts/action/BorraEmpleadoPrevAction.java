@@ -5,6 +5,7 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
@@ -39,6 +40,7 @@ public class BorraEmpleadoPrevAction extends Action {
 	 * @param response
 	 * @return ActionForward
 	 */
+	
 	public ActionForward execute(
 		ActionMapping mapping,
 		ActionForm form,
@@ -47,7 +49,7 @@ public class BorraEmpleadoPrevAction extends Action {
 		
 		ActionMessages errors= new ActionMessages();
 		
-//		Si el empleado que se quiere borrar no está registrado no se puede borrar
+		//Si el empleado que se quiere borrar no está registrado no se puede borrar
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar(((BorraEmpleadoForm)form).getTipoEmpleado());
 		
 		if (log.isInfoEnabled()){
@@ -66,9 +68,10 @@ public class BorraEmpleadoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraEmpleadoPrevAction 2:El empleado está en la base de datos");
 			}
+			HttpSession session = request.getSession(true);
+			session.setAttribute("empleado",form);
 			return mapping.findForward("exito");
 		}		
 	}
-
 }
 

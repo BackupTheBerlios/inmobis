@@ -27,32 +27,6 @@ public class BorraEmpleadoForm extends ActionForm {
 	private String tipoEmpleado;// para saber si es empleado (agente, gerente,...) o si es administrador
 	// --------------------------------------------------------- Methods
 
-	/** 
-	 * Method reset
-	 * @param mapping
-	 * @param request
-	 */
-	public void reset(ActionMapping mapping, HttpServletRequest request) {
-		this.idEmpleado="";
-		this.nombreEmpleado = "";
-		this.apellido1 = "";
-		this.apellido2 = "";
-		this.fechaNacimiento = "";
-		this.tipoEmpleado = "";
-	}
-	
-	/** 
-	 * Method validate
-	 * @param mapping
-	 * @param request
-	 * @return ActionErrors
-	 */
-	/*public ActionErrors validate(
-		ActionMapping mapping,
-		HttpServletRequest request) {
-		return null;
-	}*/
-
 	public String getIdEmpleado() {
 		return idEmpleado;
 	}
