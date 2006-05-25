@@ -8,7 +8,7 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del agente-->
 <%String subtitulo="P&aacute;gina del men&uacute; gen&eacute;rico";%>
-<%String tipoMenu="general";%>
+<%String tipoMenu="general";//En esta página no hay posibilidad de usuarios%>
 <%@include file="menu_izdo.jsp" %>
                 
               <div id="content"> 

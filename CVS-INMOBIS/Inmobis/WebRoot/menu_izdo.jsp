@@ -3,7 +3,7 @@
 	<h2><%= subtitulo%></h2>
 </div>
 <div id="pageNav"> 
-<%if(tipoMenu=="general"){%>				
+<%if(tipoMenu.equals("general")){%>				
 	<div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuGenerico.message"/></h3>
 		<a href="index.jsp">
@@ -39,7 +39,7 @@
 			</html:submit>
 		</html:form>-->
 	</div>
-<%}else if(tipoMenu=="login"){%><!--Este menu tiene que ser asi-->
+<%}else if(tipoMenu.equals("login")){%><!--Este menu tiene que ser asi-->
 	<html:errors property="login"/>				
 	<div id="sectionLinks">
 		<h3>&nbsp;<fmt:message key="login.message"/></h3>
@@ -65,7 +65,7 @@
 		</html:submit><br>
 	</div>
 	</html:form>
-<%}else if(tipoMenu=="administrador"){%>
+<%}else if(tipoMenu.equals("administrador")){%>
 	<html:errors property="menuAdministrador"/>
 	<div id="sectionLinks2">	
 		<h3>&nbsp;<fmt:message key="menuAdministrador.message"/></h3>	
@@ -89,7 +89,7 @@
 			</html:submit>
 		</html:form>-->				
 	</div>
-<%}else if(tipoMenu=="agente"){%>
+<%}else if(tipoMenu.equals("agente")){%>
 	<html:errors property="menuAgente"/>				 	
 	<div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuAgente.message"/></h3> 
@@ -136,7 +136,7 @@
 			</html:submit>
 		</html:form>-->
 	</div>	
-<%}else if(tipoMenu=="cliente"){%>
+<%}else if(tipoMenu.equals("cliente")){%>
 	<html:errors property="menuCliente"/>
 	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
 	 <div id="sectionLinks2">
@@ -170,7 +170,7 @@
 					</html:submit>
 		</html:form>-->
 	</div>
-<%}else if(tipoMenu=="gerente"){%>
+<%}else if(tipoMenu.equals("gerente")){%>
 	<html:errors property="menuGerente"/>
 	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
 	 <div id="sectionLinks2">

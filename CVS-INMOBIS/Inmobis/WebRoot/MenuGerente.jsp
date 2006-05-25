@@ -8,7 +8,14 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del agente-->
 <%String subtitulo="P&aacute;gina Principal del Gerente";%>
-<%String tipoMenu="gerente";%>
+<%String tipoMenu="general";//Si no se ha registrado%>
+<%
+HttpSession sesion=request.getSession();
+String tipoU=(String)sesion.getAttribute("tipoUsuario");
+%>
+<%if (tipoU != null) {%>
+<%	tipoMenu = tipoU;%>
+<%}%>
 <%@include file="menu_izdo.jsp" %>
                 
               <div id="content"> 
