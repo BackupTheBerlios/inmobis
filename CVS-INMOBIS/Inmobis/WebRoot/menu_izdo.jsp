@@ -39,7 +39,6 @@
 			</html:submit>
 		</html:form>-->
 	</div>
-  </div><!--del pageNav-->
 <%}else if(tipoMenu=="login"){%><!--Este menu tiene que ser asi-->
 	<html:errors property="login"/>				
 	<div id="sectionLinks">
@@ -66,12 +65,12 @@
 		</html:submit><br>
 	</div>
 	</html:form>
-  </div><!--del pageNav-->
 <%}else if(tipoMenu=="administrador"){%>
 	<html:errors property="menuAdministrador"/>
 	<div id="sectionLinks2">	
 		<h3>&nbsp;<fmt:message key="menuAdministrador.message"/></h3>	
-		<a href="VerEmpleadosPrev.do">
+		<!--<a href="VerEmpleadosPrev.do">-->
+		<a href="registraClienteCliente.jsp">
 			<fmt:message key="menuAdministrador.lista"/>
 		</a>
 		<a href="registraClienteCliente.jsp">
@@ -90,7 +89,6 @@
 			</html:submit>
 		</html:form>-->				
 	</div>
- </div><!--del pageNav-->
 <%}else if(tipoMenu=="agente"){%>
 	<html:errors property="menuAgente"/>				 	
 	<div id="sectionLinks2">
@@ -137,8 +135,7 @@
 				<fmt:message key="menuAgente.button.registraCliente"/>
 			</html:submit>
 		</html:form>-->
-	</div>
-</div><!--del pageNav-->	
+	</div>	
 <%}else if(tipoMenu=="cliente"){%>
 	<html:errors property="menuCliente"/>
 	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
@@ -173,7 +170,6 @@
 					</html:submit>
 		</html:form>-->
 	</div>
-</div><!--del pageNav-->
 <%}else if(tipoMenu=="gerente"){%>
 	<html:errors property="menuGerente"/>
 	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
@@ -205,10 +201,9 @@
 			</html:submit>
 		</html:form>-->
 	</div>
-</div><!--del pageNav-->
 <!--El menu inicial que había
 <%}else if(tipoMenu=="inicio"){%>
 	<div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-	</div>
 	-->
 <%}%>
+</div><!--del pageNav-->
