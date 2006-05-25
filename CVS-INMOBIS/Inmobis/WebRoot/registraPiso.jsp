@@ -7,8 +7,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del administrador-->
-<%String subtitulo="P&aacute;gina de registro de empleado por el administrador";%>
-<%String subtitulo="P&aacute;gina de registro de empleado por el administrador";%>
+<%String subtitulo="P&aacute;gina de registro de piso";%>
 <%String tipoMenu="general";//Si no se ha registrado%>
 <!-- CON ESTO BASTARÍA--><%-- tipoMenu="administrador";--%>
 <%
@@ -25,9 +24,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 			<html:errors property="registraPiso"/>
 
 			<html:form action="registraPiso.do" focus="calle">
-				<table align="center" border = "2">
-					<tr align="center">
-						<td><H1><fmt:message key="registraPiso.message"/></H1></td>
+				<table align="center">
+					<tr>
+						<td><H2><fmt:message key="registraPiso.message"/></H2></td>
 					</tr>
 					<tr align="center">
 						<td>

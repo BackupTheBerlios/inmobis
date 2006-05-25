@@ -103,7 +103,10 @@
 			<fmt:message key="menuAgente.mensajes"/>
 		</a>		 
 		<a href="verPisosAgente.do">
-			<fmt:message key="menuAgente.inmuebles"/>
+			<fmt:message key="menuAgente.verInmuebles"/>
+		</a>
+		<a href="registraPiso.jsp">
+			<fmt:message key="menuAgente.registraPiso"/>
 		</a>
 		<a href="registraClienteAgente.jsp">
 			<fmt:message key="menuAgente.registraCliente"/>
