@@ -9,44 +9,18 @@ import java.util.Vector;
 
 public class VerPisosAgenteForm extends ActionForm{
 	//	 --------------------------------------------------------- Instance Variables
-		private Vector ListaInmuebles = new Vector();
+		private String idAgente;
 	// --------------------------------------------------------- Methods
 
-	/*public Vector getListaInmuebles() {
-			return ListaInmuebles;
+		public String getIdAgente() {
+			return idAgente;
 		}
 
-	public void setListaInmuebles(Vector listaInmuebles) {
-			ListaInmuebles = listaInmuebles;
-		}*/
+		public void setIdAgente(String idAgente) {
+			this.idAgente = idAgente;
+		}
 
-	/** 
-	 * Method validate
-	 * @param mapping
-	 * @param request
-	 * @return ActionErrors
-	 */
-	public ActionErrors validate(
-		ActionMapping mapping,
-		HttpServletRequest request) {
-		return null;
-	}
 
-	/** 
-	 * Method reset
-	 * @param mapping
-	 * @param request
-	 */
-	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
-	}
-
-	public Vector getListaInmuebles() {
-		return ListaInmuebles;
-	}
-
-	public void setListaInmuebles(Vector listaInmuebles) {
-		ListaInmuebles = listaInmuebles;
-	}
 
 }

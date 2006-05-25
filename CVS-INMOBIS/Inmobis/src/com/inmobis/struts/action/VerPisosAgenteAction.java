@@ -18,8 +18,10 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.consultas.Consultar;
+import com.inmobis.struts.form.VerPisosAgenteForm;
 import com.inmobis.consultas.CreadorConsultar;
 import com.inmobis.bbdd.inmueble.*;
+import com.inmobis.INMOCTES;
 
 
 /** 
@@ -55,6 +57,9 @@ public class VerPisosAgenteAction extends Action {
 			log.info("VerPisosAgenteAction 1: Antes de entrar en la base de datos");
 		}
 		
+		HttpSession session = request.getSession(true);
+		((VerPisosAgenteForm)form).setIdAgente((String)session.getAttribute(INMOCTES.idUsuario));
+		
 		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
 		Vector listaInmuebles = consultar.listar(form);
 		
@@ -80,7 +85,6 @@ public class VerPisosAgenteAction extends Action {
 					i++;
 				}
 			}
-			HttpSession session = request.getSession(true);
 			session.setAttribute("listaInmuebles",listaInmuebles);
 			return (mapping.findForward("exito"));
 		}
