@@ -1,7 +1,5 @@
 package com.inmobis.struts.form;
 
-import java.util.Iterator;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -177,7 +175,7 @@ public class RegistraClienteForm extends ActionForm{
 		
 		//Si le registra un agente, hay que rellenar idAgente
 		if(esAgente && idAgente.equals("")){
-			errors.add("idAgente", new ActionMessage("errors.idAgente.required"));
+			errors.add("registraClienteAgente", new ActionMessage("errors.idAgente.required"));
 		}
 		if (i_log.isInfoEnabled()){
 			i_log.info("Despues de comprobar los errores. Nº errores: "+errors.size());

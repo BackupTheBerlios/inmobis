@@ -16,6 +16,8 @@ import com.inmobis.bbdd.cliente.GestorClienteBD;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 
 import com.inmobis.bbdd.email.InfoMailBean;
+import com.inmobis.bbdd.empleado.AgenteBD;
+import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.RelAgenteClienteBD;
 import com.inmobis.bbdd.empleado.RelAgenteClienteBean;
 
@@ -108,64 +110,103 @@ public class IntroducirCliente extends Introducir{
 		}
 		//TODO USAR INTERFACES
 		//Variable para decidir si hay que borrar al cliente previamente introducido por no encontrar al agente.
-		Boolean borrar =false;
 		if(i_log.isInfoEnabled())
 			i_log.info("Le registra un agente?: "+((RegistraClienteForm)datosCliente).getEsAgente());
 		//Si le ha dado de alta un agente, se lo asociamos
+		
 		if (((RegistraClienteForm)datosCliente).getEsAgente() && cInsertado){
-			UsuarioLoginBean loginAgente=new UsuarioLoginBean();
-			loginAgente.setNombreUsuario(((RegistraClienteForm)datosCliente).getIdAgente());
-			UsuarioLoginBD loginAgenteBD=new UsuarioLoginBD(loginAgente);
+			AgenteBean agente=new AgenteBean();
+			agente.setIdAgente(((RegistraClienteForm)datosCliente).getIdAgente());
+			AgenteBD agenteBD= new AgenteBD(agente);
 			try {
-				//para ver si existe un empleado con ese dni
-				loginAgenteBD.select();
-				//Si existe, miro que sea agente
-				if (loginAgente.getTipoUsuario().trim().equals("agente")){
-					RelAgenteClienteBean relacion= new RelAgenteClienteBean();
-					relacion.setIdAgente(loginAgente.getIdUsuario());
-					relacion.setIdCliente(cliente.getIdCliente());
-					RelAgenteClienteBD relacionBD= new RelAgenteClienteBD(relacion);
-					try {
-						relacionBD.insert();
-					} catch (RowExistsException e) {
-						borrar=true;
-						errors.add("registraClientAgente", new ActionMessage(e.toString()));
-						//Si no consigo asociar un cliente, borro lo que ya habia introducido
-						
-						if(i_log.isInfoEnabled())
-							i_log.info("Error en BBDD al asociar al agente "+((RegistraClienteForm)datosCliente).getIdAgente() +". "+e);
-					}
-				}
-				else{
-					borrar=true;
-					errors.add("registraClienteAgente", new ActionMessage("errors.idAgente.unknown"));
-					if(i_log.isInfoEnabled())
-						i_log.info("El empleado de dni " + ((RegistraClienteForm)datosCliente).getIdAgente()+ " no es un agente, es "+loginAgente.getTipoUsuario());
-				}
-			} catch (RowNotFoundException e) {
-				errors.add("registraClienteAgente", new ActionMessage("errors.idAgente.unknown"));
-				//Si no consigo asociar un cliente, borro lo que ya habia introducido
-				borrar=true;
+				agenteBD.asociarCliente(cliente.getIdCliente(),((RegistraClienteForm)datosCliente).getIdAgente());
+				//No se debería llegar a esto, porque acabo de registrar al cliente
+			} catch (RowExistsException e) {
 				if(i_log.isInfoEnabled())
-					i_log.info("no se encontro ningun usuario con nombre de usuario :" + ((RegistraClienteForm)datosCliente).getIdAgente());
-			}
-			if(borrar){
+					i_log.info("Ese cliente ya estaba registrado con usted");
+				errors.add("registraClienteAgente", new ActionMessage("Ese cliente ya está registrado con usted"));
 				try {
 					gestorCliente.delete();
-					gestorCliente.deleteDir("casa");
-					gestorCliente.deleteLogin(((RegistraClienteForm)datosCliente).getNombreUsuario());
-					gestorCliente.deleteMail("personal");
-					gestorCliente.deleteTelf("casa");
-				} catch (RowNotFoundException e) {
+				} catch (RowNotFoundException e1) {
 					if(i_log.isInfoEnabled())
-						i_log.info("Error al borrar lo ya metido "+e);
+						i_log.info("Borrando a un cliente que no existe: "+e1);
 				}
 			}
-			
 		}
 		else{
-			//TODO Buscarle y asociarle un agente
+			AgenteBean agente=new AgenteBean();
+			agente.setIdAgente(((RegistraClienteForm)datosCliente).getIdAgente());
+			AgenteBD agenteBD= new AgenteBD(agente);
+			try {
+				agenteBD.agregarCliente(cliente.getIdCliente());
+			} catch (RowExistsException e) {
+				//No se debería llegar a esto, porque acabo de registrar al cliente
+				if(i_log.isInfoEnabled())
+					i_log.info("El cliente que se está registrando ya tiene un agente asociado");
+				errors.add("registraClienteCliente", new ActionMessage("Ya tiene un agente asociado"));
+				try {
+					gestorCliente.delete();
+				} catch (RowNotFoundException e1) {
+					if(i_log.isInfoEnabled())
+						i_log.info("Borrando a un cliente que no existe: "+e1);
+				}
+			}
 		}
+			
+		
+//		if (((RegistraClienteForm)datosCliente).getEsAgente() && cInsertado){
+//			UsuarioLoginBean loginAgente=new UsuarioLoginBean();
+//			loginAgente.setNombreUsuario(((RegistraClienteForm)datosCliente).getIdAgente());
+//			UsuarioLoginBD loginAgenteBD=new UsuarioLoginBD(loginAgente);
+//			try {
+//				//para ver si existe un empleado con ese dni
+//				loginAgenteBD.select();
+//				//Si existe, miro que sea agente
+//				if (loginAgente.getTipoUsuario().trim().equals("agente")){
+//					RelAgenteClienteBean relacion= new RelAgenteClienteBean();
+//					relacion.setIdAgente(loginAgente.getIdUsuario());
+//					relacion.setIdCliente(cliente.getIdCliente());
+//					RelAgenteClienteBD relacionBD= new RelAgenteClienteBD(relacion);
+//					try {
+//						relacionBD.insert();
+//					} catch (RowExistsException e) {
+//						borrar=true;
+//						errors.add("registraClientAgente", new ActionMessage(e.toString()));
+//						//Si no consigo asociar un cliente, borro lo que ya habia introducido
+//						
+//						if(i_log.isInfoEnabled())
+//							i_log.info("Error en BBDD al asociar al agente "+((RegistraClienteForm)datosCliente).getIdAgente() +". "+e);
+//					}
+//				}
+//				else{
+//					borrar=true;
+//					errors.add("registraClienteAgente", new ActionMessage("errors.idAgente.unknown"));
+//					if(i_log.isInfoEnabled())
+//						i_log.info("El empleado de dni " + ((RegistraClienteForm)datosCliente).getIdAgente()+ " no es un agente, es "+loginAgente.getTipoUsuario());
+//				}
+//			} catch (RowNotFoundException e) {
+//				errors.add("registraClienteAgente", new ActionMessage("errors.idAgente.unknown"));
+//				//Si no consigo asociar un cliente, borro lo que ya habia introducido
+//				borrar=true;
+//				if(i_log.isInfoEnabled())
+//					i_log.info("no se encontro ningun usuario con nombre de usuario :" + ((RegistraClienteForm)datosCliente).getIdAgente());
+//			}
+//			if(borrar){
+//				try {
+//					gestorCliente.delete();
+//					gestorCliente.deleteDir("casa");
+//					gestorCliente.deleteLogin(((RegistraClienteForm)datosCliente).getNombreUsuario());
+//					gestorCliente.deleteMail("personal");
+//					gestorCliente.deleteTelf("casa");
+//				} catch (RowNotFoundException e) {
+//					if(i_log.isInfoEnabled())
+//						i_log.info("Error al borrar lo ya metido "+e);
+//				}
+//			}
+//			
+//		}
+//		else{
+//		}
 		return errors;
 	}
 }

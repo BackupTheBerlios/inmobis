@@ -9,7 +9,6 @@ import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 import com.inmobis.altas.CreadorIntroducir;
 import com.inmobis.altas.Introducir;
