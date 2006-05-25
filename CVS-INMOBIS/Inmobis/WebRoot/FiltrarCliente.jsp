@@ -88,7 +88,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<table width="100%">
 								<tr>
 									<td align="center">
-										<html:image value="submit" src="images/buscarBtn.jpg"/>
+										<html:submit>
+											<fmt:message key="filtrarCliente.button.buscar"/>
+										</html:submit>
 									</td>
 								</tr>
 							</table>
