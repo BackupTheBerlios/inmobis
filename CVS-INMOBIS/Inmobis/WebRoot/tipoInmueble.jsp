@@ -4,6 +4,7 @@
 	<html:option value="chalet"/>
 	<html:option value="loft"/>
 	<html:option value="casa baja"/>
+	<html:option value="local"/>
 	<html:option value="otros"/>
 </html:select>
 <html:errors property="tipo" />

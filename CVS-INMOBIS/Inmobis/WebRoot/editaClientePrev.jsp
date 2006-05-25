@@ -9,8 +9,14 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del administrador-->
 <%String subtitulo="P&aacute;gina de registro de empleado por el administrador";%>
-<%String tipoMenu="administrador";%>
-<html>
+<%String tipoMenu="general";//Si no se ha registrado%>
+<%
+HttpSession sesion=request.getSession();
+String tipoU=(String)sesion.getAttribute("tipoUsuario");
+%>
+<%if (tipoU != null) {%>
+<%	tipoMenu = tipoU;%>
+<%}%><html>
 <body>
 	<div id="content"> 
                 <div class="feature">

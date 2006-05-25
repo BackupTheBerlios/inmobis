@@ -8,7 +8,16 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del administrador-->
 <%String subtitulo="P&aacute;gina de registro de empleado por el administrador";%>
-<%String tipoMenu="administrador";%>
+<%String subtitulo="P&aacute;gina de registro de empleado por el administrador";%>
+<%String tipoMenu="general";//Si no se ha registrado%>
+<!-- CON ESTO BASTARÍA--><%-- tipoMenu="administrador";--%>
+<%
+HttpSession sesion=request.getSession();
+String tipoU=(String)sesion.getAttribute("tipoUsuario");
+%>
+<%if (tipoU != null) {%>
+<%	tipoMenu = tipoU;%>
+<%}%>
 <%@include file="menu_izdo.jsp" %>
 
 	<div id="content"> 
@@ -95,10 +104,11 @@ CON UN ANCHO DE 767 px -->
 									<td align="right">
 										<fmt:message key="registraPiso.regimen"/>
 									</td>
-									<td align="left">
-										<html:text 	property="regimen" 
-													size="15" 
-													maxlength="15" />
+									<td>
+										<html:select property="regimen" size="1">
+											<html:option value="alquiler">Alquiler</html:option>
+											<html:option value="venta">Venta</html:option>
+										</html:select>
 										<html:errors property="regimen" />
 									</td>
 								</tr> 
@@ -137,10 +147,7 @@ CON UN ANCHO DE 767 px -->
 										<fmt:message key="registraPiso.provincia"/>
 									</td>
 									<td align="left">
-										<html:text 	property="provincia" 
-													size="15" 
-													maxlength="15" />
-										<html:errors property="provincia" />
+										<%@ include file="provincia.jsp" %>
 									</td>
 								</tr> 
 								<tr>
@@ -158,10 +165,14 @@ CON UN ANCHO DE 767 px -->
 									<td align="right">
 										<fmt:message key="registraPiso.numHab"/>
 									</td>
-									<td align="left">
-										<html:text 	property="numHab" 
-													size="15" 
-													maxlength="15" />
+									<td>
+										<html:select property="numHab" size="1">
+											<html:option value="1">Una</html:option>
+											<html:option value="2">Dos</html:option>
+											<html:option value="3">Tres</html:option>
+											<html:option value="4">Cuatro</html:option>
+											<html:option value="5">Cinco</html:option>
+										</html:select>
 										<html:errors property="numHab" />
 									</td>
 								</tr> 

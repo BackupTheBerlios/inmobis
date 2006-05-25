@@ -8,7 +8,16 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo específico del agente-->
 <%String subtitulo="P&aacute;gina de registro de clientes por el agente";%>
-<%String tipoMenu="agente";%>
+<%String tipoMenu="general";//Si no se ha registrado%>
+<!-- CON ESTO BASTARÍA-->
+<%-- tipoMenu="agente";--%>
+<%
+HttpSession sesion=request.getSession();
+String tipoU=(String)sesion.getAttribute("tipoUsuario");
+%>
+<%if (tipoU != null) {%>
+<%	tipoMenu = tipoU;%>
+<%}%>
 <%@include file="menu_izdo.jsp" %>    	
 	
 	<html:form action="registraClienteAgente.do?esAgente=1"  >

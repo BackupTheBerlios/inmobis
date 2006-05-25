@@ -10,7 +10,14 @@ CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
 <%String subtitulo="P&aacute;gina de Listado";%>
-<%String tipoMenu="general";%>
+<%String tipoMenu="general";//Si no se ha registrado%>
+<%
+HttpSession sesion=request.getSession();
+String tipoU=(String)sesion.getAttribute("tipoUsuario");
+%>
+<%if (tipoU != null) {%>
+<%	tipoMenu = tipoU;%>
+<%}%>
 <%@ include file="menu_izdo.jsp" %>
 
               <div id="content"> 
