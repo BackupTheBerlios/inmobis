@@ -31,6 +31,8 @@ public class RegistraPisoForm extends ActionForm {
 	private String poblacion;
 	private String provincia;
 	private String pais;
+	//Datos del cliente
+	private String nombreUsuario;
 
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
@@ -48,6 +50,7 @@ public class RegistraPisoForm extends ActionForm {
 		this.poblacion="";
 		this.provincia="";
 		this.pais="";
+		this.nombreUsuario="";
 	}
 	
 	public ActionErrors validate(
@@ -135,7 +138,14 @@ public class RegistraPisoForm extends ActionForm {
 		if (i_log.isInfoEnabled()){
 			i_log.info("Despues de comprobar los erorres. Nº errores: "+errors.size());
 		}
+		//El nombre de usuario tiene que tener al menos 2 caractereres
+		if(nombreUsuario.equals("") || nombreUsuario.length() < 2){
+			errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.required"));	
+		}
+		
 		return errors;
+		
+		
 	}
 	
 	//Metodo para saber si una cadena solo tiene letras
@@ -194,6 +204,9 @@ public class RegistraPisoForm extends ActionForm {
 	public String getPais(){
 		return this.pais;
 	}
+	public String getNombreUsuario(){
+		return this.nombreUsuario;
+	}
 	//Setters
 	public void setTipo(String tipo) {
 		this.zona = tipo.trim();
@@ -236,6 +249,9 @@ public class RegistraPisoForm extends ActionForm {
 	}
 	public void setPais(String pais){
 		this.pais=pais.trim();
+	}
+	public void setNombreUsuario(String nombre){
+		this.nombreUsuario =nombre.trim();
 	}
 }
 

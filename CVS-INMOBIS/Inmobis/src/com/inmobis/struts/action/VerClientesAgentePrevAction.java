@@ -68,7 +68,7 @@ public class VerClientesAgentePrevAction extends Action {
 		
 		listaClientesAgente = consultar.listar(formClientesAgente);		
 		
-		session.setAttribute("listaClientesAgente",listaClientesAgente);
+		session.setAttribute("listaClientes",listaClientesAgente);
 		//request.setAttribute(\"listaConcellos\",vec_concellos);
 		
 		
