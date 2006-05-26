@@ -14,6 +14,7 @@ CON UN ANCHO DE 767 px -->
 <%
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");
+String idAgente=(String)sesion.getAttribute("IdUsuario");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -46,7 +47,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					</td>
 					<td>	
 						<!--El identificador de agente al que se asocia-->
-						<html:hidden property="idAgente"/>
+						<html:hidden property="idAgente" value="<%=idAgente%>"/>						
 						<!--El input correspondiente-->
 						<html:text 	property="nombreUsuario" maxlength="15" />
 						<html:errors property="nombreUsuario" />

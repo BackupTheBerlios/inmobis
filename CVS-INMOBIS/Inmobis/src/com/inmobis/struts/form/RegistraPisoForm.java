@@ -209,7 +209,7 @@ public class RegistraPisoForm extends ActionForm {
 	}
 	//Setters
 	public void setTipo(String tipo) {
-		this.zona = tipo.trim();
+		this.tipo = tipo.trim();
 	}
 	public void setNumHab(String numHab) {
 		this.numHab = numHab.trim();
