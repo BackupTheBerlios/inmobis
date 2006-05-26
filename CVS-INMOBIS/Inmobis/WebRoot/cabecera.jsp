@@ -11,9 +11,9 @@
 	<%@ taglib prefix="html" uri="/WEB-INF/struts-html-el.tld" %>
 
 	<html:html locale="true"/>
-	<head>
-    <fmt:setBundle basename="com.inmobis.struts.ApplicationResources" />
+	<head>    
 <%}%>
+<fmt:setBundle basename="com.inmobis.struts.ApplicationResources" />
 <%--Parte comun--%>
 <title><%=tituloPag%></title>
 <meta http-equiv="Content-Type" content="text/html;">
