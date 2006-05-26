@@ -7,6 +7,7 @@ import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionMessages;
@@ -46,8 +47,8 @@ public class BorraPisoAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
-		
-		//Si el piso que se quiere borrar no está registrado no se puede borrar
+		HttpSession session = request.getSession(true);
+		((BorraPisoForm)form).setIdInmueble((String)session.getAttribute("idInmueble"));
 		
 		Eliminar eliminarI = CreadorEliminar.CreaEliminar("inmueble");
 		

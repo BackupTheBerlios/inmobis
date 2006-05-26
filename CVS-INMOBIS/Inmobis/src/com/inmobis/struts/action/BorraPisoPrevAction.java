@@ -47,18 +47,11 @@ public class BorraPisoPrevAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
-		
-		if (log.isInfoEnabled()){
-			log.info("BorrarPisoPrevForm 1: " + ((BorraPisoPrevForm)form).getIdInmueble());
-			/*log.info("BorrarPisoPrevForm 3: " + ((BorraPisoPrevForm)form).getMetros());
-			log.info("BorrarPisoPrevForm 4: " + ((BorraPisoPrevForm)form).getNumHab());
-			log.info("BorrarPisoPrevForm 5: " + ((BorraPisoPrevForm)form).getPrecio());
-			log.info("BorrarPisoPrevForm 6: " + ((BorraPisoPrevForm)form).getZona());
-			log.info("BorrarPisoPrevForm 7: " + ((BorraPisoPrevForm)form).getRegimen());
-			log.info("BorrarPisoPrevForm 8: " + ((BorraPisoPrevForm)form).getTipo());*/
-		}
-		
-//		Si el inmueble que se quiere borrar no está registrado no se puede borrar
+		HttpSession session = request.getSession(true);
+		//cojo de la sesión el identificador del inmueble
+		((BorraPisoPrevForm)form).setIdInmueble((String) session.getAttribute("idInmueble"));
+				
+		//Si el inmueble que se quiere borrar no está registrado no se puede borrar
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar("inmueble");
 		
 		if (log.isInfoEnabled()){
@@ -75,10 +68,8 @@ public class BorraPisoPrevAction extends Action {
 		}
 		else{
 			if (log.isInfoEnabled()){
-				log.info("borraPisoPrevAction 2:El inmueble está en la base de datos");
+				log.info("borraPisoPrevAction 3:El inmueble está en la base de datos");
 			}
-			HttpSession session = request.getSession(true);
-			session.setAttribute("inmueble",((BorraPisoPrevForm)form).getIdInmueble());
 			return mapping.findForward("exito");
 		}			
 	}	
