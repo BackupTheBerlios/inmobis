@@ -16,9 +16,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-
+import com.inmobis.INMOCTES;
+import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.consultas.Consultar;
 import com.inmobis.consultas.CreadorConsultar;
+import com.inmobis.struts.form.VerEmpleadosPrevForm;
 
 /** 
  * MyEclipse Struts
@@ -48,16 +50,15 @@ public class VerEmpleadosPrevAction extends Action {
 		HttpServletResponse response) {
 
 		ActionMessages errors= new ActionMessages();
+		HttpSession session = request.getSession(true);
+		((VerEmpleadosPrevForm)form).setIdEmpleado((String)session.getAttribute(INMOCTES.idUsuario));
 		
 		if (log.isInfoEnabled()){
 			log.info("VerEmpleadosPrevAction 1: Antes de entrar en la base de datos");
 		}
-		
+				
 		Consultar consultar=CreadorConsultar.CreaConsultar("empleado");
 		Vector listaEmpleados = consultar.listar(form);
-		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("listaEmpleados",listaEmpleados);
 		
 		if (listaEmpleados.equals(null)){
 			if (log.isInfoEnabled()){
@@ -70,7 +71,18 @@ public class VerEmpleadosPrevAction extends Action {
 		else{
 			if (log.isInfoEnabled()){
 				log.info("VerEmpleadosPrevAction 3: Se ha realizado el listado con éxito");
+				int i=0;
+				while (i<listaEmpleados.size()){
+					log.info("Identificador: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getIdEmpleado());
+					log.info("Nombre: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getNombreEmpleado());
+					log.info("Apellido1: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getApellido1());
+					log.info("Apellido2: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getApellido2());
+					log.info("Dni: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getDni());
+					log.info("Fecha de nacimiento: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getFechNacimiento());
+					i++;
+				}
 			}
+			session.setAttribute("listaEmpleados",listaEmpleados);
 			return mapping.findForward("exito");
 		}
 	}
