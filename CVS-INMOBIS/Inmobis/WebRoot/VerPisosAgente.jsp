@@ -72,10 +72,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<table width="100%">
 						<tr>
 							<td>
-								<a href="borraPisoPrev.do?idinmueble=<bean:write name='inmueble' property='idInmueble'/>+&inmueble=<bean:write name='inmueble' property='zona' /> +&numHab=+<bean:write name='inmueble' property='numHab' /> +&metros=+<bean:write name='inmueble' property='metros' />+&regimen=+<bean:write name='inmueble' property='regimen' />+&tipo=+<bean:write name='inmueble' property='tipo' />	   +&precio=+<bean:write name='inmueble' property='precio' />"><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
+								<a href="BorraPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
 							</td>
 							<td align="right">
-								<a href="editaPisoPrev.do?idinmueble=<bean:write name='inmueble' property='idInmueble'/>+&inmueble=<bean:write name='inmueble' property='zona' />+&numHab=+<bean:write name='inmueble' property='numHab' />+&metros=+<bean:write name='inmueble' property='metros' />+&regimen=+<bean:write name='inmueble' property='regimen' />+&tipo=+<bean:write name='inmueble' property='tipo' />+&precio=+<bean:write name='inmueble' property='precio' />"><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+								<a href="EditaPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
 							</td>
 						</tr>
 					</table>

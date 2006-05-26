@@ -2,6 +2,8 @@ package com.inmobis.bajas;
 
 import org.apache.struts.action.ActionForm;
 import com.inmobis.struts.form.BorraPisoForm;
+import com.inmobis.struts.form.BorraPisoPrevForm;
+
 import org.apache.log4j.Logger;
 import com.inmobis.bbdd.inmueble.InmuebleBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
@@ -14,7 +16,7 @@ public class EliminarInmueble extends Eliminar{
 	public boolean validarRegistrado(ActionForm id){	
 		//	se crea un Bean para el inmueble 
 		InmuebleBean inmueble = new InmuebleBean();
-		inmueble.setIdInmueble(((BorraPisoForm)id).getIdInmueble());
+		inmueble.setIdInmueble(((BorraPisoPrevForm)id).getIdInmueble());
 		//se crea un inmueble de la base de datos
 		InmuebleBD inmueblebd = new InmuebleBD(inmueble);
 		//mensajes para ver los errores

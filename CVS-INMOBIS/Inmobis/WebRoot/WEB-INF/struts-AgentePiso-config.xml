@@ -14,6 +14,8 @@
     <form-bean name="filtrarPisoAgenteForm" type="com.inmobis.struts.form.FiltrarPisoAgenteForm" />
     <form-bean name="verClientesSinAgenteForm" type="com.inmobis.struts.form.VerClientesSinAgenteForm" />
     <form-bean name="asignarAgenteAClientesForm" type="com.inmobis.struts.form.AsignarAgenteAClientesForm" />
+    <form-bean name="BorraPisoPrevForm" type="com.inmobis.struts.form.BorraPisoPrevForm" />
+    <form-bean name="EditaPisoPrevForm" type="com.inmobis.struts.form.EditaPisoPrevForm" />
   </form-beans>
 
   <global-exceptions />
@@ -81,27 +83,24 @@
       
     </action>
     <action
+      attribute="EditaPisoPrevForm"
       input="/VerPisosAgente.jsp"
-      path="/editaPisoPrev"
+      name="EditaPisoPrevForm"
+      path="/EditaPisoPrev"
       type="com.inmobis.struts.action.EditaPisoPrevAction" >
       <forward name="error" path="/VerPisosAgente.jsp" />
       <forward name="exito" path="/EditaPiso.jsp" />
     </action>
     <action
+	  attribute="BorraPisoPrevForm"
       input="/VerPisosAgente.jsp"
-      path="/borraPisoPrev"
+      name="BorraPisoPrevForm"
+      path="/BorraPisoPrev"
       type="com.inmobis.struts.action.BorraPisoPrevAction" >
       <forward name="error" path="/VerPisosAgente.jsp" />
       <forward name="exito" path="/borraPiso.jsp" />
     </action>
     
-    
-
-
-
-
-
-
             
   </action-mappings>
 
