@@ -6,21 +6,21 @@ import org.apache.struts.action.ActionForm;
 import com.inmobis.bbdd.CreadorGestores;
 
 import com.inmobis.bbdd.cliente.*;
-import com.inmobis.struts.form.*;
-import com.inmobis.struts.action.*;
+//import com.inmobis.struts.form.*;
+//import com.inmobis.struts.action.*;
 import org.apache.log4j.Logger;
-import com.inmobis.bbdd.RowNotFoundException;
-import com.inmobis.bbdd.direccion.InfoDirBean;
-import com.inmobis.bbdd.email.InfoMailBean;
-import com.inmobis.bbdd.login.UsuarioLoginBean;
-import com.inmobis.bbdd.telefono.InfoTelfBean;
+//import com.inmobis.bbdd.RowNotFoundException;
+//import com.inmobis.bbdd.direccion.InfoDirBean;
+//import com.inmobis.bbdd.email.InfoMailBean;
+//import com.inmobis.bbdd.login.UsuarioLoginBean;
+//import com.inmobis.bbdd.telefono.InfoTelfBean;
 
 
 public class ConsultarCliente extends Consultar{
 	
-	private static final Logger log = Logger.getLogger(FiltrarClienteAction.class);
+	private static final Logger log = Logger.getLogger(ConsultarCliente.class);
 	
-	public UsuarioLoginBean getLogin(ActionForm datosCliente){
+	/*public UsuarioLoginBean getLogin(ActionForm datosCliente){
 		ClienteBean cliente=new ClienteBean();
 		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
 		CreadorGestores creador = new CreadorGestores();
@@ -90,15 +90,15 @@ public class ConsultarCliente extends Consultar{
 		if(log.isInfoEnabled())
 			log.info("mail "+mail.getDirMail() );
 		return mail;
-	}
+	}*/
 
 	
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos
 		Vector datos = new Vector();
 		//se crea un vector para devolver en cado de error
-		Vector error = new Vector();
-		error.add(new Integer(1));
+		//Vector error = new Vector();
+		//error.add(new Integer(1));
 		//se crea el cliente bean
 		
 		/*c.setNombre(((FiltrarClienteForm)datosBusqueda).getNombreCliente());
@@ -106,45 +106,45 @@ public class ConsultarCliente extends Consultar{
 		c.setApellido2(((FiltrarClienteForm)datosBusqueda).getApellido2());
 		c.setFechNacimiento(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento());
 		c.setIdCliente(((FiltrarClienteForm)datosBusqueda).getIdCliente());
-		c.setDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());*/
-		
-		 
-		
-		
-
-		
-		
-		
-		
+		c.setDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());*/		
 		try{
-			
-			if (datosBusqueda.getClass().equals("VerClientesPrevForm"))
+			if (datosBusqueda ==null)
 			{
+			//if ((datosBusqueda.getClass()).equals("VerClientesPrevForm"))
+			//{
 			/*if ((((FiltrarClienteForm)datosBusqueda).getNombreCliente()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getApellido1()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getApellido2()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getIdCliente()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getDniCliente()).equals("")datosBusqueda.equals(null)){*/
-		
-				if (((VerClientesPrevForm)datosBusqueda).isEsBusqueda()==false)
-				{
 				
+				if(log.isInfoEnabled()){
+					log.info("ConsultarCliente 3: el formulario es de VerClientesPrevForm " );
+				}
+		
+				//if (((VerClientesPrevForm)datosBusqueda)==null)
+				//{
+				
+					if(log.isInfoEnabled()){
+						log.info("ConsultarCliente 3: entro en consultar cliente para listarlos " );
+					}
+					
 					ClienteBean c = new ClienteBean();
-					c.setNombre("");
-					c.setApellido1("");
-					c.setApellido2("");
-					c.setFechNacimiento("");
-					c.setIdCliente("");
-					c.setDni("");
+					//c.setNombre("");
+					//c.setApellido1("");
+					//c.setApellido2("");
+					//c.setFechNacimiento("");
+					//c.setIdCliente("");
+					//c.setDni("");
 				
 					//					LLamada al gestor de la base de datos
 					GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",c);
-				
-				
-					datos = gestorCliente.listarClientes();				
-				}
-			}
+					datos = gestorCliente.listarClientes();
+					
+					
+				//}
+			//}
 			/*else {
 			   if (datosBusqueda.getClass().equals("VerClientesAgentePrevForm"))
 				//AgenteBean a = new AgenteBean();
@@ -164,11 +164,12 @@ public class ConsultarCliente extends Consultar{
 				   datos = gestorAgente.BusquedaDetallada();
 			   }
 		    }*/
+		  }
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarCliente 3: Fallo en la busqueda en la base de datos " );
 			}
-			return error;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
+			return datos;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
 		}
 		return datos;
 	}

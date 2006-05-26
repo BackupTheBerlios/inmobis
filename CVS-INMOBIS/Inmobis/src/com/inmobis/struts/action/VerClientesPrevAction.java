@@ -58,15 +58,18 @@ public class VerClientesPrevAction extends Action {
 		HttpSession session = request.getSession(true);
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
-		ActionForm formClientesGerente = new VerClientesPrevForm();
+		//ActionForm formClientesGerente = new VerClientesPrevForm();
 		
-		String uG = session.getAttribute(INMOCTES.tipoUsuario).toString();
+		//formClientesGerente.reset(mapping,request);
+		
+		//String uG = session.getAttribute(INMOCTES.tipoUsuario).toString();
 		
 		
-		Vector listaClientes = null;
-		//ActionForm form2 = null;
-		if (uG.equals("gerente"))
-			listaClientes = consultar.listar(formClientesGerente);
+		Vector listaClientes = new Vector();//null;
+		ActionForm form2 = null;
+		//if (uG.equals("gerente"))
+		//Vector listaClientes = consultar.listar(formClientesGerente);
+		listaClientes = consultar.listar(form2);
 		//else listaClientes = null;
 		 
 		
@@ -74,7 +77,7 @@ public class VerClientesPrevAction extends Action {
 		session.setAttribute("listaClientes",listaClientes);
 		 
 				
-		if (listaClientes==null){
+		if (listaClientes.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("VerClientesPrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
