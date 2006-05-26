@@ -25,4 +25,9 @@ public abstract class Consultar {
 	public UsuarioLoginBean getLogin(ActionForm datos){
 		return null;
 	}
+	
+	//se sobreescribe en ConsultarInmueble
+	public Vector listarPisosAgente(ActionForm form){
+		return null;
+	}
 }

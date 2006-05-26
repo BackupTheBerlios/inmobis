@@ -61,7 +61,7 @@ public class VerPisosAgenteAction extends Action {
 		((VerPisosAgenteForm)form).setIdAgente((String)session.getAttribute(INMOCTES.idUsuario));
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
-		Vector listaInmuebles = consultar.listar(form);
+		Vector listaInmuebles = consultar.listarPisosAgente(form);
 		
 		if (listaInmuebles.equals(null)){
 			if (log.isInfoEnabled()){

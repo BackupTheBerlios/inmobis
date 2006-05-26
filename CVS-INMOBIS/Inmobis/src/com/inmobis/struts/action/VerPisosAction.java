@@ -5,6 +5,8 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import com.inmobis.struts.form.VerPisosAgenteForm;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
@@ -44,6 +46,8 @@ public class VerPisosAction extends Action {
 		HttpServletResponse response) {
 
 		ActionMessages errors= new ActionMessages();
+		HttpSession session = request.getSession(true);
+		
 		
 		if (log.isInfoEnabled()){
 			log.info("VerPisosAction 1: Antes de entrar en la base de datos");
@@ -64,6 +68,7 @@ public class VerPisosAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerPisosAction 3: Se ha realizado el listado con éxito");
 			}
+			session.setAttribute("listaInmuebles",listaInmuebles);
 			return (mapping.findForward("exito"));
 		}
 	}

@@ -8,7 +8,6 @@ import org.apache.struts.action.ActionForm;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
-import com.inmobis.struts.form.VerEmpleadosPrevForm;
 import com.inmobis.struts.form.FiltrarEmpleadoForm;;
 
 public class ConsultarEmpleado extends Consultar{
@@ -21,7 +20,6 @@ public class ConsultarEmpleado extends Consultar{
 				
 		//se crea el empleado bean		
 		EmpleadoBean e = new EmpleadoBean();
-		e.setIdEmpleado(((VerEmpleadosPrevForm)datosBusqueda).getIdEmpleado());
 		
 		//se crea el empleado dase de datos		
 		GestorEmpleadoBD gestorEmpleado = (GestorEmpleadoBD) CreadorGestores.crearGestor("empleado",e);
