@@ -10,13 +10,16 @@ import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.direccion.InfoDirBean;
+import com.inmobis.bbdd.direccion.InfoDirClientesBD;
 import com.inmobis.bbdd.direccion.InfoDirEmpleadosBD;
 import com.inmobis.bbdd.email.InfoMailBean;
+import com.inmobis.bbdd.email.InfoMailClientesBD;
 import com.inmobis.bbdd.email.InfoMailEmpleadosBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.bbdd.login.UsuarioLoginBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
+import com.inmobis.bbdd.telefono.InfoTelfClientesBD;
 import com.inmobis.bbdd.telefono.InfoTelfEmpleadosBD;
 
 import java.sql.*;
@@ -388,6 +391,8 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
 		 
 		 return login;
 		 }
+   
+   
    public void consultaLogin (String nombreUsuario)throws RowNotFoundException {
 	   loginEmpleado=newInfoLoginEmpleados(nombreUsuario);
 	   UsuarioLoginBD login = new UsuarioLoginBD(loginEmpleado);
@@ -432,24 +437,61 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
   idb.setDescMail(descMail);
   return idb;
   }
-  public void consultaDir (String descDir) throws RowNotFoundException{
-    dirEmpleado=newInfoDirEmpleados(descDir);
-    InfoDirEmpleadosBD direccion = new InfoDirEmpleadosBD(dirEmpleado);
-    direccion.select();
+  public void consultaLoginPorNombreUsuario (String nombreUsuario)throws RowNotFoundException {
+	  this.loginEmpleado=newInfoLoginEmpleados(nombreUsuario);
+	  UsuarioLoginBD login = new UsuarioLoginBD(this.loginEmpleado);
+	  login.select();
 
-  }
+	 }
 
-  public void consultaTelf (String descTelf) throws RowNotFoundException {
-   telfEmpleado=newInfoTelfEmpleados(descTelf);
-   InfoTelfEmpleadosBD telefono = new InfoTelfEmpleadosBD(telfEmpleado);
-   telefono.select();
-  }
+	  
+	  public void consultaLoginPorId (String idUsuario)throws RowNotFoundException {
+	 	   this.loginEmpleado=new UsuarioLoginBean();
+	 	   this.loginEmpleado.setIdUsuario(idUsuario);
+	 	   UsuarioLoginBD login = new UsuarioLoginBD(this.loginEmpleado);
+	 	   login.selectAll();
 
-  public void consultaMail (String descMail) throws RowNotFoundException {
-  mailEmpleado=newInfoMailEmpleados(descMail);
-  InfoMailEmpleadosBD mail = new InfoMailEmpleadosBD(mailEmpleado);
-  mail.select();
-  }
+	 	 }
+	  
+	  public void consultaDirPorId (String idGeneral)throws RowNotFoundException {
+	    this.dirEmpleado=new InfoDirBean();//Bean de las direcciones
+	    this.dirEmpleado.setIdGeneral(idGeneral);
+	    InfoDirEmpleadosBD direccion = new InfoDirEmpleadosBD(this.dirEmpleado);
+	    direccion.selectAll();
+
+	  }
+
+	  public void consultaTelfPorId (String idGeneral) throws RowNotFoundException {
+	   this.telfEmpleado=new InfoTelfBean();//Bean de las direcciones
+	   this.telfEmpleado.setIdGeneral(idGeneral);
+	   InfoTelfEmpleadosBD telefono = new InfoTelfEmpleadosBD(this.telfEmpleado);
+	   telefono.selectAll();
+	  }
+
+	  public void consultaMailPorId (String idGeneral) throws RowNotFoundException {
+	  this.mailEmpleado=new InfoMailBean();//Bean de las direcciones
+	  this.mailEmpleado.setIdGeneral(idGeneral);
+	  InfoMailEmpleadosBD mail = new InfoMailEmpleadosBD(this.mailEmpleado);
+	  mail.selectAll();
+	  }
+//  public void consultaDir (String descDir) throws RowNotFoundException{
+//    dirEmpleado=newInfoDirEmpleados(descDir);
+//    InfoDirEmpleadosBD direccion = new InfoDirEmpleadosBD(dirEmpleado);
+//    direccion.select();
+//
+//  }
+//
+//  public void consultaTelf (String descTelf) throws RowNotFoundException {
+//   telfEmpleado=newInfoTelfEmpleados(descTelf);
+//   InfoTelfEmpleadosBD telefono = new InfoTelfEmpleadosBD(telfEmpleado);
+//   telefono.select();
+//  }
+//
+//  public void consultaMail (String descMail) throws RowNotFoundException {
+//  mailEmpleado=newInfoMailEmpleados(descMail);
+//  InfoMailEmpleadosBD mail = new InfoMailEmpleadosBD(mailEmpleado);
+//  mail.select();
+//  }
 
   public void deleteLogin (String nombreUsuario) throws RowNotFoundException {
 	  loginEmpleado=newInfoLoginEmpleados(nombreUsuario);
