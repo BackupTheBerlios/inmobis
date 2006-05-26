@@ -40,7 +40,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		      ResultSet rs = null;
 		      
 		      //obtenemos un ResultSet con los datos producidos por la consulta
-		      rs = stmt.executeQuery("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha" +
+		      rs = stmt.executeQuery("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha,leido" +
 		      		" FROM TMensajes, TRelMensaje" +
 		      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
 		      		"AND idMensaje=" +
