@@ -44,9 +44,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</td>							  
 								<td>
 									<bean:write name="cliente" property="apellido2" />
-								</td>
-							</tr>
-							<tr>
+								</td>							
 								<!-- MEJOR NO MOSTRAR LOS IDS POR PANTALLA
 								<td>
 									<html:text name="cliente" property="idCliente" ></html:text>
@@ -58,10 +56,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</td>
 								<td>
 									<bean:write name="cliente" property="fechNacimiento" />
-								</td> 
-								<td>
-									<a href="ModifBajaClientePrev.do?nombreCliente=<bean:write name='cliente' property='nombre' />+&apellido1=+<bean:write name='cliente' property='apellido1' />+&apellido2=+<bean:write name='cliente' property='apellido2' />+&idcliente=+<bean:write name='cliente' property='idcliente' />+&dnicliente=+<bean:write name='cliente' property='dnicliente' />+&fechnac=+<bean:write name='cliente' property='fechnac' />"><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar Elemento"></a>
-								</td>							  
+								</td> 							
 							</tr>
 					</logic:iterate>
 					</table>

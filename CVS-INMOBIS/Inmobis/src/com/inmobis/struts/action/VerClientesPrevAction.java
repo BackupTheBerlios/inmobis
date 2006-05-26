@@ -65,18 +65,13 @@ public class VerClientesPrevAction extends Action {
 		//String uG = session.getAttribute(INMOCTES.tipoUsuario).toString();
 		
 		
-		Vector listaClientes = new Vector();//null;
-		ActionForm form2 = null;
+		//Vector listaClientes = new Vector();//null;
+		//ActionForm form2 = null;
 		//if (uG.equals("gerente"))
 		//Vector listaClientes = consultar.listar(formClientesGerente);
-		listaClientes = consultar.listar(form2);
+		 Vector listaClientes = consultar.listar(form);
 		//else listaClientes = null;
-		 
-		
-		
-		session.setAttribute("listaClientes",listaClientes);
-		 
-				
+						
 		if (listaClientes.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("VerClientesPrevAction2: Ha habido un error en la búsqueda en la bbdd");
@@ -89,6 +84,7 @@ public class VerClientesPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerClientesPrevAction 3: Se ha realizado el listado con éxito");
 			}
+			session.setAttribute("listaClientes",listaClientes);
 			return mapping.findForward("exito");
 		}
 	}

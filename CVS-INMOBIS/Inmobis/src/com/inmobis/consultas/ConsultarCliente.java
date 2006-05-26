@@ -114,8 +114,8 @@ public class ConsultarCliente extends Consultar{
 		c.setIdCliente(((FiltrarClienteForm)datosBusqueda).getIdCliente());
 		c.setDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());*/		
 		try{
-			if (datosBusqueda ==null)
-			{
+			//if (datosBusqueda ==null)
+			//{
 			//if ((datosBusqueda.getClass()).equals("VerClientesPrevForm"))
 			//{
 			/*if ((((FiltrarClienteForm)datosBusqueda).getNombreCliente()).equals("") &&
@@ -125,10 +125,7 @@ public class ConsultarCliente extends Consultar{
 					(((FiltrarClienteForm)datosBusqueda).getIdCliente()).equals("") &&
 					(((FiltrarClienteForm)datosBusqueda).getDniCliente()).equals("")datosBusqueda.equals(null)){*/
 				
-				if(log.isInfoEnabled()){
-					log.info("ConsultarCliente 3: el formulario es de VerClientesPrevForm " );
-				}
-		
+					
 				//if (((VerClientesPrevForm)datosBusqueda)==null)
 				//{
 				
@@ -170,7 +167,7 @@ public class ConsultarCliente extends Consultar{
 				   datos = gestorAgente.BusquedaDetallada();
 			   }
 		    }*/
-		  }
+		  //}
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarCliente 3: Fallo en la busqueda en la base de datos " );
