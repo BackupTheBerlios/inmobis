@@ -348,6 +348,215 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 		    }
 	     return inmueblesEncontrados;
   }
+   public Vector BusquedaDetalladaConPrecio (String precioMin,String precioMax) {
+	   Vector inmueblesEncontrados = new Vector();
+
+	     try {
+	       Connection conn = ConnectionManager.getConection();
+	       Statement stmt = conn.createStatement();
+	       ResultSet rs = null;
+	       Hashtable consulta = new Hashtable();
+
+	      if (inmueble.getIdInmueble()!=null)
+	       consulta.put("idInmueble",inmueble.getIdInmueble());
+
+	     if (inmueble.getNumHab()!=null)
+	       consulta.put("numHab",inmueble.getNumHab());
+
+	      if (inmueble.getMetros()!=null)
+	        consulta.put("metros",inmueble.getMetros());
+
+	      if (inmueble.getRegimen()!=null)
+	        consulta.put("regimen",inmueble.getRegimen());
+	      if (inmueble.getTipo()!=null)
+	        consulta.put("tipo",inmueble.getRegimen());
+	      if (inmueble.getZona()!=null)
+	        consulta.put("zona",inmueble.getRegimen());
+
+	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble WHERE ");
+	      Iterator it=consulta.keySet().iterator();
+
+
+	          while(it.hasNext())
+	          {
+	          String key=(String) it.next();
+
+
+	          sqlString.append(key +"="+
+	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
+	          System.out.println(consulta.get(key));
+	          if (it.hasNext())
+	              sqlString.append(" AND ");
+	          }
+	          if(consulta.size()>0){
+	            sqlString.append(" AND ");
+	          }
+	          sqlString.append(" precio BETWEEN "+MysqlUtils.toMysqlString(precioMin)+" AND "
+	                           +MysqlUtils.toMysqlString(precioMax));
+	          System.out.println(sqlString);
+
+	     rs=stmt.executeQuery(sqlString.toString());
+
+	       while (rs.next()) {
+	           InmuebleBean inmuebleNuevo=new InmuebleBean();
+	           inmuebleNuevo.setIdInmueble(rs.getString("idInmueble"));
+	           inmuebleNuevo.setNumHab(rs.getString("numHab"));
+	           inmuebleNuevo.setMetros(rs.getString("metros"));
+	           inmuebleNuevo.setRegimen(rs.getString("regimen"));
+	           inmuebleNuevo.setTipo(rs.getString("tipo"));
+	           inmuebleNuevo.setZona(rs.getString("zona"));
+	           inmuebleNuevo.setPrecio(rs.getString("precio"));
+	           inmuebleNuevo.setDatosDeInteres(rs.getString("datosdeinteres"));
+	           inmueblesEncontrados.add(inmuebleNuevo);
+	         }
+
+	     System.out.println(sqlString);
+	     }
+	     catch (Exception ex){
+
+	     }
+	     return inmueblesEncontrados;
+	   }
+
+	   public Vector BusquedaDetalladaConMetros (String metrosMin,String metrosMax) {
+	   Vector inmueblesEncontrados = new Vector();
+
+	     try {
+	       Connection conn = ConnectionManager.getConection();
+	       Statement stmt = conn.createStatement();
+	       ResultSet rs = null;
+	       Hashtable consulta = new Hashtable();
+
+	      if (inmueble.getIdInmueble()!=null)
+	       consulta.put("idInmueble",inmueble.getIdInmueble());
+
+	     if (inmueble.getNumHab()!=null)
+	       consulta.put("numHab",inmueble.getNumHab());
+	      if (inmueble.getRegimen()!=null)
+	        consulta.put("regimen",inmueble.getRegimen());
+	      if (inmueble.getTipo()!=null)
+	        consulta.put("tipo",inmueble.getRegimen());
+	      if (inmueble.getZona()!=null)
+	        consulta.put("zona",inmueble.getRegimen());
+	      if (inmueble.getPrecio()!=null)
+	        consulta.put("precio",inmueble.getPrecio());
+
+	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble WHERE ");
+	      Iterator it=consulta.keySet().iterator();
+
+
+	          while(it.hasNext())
+	          {
+	          String key=(String) it.next();
+
+
+	          sqlString.append(key +"="+
+	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
+	          System.out.println(consulta.get(key));
+	          if (it.hasNext())
+	              sqlString.append(" AND ");
+	          }
+	          if(consulta.size()>0){
+	            sqlString.append(" AND ");
+	          }
+	         /* sqlString.append(" metros BETWEEN "+MysqlUtils.toMysqlString(metrosMin)+" AND "
+	                           +MysqlUtils.toMysqlString(metrosMax));*/
+	          sqlString.append(" metros BETWEEN "+metrosMin+" AND "+metrosMax);
+
+	          System.out.println(sqlString);
+
+	     rs=stmt.executeQuery(sqlString.toString());
+
+	       while (rs.next()) {
+	           InmuebleBean inmuebleNuevo=new InmuebleBean();
+	           inmuebleNuevo.setIdInmueble(rs.getString("idInmueble"));
+	           inmuebleNuevo.setNumHab(rs.getString("numHab"));
+	           inmuebleNuevo.setMetros(rs.getString("metros"));
+	           inmuebleNuevo.setRegimen(rs.getString("regimen"));
+	           inmuebleNuevo.setTipo(rs.getString("tipo"));
+	           inmuebleNuevo.setZona(rs.getString("zona"));
+	           inmuebleNuevo.setPrecio(rs.getString("precio"));
+	           inmuebleNuevo.setDatosDeInteres(rs.getString("datosdeinteres"));
+	           inmueblesEncontrados.add(inmuebleNuevo);
+	         }
+
+	     System.out.println(sqlString);
+	     }
+	     catch (Exception ex){
+
+	     }
+	     return inmueblesEncontrados;
+	   }
+
+	   public Vector BusquedaDetalladaMetrosPrecio (String metrosMin,String metrosMax,String precioMin,String precioMax) {
+	     Vector inmueblesEncontrados = new Vector();
+
+	       try {
+	         Connection conn = ConnectionManager.getConection();
+	         Statement stmt = conn.createStatement();
+	         ResultSet rs = null;
+	         Hashtable consulta = new Hashtable();
+
+	        if (inmueble.getIdInmueble()!=null)
+	         consulta.put("idInmueble",inmueble.getIdInmueble());
+
+	       if (inmueble.getNumHab()!=null)
+	         consulta.put("numHab",inmueble.getNumHab());
+	        if (inmueble.getRegimen()!=null)
+	          consulta.put("regimen",inmueble.getRegimen());
+	        if (inmueble.getTipo()!=null)
+	          consulta.put("regimen",inmueble.getRegimen());
+	        if (inmueble.getZona()!=null)
+	          consulta.put("regimen",inmueble.getRegimen());
+
+	        StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble WHERE ");
+	        Iterator it=consulta.keySet().iterator();
+
+
+	            while(it.hasNext())
+	            {
+	            String key=(String) it.next();
+
+
+	            sqlString.append(key +"="+
+	                          MysqlUtils.toMysqlString((String) consulta.get(key)));
+	            System.out.println(consulta.get(key));
+	            if (it.hasNext())
+	                sqlString.append(" AND ");
+	            }
+	            if(consulta.size()>0){
+	              sqlString.append(" AND ");
+	            }
+	            sqlString.append(" precio BETWEEN "+MysqlUtils.toMysqlString(precioMin)+" AND "
+	                             +MysqlUtils.toMysqlString(precioMax));
+	          /*  sqlString.append(" AND metros BETWEEN "+MysqlUtils.toMysqlString(metrosMin)+" AND "
+	                             +MysqlUtils.toMysqlString(metrosMax));*/
+	              sqlString.append(" AND metros BETWEEN "+metrosMin+" AND "+metrosMax);
+	            System.out.println(sqlString);
+
+	       rs=stmt.executeQuery(sqlString.toString());
+
+	         while (rs.next()) {
+	             InmuebleBean inmuebleNuevo=new InmuebleBean();
+	             inmuebleNuevo.setIdInmueble(rs.getString("idInmueble"));
+	             inmuebleNuevo.setNumHab(rs.getString("numHab"));
+	             inmuebleNuevo.setMetros(rs.getString("metros"));
+	             inmuebleNuevo.setRegimen(rs.getString("regimen"));
+	             inmuebleNuevo.setTipo(rs.getString("tipo"));
+	             inmuebleNuevo.setZona(rs.getString("zona"));
+	             inmuebleNuevo.setPrecio(rs.getString("precio"));
+	             inmuebleNuevo.setDatosDeInteres(rs.getString("datosdeinteres"));
+	             inmueblesEncontrados.add(inmuebleNuevo);
+	           }
+
+	       System.out.println(sqlString);
+	       }
+	       catch (Exception ex){
+
+	       }
+	       return inmueblesEncontrados;
+	     }
+
 
 
    public void consultaDirPorId (String idGeneral)throws RowNotFoundException {
