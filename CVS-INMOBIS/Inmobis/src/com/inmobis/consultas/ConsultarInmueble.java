@@ -5,38 +5,18 @@ import java.util.*;
 import org.apache.struts.action.ActionForm;
 import org.apache.log4j.Logger;
 
-import com.inmobis.bbdd.cliente.ClienteBean;
-import com.inmobis.bbdd.cliente.GestorClienteBD;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
-import com.inmobis.bbdd.inmueble.InmuebleBD;
+
 import com.inmobis.bbdd.*;
 import com.inmobis.struts.form.*;
 
 public class ConsultarInmueble extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(ConsultarInmueble.class);
-	
-	public InfoDirBean getDir(ActionForm datosPiso){
-		InmuebleBean inmueble=new InmuebleBean();
-		inmueble.setIdInmueble(((EditaPisoPrevForm)datosPiso).getIdInmueble());
-		CreadorGestores creador = new CreadorGestores();
-		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)creador.crearGestor("inmueble",inmueble);
-		InfoDirBean direccion=new InfoDirBean();
-		try {
-			gestorInmueble.consultaDirPorId(((EditaPisoPrevForm)datosPiso).getIdInmueble());
-			direccion=gestorInmueble.getDireccionBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
-		if(log.isInfoEnabled())
-			log.info("direccion "+direccion.getCalle() );
-		return direccion;
-	}
 	
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos
@@ -89,5 +69,49 @@ public class ConsultarInmueble extends Consultar{
 			log.info("ConsultarInmueble 6: Exito " );
 		}
 	return datos;
+	}
+	
+	public ActionForm dameDatos (ActionForm id){
+		EditaPisoForm form=new EditaPisoForm();
+		InmuebleBean inmueble=new InmuebleBean();
+		inmueble.setIdInmueble(((EditaPisoPrevForm)id).getIdInmueble());
+		CreadorGestores creador = new CreadorGestores();
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)creador.crearGestor("inmueble",inmueble);
+		InfoDirBean direccion=new InfoDirBean();
+		try {
+			gestorInmueble.consultaDirPorId(((EditaPisoPrevForm)id).getIdInmueble());
+			direccion=gestorInmueble.getDireccionBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error1: "+e );
+		}
+		try {
+			gestorInmueble.select();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error2: "+e );
+		}
+		inmueble=(InmuebleBean)gestorInmueble.getBean();
+		if(log.isInfoEnabled())
+			log.info("direccion "+direccion.getCalle() );
+		if(log.isInfoEnabled())
+			log.info("tipo "+inmueble.getTipo() );
+		form.setCalle(direccion.getCalle());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setNum(direccion.getNum());
+		form.setPais(direccion.getPais());
+		form.setPiso(direccion.getPiso());
+		form.setPoblacion(direccion.getPoblacion());
+		form.setProvincia(direccion.getProvincia());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setDatosDeInteres(inmueble.getdatosDeInteres());
+		form.setMetros(inmueble.getMetros());
+		form.setIdInmueble(inmueble.getIdInmueble());
+		form.setNumHab(inmueble.getNumHab());
+		form.setPrecio(inmueble.getPrecio());
+		form.setRegimen(inmueble.getRegimen());
+		form.setTipo(inmueble.getTipo());
+		form.setZona(inmueble.getZona());
+		return form;
 	}
 }
