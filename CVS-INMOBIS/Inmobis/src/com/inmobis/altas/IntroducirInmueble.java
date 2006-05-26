@@ -55,18 +55,28 @@ public class IntroducirInmueble extends Introducir{
 		GestorClienteBD gestorCliente=(GestorClienteBD)gestor.crearGestor("cliente",cliente);
 		try {
 			gestorCliente.consultaLoginPorNombreUsuario(((RegistraPisoForm)datosInmueble).getNombreUsuario());
-			try {
-				gestorInmueble.insert();
-				gestorInmueble.insertaDir(direccion);
-				gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
-			} catch (RowExistsException e) {
-				errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+			if(i_log.isInfoEnabled())
+				i_log.info("id de:"+((RegistraPisoForm)datosInmueble).getNombreUsuario()+" o "+
+						gestorCliente.getLoginBean().getNombreUsuario()+" es "+gestorCliente.getLoginBean().getIdUsuario());
+			if (gestorCliente.getLoginBean().getIdUsuario()!=null)	{
+				try {
+					gestorInmueble.insert();
+					gestorInmueble.insertaDir(direccion);
+					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
+				} catch (RowExistsException e) {
+					errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+					if(i_log.isInfoEnabled())
+						i_log.info("Fallo en identificadores de tabla de BBDD :" + e.toString());
+				}
+			}
+			else{
+				errors.add("registraPiso", new ActionMessage("error.username.noexiste"));
 				if(i_log.isInfoEnabled())
-					i_log.info("Fallo en identificadores de tabla de BBDD :" + e.toString());
+					i_log.info("No se ha encontrado el cliente indicado");
 			}
 		} catch (RowNotFoundException e1) {
 			//TODO mensaje de error
-			errors.add("registraPiso", new ActionMessage("errors.cliente.notFound"));
+			errors.add("registraPiso", new ActionMessage("errors.username.noexiste"));
 			if(i_log.isInfoEnabled())
 				i_log.info("No se ha encontrado el cliente indicado");
 		}
