@@ -3,10 +3,13 @@ package com.inmobis.bbdd.empleado;
 import java.util.*;
 import java.sql.*;
 
+import org.apache.log4j.Logger;
+
 import com.inmobis.bbdd.ConnectionManager;
 import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
+import com.inmobis.bbdd.cliente.ClienteBD;
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 
@@ -22,6 +25,7 @@ import com.inmobis.bbdd.inmueble.InmuebleBean;
 public class AgenteBD {
 	  private AgenteBean agente;
 	  private Connection conn;
+	  private static final Logger milog = Logger.getLogger(AgenteBD.class);
 	  public AgenteBD(AgenteBean _agente) {
 	    agente = _agente;
 	  }
@@ -72,7 +76,9 @@ public class AgenteBD {
 	    sqlString.append(MysqlUtils.toMysqlString(agente.getComision())+")");
 
 
-
+	    if (milog.isInfoEnabled()){
+  			milog.info("comando sql: "+sqlString);
+          }
 	    stmt.execute(sqlString.toString());
 	  }
 	  catch (Exception ex) {
@@ -100,6 +106,10 @@ public class AgenteBD {
 
 	    sqlString.append("WHERE IdAgente=" +
 	                     MysqlUtils.toMysqlString(agente.getIdAgente()));
+	    
+	    if (milog.isInfoEnabled()){
+  			milog.info("comando sql: "+sqlString);
+          }
 	    stmt.execute(sqlString.toString());
 
 
@@ -151,6 +161,9 @@ public class AgenteBD {
 	   try {
 	          conn = ConnectionManager.getConection();
 	          Statement stmt = conn.createStatement();
+	          if (milog.isInfoEnabled()){
+	  			milog.info("comando sql: "+query);
+	          }
 	          ResultSet rs=stmt.executeQuery(query.toString());
 	         while (rs.next()){
 	            id=(rs.getString("idAgente"));
@@ -177,14 +190,12 @@ public class AgenteBD {
  * en la base de datos
  */
 	public  void asociarCliente (String idCliente,String idAgente) throws
-	    RowExistsException {
-	   String id=null;
+	   RowExistsException {
 	   RelAgenteClienteBean agenteClienteBean= new RelAgenteClienteBean();
-	   agenteClienteBean.setIdAgente(id);
+	   agenteClienteBean.setIdAgente(idAgente);
 	   agenteClienteBean.setIdCliente(idCliente);
 	   RelAgenteClienteBD agenteClienteBD=new RelAgenteClienteBD(agenteClienteBean);
 	   agenteClienteBD.insert();
-
 	}
 
 

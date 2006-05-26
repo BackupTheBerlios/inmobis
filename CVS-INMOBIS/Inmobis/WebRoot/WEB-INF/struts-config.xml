@@ -85,7 +85,7 @@
     	scope="request" 
     	type="com.inmobis.struts.action.RegistraClienteAgenteAction">
     	<forward name="cancel" path="/MenuAgente.jsp"></forward>    	
-        <forward name="exito" path="/VerClientes.jsp" /><!-- antes aqui ponia /verClientesAgentePrev.do -->
+        <forward name="exito" path="/verClientesAgentePrev.do" />
         <forward name="error" path="/registraClienteAgente.jsp" />
         <forward name="reset" path="/registraClienteAgente.jsp"></forward>
     </action>

@@ -4,10 +4,13 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 
+import org.apache.log4j.Logger;
+
 import com.inmobis.bbdd.ConnectionManager;
 import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
+import com.inmobis.bbdd.cliente.ClienteBD;
 
 /**
  * <p>Title: </p>
@@ -21,6 +24,7 @@ import com.inmobis.bbdd.RowNotFoundException;
 public class RelAgenteClienteBD {
   private RelAgenteClienteBean agenteCliente;
   private Connection conn;
+  private static final Logger milog = Logger.getLogger(RelAgenteClienteBD.class);
 
   public Object getBean() {
     return agenteCliente;
@@ -74,7 +78,9 @@ try {
   sqlString.append(MysqlUtils.toMysqlString(agenteCliente.getIdCliente())+")");
 
 
-
+  if (milog.isInfoEnabled()){
+		milog.info("comando sql: "+sqlString);
+    }
   stmt.execute(sqlString.toString());
 }
 catch (Exception ex) {

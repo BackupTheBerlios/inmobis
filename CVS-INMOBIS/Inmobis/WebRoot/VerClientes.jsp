@@ -25,12 +25,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<!-- zona de codigo-->
 					<table width="100%">
 						<tr> 
-							<th><fmt:message key=" app.Nombre" /></th>
-							<th><fmt:message key="app.Apellido1" /></th>
-							<th><fmt:message key="app.Apellido2" /></th>
+							<th><fmt:message key="app.nombre" /></th>
+							<th><fmt:message key="app.apellido1" /></th>
+							<th><fmt:message key="app.apellido2" /></th>
 							<!--<th><fmt:message key=" app.IdCliente" /></th>-->
-							<th><fmt:message key=" app.DniCliente" /></th>
-							<th><fmt:message key=" app.FechNac" /></th>
+							<th><fmt:message key="app.dniCliente" /></th>
+							<th><fmt:message key="app.fechNac" /></th>
 							<th>Opciones</th>
 						 </tr>
 						 <!-- iterate over the results of the query -->

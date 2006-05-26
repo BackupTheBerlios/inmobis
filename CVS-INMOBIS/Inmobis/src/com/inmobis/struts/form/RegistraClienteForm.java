@@ -327,6 +327,8 @@ public class RegistraClienteForm extends ActionForm{
 	}
 	public void setIdAgente(String idA){
 		this.idAgente=idA.trim();
+		if (i_log.isInfoEnabled())
+			i_log.info("idAgente: "+idAgente);
 	}
 	public void setEsAgente(Boolean esA){
 		this.esAgente=esA;

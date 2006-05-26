@@ -119,6 +119,8 @@ public class IntroducirCliente extends Introducir{
 			agente.setIdAgente(((RegistraClienteForm)datosCliente).getIdAgente());
 			AgenteBD agenteBD= new AgenteBD(agente);
 			try {
+				if(i_log.isInfoEnabled())
+					i_log.info("idCliente: "+cliente.getIdCliente()+"idAgente: "+((RegistraClienteForm)datosCliente).getIdAgente());
 				agenteBD.asociarCliente(cliente.getIdCliente(),((RegistraClienteForm)datosCliente).getIdAgente());
 				//No se debería llegar a esto, porque acabo de registrar al cliente
 			} catch (RowExistsException e) {
