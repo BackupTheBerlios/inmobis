@@ -47,9 +47,6 @@ public class BorraPisoPrevAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
-		HttpSession session = request.getSession(true);
-		//cojo de la sesión el identificador del inmueble
-		((BorraPisoPrevForm)form).setIdInmueble((String) session.getAttribute("idInmueble"));
 				
 		//Si el inmueble que se quiere borrar no está registrado no se puede borrar
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar("inmueble");
@@ -60,7 +57,7 @@ public class BorraPisoPrevAction extends Action {
 		
 		if  (!(eliminarE.validarRegistrado(form))){
 			if (log.isInfoEnabled()){
-				log.info("borraPisoPrevAction 2:Después de validar y que no esté el empleado en la base de datos");
+				 log.info("borraPisoPrevAction 2:Después de validar y que no esté el empleado en la base de datos");
 			}
 			errors.add("idPiso", new ActionMessage("errors.borraPiso.invalid"));
 			saveErrors(request,errors);
@@ -70,6 +67,7 @@ public class BorraPisoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraPisoPrevAction 3:El inmueble está en la base de datos");
 			}
+			
 			return mapping.findForward("exito");
 		}			
 	}	

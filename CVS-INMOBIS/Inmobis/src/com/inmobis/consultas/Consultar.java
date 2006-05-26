@@ -11,6 +11,8 @@ import com.inmobis.bbdd.telefono.InfoTelfBean;
 public abstract class Consultar {
 	public abstract Vector listar(ActionForm datosBusqueda);
 	
+	public abstract ActionForm dameDatos (ActionForm id);
+	
 	//Metodo que se sobreescribe en ConsultarEmpleado, Cliente y Piso
 	public InfoDirBean getDir(ActionForm datos){
 		return null;
@@ -35,4 +37,5 @@ public abstract class Consultar {
 	public Vector filtrarEmpleados (ActionForm form){
 		return null;
 	}
+
 }

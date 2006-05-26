@@ -168,4 +168,7 @@ public class ConsultarCliente extends Consultar{
 		}
 		
 	}
+	public ActionForm dameDatos (ActionForm id){
+		return null;
+	}
 }

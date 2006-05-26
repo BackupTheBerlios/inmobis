@@ -164,4 +164,7 @@ public class ConsultarEmpleado extends Consultar{
 		return datos;
 		
 	}
+	public ActionForm dameDatos (ActionForm id){
+		return null;
+	}
 }

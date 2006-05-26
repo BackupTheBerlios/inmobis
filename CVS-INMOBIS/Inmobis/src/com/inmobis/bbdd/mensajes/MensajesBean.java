@@ -8,6 +8,9 @@ public class MensajesBean {
 	protected String destino;
 	protected Character leido;  //vale s/n
 	protected String fecha;
+	//para devolver los nombre de origen y destino en vez de los id
+	protected String nombreOrigen;
+	protected String nombreDestino;
 	
 	public String getDestino() {
 		return destino;
@@ -50,6 +53,18 @@ public class MensajesBean {
 	}
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}
+	public String getNombreDestino() {
+		return nombreDestino;
+	}
+	public void setNombreDestino(String nombreDestino) {
+		this.nombreDestino = nombreDestino;
+	}
+	public String getNombreOrigen() {
+		return nombreOrigen;
+	}
+	public void setNombreOrigen(String nombreOrigen) {
+		this.nombreOrigen = nombreOrigen;
 	}
 	
 	

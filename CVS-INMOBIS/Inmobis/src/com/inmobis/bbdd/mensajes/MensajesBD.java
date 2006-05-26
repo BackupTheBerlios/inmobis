@@ -115,9 +115,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    Statement stmt = conn.createStatement();
 		    
 		    StringBuffer sb= new StringBuffer("UPDATE TRelMensajes ");
-		    sb.append("setLeido =" +
+		    sb.append("set leido =" +
 		    		MysqlUtils.toMysqlString(mensaje.getLeido().toString()));
-		    sb.append("WHERE IdMensaje=" +
+		    sb.append(" WHERE IdMensaje=" +
 		    		MysqlUtils.toMysqlString(mensaje.getIdMensaje()));
 		    
 		    stmt.execute(sb.toString());

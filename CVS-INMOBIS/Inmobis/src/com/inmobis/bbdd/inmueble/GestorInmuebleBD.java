@@ -22,6 +22,9 @@ public interface GestorInmuebleBD extends BDObject{
  void insertaDir (InfoDirBean miDireccion)throws RowExistsException;
  void updateDir (InfoDirBean miDireccion)throws RowNotFoundException;
  void asociarClienteInmueble (String idCliente,String idInmueble) throws RowExistsException;
+ Vector BusquedaDetalladaMetrosPrecio (String metrosMin,String metrosMax,String precioMin,String precioMax);
+ Vector BusquedaDetalladaConMetros (String metrosMin,String metrosMax);
+ Vector BusquedaDetalladaConPrecio (String precioMin,String precioMax);
  Vector BusquedaDetallada ();
  Vector  listarInmuebles() throws RowNotFoundException;
  }

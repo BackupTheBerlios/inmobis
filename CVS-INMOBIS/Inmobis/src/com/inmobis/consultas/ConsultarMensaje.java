@@ -1,14 +1,15 @@
 package com.inmobis.consultas;
 
-import java.util.Vector;
+//import java.util.Vector;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 
 import com.inmobis.bbdd.mensajes.GestorMensajesBD;
-import com.inmobis.bbdd.mensajes.RelMensajesBean;
+//import com.inmobis.bbdd.mensajes.RelMensajesBean;
 import com.inmobis.struts.form.LoginForm;
 import com.inmobis.struts.form.MensajeForm;
+import java.util.Vector;
 
 public class ConsultarMensaje extends Consultar {
 
@@ -22,9 +23,9 @@ public class ConsultarMensaje extends Consultar {
 		
 		Vector datos = new Vector();
 
-		RelMensajesBean msg = new RelMensajesBean();
+		//RelMensajesBean msg = new RelMensajesBean();
 		
-		GestorMensajesBD gestmsg = new GestorMensajesBD();
+		//GestorMensajesBD gestmsg = new GestorMensajesBD();
 
 		if(log.isInfoEnabled()){
 			log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );
@@ -42,5 +43,8 @@ public class ConsultarMensaje extends Consultar {
 			return datos;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
 		}
 		return datos;
+	}
+	public ActionForm dameDatos (ActionForm id){
+		return null;
 	}
 }

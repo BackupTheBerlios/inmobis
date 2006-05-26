@@ -73,5 +73,8 @@ public class ConsultarAgente extends Consultar{
 		}
 		return datos;
 	}
+	public ActionForm dameDatos (ActionForm id){
+		return null;
+	}
 	
 }
