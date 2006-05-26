@@ -415,6 +415,10 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	     catch (Exception ex){
 
 	     }
+	     finally{
+	    	 if (conn != null) 
+	    		 try{conn.close();}catch(SQLException e){}
+	    }
 	     return inmueblesEncontrados;
 	   }
 
@@ -485,6 +489,10 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	     catch (Exception ex){
 
 	     }
+	     finally{
+	    	 if (conn != null) 
+	    		 try{conn.close();}catch(SQLException e){}
+	    }
 	     return inmueblesEncontrados;
 	   }
 
@@ -554,6 +562,10 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	       catch (Exception ex){
 
 	       }
+	       finally{
+		    	 if (conn != null) 
+		    		 try{conn.close();}catch(SQLException e){}
+		    }
 	       return inmueblesEncontrados;
 	     }
 
