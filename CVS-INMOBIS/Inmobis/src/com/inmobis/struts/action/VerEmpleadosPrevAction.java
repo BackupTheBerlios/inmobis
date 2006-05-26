@@ -20,7 +20,7 @@ import com.inmobis.INMOCTES;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.consultas.Consultar;
 import com.inmobis.consultas.CreadorConsultar;
-import com.inmobis.struts.form.VerEmpleadosPrevForm;
+
 
 /** 
  * MyEclipse Struts
@@ -51,7 +51,6 @@ public class VerEmpleadosPrevAction extends Action {
 
 		ActionMessages errors= new ActionMessages();
 		HttpSession session = request.getSession(true);
-		((VerEmpleadosPrevForm)form).setIdEmpleado((String)session.getAttribute(INMOCTES.idUsuario));
 		
 		if (log.isInfoEnabled()){
 			log.info("VerEmpleadosPrevAction 1: Antes de entrar en la base de datos");
