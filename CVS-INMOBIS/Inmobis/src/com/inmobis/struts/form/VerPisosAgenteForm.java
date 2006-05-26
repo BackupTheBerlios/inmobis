@@ -20,7 +20,4 @@ public class VerPisosAgenteForm extends ActionForm{
 			this.idAgente = idAgente;
 		}
 
-
-
-
 }

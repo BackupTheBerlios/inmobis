@@ -18,12 +18,12 @@ public class BorraPisoPrevForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
 	String idInmueble;
-	/*String zona;
+	String zona;
 	String numHab;
 	String metros;
 	String regimen;
 	String tipo;
-	String precio;*/
+	String precio;
 	// --------------------------------------------------------- Methods
 	/** 
 	 * Method reset
@@ -32,29 +32,12 @@ public class BorraPisoPrevForm extends ActionForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.idInmueble = "";
-		/*this.metros="";
+		this.metros="";
 		this.numHab="";
 		this.precio="";
 		this.regimen="";
 		this.tipo="";
-		this.zona="";*/
-	}
-
-	/** 
-	 * Method validate
-	 * @param mapping
-	 * @param request
-	 * @return ActionErrors
-	 */
-	public ActionErrors validate(
-		ActionMapping mapping,
-		HttpServletRequest request) {
-
-		ActionErrors errors= new ActionErrors();
-		if (idInmueble == null || idInmueble.length()<1)
-			errors.add("idInmueble",new ActionMessage("errors.idInmueble.required"));
-		return errors;
-
+		this.zona="";
 	}
 
 	public String getIdInmueble() {
@@ -65,7 +48,7 @@ public class BorraPisoPrevForm extends ActionForm {
 		this.idInmueble = idInmueble;
 	}
 
-	/*public String getMetros() {
+	public String getMetros() {
 		return metros;
 	}
 
@@ -111,6 +94,6 @@ public class BorraPisoPrevForm extends ActionForm {
 
 	public void setZona(String zona) {
 		this.zona = zona;
-	}*/
+	}
 }
 
