@@ -5,6 +5,9 @@ import java.util.*;
 import org.apache.struts.action.ActionForm;
 import org.apache.log4j.Logger;
 
+import com.inmobis.bbdd.cliente.ClienteBean;
+import com.inmobis.bbdd.cliente.GestorClienteBD;
+import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
@@ -16,6 +19,24 @@ import com.inmobis.struts.form.*;
 public class ConsultarInmueble extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(ConsultarInmueble.class);
+	
+	public InfoDirBean getDir(ActionForm datosPiso){
+		InmuebleBean inmueble=new InmuebleBean();
+		inmueble.setIdInmueble(((EditaPisoPrevForm)datosPiso).getIdInmueble());
+		CreadorGestores creador = new CreadorGestores();
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)creador.crearGestor("inmueble",inmueble);
+		InfoDirBean direccion=new InfoDirBean();
+		try {
+			gestorInmueble.consultaDirPorId(((EditaPisoPrevForm)datosPiso).getIdInmueble());
+			direccion=gestorInmueble.getDireccionBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error" );
+		}
+		if(log.isInfoEnabled())
+			log.info("direccion "+direccion.getCalle() );
+		return direccion;
+	}
 	
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos

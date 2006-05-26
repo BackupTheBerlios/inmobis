@@ -13,6 +13,7 @@ import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.direccion.InfoDirBean;
+import com.inmobis.bbdd.direccion.InfoDirClientesBD;
 import com.inmobis.bbdd.direccion.InfoDirInmueblesBD;
 import com.inmobis.bbdd.util.*;
 
@@ -349,13 +350,19 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
   }
 
 
+   public void consultaDirPorId (String idGeneral)throws RowNotFoundException {
+	   this.dirInmueble=new InfoDirBean();//Bean de las direcciones
+	   this.dirInmueble.setIdGeneral(idGeneral);
+	   InfoDirInmueblesBD direccion = new InfoDirInmueblesBD(this.dirInmueble);
+	   direccion.selectAll();
 
-   public void consultaDir (String descDir) throws RowNotFoundException {
+	 }
+   /*public void consultaDir (String descDir) throws RowNotFoundException {
     dirInmueble=newInfoDirInmuebles(descDir);
     InfoDirInmueblesBD direccion = new InfoDirInmueblesBD(dirInmueble);
     direccion.select();
 
-  }
+  }*/
   public void deleteDir (String descDir) throws RowNotFoundException{
      String [] direcciones = getIdDirecciones();
 

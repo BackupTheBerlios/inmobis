@@ -17,7 +17,7 @@ public interface GestorInmuebleBD extends BDObject{
  void delete () ;*/
  String [] getIdDirecciones();
  InfoDirBean newInfoDirInmuebles(String descDir);
- void consultaDir (String descDir) throws RowNotFoundException;
+ void consultaDirPorId (String idGeneral) throws RowNotFoundException;
  void deleteDir (String descDir)throws RowNotFoundException;
  void insertaDir (InfoDirBean miDireccion)throws RowExistsException;
  void updateDir (InfoDirBean miDireccion)throws RowNotFoundException;
