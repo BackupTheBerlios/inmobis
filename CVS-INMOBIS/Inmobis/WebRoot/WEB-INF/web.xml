@@ -33,6 +33,38 @@
   	<res-auth>Container</res-auth>
   </resource-ref>
 
+  <!--  ******* FILTROS DE SEGURIDAD DE ACCESO POR ROLES ******* -->
+  <!--  ******* FILTRO DE ADMINISTRADOR-GERENTE ******* -->
+  <filter>
+	  <filter-name>adminGerenteFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>administrador,gerente</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
+  <!--  ******* FILTRO DE AGENTE-CLIENTE ******* -->
+  <filter>
+	  <filter-name>agenteClienteAccessFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>agente,cliente</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
+  <!--  ******* FILTRO DE ADMINISTRADOR ******* -->
   <filter>
 	  <filter-name>adminAccessFilter</filter-name>
 	  <filter-class>
@@ -40,13 +72,14 @@
 	  </filter-class>
 	  <init-param>
 	    <param-name>roles</param-name>
-	    <param-value>admin</param-value>
+	    <param-value>administrador</param-value>
 	  </init-param>
 	  <init-param>
 	    <param-name>onError</param-name>
 	    <param-value>/index.jsp</param-value>
 	  </init-param>
   </filter>
+  <!--  ******* FILTRO DE AGENTE ******* -->
   <filter>
 	  <filter-name>agentAccessFilter</filter-name>
 	  <filter-class>
@@ -61,10 +94,119 @@
 	    <param-value>/index.jsp</param-value>
 	  </init-param>
   </filter>
+  <!--  ******* FILTRO DE GERENTE ******* -->
+  <filter>
+	  <filter-name>gerenteAccessFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>gerente</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
+  <!--  ******* FILTRO DE CLIENTE ******* -->
+  <filter>
+	  <filter-name>clienteAccessFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>cliente</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
+  <!--  ******* FILTRO DE CONTABLE ******* -->
+  <filter>
+	  <filter-name>contableAccessFilter</filter-name>
+	  <filter-class>
+	    com.inmobis.login.FiltroAcceso
+	  </filter-class>
+	  <init-param>
+	    <param-name>roles</param-name>
+	    <param-value>contable</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>onError</param-name>
+	    <param-value>/index.jsp</param-value>
+	  </init-param>
+  </filter>
 
-  <filter-mapping>
-	  <filter-name>adminAccessFilter</filter-name>
-	  <url-pattern>/MenuAdministrador.jsp</url-pattern>
-  </filter-mapping>
+	<!-- ***************FILTROS DEL ADMINISTRADOR******************* -->
+  <filter-mapping> <url-pattern>/MenuAdministrador.jsp</url-pattern>
+   <filter-name>adminAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerEmpleados.jsp</url-pattern>
+   <filter-name>adminAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/registraEmpleado.jsp</url-pattern>
+   <filter-name>adminAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/editaEmpleado.jsp</url-pattern>
+   <filter-name>adminAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/FiltrarEmpleado.jsp</url-pattern>
+   <filter-name>adminAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/borraEmpleado.jsp</url-pattern>
+   <filter-name>adminAccessFilter</filter-name></filter-mapping>
+
+	<!-- ***************FILTROS DEL AGENTE******************* -->
+  <filter-mapping> <url-pattern>/MenuAgente.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/registraPiso.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerPisosAgente.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/filtrarPisoAgente.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/borraPiso.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/EditaPiso.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/registraClienteAgente.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/editaCliente.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/FiltrarCliente.jsp</url-pattern>
+   <filter-name>agentAccessFilter</filter-name></filter-mapping>
+
+	<!-- ***************FILTROS DE CLIENTE-AGENTE******************* -->
+  <filter-mapping> <url-pattern>/ListaMensajes.jsp</url-pattern>
+   <filter-name>agenteClienteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/BorrarMensaje.jsp</url-pattern>
+   <filter-name>agenteClienteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/NuevoMensaje.jsp</url-pattern>
+   <filter-name>agenteClienteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerMensaje.jsp</url-pattern>
+   <filter-name>agenteClienteAccessFilter</filter-name></filter-mapping>
+
+	<!-- ***************FILTROS DEL CLIENTE******************* -->
+  <filter-mapping> <url-pattern>/MenuCliente.jsp</url-pattern>
+   <filter-name>clienteAccessFilter</filter-name></filter-mapping>
+
+	<!-- ***************FILTROS DEL GERENTE******************* -->
+  <filter-mapping> <url-pattern>/MenuGerente.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/TraspasarClientes.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerClientes.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerEmpleados.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerAgente.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerQuejas.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerQueja.jsp</url-pattern>
+   <filter-name>gerenteAccessFilter</filter-name></filter-mapping>
+
+	<!-- ***************FILTROS DEL CONTABLE******************* -->
+  <filter-mapping> <url-pattern>/MenuContable.jsp</url-pattern>
+   <filter-name>contableAccessFilter</filter-name></filter-mapping>
+
 </web-app>
 
