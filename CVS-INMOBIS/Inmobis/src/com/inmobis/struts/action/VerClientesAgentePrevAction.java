@@ -58,21 +58,14 @@ public class VerClientesAgentePrevAction extends Action {
 		
 		HttpSession session = request.getSession(true);
 		
-		Consultar consultar=CreadorConsultar.CreaConsultar("agente");
-		//ActionForm form2 = null;
-		ActionForm formClientesAgente = new VerClientesAgentePrevForm();
+		String agente = (session.getAttribute(INMOCTES.idUsuario)).toString();
+		((VerClientesAgentePrevForm)form).setIdAgente(agente);
 		
-		formClientesAgente.reset(mapping,request);		
+		Consultar consultar=CreadorConsultar.CreaConsultar("agente");	
 		
-		Vector listaClientesAgente = null;	
+		Vector listaClientesAgente = consultar.listar(form);		
 		
-		listaClientesAgente = consultar.listar(formClientesAgente);		
-		
-		session.setAttribute("listaClientes",listaClientesAgente);
-		//request.setAttribute(\"listaConcellos\",vec_concellos);
-		
-		
-		if (/*(listaClientes.size()==1)&&(((Integer)listaClientes.get(0)).equals(new Integer (1)))*/listaClientesAgente.equals(null)){
+		if (listaClientesAgente.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
@@ -85,6 +78,7 @@ public class VerClientesAgentePrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction 3: Se ha realizado el listado con éxito");
 			}
+			session.setAttribute("listaClientes",listaClientesAgente);
 			return mapping.findForward("exito");
 		}
 	}

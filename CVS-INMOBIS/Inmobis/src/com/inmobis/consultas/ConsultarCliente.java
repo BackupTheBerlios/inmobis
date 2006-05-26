@@ -12,7 +12,11 @@ import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 import com.inmobis.struts.form.EditaClientePrevForm;
-//import com.inmobis.struts.form.*;
+
+import com.inmobis.bbdd.empleado.AgenteBean;
+import com.inmobis.bbdd.empleado.AgenteBD;
+
+import com.inmobis.struts.form.*;
 //import com.inmobis.struts.action.*;
 import org.apache.log4j.Logger;
 //import com.inmobis.bbdd.RowNotFoundException;
@@ -113,6 +117,32 @@ public class ConsultarCliente extends Consultar{
 			//LLamada al gestor de la base de datos
 			GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",c);
 			datos = gestorCliente.listarClientes();
+			
+		}catch (Exception E){
+			if(log.isInfoEnabled()){
+				log.info("ConsultarCliente 3: Fallo en la busqueda en la base de datos " );
+			}
+			return datos;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
+		}
+		return datos;
+	}
+	
+	public Vector listarClientesAgente(ActionForm datosBusqueda){
+		//Vector para guardar la lista que me devuelve la base de datos
+		Vector datos = new Vector();
+			
+		try{		
+			if(log.isInfoEnabled()){
+				log.info("ConsultarCliente 3: Entro en consultar cliente para listarlos. " );
+			}
+			
+			AgenteBean a = new AgenteBean();
+			a.setIdAgente(((VerClientesAgentePrevForm)datosBusqueda).getIdAgente());
+			
+			//LLamada al gestor de la base de datos
+			AgenteBD gestorAgente = new AgenteBD(a);
+			//GestorEmpleadoBD gestorAgente= (GestorEmpleadoBD)CreadorGestores.crearGestor("empleado",a);			
+			datos = gestorAgente.listarClientesAsociados();
 			
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
