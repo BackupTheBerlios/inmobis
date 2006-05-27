@@ -11,7 +11,8 @@ CON UN ANCHO DE 767 px -->
 <%String tipoMenu="general";//Si no se ha registrado%>
 <%
 HttpSession sesion=request.getSession();
-String tipoU=(String)sesion.getAttribute("tipoUsuario");
+String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú adecuado
+String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al agente que edita al cliente
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -35,6 +36,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<td>
 							<!--El id se pasa oculto para que no lo vea el usuario-->
 							<html:hidden property="idUsuario" />
+							<!--El id del agente que registra se pasa oculto para que no lo vea el usuario-->
+							<!--DESCOMENTAR SI HACE FALTA PERO YO CREO QUE NO PORQUE EL AGENTE NO SE CAMBIARÁ AL EDITAR
+							<html:hidden property="idAgente" value="<%=idAgente%>"/>
+							-->
 							<!--El nombre de usuario y lo demas es normal-->
 							<html:text 	property="nombreUsuario" size="15"	maxlength="15" />
 							<html:errors property="nombreUsuario" />
