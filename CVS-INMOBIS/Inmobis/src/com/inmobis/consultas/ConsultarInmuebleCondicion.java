@@ -16,9 +16,15 @@ public class ConsultarInmuebleCondicion extends Consultar{
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos
 		Vector datos = new Vector();
-		//Vector para ir guardando el resultado final
-		Vector datosfinal = new Vector();
-		//se crea el empleado bean		
+		
+		//se crean variables que contiene los metros y el precio, ya que pueden ser un rango
+		String metrosMin=((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMin();
+		String metrosMax=((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMax();
+		String precioMin =((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMin();
+		String precioMax =((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMax();
+		
+		//se crea el empleado bean	y se meten todos los datos excepto el precio y los metros
+		//que son los que pueden variar
 		InmuebleBean i = new InmuebleBean();
 		if (!(((FiltrarPisoAgenteForm)datosBusqueda).getRegimen().equals(null)) &&
 				!(((FiltrarPisoAgenteForm)datosBusqueda).getRegimen().equals("")))
@@ -36,94 +42,111 @@ public class ConsultarInmuebleCondicion extends Consultar{
 		//se crea el inmueble dase de datos		
 		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",i);
 		
-		//var para poner el precio
-		Integer preciomin,preciomax;
-		if(!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMin()).equals("") &&
-				!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMax()).equals("") &&
-				!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMin()).equals(null) &&
-				!(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMax()).equals(null) ){
-			if(log.isInfoEnabled()){
-				log.info("ConsultarInmuebleCondicion 1: estoy declarando preciomin y preciomax ");
+		//caso en el que se rellena el precio y no se rellenan los metros
+		if ( !(precioMin.equals("")) && !(precioMin.equals(null)) &&
+			 !(precioMax.equals("")) && !(precioMax.equals(null)) &&
+			 ( metrosMin.equals("")|| metrosMin.equals(null)) &&
+			 (metrosMax.equals("") || metrosMax.equals(null))){
+			
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 1: Antes de entrar en la base de datos");
 			}
-			preciomin= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMin());
-			preciomax= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getPrecioMax());
+			
+			try{
+				datos = gestorInmueble.BusquedaDetalladaConPrecio(precioMin,precioMax);
+			}catch (Exception e){
+				if (log.isInfoEnabled()){
+					log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
+					log.info(e);
+				}
+				return datos;
+			}
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 3: Exito");
+			}
+			return datos;
 		}
-		else{
-			if(log.isInfoEnabled()){
-				log.info("ConsultarInmuebleCondicion 2: estoy declarando preciomin y preciomax vacios");
-			}
-			preciomin = new Integer(-1);
-			preciomax = new Integer (-1);
-		}//fin declaración precio
 		
-		//var para poner los metros
-		Integer metrosmin;
-		Integer metrosmax;
-		if(!(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMin()).equals("") &&
-				!(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMax()).equals("") &&
-				!(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMin()).equals(null)  &&
-				!(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMax()).equals(null)){
-			if(log.isInfoEnabled()){
-				log.info("ConsultarInmuebleCondicion 3: estoy declarando metrosmin y metrosmax ");
+		//caso en el que se rellenan los metros y no se rellena el precio
+		if ( !(metrosMin.equals("")) && !(metrosMin.equals(null)) &&
+				 !(metrosMax.equals("")) && !(metrosMax.equals(null)) &&
+				 ( precioMin.equals("")|| precioMin.equals(null)) &&
+				 (precioMax.equals("") || precioMax.equals(null))){
+			
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 1: Antes de entrar en la base de datos");
 			}
-			metrosmin= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMin());
-			metrosmax= new Integer(((FiltrarPisoAgenteForm)datosBusqueda).getMetrosMax());
-		}
-		else{
-			if(log.isInfoEnabled()){
-				log.info("ConsultarInmuebleCondicion 4: estoy declarando metrosmin y metrosmax vacios ");
+			
+			try{
+				datos = gestorInmueble.BusquedaDetalladaConMetros(metrosMin,metrosMax);
+			}catch (Exception e){
+				if (log.isInfoEnabled()){
+					log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
+					log.info(e);
+				}
+				return datos;
 			}
-			metrosmin = new Integer(-1);
-			metrosmax = new Integer (-1);
-		}//fin declaración metros
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 3: Exito");
+			}
+			return datos;
+				
+			}
 		
-		for (int j=preciomin.intValue();j <= preciomax.intValue();j++){
-			for (int t=metrosmin.intValue(); t <= metrosmax.intValue(); t++){
-				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion 5: estoy en el bucle ");
-					log.info( j);
-					log.info( t);
-				}
+		//caso en el que se rellenan los dos (precio y metros)
+		if ( !(metrosMin.equals("")) && !(metrosMin.equals(null)) &&
+				 !(metrosMax.equals("")) && !(metrosMax.equals(null)) &&
+				 !(precioMin.equals("")) && !(precioMin.equals(null)) &&
+				 !(precioMax.equals(""))  && !(precioMax.equals(null))){
 				
-				//se ponen los nuevos valores para metros y para precio
-				if (!(metrosmin.intValue()==-1 && metrosmax.intValue()==-1))
-					((InmuebleBean)gestorInmueble.getBean()).setMetros(new Integer(t).toString());
-				if (!(preciomin.intValue()==-1 && preciomax.intValue()==-1))
-					((InmuebleBean)gestorInmueble.getBean()).setPrecio(new Integer(j).toString());
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 1: Antes de entrar en la base de datos");
+			}
+			
+			try{
+				datos = gestorInmueble.BusquedaDetalladaMetrosPrecio(metrosMin,metrosMax,precioMin,precioMax);
+			}catch (Exception e){
+				if (log.isInfoEnabled()){
+					log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
+					log.info(e);
+				}
+				return datos;
+			}
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 3: Exito");
+			}
+			return datos;
 				
-				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion 6: Antes de entrar en la base de datos ");
-					log.info(((InmuebleBean)gestorInmueble.getBean()).getPrecio());
-					log.info(((InmuebleBean)gestorInmueble.getBean()).getMetros());
+			}
+		
+		//caso en el que no se rellena ninguno
+		if ( (metrosMin.equals("") || metrosMin.equals(null)) &&
+				(metrosMax.equals("") || metrosMax.equals(null)) &&
+				(precioMin.equals("") || precioMin.equals(null)) &&
+				(precioMax.equals("") ||precioMax.equals(null))){
+				
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 1: Antes de entrar en la base de datos");
+			}
+			
+			try{
+				datos = gestorInmueble.BusquedaDetallada();
+			}catch (Exception e){
+				if (log.isInfoEnabled()){
+					log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
+					log.info(e);
 				}
-				try{
-					//se realiza la busqueda en la base de datos
-					datos = gestorInmueble.BusquedaDetallada();
-				}catch (Exception E){
-					if(log.isInfoEnabled()){
-						log.info("ConsultarInmuebleCondicion 7: Fallo en la busqueda en la base de datos " );
-					}
-					return datos;
-				}
-				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion 8: voy a copiar al vector final ");
-					log.info("ConsultarInmuebleCondicion 9: " + datos.size());
-				}
-				//se introducen los nuevos inmuebles buscados en el vector final
-				for (int z=0; z < datos.size(); z++){
-					datosfinal.addElement(datos.elementAt(z));
-				}
-				if(log.isInfoEnabled()){
-					log.info("ConsultarInmuebleCondicion 10:la lista se generó con éxito ");
-					log.info("ConsultarInmuebleCondicion 11: " + datosfinal.size());
-				}
-			}//fin del forprecio
-		}//fin del whilemetros
-		if(log.isInfoEnabled()){
-			log.info("ConsultarInmuebleCondicion 12: he acabado de buscar ");
-		}
-		return datosfinal;
+				return datos;
+			}
+			if (log.isInfoEnabled()){
+				log.info("FiltrarPisoAgenteAction 3: Exito");
+			}
+			return datos;	
+			}
+		return datos;
 	}
+		
+	
 	public ActionForm dameDatos (ActionForm id){
 		return null;
 	}

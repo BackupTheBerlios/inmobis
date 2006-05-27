@@ -369,9 +369,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	      if (inmueble.getRegimen()!=null)
 	        consulta.put("regimen",inmueble.getRegimen());
 	      if (inmueble.getTipo()!=null)
-	        consulta.put("tipo",inmueble.getRegimen());
+	        consulta.put("tipo",inmueble.getTipo());
 	      if (inmueble.getZona()!=null)
-	        consulta.put("zona",inmueble.getRegimen());
+	        consulta.put("zona",inmueble.getZona());
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble WHERE ");
 	      Iterator it=consulta.keySet().iterator();
@@ -439,9 +439,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	      if (inmueble.getRegimen()!=null)
 	        consulta.put("regimen",inmueble.getRegimen());
 	      if (inmueble.getTipo()!=null)
-	        consulta.put("tipo",inmueble.getRegimen());
+	        consulta.put("tipo",inmueble.getTipo());
 	      if (inmueble.getZona()!=null)
-	        consulta.put("zona",inmueble.getRegimen());
+	        consulta.put("zona",inmueble.getZona());
 	      if (inmueble.getPrecio()!=null)
 	        consulta.put("precio",inmueble.getPrecio());
 
@@ -513,9 +513,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	        if (inmueble.getRegimen()!=null)
 	          consulta.put("regimen",inmueble.getRegimen());
 	        if (inmueble.getTipo()!=null)
-	          consulta.put("regimen",inmueble.getRegimen());
+	          consulta.put("tipo",inmueble.getTipo());
 	        if (inmueble.getZona()!=null)
-	          consulta.put("regimen",inmueble.getRegimen());
+	          consulta.put("zona",inmueble.getZona());
 
 	        StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble WHERE ");
 	        Iterator it=consulta.keySet().iterator();
