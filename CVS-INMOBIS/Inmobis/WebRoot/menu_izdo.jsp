@@ -21,23 +21,6 @@
 		<a href="PonerQueja.jsp">
 			<fmt:message key="menuGenerico.quejas"/>
 		</a>		
-		<!--<html:form action="registraClienteCliente.do" >
-			<html:submit>
-				<fmt:message key="menuGenerico.button.inmuebles"/>
-			</html:submit>
-		 </html:form>
-		 <br>
-		 <html:form action="registraClienteCliente.do" >					
-			<html:submit>
-				<fmt:message key="menuGenerico.button.quejas"/>
-			</html:submit>
-		</html:form>
-		<br>
-		<html:form action="login.jsp" >					
-			<html:submit>
-				<fmt:message key="menuGenerico.button.identificarse"/>
-			</html:submit>
-		</html:form>-->
 	</div>
 <%}else if(tipoMenu.equals("login")){%><!--Este menu tiene que ser asi-->
 	<html:errors property="login"/>				
@@ -69,25 +52,13 @@
 	<html:errors property="menuAdministrador"/>
 	<div id="sectionLinks2">	
 		<h3>&nbsp;<fmt:message key="menuAdministrador.message"/></h3>	
-		<!--<a href="VerEmpleadosPrev.do">-->
-		<a href="registraClienteCliente.jsp">
+		<a href="registraEmpleado.jsp">
+			<fmt:message key="menuAdministrador.registraEmpleado"/>
+		</a>
+		<a href="verEmpleadosPrev.do">
 			<fmt:message key="menuAdministrador.lista"/>
 		</a>
-		<a href="registraClienteCliente.jsp">
-			<fmt:message key="menuAdministrador.registra"/>
-		</a>
-		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
-		<!--<html:form action="VerEmpleadosPrev.do" >					
-			<html:submit>
-				<fmt:message key="menuAdministrador.button.lista"/>
-			</html:submit>
-		 </html:form>
-	   
-		 <html:form action="registraClienteCliente.do" >					
-			<html:submit>
-				<fmt:message key="menuAdministrador.button.registra"/>
-			</html:submit>
-		</html:form>-->				
+		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>		
 	</div>
 <%}else if(tipoMenu.equals("agente")){%>
 	<html:errors property="menuAgente"/>				 	
@@ -112,32 +83,6 @@
 			<fmt:message key="menuAgente.registraCliente"/>
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
-		<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->
-		<!--<html:form action="verClientesAgentePrev.do" >					
-			<html:submit>
-				<fmt:message key="menuAgente.button.clientes"/>
-			</html:submit>
-		 </html:form>
-		 <html:form action="registraClienteCliente.do" >					
-			<html:submit>
-				<fmt:message key="menuAgente.button.alertas"/>
-			</html:submit>
-		</html:form>
-		<html:form action="registraClienteCliente.do" >					
-			<html:submit>
-				<fmt:message key="menuAgente.button.mensajes"/>
-			</html:submit>
-		</html:form>
-		<html:form action="verPisosAgente.do" >					
-			<html:submit>
-				<fmt:message key="menuAgente.button.inmuebles"/>
-			</html:submit>
-		</html:form>
-		<html:form action="registraClienteCliente.do" >					
-			<html:submit>
-				<fmt:message key="menuAgente.button.registraCliente"/>
-			</html:submit>
-		</html:form>-->
 	</div>	
 <%}else if(tipoMenu.equals("cliente")){%>
 	<html:errors property="menuCliente"/>
@@ -157,21 +102,6 @@
 			<fmt:message key="menuCliente.mensajes"/>
 		</a>		 
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
-		<!--<html:form action="registraClienteCliente.do" >
-					<html:submit>
-						<fmt:message key="menuCliente.button.inmuebles"/>
-					</html:submit>
-		 </html:form>
-		 <html:form action="registraClienteCliente.do" >					
-					<html:submit>
-						<fmt:message key="menuCliente.button.quejas"/>
-					</html:submit>
-		</html:form>
-		<html:form action="registraClienteCliente.do" >					
-					<html:submit>
-						<fmt:message key="menuCliente.button.mensajes"/>
-					</html:submit>
-		</html:form>-->
 	</div>
 <%}else if(tipoMenu.equals("gerente")){%>
 	<html:errors property="menuGerente"/>
@@ -188,25 +118,6 @@
 			<fmt:message key="menuGerente.quejas"/>
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
-		<!--<html:form action="verAgentesPrev.do" >
-			<html:submit>
-				<fmt:message key="menuGerente.button.agentes"/>
-			</html:submit>
-		 </html:form>
-		 <html:form action="verClientesPrev.do" >					
-			<html:submit>
-				<fmt:message key="menuGerente.button.clientes"/>
-			</html:submit>
-		</html:form>
-		<html:form action="verQuejasPrev.do" >					
-			<html:submit>
-				<fmt:message key="menuGerente.button.quejas"/>
-			</html:submit>
-		</html:form>-->
 	</div>
-<!--El menu inicial que había
-<%}else if(tipoMenu=="inicio"){%>
-	<div id="sectionLinks"><a href="index.jsp">P&aacute;gina Principal</a><a href="registraClienteCliente.jsp">Registrarse</a><a href="login.jsp">Identificarse</a><a href="login.jsp">Financiaci&oacute;n</a><a href="login.jsp">Hipotecas</a><a href="login.jsp">Seguros</a><a href="ayuda.jsp" target="new">Ayuda</a><a href="mailto:inmobisweb@gmail.com">Contacto</a></div>
-	-->
 <%}%>
 </div><!--del pageNav-->
