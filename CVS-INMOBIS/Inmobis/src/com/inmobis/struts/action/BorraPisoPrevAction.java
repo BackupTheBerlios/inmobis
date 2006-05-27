@@ -83,6 +83,15 @@ public class BorraPisoPrevAction extends Action {
 			b.setRegimen(((EditaPisoForm)aux).getRegimen());
 			b.setTipo(((EditaPisoForm)aux).getTipo());
 			b.setZona(((EditaPisoForm)aux).getZona());
+			if (log.isInfoEnabled()){
+				log.info("borraPisoPrevAction 4:Exito");
+				log.info("id: "+b.getIdInmueble());
+				log.info("zona: "+b.getZona());
+				log.info("tipo: "+b.getTipo());
+				log.info("metros: "+b.getMetros());
+				log.info("precio: "+ b.getPrecio());
+				log.info("regimen: "+ b.getRegimen());
+			}
 			session.setAttribute("datos",b);
 			return mapping.findForward("exito");
 		}			
