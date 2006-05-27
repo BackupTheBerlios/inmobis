@@ -22,12 +22,7 @@ public class BorraPisoForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
 	private String idInmueble;
-	private String zona;
-	private String numHab;
-	private String metros;
-	private String regimen;
-	private String tipo;
-	private String precio;
+
 	// --------------------------------------------------------- Methods
 	/** 
 	 * Method reset
@@ -61,52 +56,5 @@ public class BorraPisoForm extends ActionForm {
 		this.idInmueble = idInmueble;
 	}
 
-	public String getMetros() {
-		return metros;
-	}
-
-	public void setMetros(String metros) {
-		this.metros = metros;
-	}
-
-	public String getNumHab() {
-		return numHab;
-	}
-
-	public void setNumHab(String numHab) {
-		this.numHab = numHab;
-	}
-
-	public String getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(String precio) {
-		this.precio = precio;
-	}
-
-	public String getRegimen() {
-		return regimen;
-	}
-
-	public void setRegimen(String regimen) {
-		this.regimen = regimen;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getZona() {
-		return zona;
-	}
-
-	public void setZona(String zona) {
-		this.zona = zona;
-	}
 }
 

@@ -47,13 +47,11 @@ public class BorraPisoAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
-		HttpSession session = request.getSession(true);
-		((BorraPisoForm)form).setIdInmueble((String)session.getAttribute("idInmueble"));
 		
 		Eliminar eliminarI = CreadorEliminar.CreaEliminar("inmueble");
 		
 		if (log.isInfoEnabled()){
-			log.info("BorraPisoAction1: Antes de la BDD tengo idEmpleado: "+((BorraPisoForm)form).getIdInmueble());
+			log.info("BorraPisoAction1: Antes de la BDD tengo idInmueble: "+((BorraPisoForm)form).getIdInmueble());
 		}
 		if (!eliminarI.eliminarDesdeED(form)){
 			if (log.isInfoEnabled()){
@@ -67,7 +65,6 @@ public class BorraPisoAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraPisoAction4:Se ha eliminado con éxito");
 			}
-			saveErrors(request,errors);
 			return (mapping.findForward("exito"));
 		}	
 	}

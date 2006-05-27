@@ -64,7 +64,7 @@ public class EliminarInmueble extends Eliminar{
 			return false;
 		}
 		if (log.isInfoEnabled()){
-			log.info("EliminarInmueble9:se ha eliminado con exito");
+			log.info("EliminarInmueble 9:se ha eliminado con exito");
 		}
 		return true;
 	}
