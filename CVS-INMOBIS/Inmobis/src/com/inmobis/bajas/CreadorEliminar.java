@@ -7,6 +7,7 @@ public final class CreadorEliminar {
 		if (Usuario.equals("administrador")) return new EliminarAdministrador();
 		if (Usuario.equals("cliente")) return new EliminarCliente();
 		if (Usuario.equals("inmueble")) return new EliminarInmueble();
+		if (Usuario.equals("mensaje")) return new EliminarMensaje();
 		return null;
 	}
 }
