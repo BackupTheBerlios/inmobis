@@ -11,7 +11,6 @@ import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
-import com.inmobis.struts.form.EditaClientePrevForm;
 
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.AgenteBD;
@@ -30,78 +29,96 @@ public class ConsultarCliente extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(ConsultarCliente.class);
 	
-	public UsuarioLoginBean getLogin(ActionForm datosCliente){
+	public ActionForm dameDatos (ActionForm id){
+		//form que va a tener los datos y se va a devolver
+		EditaClienteForm form=new EditaClienteForm();
+		
+		//se crea un cliente bean
 		ClienteBean cliente=new ClienteBean();
-		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
+		cliente.setIdCliente(((EditaClientePrevForm)id).getIdUsuario());
+		
 		CreadorGestores creador = new CreadorGestores();
 		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
-		UsuarioLoginBean login=new UsuarioLoginBean();
-		try {
-			gestorCliente.consultaLoginPorId(((EditaClientePrevForm)datosCliente).getIdUsuario());
-			login=gestorCliente.getLoginBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
-		if(log.isInfoEnabled())
-			log.info("login "+login.getNombreUsuario() );
-		return login;
-	}
-	
-	public InfoDirBean getDir(ActionForm datosCliente){
-		ClienteBean cliente=new ClienteBean();
-		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
-		CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		
 		InfoDirBean direccion=new InfoDirBean();
+		InfoMailBean email=new InfoMailBean();
+		InfoTelfBean telf=new InfoTelfBean();
+		UsuarioLoginBean login=new UsuarioLoginBean();
+		//Miro la direccion
 		try {
-			gestorCliente.consultaDirPorId(((EditaClientePrevForm)datosCliente).getIdUsuario());
+			gestorCliente.consultaDirPorId(((EditaClientePrevForm)id).getIdUsuario());
 			direccion=gestorCliente.getDireccionBean();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
-				log.info("Error" );
+				log.info("Error Dir: "+e );
 		}
+		//Miro el login
+		try {
+			gestorCliente.consultaLoginPorId(((EditaClientePrevForm)id).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Login: "+e );
+		}
+		login= gestorCliente.getLoginBean();
+		//Miro el telefono
+		try {
+			gestorCliente.consultaTelfPorId(((EditaClientePrevForm)id).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Telf: "+e );
+		}
+		telf=gestorCliente.getTelefonoBean();
+		//Miro el email
+		try {
+			gestorCliente.consultaMailPorId(((EditaClientePrevForm)id).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Mail: "+e );
+		}
+		email=gestorCliente.getMailBean();
+		try {
+			gestorCliente.select();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Cliente: "+e );
+		}
+		
+		cliente=(ClienteBean)gestorCliente.getBean();
+		
 		if(log.isInfoEnabled())
 			log.info("direccion "+direccion.getCalle() );
-		return direccion;
-	}
-	
-	public InfoTelfBean getTelf(ActionForm datosCliente){
-		ClienteBean cliente=new ClienteBean();
-		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
-		CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
-		InfoTelfBean telf=new InfoTelfBean();
-		try {
-			gestorCliente.consultaTelfPorId(((EditaClientePrevForm)datosCliente).getIdUsuario());
-			telf=gestorCliente.getTelefonoBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
 		if(log.isInfoEnabled())
-			log.info("telefono "+telf.getTelefono());
-		return telf;
-	}
-	
-	public InfoMailBean getMail(ActionForm datosCliente){
-		ClienteBean cliente=new ClienteBean();
-		cliente.setIdCliente(((EditaClientePrevForm)datosCliente).getIdUsuario());
-		CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
-		InfoMailBean mail=new InfoMailBean();
-		try {
-			gestorCliente.consultaMailPorId(((EditaClientePrevForm)datosCliente).getIdUsuario());
-			mail=gestorCliente.getMailBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
+			log.info("nombre "+cliente.getNombreCliente() );
 		if(log.isInfoEnabled())
-			log.info("mail "+mail.getDirMail() );
-		return mail;
+			log.info("telf "+telf.getTelefono() );
+		if(log.isInfoEnabled())
+			log.info("login "+login.getNombreUsuario() );
+		
+		form.setCalle(direccion.getCalle());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setNum(direccion.getNum());
+		form.setPais(direccion.getPais());
+		form.setPiso(direccion.getPiso());
+		form.setPoblacion(direccion.getPoblacion());
+		form.setProvincia(direccion.getProvincia());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setApellido1(cliente.getApellido1());
+		form.setApellido2(cliente.getApellido2());
+		form.setDni(cliente.getDni());
+		form.setIdUsuario(cliente.getIdCliente());
+		form.setNombre(cliente.getNombreCliente());
+		String fecha=cliente.getFechNacimiento();
+		String[] fechaSplit=fecha.split("-");
+		form.setAnioNacimiento(fechaSplit[0]);
+		form.setMesNacimiento(fechaSplit[1]);
+		form.setDiaNacimiento(fechaSplit[2]);		
+		form.setTelefono1(telf.getTelefono());
+		form.setTelefono2(telf.getTelefono2());
+		form.setEmail(email.getDirMail());
+		form.setNombreUsuario(login.getNombreUsuario());
+		form.setPassword(login.getPassword());
+		return form;
 	}
-
 	
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos
@@ -134,7 +151,8 @@ public class ConsultarCliente extends Consultar{
 		try{		
 			if(log.isInfoEnabled()){
 				log.info("ConsultarCliente 3: Entro en consultar cliente para listarlos. " );
-			}			
+			}
+			
 			AgenteBean a = new AgenteBean();
 			a.setIdAgente(((VerClientesAgentePrevForm)datosBusqueda).getIdAgente());
 			
@@ -167,7 +185,5 @@ public class ConsultarCliente extends Consultar{
 		}
 		
 	}
-	public ActionForm dameDatos (ActionForm id){
-		return null;
-	}
+	
 }
