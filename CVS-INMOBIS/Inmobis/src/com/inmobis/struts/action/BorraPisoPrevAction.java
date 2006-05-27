@@ -17,7 +17,9 @@ import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.bajas.CreadorEliminar;
 import com.inmobis.bajas.Eliminar;
-import com.inmobis.struts.form.BorraPisoPrevForm;;
+import com.inmobis.consultas.*;
+import com.inmobis.struts.form.BorraPisoPrevForm;
+import com.inmobis.struts.form.EditaPisoForm;
 
 /** 
  * MyEclipse Struts
@@ -47,9 +49,13 @@ public class BorraPisoPrevAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
+		HttpSession session = request.getSession(true);
+		BorraPisoPrevForm b = new BorraPisoPrevForm();
+		ActionForm aux;
 				
 		//Si el inmueble que se quiere borrar no está registrado no se puede borrar
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar("inmueble");
+		Consultar datos = CreadorConsultar.CreaConsultar("inmueble");
 		
 		if (log.isInfoEnabled()){
 			log.info("borraPisoPrevAction 1:Antes de entrar en la base de datos");
@@ -67,7 +73,15 @@ public class BorraPisoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraPisoPrevAction 3:El inmueble está en la base de datos");
 			}
-			
+			aux = datos.dameDatos(form);
+			b.setIdInmueble(((EditaPisoForm)aux).getIdInmueble());
+			b.setMetros(((EditaPisoForm)aux).getMetros());
+			b.setNumHab(((EditaPisoForm)aux).getNumHab());
+			b.setPrecio(((EditaPisoForm)aux).getPrecio());
+			b.setRegimen(((EditaPisoForm)aux).getRegimen());
+			b.setTipo(((EditaPisoForm)aux).getTipo());
+			b.setZona(((EditaPisoForm)aux).getZona());
+			session.setAttribute("datos",b);
 			return mapping.findForward("exito");
 		}			
 	}	
