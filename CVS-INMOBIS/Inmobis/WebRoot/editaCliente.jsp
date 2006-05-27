@@ -14,14 +14,14 @@ HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú adecuado
 String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al agente que edita al cliente
 //Los datos a editar que se deben mostrar
-String cliente = (String) sesion.getAttribute("cliente");
-String direccion = (String) sesion.getAttribute("direccion");//
-String login = (String) sesion.getAttribute("login");//
-String telefono = (String) sesion.getAttribute("telefono");
-String mail = (String) sesion.getAttribute("mail");
-String diaAux = (String) sesion.getAttribute("dia");//
-String mesAux = (String) sesion.getAttribute("mes");//
-String anioAux = (String) sesion.getAttribute("anio");//
+//String cliente = (String) sesion.getAttribute("cliente");
+//String direccion = (String) sesion.getAttribute("direccion");
+//String login = (String) sesion.getAttribute("login");
+//String telefono = (String) sesion.getAttribute("telefono");
+//String mail = (String) sesion.getAttribute("mail");
+//String diaAux = (String) sesion.getAttribute("dia");
+//String mesAux = (String) sesion.getAttribute("mes");
+//String anioAux = (String) sesion.getAttribute("anio");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -78,7 +78,7 @@ String anioAux = (String) sesion.getAttribute("anio");//
 							<fmt:message key="editaCliente.nombre"/>
 						</td>   
 						<td>
-							<html:text 	property="nombre" size="15" maxlength="15" value="<%= cliente%>"/>
+							<html:text 	property="nombre" size="15" maxlength="15" />
 							<html:errors property="nombre" />
 						</td>
 					</tr>  				
@@ -122,7 +122,7 @@ String anioAux = (String) sesion.getAttribute("anio");//
 							<fmt:message key="editaCliente.telefono1"/>
 						</td> 
 						<td>
-							<html:text 	property="telefono1" size="9" maxlength="9" value="<%=telefono%>" />
+							<html:text 	property="telefono1" size="9" maxlength="9"  />
 							<html:errors property="telefono1" />
 						</td>
 					 </tr>
@@ -140,7 +140,7 @@ String anioAux = (String) sesion.getAttribute("anio");//
 							<fmt:message key="editaCliente.email"/>
 						</td>
 						<td>
-							<html:text 	property="email" size="25" maxlength="25" value="<%=mail%>" />
+							<html:text 	property="email" size="25" maxlength="25" />
 							<html:errors property="email" />
 						</td>
 					 </tr>
