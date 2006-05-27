@@ -61,9 +61,9 @@ public class VerClientesAgentePrevAction extends Action {
 		String agente = (session.getAttribute(INMOCTES.idUsuario)).toString();
 		((VerClientesAgentePrevForm)form).setIdAgente(agente);
 		
-		Consultar consultar=CreadorConsultar.CreaConsultar("agente");	
+		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");	
 		
-		Vector listaClientesAgente = consultar.listar(form);		
+		Vector listaClientesAgente = consultar.listarClientesAgente(form);		
 		
 		if (listaClientesAgente.size()==0){
 			if (log.isInfoEnabled()){

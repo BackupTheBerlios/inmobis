@@ -37,5 +37,10 @@ public abstract class Consultar {
 	public Vector filtrarEmpleados (ActionForm form){
 		return null;
 	}
+	
+    //se sobreescribe en ConsultarCliente
+	public Vector listarClientesAgente(ActionForm form){
+		return null;
+	}
 
 }

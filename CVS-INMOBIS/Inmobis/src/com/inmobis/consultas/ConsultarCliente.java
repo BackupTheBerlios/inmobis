@@ -134,8 +134,7 @@ public class ConsultarCliente extends Consultar{
 		try{		
 			if(log.isInfoEnabled()){
 				log.info("ConsultarCliente 3: Entro en consultar cliente para listarlos. " );
-			}
-			
+			}			
 			AgenteBean a = new AgenteBean();
 			a.setIdAgente(((VerClientesAgentePrevForm)datosBusqueda).getIdAgente());
 			
