@@ -5,9 +5,8 @@ package com.inmobis.consultas;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 
-import com.inmobis.bbdd.mensajes.GestorMensajesBD;
-//import com.inmobis.bbdd.mensajes.RelMensajesBean;
-import com.inmobis.struts.form.LoginForm;
+import com.inmobis.bbdd.CreadorGestores;
+import com.inmobis.bbdd.mensajes.*;
 import com.inmobis.struts.form.MensajeForm;
 import java.util.Vector;
 
@@ -23,19 +22,19 @@ public class ConsultarMensaje extends Consultar {
 		
 		Vector datos = new Vector();
 
-		//RelMensajesBean msg = new RelMensajesBean();
+		MensajesBean msg = new MensajesBean();
+		msg.setOrigen(msgForm.getOrigen());
 		
-		//GestorMensajesBD gestmsg = new GestorMensajesBD();
+		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msg);
 
 		if(log.isInfoEnabled()){
 			log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );
-			log.info("ConsultarAgente 2:  " +					 
+			log.info("ConsultarMensaje 2:  " +					 
 					 "Origen del mensaje: " + msgForm.getOrigen());
 		}
-
 		
 		try{
-			
+			datos = gestmsg.BusquedaDetallada();
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarMensaje 3: Fallo en BBDD: " + E.getMessage());
@@ -44,6 +43,7 @@ public class ConsultarMensaje extends Consultar {
 		}
 		return datos;
 	}
+	
 	public ActionForm dameDatos (ActionForm id){
 		return null;
 	}

@@ -177,7 +177,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	    	   consulta.put("leido",mensaje.getLeido());
 	       
 	       StringBuffer sqlString = new StringBuffer("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha" +
-	       		" from TMensajes,TRelMensajes WHERE TMensajes.idMesaje=TRelMensaje.idMesanje" +
+	       		" from TMensajes,TRelMensajes WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
 	       		"AND ");
 		   Iterator it=consulta.keySet().iterator();
 		   

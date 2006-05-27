@@ -18,10 +18,8 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.INMOCTES;
-import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.consultas.Consultar;
 import com.inmobis.consultas.CreadorConsultar;
-import com.inmobis.struts.form.LoginForm;
 import com.inmobis.struts.form.MensajeForm;
 
 /** 
