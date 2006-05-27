@@ -202,7 +202,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 			</table>
 			 <table width="100%">
 				 <tr>
-					 <td>	
+					 <td align="right">	
 						<html:submit>
 							<fmt:message key="registraCliente.button.signon"/>
 						</html:submit>
