@@ -7,15 +7,13 @@ import org.apache.struts.action.ActionForm;
 
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.RowNotFoundException;
-import com.inmobis.bbdd.cliente.ClienteBean;
-import com.inmobis.bbdd.cliente.GestorClienteBD;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
-import com.inmobis.struts.form.EditaClientePrevForm;
+import com.inmobis.struts.form.EditaEmpleadoForm;
 import com.inmobis.struts.form.EditaEmpleadoPrevForm;
 import com.inmobis.struts.form.FiltrarEmpleadoForm;;
 
@@ -23,78 +21,98 @@ public class ConsultarEmpleado extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(ConsultarEmpleado.class);
 	
-	public UsuarioLoginBean getLogin(ActionForm datosEmpleado){
+	public ActionForm dameDatos (ActionForm id){
+		//form que va a tener los datos y se va a devolver
+		EditaEmpleadoForm form=new EditaEmpleadoForm();
+		
+		//se crea un empleado bean
 		EmpleadoBean empleado=new EmpleadoBean();
-		empleado.setIdEmpleado(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
+		empleado.setIdEmpleado(((EditaEmpleadoPrevForm)id).getIdUsuario());
+		
 		CreadorGestores creador = new CreadorGestores();
 		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
-		UsuarioLoginBean login=new UsuarioLoginBean();
-		try {
-			gestorEmpleado.consultaLoginPorId(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
-			login=gestorEmpleado.getLoginBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
-		if(log.isInfoEnabled())
-			log.info("login "+login.getNombreUsuario() );
-		return login;
-	}
-	
-	public InfoDirBean getDir(ActionForm datosEmpleado){
-		EmpleadoBean empleado=new EmpleadoBean();
-		empleado.setIdEmpleado(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
-		CreadorGestores creador = new CreadorGestores();
-		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
+		
 		InfoDirBean direccion=new InfoDirBean();
+		InfoMailBean email=new InfoMailBean();
+		InfoTelfBean telf=new InfoTelfBean();
+		UsuarioLoginBean login=new UsuarioLoginBean();
+		//Miro la direccion
 		try {
-			gestorEmpleado.consultaDirPorId(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
+			gestorEmpleado.consultaDirPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
 			direccion=gestorEmpleado.getDireccionBean();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
-				log.info("Error" );
+				log.info("Error Dir: "+e );
 		}
+		//Miro el login
+		try {
+			gestorEmpleado.consultaLoginPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Login: "+e );
+		}
+		login= gestorEmpleado.getLoginBean();
+		//Miro el telefono
+		try {
+			gestorEmpleado.consultaTelfPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Telf: "+e );
+		}
+		telf=gestorEmpleado.getTelefonoBean();
+		//Miro el email
+		try {
+			gestorEmpleado.consultaMailPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Mail: "+e );
+		}
+		email=gestorEmpleado.getMailBean();
+		try {
+			gestorEmpleado.select();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error Empleado: "+e );
+		}
+		
+		empleado=(EmpleadoBean)gestorEmpleado.getBean();
+		
 		if(log.isInfoEnabled())
 			log.info("direccion "+direccion.getCalle() );
-		return direccion;
-	}
-	
-	public InfoTelfBean getTelf(ActionForm datosEmpleado){
-		EmpleadoBean empleado=new EmpleadoBean();
-		empleado.setIdEmpleado(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
-		CreadorGestores creador = new CreadorGestores();
-		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
-		InfoTelfBean telf=new InfoTelfBean();
-		try {
-			gestorEmpleado.consultaTelfPorId(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
-			telf=gestorEmpleado.getTelefonoBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
 		if(log.isInfoEnabled())
-			log.info("telefono "+telf.getTelefono());
-		return telf;
-	}
-	
-	public InfoMailBean getMail(ActionForm datosEmpleado){
-		EmpleadoBean empleado=new EmpleadoBean();
-		empleado.setIdEmpleado(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
-		CreadorGestores creador = new CreadorGestores();
-		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
-		InfoMailBean mail=new InfoMailBean();
-		try {
-			gestorEmpleado.consultaMailPorId(((EditaEmpleadoPrevForm)datosEmpleado).getIdUsuario());
-			mail=gestorEmpleado.getMailBean();
-		} catch (RowNotFoundException e) {
-			if(log.isInfoEnabled())
-				log.info("Error" );
-		}
+			log.info("nombre "+empleado.getNombreEmpleado() );
 		if(log.isInfoEnabled())
-			log.info("mail "+mail.getDirMail() );
-		return mail;
+			log.info("telf "+telf.getTelefono() );
+		if(log.isInfoEnabled())
+			log.info("login "+login.getNombreUsuario() );
+		
+		form.setCalle(direccion.getCalle());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setNum(direccion.getNum());
+		form.setPais(direccion.getPais());
+		form.setPiso(direccion.getPiso());
+		form.setPoblacion(direccion.getPoblacion());
+		form.setProvincia(direccion.getProvincia());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setApellido1(empleado.getApellido1());
+		form.setApellido2(empleado.getApellido2());
+		form.setNif(empleado.getDni());
+		form.setIdUsuario(empleado.getIdEmpleado());
+		form.setNombre(empleado.getNombreEmpleado());
+		String fecha=empleado.getFechNacimiento();
+		String[] fechaSplit=fecha.split("-");
+		form.setAnioNacimiento(fechaSplit[0]);
+		form.setMesNacimiento(fechaSplit[1]);
+		form.setDiaNacimiento(fechaSplit[2]);		
+		form.setTelefono1(telf.getTelefono());
+		form.setTelefono2(telf.getTelefono2());
+		form.setEmail(email.getDirMail());
+		//form.setNombre(login.getNombreUsuario());
+		//TODO mostrar el porcentaje
+		form.setPassword(login.getPassword());
+		form.setTipoEmpleado(login.getTipoUsuario());
+		return form;
 	}
-
 	
 	public Vector listar(ActionForm datosBusqueda){
 		//Vector para guardar la lista que me devuelve la base de datos
@@ -164,7 +182,5 @@ public class ConsultarEmpleado extends Consultar{
 		return datos;
 		
 	}
-	public ActionForm dameDatos (ActionForm id){
-		return null;
-	}
+
 }
