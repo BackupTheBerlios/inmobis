@@ -12,7 +12,9 @@
       <forward name="volver" path="/PonerQueja.jsp" />
     </action>
     <action
+      attribute="filtrarPisoForm"
       input="/FiltrarPisos.jsp"
+      name="filtrarPisoForm"
       path="/filtrarPiso"
       type="com.inmobis.struts.action.FiltrarPisoAction">
       <forward name="exito" path="/VerPisos.jsp" />
@@ -32,4 +34,7 @@
   </action-mappings>
 
   <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+
+  <form-beans />
+    <form-bean name="filtrarPisoForm" type="com.inmobis.struts.form.FiltrarPisoForm" />
 </struts-config>
