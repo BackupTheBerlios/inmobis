@@ -23,10 +23,11 @@
 <body bgcolor="#ffffff">
 <center>
 
-<table class="general">
+<table width="780" class="general">
 	<tr>
 		<td>
-			<table class="cabecera" align="center" cellpadding="0" cellspacing="0">
+			<table width="100%" class="cabecera" align="center" cellpadding="0" cellspacing="0">
+				<%if(esIndex){%>
 				<tr> 
 					<td class="cabecera-superior" colspan="3"><img class="cabecera-superior" name="n1" src="images/1.jpg" alt="INMOBIS" title="INMOBIS"><img class="cabecera-superior2" name="n2" src="images/2.jpg" alt="INMOBIS" title="INMOBIS">
 					</td>
@@ -35,6 +36,12 @@
 					<td class="cabecera-logo" colspan="3"><img class="cabecera-logo" name="logo" src="images/logo.jpg" alt="INMOBIS" title="INMOBIS"><img class="cabecera-logo2" name="n3" src="images/3.jpg" alt="INMOBIS" title="INMOBIS">
 					</td>
 				</tr>
+				<%}else{%>
+				<tr>
+					<td colspan="3">
+						<IMG SRC="images/imagen_cabecera.JPG" WIDTH="765" HEIGHT="100" BORDER="0" ALT=""></td>
+				</tr>
+				<%}%>
 				<tr> 
 					<td class="navbar" colspan="3">
 						<table class="navbar" cellspacing="0" cellpadding="0">
