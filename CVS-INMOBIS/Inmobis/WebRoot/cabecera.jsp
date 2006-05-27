@@ -48,10 +48,10 @@
 							<tr> 
 								<td class="navbar-espacio">&nbsp;</td>
 								<td class="navbar-boton1"><a href="index.jsp" class="tnav" alt="Página Principal" title="Ir a la Página de Inicio">Inicio</a></td>
-								<td class="navbar-boton2"><a href="financiacion.html" class="tnav" alt="Financiación" title="Financiación">Financiaci&oacute;n</a></td>
-								<td class="navbar-boton3"><a href="hipotecas.html" class="tnav" alt="Hipotecas" title="Hipotecas">Hipotecas</a></td>
-								<td class="navbar-boton4"><a href="seguros.html" class="tnav" alt="Seguros" title="Seguros">Seguros</a></td>
-								<td class="navbar-boton5"><a href="ayuda.html" class="tnav" alt="Ayuda" title="Ayuda">Ayuda</a></td>
+								<td class="navbar-boton2"><a href="#" class="tnav" alt="Financiación" title="Financiación">Financiaci&oacute;n</a></td>
+								<td class="navbar-boton3"><a href="#" class="tnav" alt="Hipotecas" title="Hipotecas">Hipotecas</a></td>
+								<td class="navbar-boton4"><a href="#" class="tnav" alt="Seguros" title="Seguros">Seguros</a></td>
+								<td class="navbar-boton5"><a href="#" class="tnav" alt="Ayuda" title="Ayuda">Ayuda</a></td>
 								<td class="navbar-boton6"><a href="mailto:inmobisweb@gmail.com" class="tnav" alt="Contactar" title="Contactar con nosotros">Contactar</a></td>
 								<td class="navbar-espacio">&nbsp;</td>
 							</tr>

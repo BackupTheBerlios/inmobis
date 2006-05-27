@@ -19,7 +19,14 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%@ include file="menu_izdo.jsp" %>
 
               <div id="content"> 
-                <div class="feature"> 
+                <div class="feature">
+					<table width="100%">
+						<tr>
+							<td>
+								<H2><fmt:message key="verMensaje.message"/></H2>
+							</td>
+						</tr>
+					</table>
 					<table width="100%">
 						<tr>
 							<td>
