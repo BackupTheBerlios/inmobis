@@ -72,30 +72,41 @@ public class ConsultarInmueble extends Consultar{
 	}
 	
 	public ActionForm dameDatos (ActionForm id){
+		
+		//form que va a tener los datos y se va a devolver
 		EditaPisoForm form=new EditaPisoForm();
+		
+		//se crea un inmueble bean
 		InmuebleBean inmueble=new InmuebleBean();
-		inmueble.setIdInmueble(((EditaPisoPrevForm)id).getIdInmueble());
+		inmueble.setIdInmueble(((EditaPisoForm)id).getIdInmueble());
+		
 		CreadorGestores creador = new CreadorGestores();
 		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)creador.crearGestor("inmueble",inmueble);
+		
 		InfoDirBean direccion=new InfoDirBean();
+		
 		try {
-			gestorInmueble.consultaDirPorId(((EditaPisoPrevForm)id).getIdInmueble());
+			gestorInmueble.consultaDirPorId(((EditaPisoForm)id).getIdInmueble());
 			direccion=gestorInmueble.getDireccionBean();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error1: "+e );
 		}
+		
 		try {
 			gestorInmueble.select();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error2: "+e );
 		}
+		
 		inmueble=(InmuebleBean)gestorInmueble.getBean();
+		
 		if(log.isInfoEnabled())
 			log.info("direccion "+direccion.getCalle() );
 		if(log.isInfoEnabled())
 			log.info("tipo "+inmueble.getTipo() );
+		
 		form.setCalle(direccion.getCalle());
 		form.setCodPostal(direccion.getCodPostal());
 		form.setNum(direccion.getNum());
@@ -112,6 +123,8 @@ public class ConsultarInmueble extends Consultar{
 		form.setRegimen(inmueble.getRegimen());
 		form.setTipo(inmueble.getTipo());
 		form.setZona(inmueble.getZona());
+		
+		
 		return form;
 	}
 }

@@ -51,6 +51,7 @@ public class BorraPisoPrevAction extends Action {
 		ActionMessages errors= new ActionMessages();
 		HttpSession session = request.getSession(true);
 		BorraPisoPrevForm b = new BorraPisoPrevForm();
+		EditaPisoForm e = new EditaPisoForm();
 		ActionForm aux;
 				
 		//Si el inmueble que se quiere borrar no está registrado no se puede borrar
@@ -73,7 +74,8 @@ public class BorraPisoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraPisoPrevAction 3:El inmueble está en la base de datos");
 			}
-			aux = datos.dameDatos(form);
+			e.setIdInmueble(((BorraPisoPrevForm)form).getIdInmueble());
+			aux = datos.dameDatos(e);
 			b.setIdInmueble(((EditaPisoForm)aux).getIdInmueble());
 			b.setMetros(((EditaPisoForm)aux).getMetros());
 			b.setNumHab(((EditaPisoForm)aux).getNumHab());
