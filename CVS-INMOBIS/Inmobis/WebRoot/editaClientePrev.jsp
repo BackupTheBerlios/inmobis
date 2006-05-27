@@ -16,16 +16,16 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
-<%}%><html>
-<body>
+<%}%>
+<%@ include file="menu_izdo.jsp" %>
 	<div id="content"> 
                 <div class="feature">
 			<html:errors property="editaClientePrev"/>
 
 			<html:form action="editaClientePrev.do" focus="calle">
-				<table align="center" border = "2">
+				<table align="center" >
 					<tr align="center">
-						<td><H1><fmt:message key="editaClientePrev.message"/></H1></td>
+						<td><H1>P&aacute;gina de prueba</H1></td>
 					</tr>
 					<tr align="center">
 						<td>
@@ -33,10 +33,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<tr>
 									<td colspan="2" align="center">
 										<html:submit>
-											<fmt:message key="editaClientePrev.button.signon"/>
+											Enviar
 										</html:submit>
 										<html:reset>
-											<fmt:message key="editaClientePrev.button.reset"/>
+											Cancelar
 										</html:reset>
 									</td>
 								</tr>
