@@ -25,10 +25,13 @@ public class MensajeForm extends ActionForm {
 	protected String destino;
 	protected Character leido;  //vale s/n
 	protected String fecha;
-
+	//para devolver los nombre de origen y destino en vez de los id
+	protected String nombreOrigen;
+	protected String nombreDestino;
 	// --------------------------------------------------------- Instance Variables
 
 	// --------------------------------------------------------- Methods
+
 
 	/** 
 	 * Method validate
@@ -52,6 +55,22 @@ public class MensajeForm extends ActionForm {
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
 		// TODO Auto-generated method stub
+	}
+
+	public String getNombreDestino() {
+		return nombreDestino;
+	}
+
+	public void setNombreDestino(String nombreDestino) {
+		this.nombreDestino = nombreDestino;
+	}
+
+	public String getNombreOrigen() {
+		return nombreOrigen;
+	}
+
+	public void setNombreOrigen(String nombreOrigen) {
+		this.nombreOrigen = nombreOrigen;
 	}
 
 	public String getAsunto() {
