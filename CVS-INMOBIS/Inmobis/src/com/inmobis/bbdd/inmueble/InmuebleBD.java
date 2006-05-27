@@ -64,8 +64,8 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
          inmueble.setNumHab(rs.getString("numHab"));
          inmueble.setMetros(rs.getString("metros"));
          inmueble.setRegimen(rs.getString("regimen"));
-         inmueble.setRegimen(rs.getString("tipo"));
-         inmueble.setRegimen(rs.getString("zona"));
+         inmueble.setTipo(rs.getString("tipo"));
+         inmueble.setZona(rs.getString("zona"));
          inmueble.setPrecio(rs.getString("precio"));
          inmueble.setDatosDeInteres(rs.getString("datosdeinteres"));
 
