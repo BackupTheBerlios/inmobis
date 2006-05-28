@@ -73,7 +73,7 @@ public class VerEmpleadosPrevAction extends Action {
 				int i=0;
 				while (i<listaEmpleados.size()){
 					log.info("Identificador: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getIdEmpleado());
-					log.info("Nombre: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getNombreEmpleado());
+					log.info("Nombre: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getNombre());
 					log.info("Apellido1: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getApellido1());
 					log.info("Apellido2: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getApellido2());
 					log.info("Dni: " + ((EmpleadoBean)listaEmpleados.elementAt(i)).getDni());
