@@ -4,10 +4,14 @@
 package com.inmobis.struts.action;
 
 
+import com.inmobis.INMOCTES;
 import com.inmobis.bajas.*;
+import com.inmobis.consultas.Consultar;
+import com.inmobis.consultas.CreadorConsultar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionMessages;
@@ -46,9 +50,17 @@ public class BorraEmpleadoAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
+		HttpSession session = request.getSession(true);
+		String tipoUsuario;
 		
 //		Si el empleado que se quiere borrar no está registrado no se puede borrar
-		Eliminar eliminarE = CreadorEliminar.CreaEliminar(((BorraEmpleadoForm)form).getTipoEmpleado());
+		if (!(((String)session.getAttribute(INMOCTES.tipoUsuario)).equals("administrador"))){
+			tipoUsuario ="empleado";
+		}
+		else{
+			tipoUsuario = "administrador";
+		}
+		Eliminar eliminarE = CreadorEliminar.CreaEliminar(tipoUsuario);
 		
 		if (log.isInfoEnabled()){
 			log.info("borraEmpleadoAction1:Antes de la BDD ");
@@ -65,7 +77,6 @@ public class BorraEmpleadoAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraEmpleadoAction4:Se ha eliminado con éxito");
 			}
-			saveErrors(request,errors);
 			return (mapping.findForward("exito"));
 		}
 	}	

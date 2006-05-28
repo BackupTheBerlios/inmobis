@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import com.inmobis.INMOCTES;
 import com.inmobis.bajas.CreadorEliminar;
 import com.inmobis.bajas.Eliminar;
 import com.inmobis.consultas.CreadorConsultar;
@@ -53,10 +54,17 @@ public class BorraEmpleadoPrevAction extends Action {
 		ActionMessages errors= new ActionMessages();
 		HttpSession session = request.getSession(true);
 		EditaEmpleadoForm aux = new EditaEmpleadoForm();
+		String tipoUsuario;
 		
-		//Si el empleado que se quiere borrar no está registrado no se puede borrar
-		Eliminar eliminarE = CreadorEliminar.CreaEliminar("empleado");
-		Consultar datos = CreadorConsultar.CreaConsultar("empleado");
+		//vemos el tipo de usuario que es
+		if (!(((String)session.getAttribute(INMOCTES.tipoUsuario)).equals("administrador"))){
+			tipoUsuario ="empleado";
+		}
+		else{
+			tipoUsuario = "administrador";
+		}
+		Eliminar eliminarE = CreadorEliminar.CreaEliminar(tipoUsuario);
+		Consultar datos = CreadorConsultar.CreaConsultar(tipoUsuario);
 		
 		if (log.isInfoEnabled()){
 			log.info("borraEmpleadoPrevAction 1:Antes de entrar en la base de datos");

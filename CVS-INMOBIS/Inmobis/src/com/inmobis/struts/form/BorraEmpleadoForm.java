@@ -20,11 +20,11 @@ public class BorraEmpleadoForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
 	private String idEmpleado;
-	private String nombreEmpleado;
+	/*private String nombreEmpleado;
 	private String apellido1;
 	private String apellido2;
-	private String fechaNacimiento;
-	private String tipoEmpleado;// para saber si es empleado (agente, gerente,...) o si es administrador
+	private String fechaNacimiento;*/
+	//private String tipoEmpleado;// para saber si es empleado (agente, gerente,...) o si es administrador
 	// --------------------------------------------------------- Methods
 
 	public String getIdEmpleado() {
@@ -34,7 +34,7 @@ public class BorraEmpleadoForm extends ActionForm {
 	public void setIdEmpleado(String idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
-	public String getApellido1() {
+	/*public String getApellido1() {
 		return apellido1;
 	}
 
@@ -65,13 +65,13 @@ public class BorraEmpleadoForm extends ActionForm {
 	public void setNombreEmpleado(String nombreEmpleado) {
 		this.nombreEmpleado = nombreEmpleado;
 	}
-
-	public String getTipoEmpleado() {
+*/
+	/*public String getTipoEmpleado() {
 		return tipoEmpleado;
 	}
 
 	public void setTipoEmpleado(String tipoEmpleado) {
 		this.tipoEmpleado = tipoEmpleado;
-	}
+	}*/
 }
 
