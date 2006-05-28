@@ -5,12 +5,18 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
+import com.inmobis.bajas.CreadorEliminar;
+import com.inmobis.bajas.Eliminar;
 import com.inmobis.struts.form.MensajeForm;
 
 /** 
@@ -23,7 +29,7 @@ import com.inmobis.struts.form.MensajeForm;
 public class BorrarMensajePrevAction extends Action {
 
 	// --------------------------------------------------------- Instance Variables
-
+	private static final Logger log = Logger.getLogger(BorrarMensajePrevAction.class);
 	// --------------------------------------------------------- Methods
 
 	/** 
@@ -40,9 +46,33 @@ public class BorrarMensajePrevAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		MensajeForm BorrarMensajeForm = (MensajeForm) form;
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+		ActionMessages errors= new ActionMessages();
+		
+		//vamos a comprobar que el mensaje a borrar está en la base de datos.
+		Eliminar eliminarE = CreadorEliminar.CreaEliminar("mensaje");
+		
+		if (log.isInfoEnabled()){
+			log.info("borrarMensajePrevAction 1:Antes de entrar en la base de datos");
+		}
+		
+		if  (!(eliminarE.validarRegistrado(BorrarMensajeForm))){
+			if (log.isInfoEnabled()){
+				log.info("borrarMensajePrevAction 2:Después de validar y que exista el mensaje");
+			}
+			errors.add("idMensaje", new ActionMessage("errors.borraMensaje.noexiste"));
+			saveErrors(request,errors);
+			return mapping.findForward("error");
+		}
+		else{
+			if (log.isInfoEnabled()){
+				log.info("borraMensajePrevAction 2:El mensaje está en la base de datos");
+			}
+			HttpSession session = request.getSession(true);
+			session.setAttribute("mensaje",BorrarMensajeForm);
+			return mapping.findForward("exito");
+		}		
+	} // Fin del procedimiento
 
 }
 
