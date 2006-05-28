@@ -79,9 +79,8 @@ public class ConsultarInmueble extends Consultar{
 		//se crea un inmueble bean
 		InmuebleBean inmueble=new InmuebleBean();
 		inmueble.setIdInmueble(id);
-		
-		CreadorGestores creador = new CreadorGestores();
-		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)creador.crearGestor("inmueble",inmueble);
+
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",inmueble);
 		
 		InfoDirBean direccion=new InfoDirBean();
 		

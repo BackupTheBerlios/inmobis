@@ -28,9 +28,8 @@ public class ConsultarEmpleado extends Consultar{
 		//se crea un empleado bean
 		EmpleadoBean empleado=new EmpleadoBean();
 		empleado.setIdEmpleado(id);
-		
-		CreadorGestores creador = new CreadorGestores();
-		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
+
+		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)CreadorGestores.crearGestor("empleado",empleado);
 		
 		InfoDirBean direccion=new InfoDirBean();
 		InfoMailBean email=new InfoMailBean();
@@ -85,6 +84,8 @@ public class ConsultarEmpleado extends Consultar{
 			log.info("telf "+telf.getTelefono() );
 		if(log.isInfoEnabled())
 			log.info("login "+login.getNombreUsuario() );
+		if(log.isInfoEnabled())
+			log.info("dni "+empleado.getDni() );
 		
 		form.setCalle(direccion.getCalle());
 		form.setCodPostal(direccion.getCodPostal());

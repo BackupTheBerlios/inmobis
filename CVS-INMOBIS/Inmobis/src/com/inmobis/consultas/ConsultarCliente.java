@@ -37,9 +37,8 @@ public class ConsultarCliente extends Consultar{
 		//se crea un cliente bean
 		ClienteBean cliente=new ClienteBean();
 		cliente.setIdCliente(id);
-		
-		CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+
+		GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",cliente);
 		
 		InfoDirBean direccion=new InfoDirBean();
 		InfoMailBean email=new InfoMailBean();
