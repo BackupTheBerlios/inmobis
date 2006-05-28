@@ -283,7 +283,7 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
 	           EmpleadoBean empleadoNuevo=new EmpleadoBean();
 	           
 	           empleadoNuevo.setIdEmpleado(rs.getString("idEmpleado"));
-	           empleadoNuevo.setNombre(rs.getString("dni"));
+	           empleadoNuevo.setDni(rs.getString("dni"));
 	           empleadoNuevo.setNombre(rs.getString("nombre"));
 	           empleadoNuevo.setApellido1(rs.getString("apellido1"));
 	           empleadoNuevo.setApellido2(rs.getString("apellido2"));
