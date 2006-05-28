@@ -16,7 +16,7 @@ public class EmpleadoBean {
 	   return dni;
 	  }
 
-  public String getNombreEmpleado() {
+  public String getNombre() {
     return nombre;
   }
 
@@ -35,10 +35,6 @@ public class EmpleadoBean {
   public void setIdEmpleado(String _idEmpleado) {
      this.idEmpleado = _idEmpleado;
   }
-  
-  public void setIdDni(String _dni) {
-	     this.dni = _dni;
-	  }
 
   public void setNombre(String _nombre) {
     this.nombre = _nombre;
@@ -56,12 +52,8 @@ public class EmpleadoBean {
     this.fechNacimiento = _fechNacimiento;
   }
 
-public String getNombre() {
-	return nombre;
-}
-
-public void setDni(String dni) {
-	this.dni = dni;
-}
+  public void setDni(String dni) {
+  	this.dni = dni;
+  }
 
 }

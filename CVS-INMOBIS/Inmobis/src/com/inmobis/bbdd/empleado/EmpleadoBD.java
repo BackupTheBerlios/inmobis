@@ -116,7 +116,7 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
       StringBuffer sqlString = new StringBuffer("INSERT INTO TEmpleados ");
       sqlString.append("VALUES (" + MysqlUtils.toMysqlString(empleado.getIdEmpleado()) + ", ");
       sqlString.append(MysqlUtils.toMysqlString(empleado.getDni()) +  ", ");
-      sqlString.append(MysqlUtils.toMysqlString(empleado.getNombreEmpleado()) +
+      sqlString.append(MysqlUtils.toMysqlString(empleado.getNombre()) +
                        ", ");
       sqlString.append(MysqlUtils.toMysqlString(empleado.getApellido1()) + ", ");
       sqlString.append(MysqlUtils.toMysqlString(empleado.getApellido2()) + ", ");
@@ -152,7 +152,7 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
       sqlString.append("dni=" +
               MysqlUtils.toMysqlString(empleado.getDni()) +  ", ");
       sqlString.append("nombre=" +
-                       MysqlUtils.toMysqlString(empleado.getNombreEmpleado()) +
+                       MysqlUtils.toMysqlString(empleado.getNombre()) +
                        ", ");
       sqlString.append("apellido1=" +
                        MysqlUtils.toMysqlString(empleado.getApellido1()) + ", ");
@@ -213,7 +213,7 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
 	      while (rs.next()) {
 	        EmpleadoBean empleado=new EmpleadoBean();
 	        empleado.setIdEmpleado(rs.getString("idEmpleado"));
-	        empleado.setIdEmpleado(rs.getString("dni"));
+	        empleado.setDni(rs.getString("dni"));
 	        empleado.setNombre(rs.getString("nombre"));
 	        empleado.setApellido1(rs.getString("apellido1"));
 	        empleado.setApellido2(rs.getString("apellido2"));
@@ -248,8 +248,8 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
 	      if (empleado.getDni()!=null)
 		       consulta.put("dni",empleado.getDni());
 
-	      if (empleado.getNombreEmpleado()!=null)
-	        consulta.put("nombre",empleado.getNombreEmpleado());
+	      if (empleado.getNombre()!=null)
+	        consulta.put("nombre",empleado.getNombre());
 
 	      if (empleado.getApellido1()!=null)
 	        consulta.put("apellido1",empleado.getApellido1());

@@ -80,7 +80,7 @@ public class ConsultarEmpleado extends Consultar{
 		if(log.isInfoEnabled())
 			log.info("direccion "+direccion.getCalle() );
 		if(log.isInfoEnabled())
-			log.info("nombre "+empleado.getNombreEmpleado() );
+			log.info("nombre "+empleado.getNombre() );
 		if(log.isInfoEnabled())
 			log.info("telf "+telf.getTelefono() );
 		if(log.isInfoEnabled())
@@ -98,7 +98,7 @@ public class ConsultarEmpleado extends Consultar{
 		form.setApellido2(empleado.getApellido2());
 		form.setNif(empleado.getDni());
 		form.setIdUsuario(empleado.getIdEmpleado());
-		form.setNombre(empleado.getNombreEmpleado());
+		form.setNombre(empleado.getNombre());
 		String fecha=empleado.getFechNacimiento();
 		String[] fechaSplit=fecha.split("-");
 		form.setAnioNacimiento(fechaSplit[0]);
@@ -157,7 +157,7 @@ public class ConsultarEmpleado extends Consultar{
 			e.setApellido2(((FiltrarEmpleadoForm)datosBusqueda).getApellido2());
 		if (!(((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado().equals(null)) &&
 				!(((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado().equals("")))
-			e.setIdDni(((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado());
+			e.setDni(((FiltrarEmpleadoForm)datosBusqueda).getDniEmpleado());
 		if (!(((FiltrarEmpleadoForm)datosBusqueda).getFechaNacimiento().equals(null)) &&
 				!(((FiltrarEmpleadoForm)datosBusqueda).getFechaNacimiento().equals("")))
 			e.setFechNacimiento(((FiltrarEmpleadoForm)datosBusqueda).getFechaNacimiento());
