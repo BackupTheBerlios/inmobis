@@ -1,5 +1,6 @@
 <%--Librería específica de esta página: Logic, para usar el iterator--%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS:Eliminar Inmueble";%>
 <%boolean esIndex=true;//Se refiere a la cabecera sencilla que no incluye librerías %>
@@ -22,23 +23,53 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
                 <div class="feature"> 
                   <p> ¿ESTA SEGURO DE ELIMINAR EL SIGUIENTE INMUEBLE? </p>
 				  <table border="0" cellpading="0" cellspacing="0" width="100%">
-						<logic:iterate id="borraPisoPrevForm" name="InmuebleBean">
-						<tr>
+				  <tr>
+						<th>
+							Zona
+						</th>
+						<th>
+							n&ordm; de hab
+						</th>
+						<th>
+							m&sup2;
+						</th>
+						<th>
+							R&eacute;gimen
+						</th>
+						<th>
+							Tipo
+						</th>
+						<th>
+							Precio
+						</th>
+						<th>
+							Opciones
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<bean:write name="datos" property="zona"/>
+						</td>
+						<td>
+							<bean:write name="datos" property="numHab" />
+						</td>
 						  <td>
-					            <bean:write name="borraPisoPrevForm" property="metros" />
+					            <bean:write name="datos" property="metros" />
 						  </td>
 						  <td>
-					            <bean:write name="borraPisoPrevForm" property="regimen" />
+					            <bean:write name="datos" property="regimen" />
 						  </td>
 						  <td>
-					            <bean:write name="borraPisoPrevForm" property="precio" />
+							<bean:write name="datos" property="tipo" /> 
+							</td>
+						  <td>
+					            <bean:write name="datos" property="precio" />
 						  </td>						  
 						  <td align="center">
-							<a href="borraPiso.do?idInmueble=<bean:write name='borraPisoPrevForm'
-						      property='idInmueble' />"> ELIMINAR </a>
+							<a href="borraPiso.do?idInmueble=<bean:write name="datos"
+						      property="idInmueble" />"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
 						  </td>
 						</tr>
-				      </logic:iterate>
 					</table>
 				</div>
               </div>
