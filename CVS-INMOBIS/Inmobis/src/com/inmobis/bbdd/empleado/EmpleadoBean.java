@@ -56,4 +56,12 @@ public class EmpleadoBean {
     this.fechNacimiento = _fechNacimiento;
   }
 
+public String getNombre() {
+	return nombre;
+}
+
+public void setDni(String dni) {
+	this.dni = dni;
+}
+
 }
