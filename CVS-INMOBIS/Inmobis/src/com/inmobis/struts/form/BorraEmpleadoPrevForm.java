@@ -3,10 +3,7 @@
 
 package com.inmobis.struts.form;
 
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
 
 /** 
  * MyEclipse Struts
@@ -23,14 +20,7 @@ public class BorraEmpleadoPrevForm extends ActionForm {
 	private String apellido1;
 	private String apellido2;
 	private String fechnacimiento;
-	private String tipoEmpleado;
-	
-	public String getTipoEmpleado() {
-		return tipoEmpleado;
-	}
-	public void setTipoEmpleado(String tipoEmpleado) {
-		this.tipoEmpleado = tipoEmpleado;
-	}
+
 	public String getApellido1() {
 		return apellido1;
 	}

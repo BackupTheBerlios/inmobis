@@ -6,8 +6,6 @@ package com.inmobis.struts.action;
 
 import com.inmobis.INMOCTES;
 import com.inmobis.bajas.*;
-import com.inmobis.consultas.Consultar;
-import com.inmobis.consultas.CreadorConsultar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +18,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.log4j.Logger;
-import com.inmobis.struts.form.BorraEmpleadoForm;
 
 /** 
  * MyEclipse Struts
