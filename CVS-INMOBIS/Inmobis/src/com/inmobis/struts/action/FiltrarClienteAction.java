@@ -5,6 +5,7 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -52,12 +53,13 @@ public class FiltrarClienteAction extends Action {
 			log.info("FiltrarCliente1: Antes de entrar en la base de datos");
 		}
 		
+		HttpSession session = request.getSession(true);
 		Consultar consultar=CreadorConsultar.CreaConsultar("cliente");
-		Vector listaClientes = consultar.listar(form);
+		Vector listaClientes = consultar.filtrarClientes(form);
 		
-		if (listaClientes.equals(null)){
+		if (listaClientes.size()==0){
 			if (log.isInfoEnabled()){
-				log.info("FiltrarCliente2: Ha habido un error en la búsqueda en la bbdd");
+				log.info("FiltrarCliente 2: Ha habido un error en la búsqueda en la bbdd");
 			}
 			errors.add("listaclientes", new ActionMessage("errors.listacliente.bbdd"));
 			saveErrors(request,errors);
@@ -65,8 +67,9 @@ public class FiltrarClienteAction extends Action {
 		}
 		else{
 			if (log.isInfoEnabled()){
-				log.info("FiltrarCliente3: Se ha realizado la busqueda con éxito");
+				log.info("FiltrarCliente 3: Se ha realizado la busqueda con éxito");
 			}
+			session.setAttribute("listaClientes",listaClientes);
 			return mapping.findForward("exito");
 		}
 	}

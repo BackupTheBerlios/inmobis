@@ -170,20 +170,47 @@ public class ConsultarCliente extends Consultar{
 		return datos;
 	}
 	
-	public static void main(String [] args){
-		Consultar  c= new ConsultarCliente();
-		ActionForm f =null;
-		Vector r = c.listar(f);
-		
-		int i=0;
-		while(i<r.size()){
-			System.out.println("Nombre: "+ ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getNombreCliente()+
-					 "Apellido1: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getApellido1() + 
-					 "Apellido2: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getApellido2()+ 
-					 "Fecha de Nacimiento: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getFechNacimiento() + 
-					 "identificador: " + ((ClienteBean)((ClienteBD)((ClienteBD)r.get(i)).getBean()).getBean()).getIdCliente());
+	public Vector filtrarClientes(ActionForm datosBusqueda){
+		//Vector para guardar la lista que me devuelve la base de datos
+		Vector datos = new Vector();
+			
+		try{		
+			if(log.isInfoEnabled()){
+				log.info("ConsultarCliente 1: Entro en consultar cliente para filtrarlos. " );
+			}
+			
+			ClienteBean c = new ClienteBean();
+			if (!(((FiltrarClienteForm)datosBusqueda).getApellido1().equals(null)) &&
+					!(((FiltrarClienteForm)datosBusqueda).getApellido1().equals("")))
+				c.setApellido1(((FiltrarClienteForm)datosBusqueda).getApellido1());
+			if (!(((FiltrarClienteForm)datosBusqueda).getApellido2().equals(null)) &&
+					!(((FiltrarClienteForm)datosBusqueda).getApellido2().equals("")))
+				c.setApellido2(((FiltrarClienteForm)datosBusqueda).getApellido2());
+			if (!(((FiltrarClienteForm)datosBusqueda).getDniCliente().equals(null)) &&
+					!(((FiltrarClienteForm)datosBusqueda).getDniCliente().equals("")))
+				c.setDni(((FiltrarClienteForm)datosBusqueda).getDniCliente());
+			if (!(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento().equals(null)) &&
+					!(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento().equals("")))
+				c.setFechNacimiento(((FiltrarClienteForm)datosBusqueda).getFechaNacimiento());
+			if (!(((FiltrarClienteForm)datosBusqueda).getNombreCliente().equals(null)) &&
+					!(((FiltrarClienteForm)datosBusqueda).getNombreCliente().equals("")))
+				c.setNombre(((FiltrarClienteForm)datosBusqueda).getNombreCliente());
+			
+			
+			
+			//LLamada al gestor de la base de datos
+			GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",c);			
+			datos = gestorCliente.BusquedaDetallada();
+			
+		}catch (Exception E){
+			if(log.isInfoEnabled()){
+				log.info("ConsultarCliente 2: Fallo en la busqueda en la base de datos " );
+			}
+			return datos;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
 		}
-		
+		if(log.isInfoEnabled()){
+			log.info("ConsultarCliente 3: Exito " );
+		}
+		return datos;
 	}
-	
 }
