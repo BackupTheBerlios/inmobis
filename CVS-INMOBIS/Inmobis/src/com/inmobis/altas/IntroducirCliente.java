@@ -52,8 +52,7 @@ public class IntroducirCliente extends Introducir{
 		//generar el idCliente para la BBDD con la funcion de Esther
 		cliente.setIdCliente(gc.asignaCodigoCliente());
 
-		CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",cliente);
 
 		//Creamos un Bean de Direccion asociada al inmueble ya creado
 		InfoDirBean direccion=gestorCliente.newInfoDirClientes("casa");

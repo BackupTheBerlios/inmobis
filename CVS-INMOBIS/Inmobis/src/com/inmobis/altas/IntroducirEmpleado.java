@@ -13,10 +13,8 @@ import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
-import com.inmobis.bbdd.login.UsuarioLoginBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
-import com.inmobis.struts.form.RegistraClienteForm;
 import com.inmobis.struts.form.RegistraEmpleadoForm;
 
 public class IntroducirEmpleado extends Introducir{
@@ -42,9 +40,8 @@ public class IntroducirEmpleado extends Introducir{
 		empleado.setIdDni(((RegistraEmpleadoForm)datosEmpleado).getNif());
 		//generar el idEmpleado para la BBDD con la funcion de Esther
 		empleado.setIdEmpleado(gc.asignaCodigoEmpleado());
-		
-		CreadorGestores creador =new CreadorGestores();
-		GestorEmpleadoBD gestorEmpleado=(GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
+
+		GestorEmpleadoBD gestorEmpleado=(GestorEmpleadoBD)CreadorGestores.crearGestor("empleado",empleado);
 		
 		//Creamos un Bean de Direccion asociada al empleado ya creado
 		InfoDirBean direccion=gestorEmpleado.newInfoDirEmpleados("casa");

@@ -35,9 +35,8 @@ public class IntroducirInmueble extends Introducir{
 		inmueble.setIdInmueble(gc.asignaCodigoInmueble());
 		if(i_log.isInfoEnabled())
 			i_log.info("Codigo Inmueble:" + inmueble.getIdInmueble());
-		
-		CreadorGestores gestor=new CreadorGestores(); 
-		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)gestor.crearGestor("inmueble",inmueble);
+
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",inmueble);
 		
 		//Creamos un Bean de Direccion asociada al inmueble ya creado
 		InfoDirBean direccion=gestorInmueble.newInfoDirInmuebles("casa");
@@ -52,7 +51,7 @@ public class IntroducirInmueble extends Introducir{
 		
 		//TODO probar y revisar
 		ClienteBean cliente=new ClienteBean();
-		GestorClienteBD gestorCliente=(GestorClienteBD)gestor.crearGestor("cliente",cliente);
+		GestorClienteBD gestorCliente=(GestorClienteBD)CreadorGestores.crearGestor("cliente",cliente);
 		try {
 			gestorCliente.consultaLoginPorNombreUsuario(((RegistraPisoForm)datosInmueble).getNombreUsuario());
 			if(i_log.isInfoEnabled())
