@@ -32,11 +32,9 @@ public class ModificarInmueble extends Modificar{
 		inmueble.setRegimen(((EditaPisoForm)datosInmueble).getRegimen());
 		inmueble.setDatosDeInteres(((EditaPisoForm)datosInmueble).getDatosDeInteres());
 		//TODO cambiar cuando funcione lo de coger IdInmueble
-		//inmueble.setIdInmueble(((EditaPisoForm)datosInmueble).getIdInmueble());
-		inmueble.setIdInmueble("I101");
-		
-		CreadorGestores gestor=new CreadorGestores(); 
-		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)gestor.crearGestor("inmueble",inmueble);
+		inmueble.setIdInmueble(((EditaPisoForm)datosInmueble).getIdInmueble());
+
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",inmueble);
 		
 		//Creamos un Bean de Direccion asociada al inmueble ya creado
 		InfoDirBean direccion=gestorInmueble.newInfoDirInmuebles("casa");

@@ -41,12 +41,11 @@ public class ModificarEmpleado extends Modificar{
 		if(i_log.isInfoEnabled())
 			i_log.info("Fecha: " + fecha);
 		empleado.setFechNacimiento(fecha);
-		empleado.setIdDni(((EditaEmpleadoForm)datosEmpleado).getNif());
+		empleado.setDni(((EditaEmpleadoForm)datosEmpleado).getNif());
 		//generar el idEmpleado para la BBDD con la funcion de Esther
 		empleado.setIdEmpleado(((EditaEmpleadoForm)datosEmpleado).getIdUsuario());
-		
-		CreadorGestores creador =new CreadorGestores();
-		GestorEmpleadoBD gestorEmpleado=(GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
+
+		GestorEmpleadoBD gestorEmpleado=(GestorEmpleadoBD)CreadorGestores.crearGestor("empleado",empleado);
 		
 //		Creamos un Bean de Direccion asociada al empleado ya creado
 		InfoDirBean direccion=gestorEmpleado.newInfoDirEmpleados("casa");

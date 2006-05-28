@@ -73,14 +73,16 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
       conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
       ResultSet rs = null;
-
+      if (milog.isInfoEnabled()){
+			milog.info("id: "+ empleado.idEmpleado);
+		}
       rs = stmt.executeQuery("SELECT * FROM TEmpleados WHERE idEmpleado=" +
                              MysqlUtils.toMysqlString(empleado.getIdEmpleado()));
 
       if (rs.next()) {  //situarse en la siguiene fila
 
         empleado.setIdEmpleado(rs.getString("idEmpleado"));
-        empleado.setIdEmpleado(rs.getString("dni"));
+        empleado.setDni(rs.getString("dni"));
         empleado.setNombre(rs.getString("nombre"));
         empleado.setApellido1(rs.getString("apellido1"));
         empleado.setApellido2(rs.getString("apellido2"));
