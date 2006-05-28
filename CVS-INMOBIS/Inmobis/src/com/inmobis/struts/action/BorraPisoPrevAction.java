@@ -50,9 +50,7 @@ public class BorraPisoPrevAction extends Action {
 		
 		ActionMessages errors= new ActionMessages();
 		HttpSession session = request.getSession(true);
-		BorraPisoPrevForm b = new BorraPisoPrevForm();
-		EditaPisoForm e = new EditaPisoForm();
-		ActionForm aux;
+		EditaPisoForm aux = new EditaPisoForm();
 				
 		//Si el inmueble que se quiere borrar no está registrado no se puede borrar
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar("inmueble");
@@ -74,25 +72,14 @@ public class BorraPisoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraPisoPrevAction 3:El inmueble está en la base de datos");
 			}
-			e.setIdInmueble(((BorraPisoPrevForm)form).getIdInmueble());
-			aux = datos.dameDatos(e);
-			b.setIdInmueble(((EditaPisoForm)aux).getIdInmueble());
-			b.setMetros(((EditaPisoForm)aux).getMetros());
-			b.setNumHab(((EditaPisoForm)aux).getNumHab());
-			b.setPrecio(((EditaPisoForm)aux).getPrecio());
-			b.setRegimen(((EditaPisoForm)aux).getRegimen());
-			b.setTipo(((EditaPisoForm)aux).getTipo());
-			b.setZona(((EditaPisoForm)aux).getZona());
-			if (log.isInfoEnabled()){
-				log.info("borraPisoPrevAction 4:Exito");
-				log.info("id: "+b.getIdInmueble());
-				log.info("zona: "+b.getZona());
-				log.info("tipo: "+b.getTipo());
-				log.info("metros: "+b.getMetros());
-				log.info("precio: "+ b.getPrecio());
-				log.info("regimen: "+ b.getRegimen());
-			}
-			session.setAttribute("datos",b);
+			aux = (EditaPisoForm)datos.dameDatos(((BorraPisoPrevForm)form).getIdInmueble());
+			((BorraPisoPrevForm)form).setMetros(aux.getMetros());
+			((BorraPisoPrevForm)form).setNumHab(aux.getNumHab());
+			((BorraPisoPrevForm)form).setPrecio(aux.getPrecio());
+			((BorraPisoPrevForm)form).setRegimen(aux.getRegimen());
+			((BorraPisoPrevForm)form).setTipo(aux.getTipo());
+			((BorraPisoPrevForm)form).setZona(aux.getZona());
+			session.setAttribute("datos",form);
 			return mapping.findForward("exito");
 		}			
 	}	
