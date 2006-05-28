@@ -18,10 +18,6 @@ import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
-import com.inmobis.bbdd.empleado.RelAgenteClienteBD;
-import com.inmobis.bbdd.empleado.RelAgenteClienteBean;
-
-import com.inmobis.bbdd.login.UsuarioLoginBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 
 import com.inmobis.bbdd.telefono.InfoTelfBean;
