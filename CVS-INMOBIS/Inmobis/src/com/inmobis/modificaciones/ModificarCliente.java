@@ -36,11 +36,10 @@ public class ModificarCliente extends Modificar{
 			i_log.info("Fecha: " + fecha);
 		cliente.setFechNacimiento(fecha);
 		//TODO cambiar cuando tenga acceso al id
-		//cliente.setIdCliente(((EditaClienteForm)datosCliente).getIdUsuario());
-		cliente.setIdCliente("C101");
-		
-		CreadorGestores creador = new CreadorGestores();
-		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
+		cliente.setIdCliente(((EditaClienteForm)datosCliente).getIdUsuario());
+		//cliente.setIdCliente("C101");
+
+		GestorClienteBD gestorCliente= (GestorClienteBD)CreadorGestores.crearGestor("cliente",cliente);
 		
 		//Creamos un Bean de Direccion asociada al inmueble ya creado
 		InfoDirBean direccion=gestorCliente.newInfoDirClientes("casa");
