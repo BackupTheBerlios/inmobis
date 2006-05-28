@@ -17,13 +17,16 @@ import org.apache.struts.action.ActionMessage;
 public class BorraPisoPrevForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
-	String idInmueble;
-	String zona;
-	String numHab;
-	String metros;
-	String regimen;
-	String tipo;
-	String precio;
+    private String idInmueble;
+    private String numHab;
+    private String metros;
+    private String regimen;
+    private String tipo;
+    private String zona;
+    private String precio;
+    private String datosDeInteres;
+	
+
 	// --------------------------------------------------------- Methods
 	/** 
 	 * Method reset
@@ -32,12 +35,6 @@ public class BorraPisoPrevForm extends ActionForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.idInmueble = "";
-		this.metros="";
-		this.numHab="";
-		this.precio="";
-		this.regimen="";
-		this.tipo="";
-		this.zona="";
 	}
 
 	public String getIdInmueble() {
@@ -46,6 +43,14 @@ public class BorraPisoPrevForm extends ActionForm {
 
 	public void setIdInmueble(String idInmueble) {
 		this.idInmueble = idInmueble;
+	}
+
+	public String getDatosDeInteres() {
+		return datosDeInteres;
+	}
+
+	public void setDatosDeInteres(String datosDeInteres) {
+		this.datosDeInteres = datosDeInteres;
 	}
 
 	public String getMetros() {
