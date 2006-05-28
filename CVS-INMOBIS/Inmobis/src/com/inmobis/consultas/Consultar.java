@@ -43,4 +43,6 @@ public abstract class Consultar {
 		return null;
 	}
 
+	// se sobreescribe en ConsultarMensaje
+	public ActionForm VerMensaje(ActionForm form){return null;}
 }

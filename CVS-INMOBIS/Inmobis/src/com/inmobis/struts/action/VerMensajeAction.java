@@ -5,12 +5,18 @@ package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
+import com.inmobis.consultas.Consultar;
+import com.inmobis.consultas.CreadorConsultar;
 import com.inmobis.struts.form.MensajeForm;
 
 /** 
@@ -23,7 +29,7 @@ import com.inmobis.struts.form.MensajeForm;
 public class VerMensajeAction extends Action {
 
 	// --------------------------------------------------------- Instance Variables
-
+	private static final Logger log = Logger.getLogger(VerMensajeAction.class);
 	// --------------------------------------------------------- Methods
 
 	/** 
@@ -40,8 +46,24 @@ public class VerMensajeAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		MensajeForm VerMensajeForm = (MensajeForm) form;
-		// TODO Auto-generated method stub
-		return null;
+
+		ActionMessages errors= new ActionMessages();
+		
+		//vamos a comprobar que el mensaje a borrar está en la base de datos.
+		Consultar consultaM = CreadorConsultar.CreaConsultar("mensaje");
+		
+		if (log.isInfoEnabled()){
+			log.info("VerMensajeAction 1:Antes de entrar en la base de datos");
+		}
+		
+		MensajeForm msgForm = (MensajeForm) consultaM.VerMensaje(VerMensajeForm);
+		
+		if (log.isInfoEnabled()){
+				log.info("VerMensajeAction 2:Mensaje recuperado");
+		}
+			HttpSession session = request.getSession(true);
+			session.setAttribute("mensaje",msgForm);
+			return mapping.findForward("exito");
 	}
 
 }
