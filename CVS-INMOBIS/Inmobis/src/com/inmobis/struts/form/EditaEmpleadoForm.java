@@ -79,7 +79,7 @@ public class EditaEmpleadoForm extends ActionForm{
 			errors.add("anioNacimiento", new ActionMessage("errors.fecha.notValid"));
 		}
 		//El nif tiene que tener longitud 9
-		if (nif.equals("") || nif.length()!=9)
+		if (nif.equals("") || nif.length()!=8)
 			errors.add("nif", new ActionMessage("errors.nif.notValid"));
 		//Si he seleccionado agente, tengo que rellenar porcentaje
 		if (tipoEmpleado.equals("agente") && porcentaje.equals(""))
