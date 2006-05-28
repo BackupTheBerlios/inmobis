@@ -32,8 +32,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<fmt:message key="filtrarPisos.metros"/>
 									</td>
 									<td>
-										de&nbsp;&nbsp;<html:text property="metrosMin" size="5" maxlength="10" />
-										a&nbsp;&nbsp;<html:text property="metrosMax" size="5" maxlength="10" />&nbsp;m&sup2;
+										de&nbsp;&nbsp;<html:text property="metrosMin" size="15" maxlength="15" />
+										&nbsp;a&nbsp;&nbsp;<html:text property="metrosMax" size="15" maxlength="15" />&nbsp;m&sup2;
 										<html:errors property="metrosMax" />
 										<html:errors property="metrosMin" />
 									</td>
@@ -43,6 +43,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<fmt:message key="filtrarPisos.regimen"/>
 									</td>
 									<td>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<html:select property="regimen" size="1">
 											<html:option value="alquiler">Alquiler</html:option>
 											<html:option value="venta">Venta</html:option>
@@ -55,8 +56,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<fmt:message key="filtrarPisos.precio"/>
 									</td>
 									<td>
-										de&nbsp;&nbsp;<html:text property="precioMin" size="5" maxlength="10" />
-										a&nbsp;&nbsp;<html:text property="precioMax" size="5" maxlength="10" />&nbsp;Euros
+										de&nbsp;&nbsp;<html:text property="precioMin" size="15" maxlength="15" />
+										&nbsp;a&nbsp;&nbsp;<html:text property="precioMax" size="15" maxlength="15" />&nbsp;Euros
 										<html:errors property="precioMax" />
 										<html:errors property="precioMin" />
 									</td>
@@ -76,7 +77,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<fmt:message key="filtrarPisos.numhab"/>
 									</td>
-									<td>
+									<td>										
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<html:select property="numHab" size="1">
 											<html:option value="1">Una</html:option>
 											<html:option value="2">Dos</html:option>
@@ -87,12 +89,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<html:errors property="numHab" />
 									</td>
 								</tr>
-								<!--ESTO DEBERÍA SER OTRO SELECT??????????    *********************************-->
 								<tr>
 									<td>
 										<fmt:message key="filtrarPisos.tipo"/>
 									</td>
-									<td>
+									<td>										
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<%@ include file="tipoInmueble.jsp" %>
 									</td>
 								</tr>
@@ -101,6 +103,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<fmt:message key="filtrarPisos.zona"/>
 									</td>
 									<td>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<html:text 	property="zona" size="15" maxlength="15" />
 										<html:errors property="zona" />
 									</td>

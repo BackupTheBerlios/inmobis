@@ -15,20 +15,103 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
-<%}%><%@ include file="menu_izdo.jsp" %>
-
+<%}%>
+<%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
-					<table width="100%">
-						<tr>
-							<td>
-								<IMG SRC="images/enconstruccion.gif" WIDTH="81" HEIGHT="50" BORDER="0" ALT="">
-							</td>
-							<td>
-								<h3><FONT COLOR="RED"> EN CONSTRUCCI&Oacute;N</FONT></h3>
-							</td>
-						</tr>
-					</table>                  
+					<center> 
+						<html:errors property="filtrarPiso"/>
+						<html:form action="filtrarPiso.do">
+							<table width="100%">
+								<tr>
+									<td><H2><fmt:message key="filtrarPisos.message"/></H2></td>
+								</tr>
+							</table>							
+							<table border="0" width="100%">
+								<tr>
+									<td width="30%">
+										<fmt:message key="filtrarPisos.metros"/>
+									</td>
+									<td>
+										de&nbsp;&nbsp;<html:text property="metrosMin" size="15" maxlength="15" />
+										a&nbsp;&nbsp;<html:text property="metrosMax" size="15" maxlength="15" />&nbsp;m&sup2;
+										<html:errors property="metrosMax" />
+										<html:errors property="metrosMin" />
+									</td>
+								</tr>	
+								<tr>
+									<td>
+										<fmt:message key="filtrarPisos.regimen"/>
+									</td>
+									<td>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<html:select property="regimen" size="1">
+											<html:option value="alquiler">Alquiler</html:option>
+											<html:option value="venta">Venta</html:option>
+										</html:select>
+										<html:errors property="regimen" />
+									</td>
+								</tr>	
+								<tr>
+									<td>
+										<fmt:message key="filtrarPisos.precio"/>
+									</td>
+									<td>
+										de&nbsp;&nbsp;<html:text property="precioMin" size="15" maxlength="15" />
+										a&nbsp;&nbsp;<html:text property="precioMax" size="15" maxlength="15" />&nbsp;Euros
+										<html:errors property="precioMax" />
+										<html:errors property="precioMin" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="filtrarPisos.numhab"/>
+									</td>
+									<td>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<html:select property="numHab" size="1">
+											<html:option value="1">Una</html:option>
+											<html:option value="2">Dos</html:option>
+											<html:option value="3">Tres</html:option>
+											<html:option value="4">Cuatro</html:option>
+											<html:option value="5">Cinco</html:option>
+										</html:select>
+										<html:errors property="numHab" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="filtrarPisos.tipo"/>
+									</td>
+									<td>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<%@ include file="tipoInmueble.jsp" %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="filtrarPisos.zona"/>
+									</td>
+									<td>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<html:text 	property="zona" size="15" maxlength="15" />
+										<html:errors property="zona" />
+									</td>
+								</tr>
+								
+							</table>
+							<br><br>
+							<table width="100%">
+								<tr>
+									<td align="center">
+										<html:submit>
+											<fmt:message key="filtrarPisos.button.buscar"/>
+										</html:submit>
+									</td>
+								</tr>
+							</table>
+						</html:form>
+					</center>                  
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
