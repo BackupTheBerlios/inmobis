@@ -14,6 +14,7 @@
   <StrutsActivity path="/borrarAlerta.do" location="-195,165" dimension="150,100" />
   <StrutsActivity path="/NuevoMensaje.jsp" location="450,0" dimension="150,55" />
   <StrutsActivity path="/ListaMensajes.jsp" location="435,255" dimension="120,56" />
+  <StrutsActivity path="/MenuCliente.jsp" location="45,120" dimension="150,61" />
   <StrutsActivity path="/MenuAgente.jsp" location="60,345" dimension="150,61" />
   <StrutsActivity path="/BorrarMensaje.jsp" location="480,540" dimension="150,59" />
   <StrutsActivity path="/VerMensaje.jsp" location="810,255" dimension="150,53" />
@@ -21,7 +22,6 @@
   <StrutsActivity path="/VerAlerta.jsp" location="-465,570" dimension="106,61" />
   <StrutsActivity path="/EditaAlerta.jsp" location="-240,615" dimension="121,61" />
   <StrutsActivity path="/borraAlerta.jsp" location="-360,90" dimension="150,63" />
-  <StrutsActivity path="/MenuCliente.jsp" location="45,120" dimension="150,61" />
   <StrutsTransition id="/ListaAlertas.jsp,null,/verAlerta.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="-360,360" />
@@ -83,6 +83,12 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="480,590" />
       <AbsolutePoint location="375,590" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/borrarMensaje.do,exito,/listaMensajesPrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="315,510" />
+      <AbsolutePoint location="315,325" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/borrarMensaje.do,error,/BorrarMensaje.jsp,1" routingType="0">
@@ -196,16 +202,16 @@
       <AbsolutePoint location="-210,105" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/modificarAlerta.do,exito,/listaAlertasPrev.do,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="-45,480" />
-      <AbsolutePoint location="-45,415" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/ListaAlertas.jsp,null,/modificarAlertaPrev.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="-285,391" />
       <AbsolutePoint location="-285,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modificarAlerta.do,exito,/listaAlertasPrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-45,480" />
+      <AbsolutePoint location="-45,415" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/listaAlertasPrev.do,exito,/ListaAlertas.jsp,1" routingType="0">

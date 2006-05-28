@@ -17,9 +17,15 @@ public class IntroducirMensaje extends Introducir{
 	@Override
 	public ActionMessages introduce(ActionForm form) {
 		MensajeForm msgForm = (MensajeForm) form;
-		GeneradorDeCodigos gc=GeneradorDeCodigos.getGeneradorDeCodigos();
 		ActionMessages errors= new ActionMessages();
-		//Creamos y rellenamos el objeto Bean para el inmueble
+
+		if ((msgForm.getOrigen().matches("")) || (msgForm.getDestino().matches(""))){
+			errors.add("insertaMensaje", new ActionMessage("errors.mensaje.vacios"));
+			return errors;
+		}		
+		
+		GeneradorDeCodigos gc=GeneradorDeCodigos.getGeneradorDeCodigos();
+		//Creamos y rellenamos el objeto Bean para el mensaje
 		MensajesBean msgBean = new MensajesBean();
 		msgBean.setIdMensaje(gc.asignaCodigoMensaje());
 		msgBean.setOrigen(msgForm.getOrigen());

@@ -6,11 +6,15 @@ package com.inmobis.struts.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessages;
 
+import com.inmobis.altas.CreadorIntroducir;
+import com.inmobis.altas.Introducir;
 import com.inmobis.struts.form.MensajeForm;
 
 /** 
@@ -23,7 +27,7 @@ import com.inmobis.struts.form.MensajeForm;
 public class EnviarMensajeAction extends Action {
 
 	// --------------------------------------------------------- Instance Variables
-
+	private static final Logger i_log = Logger.getLogger(EnviarMensajeAction.class);
 	// --------------------------------------------------------- Methods
 
 	/** 
@@ -40,8 +44,19 @@ public class EnviarMensajeAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		MensajeForm EnviarMensajeForm = (MensajeForm) form;
-		// TODO Auto-generated method stub
-		return null;
+		
+		if (i_log.isInfoEnabled()){
+			i_log.info("EnviarMensajeAction1 : Empezando");
+		}
+
+		Introducir introMsg = CreadorIntroducir.createIntroducir("mensaje");
+		ActionMessages errors = introMsg.introduce(EnviarMensajeForm);
+
+		if(errors.size()>0){
+			saveErrors(request, errors);
+			return (mapping.findForward("error"));
+		}
+		return (mapping.findForward("exito"));
 	}
 
 }
