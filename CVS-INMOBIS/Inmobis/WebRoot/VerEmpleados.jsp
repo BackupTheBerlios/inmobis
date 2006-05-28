@@ -23,10 +23,19 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
                 <div class="feature"> 
                    <table width="100%">
 						 <!-- zona de c�digo-->
-						<tr>   
-							<th><fmt:message key="app.Nombre" /></th>
-							<th><fmt:message key="app.Apellido1" /></th>
-							<th><fmt:message key="app.Apellido2" /></th>      
+						<tr>
+							<th>
+								Nombre
+							</th>
+							<th>
+								Apellido 1
+							</th>
+							<th>
+								Apellido 2
+							</th>
+							<th>
+								Opciones
+							</th>
 						</tr>
 						<!-- iterate over the results of the query -->
 						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean">   
@@ -40,35 +49,21 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							  <td>
 									<bean:write name="empleado" property="apellido2" />
 							  </td>
-
-   					<!--	  <td>
-					            <a href="EditaEmpleadoPrev.do?datos=<
-								<bean:write name="empleado"property="idEmpleado" /> 
-							    <bean:write name="empleado" property="nombre" />
-							    <bean:write name="empleado" property="apellido1" />
-							    <bean:write name="empleado" property="apellido2" />
-							   />
-							  MODIFICAR</a>
-						  </td>
-						  <td>
-                               <a href="BorraEmpleadoPrev.do?datos=<
-							    <bean:write name="empleado"property="idEmpleado" /> 
-							    <bean:write name="empleado" property="nombre" />
-							    <bean:write name="empleado" property="apellido1" />
-							    <bean:write name="empleado" property="apellido2" />
-							   />
-								ELIMINAR</a></div>
-	                      </td>
-						  -->
+							  <td>
+									<table width="100%">
+									<tr>
+										<td>
+											<a href="BorraEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
+										</td>
+										<td align="right">
+											<a href="EditaEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+										</td>
+									</tr>
+									</table>
+								</td>
 						</tr>
 				      </logic:iterate>
 					</table>
-					
-					
-					
-					
-					
-					
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
