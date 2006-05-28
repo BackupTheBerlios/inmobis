@@ -14,11 +14,13 @@ public class GeneradorDeCodigos {
 int cntEmpleados;
 int cntClientes;
 int cntInmuebles;
+int cntMensajes;
 private static GeneradorDeCodigos gc;
 private GeneradorDeCodigos (){
   leeContadorBD();
   leeContadorClientesBD();
   leeContadorInmueblesBD();
+  leeContadorMensajesBD();
 }
 
 public static GeneradorDeCodigos getGeneradorDeCodigos(){
@@ -33,8 +35,6 @@ private void actualizaContadorBD (){
   try{
      Connection conn = ConnectionManager.getConection();
      Statement stmt = conn.createStatement();
-     ResultSet rs = null;
-     String codigo=null;
      stmt.execute("update TCodigos set cntEmpleados="+cntEmpleados);
 
     }
@@ -47,8 +47,6 @@ private void actualizaContadorClienteBD (){
   try{
      Connection conn = ConnectionManager.getConection();
      Statement stmt = conn.createStatement();
-     ResultSet rs = null;
-     String codigo=null;
      stmt.execute("update TCodigos set cntClientes="+cntClientes);
 
     }
@@ -62,8 +60,6 @@ private void actualizaContadorInmuebleBD (){
     try{
        Connection conn = ConnectionManager.getConection();
        Statement stmt = conn.createStatement();
-       ResultSet rs = null;
-       String codigo=null;
        stmt.execute("update TCodigos set cntInmuebles="+cntInmuebles);
 
       }
@@ -73,6 +69,18 @@ private void actualizaContadorInmuebleBD (){
 
   }
 
+private void actualizaContadorMensajesBD (){
+    try{
+       Connection conn = ConnectionManager.getConection();
+       Statement stmt = conn.createStatement();
+       stmt.execute("update TCodigos set cntMensajes="+cntMensajes);
+
+      }
+        catch (Exception ex) {
+        System.out.println(ex);
+      }
+
+  }
 
 private void leeContadorBD (){
  cntEmpleados=0;
@@ -80,7 +88,6 @@ private void leeContadorBD (){
      Connection conn = ConnectionManager.getConection();
      Statement stmt = conn.createStatement();
      ResultSet rs = null;
-     String codigo=null;
      rs = stmt.executeQuery("select cntEmpleados from TCodigos");
    if (rs.next()){
      String idEmpleado=rs.getString(1);
@@ -98,7 +105,6 @@ private void leeContadorClientesBD (){
      Connection conn = ConnectionManager.getConection();
      Statement stmt = conn.createStatement();
      ResultSet rs = null;
-     String codigo=null;
      rs = stmt.executeQuery("select cntClientes from TCodigos");
    if (rs.next()){
      String idCliente=rs.getString(1);
@@ -117,11 +123,28 @@ private void leeContadorInmueblesBD (){
 	     Connection conn = ConnectionManager.getConection();
 	     Statement stmt = conn.createStatement();
 	     ResultSet rs = null;
-	     String codigo=null;
 	     rs = stmt.executeQuery("select cntInmuebles from TCodigos");
 	   if (rs.next()){
 	     String idInmueble=rs.getString(1);
 	      cntInmuebles=new Integer(idInmueble).intValue();
+	   }
+	    }
+	      catch (Exception ex) {
+	      System.out.println(ex);
+	    }
+
+	}
+
+private void leeContadorMensajesBD (){
+	 cntInmuebles=0;
+	   try{
+	     Connection conn = ConnectionManager.getConection();
+	     Statement stmt = conn.createStatement();
+	     ResultSet rs = null;
+	     rs = stmt.executeQuery("select cntMensajes from TCodigos");
+	   if (rs.next()){
+	     String idMensaje=rs.getString(1);
+	      cntMensajes=new Integer(idMensaje).intValue();
 	   }
 	    }
 	      catch (Exception ex) {
@@ -147,6 +170,13 @@ private void leeContadorInmueblesBD (){
 	  String nuevoCodigo="I"+cntClientes;
 	  cntInmuebles++;
 	  actualizaContadorInmuebleBD();
+	  return nuevoCodigo;
+	}
+
+  public synchronized String asignaCodigoMensaje() {
+	  String nuevoCodigo="M"+cntMensajes;
+	  cntMensajes++;
+	  actualizaContadorMensajesBD();
 	  return nuevoCodigo;
 	}
 
