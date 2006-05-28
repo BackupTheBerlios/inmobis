@@ -32,7 +32,7 @@ public class EditaPisoPrevAction extends Action {
 		}
 				
 		Consultar consult=CreadorConsultar.CreaConsultar("inmueble");
-		EditaPisoForm datosPiso=(EditaPisoForm)consult.dameDatos(form);
+		EditaPisoForm datosPiso=(EditaPisoForm)consult.dameDatos(((EditaPisoPrevForm)form).getIdInmueble());
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("Direccion "+datosPiso.getCalle());

@@ -70,7 +70,7 @@ public class EditaEmpleadoForm extends ActionForm{
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
 		}
 		
-//		Tiene que haber rellenado al menos el nombre y un apellido
+		//Tiene que haber rellenado al menos el nombre y un apellido
 		if (nombre.equals("") || apellido1.equals("")|| !esNombre(nombre) || !esNombre(apellido1))
 			errors.add("nombre", new ActionMessage("errors.realName.incomplete"));
 		if (!apellido2.equals("") && !esNombre(apellido2))
@@ -119,7 +119,7 @@ public class EditaEmpleadoForm extends ActionForm{
 				//Pero puede haber muchos puntos (@domain.co.uk)
 				if(tokens2.length>1){
 					boolean tokens2valid=true;
-//					El primer campo tiene que tener 2 o mas caracteres
+					//El primer campo tiene que tener 2 o mas caracteres
 					if (tokens2[0].length()<2 || tokens2[0].contains(" ")){
 						tokens2valid=false;
 					}

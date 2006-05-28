@@ -27,11 +27,11 @@ public class EditaEmpleadoPrevAction extends Action {
 		//Coger los datos de la lista que le llega al form, obtener los
 		//datos que faltan de la BBDD y pasarselos al jsp de editaEmpleado
 		if (i_log.isInfoEnabled()){
-			i_log.info("Voy a coger los datos del usuario: "+((EditaEmpleadoPrevForm)form).getIdUsuario());
+			i_log.info("Voy a coger los datos del usuario: "+((EditaEmpleadoPrevForm)form).getIdEmpleado());
 		}
 				
 		Consultar consult=CreadorConsultar.CreaConsultar("empleado");
-		EditaEmpleadoForm datosEmpleado =(EditaEmpleadoForm)consult.dameDatos(form);
+		EditaEmpleadoForm datosEmpleado =(EditaEmpleadoForm)consult.dameDatos(((EditaEmpleadoPrevForm)form).getIdEmpleado());
 			
 		if (i_log.isInfoEnabled()){
 			i_log.info("Direccion "+datosEmpleado.getCalle());

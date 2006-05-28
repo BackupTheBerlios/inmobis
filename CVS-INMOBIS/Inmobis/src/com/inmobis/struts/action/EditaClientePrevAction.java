@@ -34,7 +34,7 @@ public class EditaClientePrevAction extends Action{
 		
 		Consultar consult=CreadorConsultar.CreaConsultar("cliente");
 		
-		EditaClienteForm datosCliente=(EditaClienteForm)consult.dameDatos(form);
+		EditaClienteForm datosCliente=((EditaClienteForm)consult.dameDatos(((EditaClientePrevForm)form).getIdUsuario()));
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("Direccion "+datosCliente.getCalle());

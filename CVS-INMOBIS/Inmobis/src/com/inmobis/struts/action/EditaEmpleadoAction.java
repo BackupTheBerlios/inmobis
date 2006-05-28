@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMessages;
 import com.inmobis.modificaciones.CreadorModificar;
 import com.inmobis.modificaciones.Modificar;
 import com.inmobis.struts.form.EditaClienteForm;
+import com.inmobis.struts.form.EditaEmpleadoForm;
 
 public class EditaEmpleadoAction extends Action {
 
@@ -36,7 +37,7 @@ public class EditaEmpleadoAction extends Action {
 				return (mapping.findForward("reset"));
 		
 		if (i_log.isInfoEnabled()){
-			i_log.info("Voy a modificar al usuario: "+((EditaClienteForm)form).getNombreUsuario());
+			i_log.info("Voy a modificar al usuario: "+((EditaEmpleadoForm)form).getNif());
 		}
 		
 		Modificar modif=CreadorModificar.createModificar("empleado");
