@@ -37,7 +37,7 @@ public class IntroducirEmpleado extends Introducir{
 		if(i_log.isInfoEnabled())
 			i_log.info("Fecha: " + fecha);
 		empleado.setFechNacimiento(fecha);
-		empleado.setIdDni(((RegistraEmpleadoForm)datosEmpleado).getNif());
+		empleado.setDni(((RegistraEmpleadoForm)datosEmpleado).getNif());
 		//generar el idEmpleado para la BBDD con la funcion de Esther
 		empleado.setIdEmpleado(gc.asignaCodigoEmpleado());
 

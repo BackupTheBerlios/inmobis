@@ -34,12 +34,12 @@ public class EliminarEmpleado extends Eliminar{
 		}
 		
 		if (log.isInfoEnabled()){
-			log.info("EliminarEmpleado4:Nombre del empleado:  "+ ((EmpleadoBean)empleadobd.getBean()).getNombreEmpleado()+
+			log.info("EliminarEmpleado4:Nombre del empleado:  "+ ((EmpleadoBean)empleadobd.getBean()).getNombre()+
 				"Apellido1: " + ((EmpleadoBean)empleadobd.getBean()).getApellido1()+ 
 				"Apellido2: " + ((EmpleadoBean)empleadobd.getBean()).getApellido2()+
 				"Fecha de Nacimiento: " + ((EmpleadoBean)empleadobd.getBean()).getFechNacimiento() + 
 				"Identificador del empleado" + ((EmpleadoBean)empleadobd.getBean()).getIdEmpleado());
-			log.info("NombreBean5: "+((EmpleadoBean)empleadobd.getBean()).getNombreEmpleado());
+			log.info("NombreBean5: "+((EmpleadoBean)empleadobd.getBean()).getNombre());
 		}
 		return true;
 	}
