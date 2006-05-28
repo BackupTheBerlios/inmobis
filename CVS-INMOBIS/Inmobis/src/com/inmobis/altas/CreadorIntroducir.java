@@ -8,6 +8,8 @@ public final class CreadorIntroducir {
 			return new IntroducirEmpleado();
 		if (tipo.equals("cliente"))
 			return new IntroducirCliente();
+		if (tipo.equals("mensaje"))
+			return new IntroducirCliente();
 		return null;
 	}
 }

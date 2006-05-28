@@ -12,7 +12,7 @@ import com.inmobis.bbdd.mensajes.MensajesBean;
 import com.inmobis.struts.form.MensajeForm;
 
 public class IntroducirMensaje extends Introducir{
-	private static final Logger i_log = Logger.getLogger(IntroducirInmueble.class);
+	private static final Logger i_log = Logger.getLogger(IntroducirMensaje.class);
 	
 	@Override
 	public ActionMessages introduce(ActionForm form) {

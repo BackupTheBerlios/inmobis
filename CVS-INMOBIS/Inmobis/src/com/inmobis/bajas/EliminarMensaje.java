@@ -6,12 +6,11 @@ import org.apache.struts.action.ActionForm;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.mensajes.GestorMensajesBD;
 import com.inmobis.bbdd.mensajes.MensajesBean;
-import com.inmobis.struts.action.BorraClienteAction;
 import com.inmobis.struts.form.MensajeForm;
 
 public class EliminarMensaje extends Eliminar{
 
-	private static final Logger log = Logger.getLogger(BorraClienteAction.class);
+	private static final Logger log = Logger.getLogger(EliminarMensaje.class);
 	@Override
 	public boolean validarRegistrado(ActionForm id) {
 		// Metodo que mira su existe en la base de datos
