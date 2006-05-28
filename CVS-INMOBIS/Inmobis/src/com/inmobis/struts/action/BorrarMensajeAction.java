@@ -6,11 +6,16 @@ package com.inmobis.struts.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
+import com.inmobis.bajas.CreadorEliminar;
+import com.inmobis.bajas.Eliminar;
 import com.inmobis.struts.form.MensajeForm;
 
 /** 
@@ -23,7 +28,7 @@ import com.inmobis.struts.form.MensajeForm;
 public class BorrarMensajeAction extends Action {
 
 	// --------------------------------------------------------- Instance Variables
-
+	private static final Logger log = Logger.getLogger(BorraPisoAction.class);
 	// --------------------------------------------------------- Methods
 
 	/** 
@@ -40,9 +45,27 @@ public class BorrarMensajeAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		MensajeForm BorrarMensajeForm = (MensajeForm) form;
-		// TODO Auto-generated method stub
-		return null;
+		ActionMessages errors= new ActionMessages();
+		
+		Eliminar eliminarM = CreadorEliminar.CreaEliminar("mensaje");
+		
+		if (log.isInfoEnabled()){
+			log.info("BorrarMensajeAction1: Antes de la BDD tengo idMensaje: "+BorrarMensajeForm.getIdMensaje());
+		}
+		if (!eliminarM.eliminarDesdeED(BorrarMensajeForm)){
+			if (log.isInfoEnabled()){
+				log.info("borrarMesajeAction2: Se ha intentado eliminar pero algo ha fallado");
+			}
+			errors.add("idmensaje",new ActionMessage("errors.mensaje.borrar"));
+			saveErrors(request,errors);
+			return (mapping.findForward("error"));	
+		}	
+		else{
+			if (log.isInfoEnabled()){
+				log.info("borrarMensajeAction4:Se ha eliminado con éxito");
+			}
+			return (mapping.findForward("exito"));
+		}	
 	}
-
 }
 

@@ -51,8 +51,9 @@
       path="/borrarMensaje"
       scope="request"
       type="com.inmobis.struts.action.BorrarMensajeAction" >
-      <forward name="Resultado" path="/listaMensajesPrev.do" />
+      
       <forward name="error" path="/BorrarMensaje.jsp" />
+      <forward name="exito" path="/listaMensajesPrev.do" />
     </action>
     <action
       attribute="VerMensajeForm"
