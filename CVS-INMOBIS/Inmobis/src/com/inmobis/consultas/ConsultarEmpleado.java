@@ -21,13 +21,13 @@ public class ConsultarEmpleado extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(ConsultarEmpleado.class);
 	
-	public ActionForm dameDatos (ActionForm id){
+	public ActionForm dameDatos (String id){
 		//form que va a tener los datos y se va a devolver
 		EditaEmpleadoForm form=new EditaEmpleadoForm();
 		
 		//se crea un empleado bean
 		EmpleadoBean empleado=new EmpleadoBean();
-		empleado.setIdEmpleado(((EditaEmpleadoPrevForm)id).getIdUsuario());
+		empleado.setIdEmpleado(id);
 		
 		CreadorGestores creador = new CreadorGestores();
 		GestorEmpleadoBD gestorEmpleado= (GestorEmpleadoBD)creador.crearGestor("empleado",empleado);
@@ -38,7 +38,7 @@ public class ConsultarEmpleado extends Consultar{
 		UsuarioLoginBean login=new UsuarioLoginBean();
 		//Miro la direccion
 		try {
-			gestorEmpleado.consultaDirPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+			gestorEmpleado.consultaDirPorId(id);
 			direccion=gestorEmpleado.getDireccionBean();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
@@ -46,7 +46,7 @@ public class ConsultarEmpleado extends Consultar{
 		}
 		//Miro el login
 		try {
-			gestorEmpleado.consultaLoginPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+			gestorEmpleado.consultaLoginPorId(id);
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error Login: "+e );
@@ -54,7 +54,7 @@ public class ConsultarEmpleado extends Consultar{
 		login= gestorEmpleado.getLoginBean();
 		//Miro el telefono
 		try {
-			gestorEmpleado.consultaTelfPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+			gestorEmpleado.consultaTelfPorId(id);
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error Telf: "+e );
@@ -62,7 +62,7 @@ public class ConsultarEmpleado extends Consultar{
 		telf=gestorEmpleado.getTelefonoBean();
 		//Miro el email
 		try {
-			gestorEmpleado.consultaMailPorId(((EditaEmpleadoPrevForm)id).getIdUsuario());
+			gestorEmpleado.consultaMailPorId(id);
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error Mail: "+e );

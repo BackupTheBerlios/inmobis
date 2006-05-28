@@ -29,13 +29,14 @@ public class ConsultarCliente extends Consultar{
 	
 	private static final Logger log = Logger.getLogger(ConsultarCliente.class);
 	
-	public ActionForm dameDatos (ActionForm id){
+	public ActionForm dameDatos (String id){
+		
 		//form que va a tener los datos y se va a devolver
 		EditaClienteForm form=new EditaClienteForm();
 		
 		//se crea un cliente bean
 		ClienteBean cliente=new ClienteBean();
-		cliente.setIdCliente(((EditaClientePrevForm)id).getIdUsuario());
+		cliente.setIdCliente(id);
 		
 		CreadorGestores creador = new CreadorGestores();
 		GestorClienteBD gestorCliente= (GestorClienteBD)creador.crearGestor("cliente",cliente);
@@ -46,7 +47,7 @@ public class ConsultarCliente extends Consultar{
 		UsuarioLoginBean login=new UsuarioLoginBean();
 		//Miro la direccion
 		try {
-			gestorCliente.consultaDirPorId(((EditaClientePrevForm)id).getIdUsuario());
+			gestorCliente.consultaDirPorId(id);
 			direccion=gestorCliente.getDireccionBean();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
@@ -54,7 +55,7 @@ public class ConsultarCliente extends Consultar{
 		}
 		//Miro el login
 		try {
-			gestorCliente.consultaLoginPorId(((EditaClientePrevForm)id).getIdUsuario());
+			gestorCliente.consultaLoginPorId(id);
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error Login: "+e );
@@ -62,7 +63,7 @@ public class ConsultarCliente extends Consultar{
 		login= gestorCliente.getLoginBean();
 		//Miro el telefono
 		try {
-			gestorCliente.consultaTelfPorId(((EditaClientePrevForm)id).getIdUsuario());
+			gestorCliente.consultaTelfPorId(id);
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error Telf: "+e );
@@ -70,7 +71,7 @@ public class ConsultarCliente extends Consultar{
 		telf=gestorCliente.getTelefonoBean();
 		//Miro el email
 		try {
-			gestorCliente.consultaMailPorId(((EditaClientePrevForm)id).getIdUsuario());
+			gestorCliente.consultaMailPorId(id);
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
 				log.info("Error Mail: "+e );

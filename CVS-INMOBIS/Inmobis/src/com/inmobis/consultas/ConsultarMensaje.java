@@ -44,7 +44,7 @@ public class ConsultarMensaje extends Consultar {
 		return datos;
 	}
 	
-	public ActionForm dameDatos (ActionForm id){
+	public ActionForm dameDatos (String id){
 		return null;
 	}
 }

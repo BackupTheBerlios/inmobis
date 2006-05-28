@@ -32,7 +32,7 @@ public class ConsultarAgente extends Consultar{
 		}
 		return datos;
 	}
-	public ActionForm dameDatos (ActionForm id){
+	public ActionForm dameDatos (String id){
 		return null;
 	}
 	

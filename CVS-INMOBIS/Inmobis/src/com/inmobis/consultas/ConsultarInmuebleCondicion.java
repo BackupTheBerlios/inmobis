@@ -147,7 +147,7 @@ public class ConsultarInmuebleCondicion extends Consultar{
 	}
 		
 	
-	public ActionForm dameDatos (ActionForm id){
+	public ActionForm dameDatos (String id){
 		return null;
 	}
 }

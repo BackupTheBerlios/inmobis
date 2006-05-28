@@ -71,14 +71,14 @@ public class ConsultarInmueble extends Consultar{
 	return datos;
 	}
 	
-	public ActionForm dameDatos (ActionForm id){
+	public ActionForm dameDatos (String id){
 		
 		//form que va a tener los datos y se va a devolver
 		EditaPisoForm form=new EditaPisoForm();
 		
 		//se crea un inmueble bean
 		InmuebleBean inmueble=new InmuebleBean();
-		inmueble.setIdInmueble(((EditaPisoPrevForm)id).getIdInmueble());
+		inmueble.setIdInmueble(id);
 		
 		CreadorGestores creador = new CreadorGestores();
 		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)creador.crearGestor("inmueble",inmueble);
@@ -86,7 +86,7 @@ public class ConsultarInmueble extends Consultar{
 		InfoDirBean direccion=new InfoDirBean();
 		
 		try {
-			gestorInmueble.consultaDirPorId(((EditaPisoPrevForm)id).getIdInmueble());
+			gestorInmueble.consultaDirPorId(id);
 			direccion=gestorInmueble.getDireccionBean();
 		} catch (RowNotFoundException e) {
 			if(log.isInfoEnabled())
