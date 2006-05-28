@@ -17,7 +17,10 @@ import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.bajas.CreadorEliminar;
 import com.inmobis.bajas.Eliminar;
-import com.inmobis.struts.form.BorraEmpleadoForm;
+import com.inmobis.consultas.CreadorConsultar;
+import com.inmobis.consultas.Consultar;
+import com.inmobis.struts.form.BorraEmpleadoPrevForm;
+import com.inmobis.struts.form.EditaEmpleadoForm;
 
 /** 
  * MyEclipse Struts
@@ -48,9 +51,12 @@ public class BorraEmpleadoPrevAction extends Action {
 		HttpServletResponse response) {
 		
 		ActionMessages errors= new ActionMessages();
+		HttpSession session = request.getSession(true);
+		EditaEmpleadoForm aux = new EditaEmpleadoForm();
 		
 		//Si el empleado que se quiere borrar no está registrado no se puede borrar
-		Eliminar eliminarE = CreadorEliminar.CreaEliminar(((BorraEmpleadoForm)form).getTipoEmpleado());
+		Eliminar eliminarE = CreadorEliminar.CreaEliminar("empleado");
+		Consultar datos = CreadorConsultar.CreaConsultar("empleado");
 		
 		if (log.isInfoEnabled()){
 			log.info("borraEmpleadoPrevAction 1:Antes de entrar en la base de datos");
@@ -68,7 +74,10 @@ public class BorraEmpleadoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraEmpleadoPrevAction 2:El empleado está en la base de datos");
 			}
-			HttpSession session = request.getSession(true);
+			aux = (EditaEmpleadoForm)datos.dameDatos(((BorraEmpleadoPrevForm)form).getIdEmpleado());
+			((BorraEmpleadoPrevForm)form).setApellido1(aux.getApellido1());
+			((BorraEmpleadoPrevForm)form).setApellido2(aux.getApellido2());	
+			((BorraEmpleadoPrevForm)form).setNombre(aux.getNombre());
 			session.setAttribute("empleado",form);
 			return mapping.findForward("exito");
 		}		
