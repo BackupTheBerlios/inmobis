@@ -56,7 +56,16 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</td>
 								<td>
 									<bean:write name="cliente" property="fechNacimiento" />
-								</td> 							
+								</td> 
+								<td>
+									<table width="100%">
+									<tr>
+										<td>
+											<a href="filtrarCliente.do?idCliente=<bean:write name="cliente" property="idCliente"/> "><IMG SRC="images/ico_editar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+										</td>										
+									</tr>
+									</table>
+								</td>							
 							</tr>
 					</logic:iterate>
 					</table>
