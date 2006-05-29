@@ -1,3 +1,5 @@
+<%--Los includes específicos de esta página--%>
+<%@ page import="com.inmobis.struts.form.EditaEmpleadoForm" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de empleado";%>
 <%boolean esIndex=false; %>
@@ -22,7 +24,8 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 	      <div id="content"> 
 			<div class="feature">
 				<html:errors property="editaEmpleado"/>
-				<html:form action="editaEmpleado.do"  >				
+				<html:form action="editaEmpleado.do"  >	
+				<%EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");%>
 				<table width="100%">
 					<tr>
 						<td>
@@ -55,13 +58,13 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 						</td>   
 						<td>
 							<!--El nombre de usuario y lo demas es normal-->
-							<html:text 	property="nombre" size="15" maxlength="15" />
+							<html:text 	property="nombre" size="15" maxlength="15" value="<%=form.getNombre()%>"/>
 							<html:errors property="nombre" />
 						</td>
 					</tr>  
 					<tr>
 						<td>
-							<html:hidden property="idUsuario" value="<%=form.getIdUsuario() %>"/>
+							<html:hidden property="idUsuario" value="<%=form.getIdUsuario()%>"/>
 						</td>
 					</tr>
 					<tr>
@@ -69,7 +72,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.apellido1"/>
 						</td> 
 						<td>
-							<html:text 	property="apellido1" size="15" maxlength="30" />
+							<html:text 	property="apellido1" size="15" maxlength="30" value="<%=form.getApellido1()%>" />
 							<html:errors property="apellido1" />
 						</td>
 					</tr>
@@ -78,7 +81,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.apellido2"/>
 						</td>  
 						<td>
-							<html:text 	property="apellido2" size="15" maxlength="30" />
+							<html:text 	property="apellido2" size="15" maxlength="30" value="<%=form.getApellido2()%>"/>
 							<html:errors property="apellido2" />
 						</td>
 					</tr>
@@ -87,7 +90,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.dni"/>
 						</td>   
 						<td>
-							<html:text 	property="nif" size="10" maxlength="10" />
+							<html:text 	property="nif" size="10" maxlength="10" value="<%=form.getNif()%>"/>
 							<html:errors property="nif" />
 						</td>
 					</tr>
@@ -106,10 +109,18 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 						</td> 
 						<td>
 							<html:select property="tipoEmpleado" size="1">
-								<html:option value="agente">Agente</html:option>
-								<html:option value="gerente">Gerente</html:option>
-								<html:option value="contable">Contable</html:option>
-								<html:option value="administrador">Administrador</html:option>
+								<html:option value="agente" 
+								<%if(form.getTipoEmpleado() == "agente"){%> selected <%}%>
+								>Agente</html:option>
+								<html:option value="gerente" 
+								<%--if(form.getTipoEmpleado() == "gerente"){%> selected <%}%>
+								>Gerente</html:option>
+								<html:option value="contable" 
+								<%if(form.getTipoEmpleado() == "contable){%> selected <%}%>
+								>Contable</html:option>
+								<html:option value="administrador" 
+								<%if(form.getTipoEmpleado() == "administrador"){%> selected <%}%>
+								>Administrador</html:option>
 							</html:select>
 							<html:errors property="tipoEmpleado" />
 						</td>
@@ -121,7 +132,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.porcentaje"/>
 						</td> 							
 						<td>							
-							<html:text 	property="porcentaje" size="10" maxlength="10" />
+							<html:text 	property="porcentaje" size="10" maxlength="10" value="<%=form.getPorcentaje()%>"/>
 							<html:errors property="porcentaje" />								
 						</td>
 					</tr>
@@ -131,7 +142,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.telefono1"/>
 						</td> 
 						<td>
-							<html:text 	property="telefono1" size="9" maxlength="9" />
+							<html:text 	property="telefono1" size="9" maxlength="9" value="<%=form.getTelefono1()%>" />
 							<html:errors property="telefono1" />
 						</td>
 					 </tr>
@@ -140,7 +151,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.telefono2"/>
 						</td>
 						<td>
-							<html:text 	property="telefono2" size="9" maxlength="9" />
+							<html:text 	property="telefono2" size="9" maxlength="9" value="<%=form.getTelefono2()%>"/>
 							<html:errors property="telefono2" />
 						</td>
 					 </tr>
@@ -149,7 +160,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.email"/>
 						</td>
 						<td>
-							<html:text 	property="email" size="25" maxlength="25" />
+							<html:text 	property="email" size="25" maxlength="25" value="<%=form.getEmail()%>"/>
 							<html:errors property="email" />
 						</td>
 					 </tr>
@@ -158,7 +169,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.calle"/>
 						</td>  
 						<td>
-							<html:text 	property="calle" size="15" maxlength="35" />
+							<html:text 	property="calle" size="15" maxlength="35" value="<%=form.getCalle()%>"/>
 							<html:errors property="calle" />
 						</td>
 					 </tr>
@@ -167,7 +178,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.num"/>
 						</td>  
 						<td>
-							<html:text 	property="num" size="4" maxlength="4" />
+							<html:text 	property="num" size="4" maxlength="4" value="<%=form.getNum()%>"/>
 							<html:errors property="num" />
 						</td>
 					 </tr>
@@ -176,7 +187,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.piso"/>
 						</td>
 						<td>
-							<html:text 	property="piso" size="2" maxlength="2" />
+							<html:text 	property="piso" size="2" maxlength="2" value="<%=form.getPiso()%>"/>
 							<html:errors property="piso" />
 						</td>
 					 </tr>
@@ -185,7 +196,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.codPostal"/>
 						</td>  
 						<td>
-							<html:text 	property="codPostal" size="5" maxlength="5" />
+							<html:text 	property="codPostal" size="5" maxlength="5" value="<%=form.getCodPstal()%>"/>
 							<html:errors property="codPostal" />
 						</td>
 					 </tr>
@@ -194,7 +205,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.poblacion"/>
 						</td>   
 						<td>
-							<html:text 	property="poblacion" size="25" maxlength="25" />
+							<html:text 	property="poblacion" size="25" maxlength="25" value="<%=form.getPoblacion()%>"/>
 							<html:errors property="poblacion" />
 						</td>
 					 </tr>
@@ -211,7 +222,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.pais"/>
 						</td>
 						<td>
-							<html:text 	property="pais" size="25" maxlength="25" />
+							<html:text 	property="pais" size="25" maxlength="25" value="<%=form.getPais()%>" />
 							<html:errors property="pais" />
 						</td>
 					 </tr>
