@@ -4,7 +4,7 @@
 <struts-config>
 <data-sources />	
   <form-beans >
-  	<form-bean name="filtrarPisoForm" type="com.inmobis.struts.form.FiltrarPisoForm" />
+  	<form-bean name="filtrarPisoAgenteForm" type="com.inmobis.struts.form.FiltrarPisoAgenteForm" />
   </form-beans>
 
 
@@ -18,9 +18,9 @@
       <forward name="volver" path="/PonerQueja.jsp" />
     </action>
     <action
-      attribute="filtrarPisoForm"
+      attribute="filtrarPisoAgenteForm"
       input="/FiltrarPisos.jsp"
-      name="filtrarPisoForm"
+      name="filtrarPisoAgenteForm"
       path="/filtrarPiso"
       type="com.inmobis.struts.action.FiltrarPisoAction">
       <forward name="exito" path="/VerPisos.jsp" />
