@@ -1,7 +1,7 @@
 package com.inmobis.bajas;
 
 import org.apache.struts.action.ActionForm;
-import com.inmobis.struts.form.BorraEmpleadoForm;
+import com.inmobis.struts.form.BorraEmpleadoPrevForm;
 import org.apache.log4j.Logger;
 import com.inmobis.bbdd.empleado.EmpleadoBD;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
@@ -15,7 +15,7 @@ public class EliminarEmpleado extends Eliminar{
 	public boolean validarRegistrado(ActionForm id){	
 		//se crea un Bean para el empleado 
 		EmpleadoBean empleado = new EmpleadoBean();
-		empleado.setIdEmpleado(((BorraEmpleadoForm)id).getIdEmpleado());
+		empleado.setIdEmpleado(((BorraEmpleadoPrevForm)id).getIdEmpleado());
 		//se crea un empleado de la base de datos
 		EmpleadoBD empleadobd = new EmpleadoBD(empleado);
 		//mensajes para ver los errores
@@ -47,7 +47,7 @@ public class EliminarEmpleado extends Eliminar{
 	public boolean eliminarDesdeED(ActionForm id){	
 		//se crea un Bean empleado
 		EmpleadoBean empleado = new EmpleadoBean();
-		empleado.setIdEmpleado(((BorraEmpleadoForm)id).getIdEmpleado());
+		empleado.setIdEmpleado(((BorraEmpleadoPrevForm)id).getIdEmpleado());
 		//se crea empleado de la base de datos
 		EmpleadoBD emple = new EmpleadoBD (empleado);
 		//mensajes de error del log
