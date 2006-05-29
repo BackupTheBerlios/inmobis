@@ -25,25 +25,25 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				  <table border="0" cellpading="0" cellspacing="0" width="100%">
 				  <tr>
 						<th>
-							Zona
+							<bean:message key="app.zona" />
 						</th>
 						<th>
-							n&ordm; de hab
+							<bean:message key="app.numHab" />
 						</th>
 						<th>
-							m&sup2;
+							<bean:message key="app.metros" />
 						</th>
 						<th>
-							R&eacute;gimen
+							<bean:message key="app.regimen" />
 						</th>
 						<th>
-							Tipo
+							<bean:message key="app.tipo" />
 						</th>
 						<th>
-							Precio
+							<bean:message key="app.precio" />
 						</th>
 						<th>
-							Opciones
+							<bean:message key="app.opciones" />
 						</th>
 					</tr>
 					<tr>
