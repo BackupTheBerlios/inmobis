@@ -167,7 +167,7 @@ private void leeContadorMensajesBD (){
   }
   
   public synchronized String asignaCodigoInmueble() {
-	  String nuevoCodigo="I"+cntClientes;
+	  String nuevoCodigo="I"+cntInmuebles;
 	  cntInmuebles++;
 	  actualizaContadorInmuebleBD();
 	  return nuevoCodigo;
