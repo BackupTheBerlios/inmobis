@@ -5,6 +5,7 @@ import java.sql.*;
 
 import org.apache.log4j.Logger;
 
+import com.inmobis.bbdd.BDObject;
 import com.inmobis.bbdd.ConnectionManager;
 import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
@@ -22,7 +23,7 @@ import com.inmobis.bbdd.inmueble.InmuebleBean;
  * @version 1.0
  */
 
-public class AgenteBD {
+public class AgenteBD implements BDObject,GestorAgenteBD{
 	  private AgenteBean agente;
 	  private Connection conn;
 	  private static final Logger milog = Logger.getLogger(AgenteBD.class);
