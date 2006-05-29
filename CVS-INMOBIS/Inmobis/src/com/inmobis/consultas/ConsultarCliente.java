@@ -13,7 +13,7 @@ import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 
 import com.inmobis.bbdd.empleado.AgenteBean;
-import com.inmobis.bbdd.empleado.AgenteBD;
+import com.inmobis.bbdd.empleado.GestorAgenteBD;
 
 import com.inmobis.struts.form.*;
 //import com.inmobis.struts.action.*;
@@ -157,8 +157,8 @@ public class ConsultarCliente extends Consultar{
 			a.setIdAgente(((VerClientesAgentePrevForm)datosBusqueda).getIdAgente());
 			
 			//LLamada al gestor de la base de datos
-			AgenteBD gestorAgente = new AgenteBD(a);
-			//GestorEmpleadoBD gestorAgente= (GestorEmpleadoBD)CreadorGestores.crearGestor("empleado",a);			
+			//AgenteBD gestorAgente = new AgenteBD(a);
+			GestorAgenteBD gestorAgente= (GestorAgenteBD)CreadorGestores.crearGestor("agente",a);			
 			datos = gestorAgente.listarClientesAsociados();
 			
 		}catch (Exception E){
