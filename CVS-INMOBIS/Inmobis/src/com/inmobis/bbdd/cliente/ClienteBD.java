@@ -20,6 +20,8 @@ import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.direccion.InfoDirClientesBD;
 import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.email.InfoMailClientesBD;
+import com.inmobis.bbdd.empleado.AgenteBD;
+import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.bbdd.login.UsuarioLoginBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
@@ -544,6 +546,21 @@ InfoTelfClientesBD telefono=new InfoTelfClientesBD (miTelefono);
 telfCliente=miTelefono;//Bean de las direcciones
 telefono.update();
 
+}
+
+public void darAgente(String idCliente) throws RowExistsException{
+	AgenteBean agente=new AgenteBean();
+	 //Uno cualquiera, da igual, porque en agregar cliente me va a buscar al bueno.
+	agente.setIdAgente("E1");
+	AgenteBD agenteBD=new AgenteBD(agente);
+	agenteBD.agregarCliente(idCliente);
+}
+
+public void asociarAgenteACliente(String idCliente,String idAgente) throws RowExistsException{
+	AgenteBean agente=new AgenteBean();
+	agente.setIdAgente(idAgente);
+	AgenteBD agenteBD=new AgenteBD(agente);
+	agenteBD.asociarCliente(idCliente,idAgente);
 }
 
 public void updateMail (InfoMailBean miMail) throws RowNotFoundException {

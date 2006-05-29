@@ -7,6 +7,7 @@ import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
+import com.inmobis.bbdd.empleado.RelAgenteClienteBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 
@@ -26,6 +27,8 @@ public interface GestorClienteBD extends BDObject{
   InfoDirBean newInfoDirClientes(String descDir);
   String [] getIdTelefonos();
   InfoTelfBean newInfoTelfClientes(String desctelf);
+  void darAgente(String idCliente) throws RowExistsException;
+  void asociarAgenteACliente(String idCliente,String idAgente) throws RowExistsException;
   String [] getIdMails();
   InfoMailBean newInfoMailClientes(String descMail);
   void consultaLoginPorId (String idUsuario) throws RowNotFoundException;
@@ -48,7 +51,6 @@ public interface GestorClienteBD extends BDObject{
   void updateDir (InfoDirBean miDireccion)throws RowNotFoundException;
   void updateTelf (InfoTelfBean miTelefono)throws RowNotFoundException;
   void updateMail (InfoMailBean miMail)throws RowNotFoundException;
-
   Vector BusquedaDetallada ();
   Vector  listarClientes() throws RowNotFoundException;
 }
