@@ -1,3 +1,5 @@
+<%--Los includes específicos de esta página--%>
+<%@ page import="com.inmobis.struts.form.EditaClienteForm" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de cliente";%>
 <%boolean esIndex=false; %>
@@ -12,16 +14,6 @@ CON UN ANCHO DE 767 px -->
 <%
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú adecuado
-String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al agente que edita al cliente
-//Los datos a editar que se deben mostrar
-//String cliente = (String) sesion.getAttribute("cliente");
-//String direccion = (String) sesion.getAttribute("direccion");
-//String login = (String) sesion.getAttribute("login");
-//String telefono = (String) sesion.getAttribute("telefono");
-//String mail = (String) sesion.getAttribute("mail");
-//String diaAux = (String) sesion.getAttribute("dia");
-//String mesAux = (String) sesion.getAttribute("mes");
-//String anioAux = (String) sesion.getAttribute("anio");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -30,7 +22,8 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 	      <div id="content"> 
 			<div class="feature">
 				<html:errors property="editaCliente"/>
-				<html:form action="editaCliente.do"  >				
+				<html:form action="editaCliente.do"  >
+				<%EditaClienteForm form=(EditaClienteForm)sesion.getAttribute("datosCliente");%>
 				<table width="100%">
 					<tr>
 						<td>
@@ -48,10 +41,10 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<html:hidden property="idUsuario" />
 							<!--El id del agente que registra se pasa oculto para que no lo vea el usuario-->
 							<!--DESCOMENTAR SI HACE FALTA PERO YO CREO QUE NO PORQUE EL AGENTE NO SE CAMBIARÁ AL EDITAR
-							<html:hidden property="idAgente" value="<%=idAgente%>"/>
+							<html:hidden property="idAgente" value="<%=form.getIdAgente()%>"/>
 							-->
 							<!--El nombre de usuario y lo demas es normal-->
-							<html:text 	property="nombreUsuario" size="15"	maxlength="15" />
+							<html:text 	property="nombreUsuario" size="15" maxlength="15" value="<%=form.getNombreUsuario()%>" />
 							<html:errors property="nombreUsuario" />
 						</td>
 					</tr>
@@ -78,7 +71,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.nombre"/>
 						</td>   
 						<td>
-							<html:text 	property="nombre" size="15" maxlength="15" />
+							<html:text 	property="nombre" size="15" maxlength="15" value="<%=form.getNombre()%>" />
 							<html:errors property="nombre" />
 						</td>
 					</tr>  				
@@ -87,7 +80,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.apellido1"/>
 						</td> 
 						<td>
-							<html:text 	property="apellido1" size="15" maxlength="30" />
+							<html:text 	property="apellido1" size="15" maxlength="30" value="<%=form.getApellido1()%>" />
 							<html:errors property="apellido1" />
 						</td>
 					</tr>
@@ -96,7 +89,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.apellido2"/>
 						</td>  
 						<td>
-							<html:text 	property="apellido2" size="15" maxlength="30" />
+							<html:text 	property="apellido2" size="15" maxlength="30" value="<%=form.getApellido2()%>"/>
 							<html:errors property="apellido2" />
 						</td>
 					</tr>
@@ -105,7 +98,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.dni"/>
 						</td>   
 						<td>
-							<html:text 	property="dni" size="10" maxlength="10" />
+							<html:text 	property="dni" size="10" maxlength="10" value="<%=form.getDni()%>"/>
 							<html:errors property="dni" />
 						</td>
 					</tr>
@@ -122,7 +115,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.telefono1"/>
 						</td> 
 						<td>
-							<html:text 	property="telefono1" size="9" maxlength="9"  />
+							<html:text 	property="telefono1" size="9" maxlength="9" value="<%=form.getTelefono1()%>" />
 							<html:errors property="telefono1" />
 						</td>
 					 </tr>
@@ -131,7 +124,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.telefono2"/>
 						</td>
 						<td>
-							<html:text 	property="telefono2" size="9" maxlength="9" />
+							<html:text 	property="telefono2" size="9" maxlength="9" value="<%=form.getTelefono2()%>" />
 							<html:errors property="telefono2" />
 						</td>
 					 </tr>
@@ -140,7 +133,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.email"/>
 						</td>
 						<td>
-							<html:text 	property="email" size="25" maxlength="25" />
+							<html:text 	property="email" size="25" maxlength="25" value="<%=form.getEmail()%>"/>
 							<html:errors property="email" />
 						</td>
 					 </tr>
@@ -149,7 +142,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.calle"/>
 						</td>  
 						<td>
-							<html:text 	property="calle" size="15" maxlength="35" />
+							<html:text 	property="calle" size="15" maxlength="35" value="<%=form.getCalle()%>"/>
 							<html:errors property="calle" />
 						</td>
 					 </tr>
@@ -158,7 +151,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.num"/>
 						</td>  
 						<td>
-							<html:text 	property="num" size="4" maxlength="4" />
+							<html:text 	property="num" size="4" maxlength="4" value="<%=form.getNum()%>"/>
 							<html:errors property="num" />
 						</td>
 					 </tr>
@@ -167,7 +160,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.piso"/>
 						</td>
 						<td>
-							<html:text 	property="piso" size="2" maxlength="2" />
+							<html:text 	property="piso" size="2" maxlength="2" value="<%=form.getPiso()%>" />
 							<html:errors property="piso" />
 						</td>
 					 </tr>
@@ -176,7 +169,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.codPostal"/>
 						</td>  
 						<td>
-							<html:text 	property="codPostal" size="5" maxlength="5" />
+							<html:text 	property="codPostal" size="5" maxlength="5" value="<%=form.getCodPostal()%>"/>
 							<html:errors property="codPostal" />
 						</td>
 					 </tr>
@@ -185,7 +178,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.poblacion"/>
 						</td>   
 						<td>
-							<html:text 	property="poblacion" size="25" maxlength="25" />
+							<html:text 	property="poblacion" size="25" maxlength="25" value="<%=form.getPoblacion()%>"/>
 							<html:errors property="poblacion" />
 						</td>
 					 </tr>
@@ -202,7 +195,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");//Para identificar al a
 							<fmt:message key="editaCliente.pais"/>
 						</td>
 						<td>
-							<html:text 	property="pais" size="25" maxlength="25" />
+							<html:text 	property="pais" size="25" maxlength="25" value="<%=form.getPais()%>"/>
 							<html:errors property="pais" />
 						</td>
 					 </tr>

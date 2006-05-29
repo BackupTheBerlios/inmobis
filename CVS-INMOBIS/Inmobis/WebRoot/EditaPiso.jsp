@@ -1,3 +1,5 @@
+<%--Los includes específicos de esta página--%>
+<%@ page import="com.inmobis.struts.form.EditaPisoForm" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de piso";%>
 <%boolean esIndex=false; %>
@@ -15,11 +17,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
-<%}%><%@ include file="menu_izdo.jsp" %>
+<%}%>
+<%@ include file="menu_izdo.jsp" %>
 	      <div id="content"> 
 			<div class="feature">
 				<html:errors property="EditaPiso"/>
-				<html:form action="EditaPiso.do"  >				
+				<html:form action="EditaPiso.do"  >	
+				<%EditaPisoForm form=(EditaPisoForm)sesion.getAttribute("datosPiso");%>
 				<table width="100%">
 					<tr>
 						<td>
@@ -36,7 +40,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<!--El id se pasa oculto para que no lo vea el usuario-->
 							<html:hidden property="idInmueble" />
 							<!--El numero de habitaciones y lo demas es normal-->
-							<html:text 	property="numHab" size="15"	maxlength="15" />
+							<html:text 	property="numHab" size="15"	maxlength="15" value="<%=form.getNumHab()%>"/>
 							<html:errors property="numHab" />
 						</td>
 					</tr>
@@ -53,7 +57,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.zona"/>	
 						</td>
 						<td>
-							<html:text 	property="zona" size="15"	maxlength="25" />
+							<html:text 	property="zona" size="15" maxlength="25" value="<%=form.getZona()%>" />
 							<html:errors property="zona" />
 						</td>
 					</tr>
@@ -62,7 +66,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.metros"/>	
 						</td>
 						<td>
-							<html:text 	property="metros" size="15"	maxlength="15" />
+							<html:text 	property="metros" size="15"	maxlength="15" value="<%=form.getMetros()%>" />
 							<html:errors property="metros" />
 						</td>
 					</tr>
@@ -71,7 +75,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.regimen"/>	
 						</td>
 						<td>
-							<html:text 	property="regimen" size="15"	maxlength="15" />
+							<html:text 	property="regimen" size="15" maxlength="15" value="<%=form.getRegimen()%>" />
 							<html:errors property="regimen" />
 						</td>
 					</tr>
@@ -80,7 +84,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.precio"/>	
 						</td>
 						<td>
-							<html:text 	property="precio" size="15"	maxlength="15" />
+							<html:text 	property="precio" size="15"	maxlength="15" value="<%=form.getPrecio()%>"/>
 							<html:errors property="precio" />
 						</td>
 					</tr>
@@ -89,7 +93,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.datosDeInteres"/>	
 						</td>
 						<td>
-							<html:textarea 	property="datosDeInteres" />
+							<html:textarea 	property="datosDeInteres" value="<%=form.getDatosDeInteres()%>" />
 							<html:errors property="datosDeInteres" />
 						</td>
 					</tr>
@@ -98,7 +102,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.calle"/>	
 						</td>
 						<td>
-							<html:text 	property="calle" size="15" maxlength="30" />
+							<html:text 	property="calle" size="15" maxlength="30" value="<%=form.getCalle()%>"/>
 							<html:errors property="calle" />
 						</td>
 					</tr>
@@ -107,7 +111,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.num"/>	
 						</td>
 						<td>
-							<html:text 	property="num" size="8"	maxlength="8" />
+							<html:text 	property="num" size="8"	maxlength="8" value="<%=form.getNum()%>" />
 							<html:errors property="num" />
 						</td>
 					</tr>
@@ -116,7 +120,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.piso"/>	
 						</td>
 						<td>
-							<html:text 	property="piso" size="3" maxlength="3" />
+							<html:text 	property="piso" size="3" maxlength="3" value="<%=form.getPiso()%>" />
 							<html:errors property="piso" />
 						</td>
 					</tr>
@@ -125,7 +129,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.codPostal"/>	
 						</td>
 						<td>
-							<html:text 	property="codPostal" size="5" maxlength="5" />
+							<html:text 	property="codPostal" size="5" maxlength="5" value="<%=form.getCodPostal()%>"/>
 							<html:errors property="codPostal" />
 						</td>
 					</tr>
@@ -134,7 +138,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.poblacion"/>	
 						</td>
 						<td>
-							<html:text 	property="poblacion" size="15" maxlength="15" />
+							<html:text 	property="poblacion" size="15" maxlength="15" value="<%=form.getPoblacion()%>"/>
 							<html:errors property="poblacion" />
 						</td>
 					</tr>
@@ -151,7 +155,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.pais"/>	
 						</td>
 						<td>
-							<html:text 	property="pais" size="15" maxlength="15" />
+							<html:text 	property="pais" size="15" maxlength="15" value="<%=form.getPais()%>" />
 							<html:errors property="pais" />
 						</td>
 					</tr>
