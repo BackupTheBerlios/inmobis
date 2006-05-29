@@ -1,6 +1,7 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de empleado";%>
 <%boolean esIndex=false; %>
+<%@ page import="com.inmobis.struts.form.EditaEmpleadoForm" %>
 <%@include file="cabecera.jsp" %>
 <script>
 </script>
@@ -13,6 +14,7 @@ CON UN ANCHO DE 767 px -->
 <%
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");
+EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -29,18 +31,39 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					</tr>
 				</table>
 				<table width="100%">
+				<tr>
+					<td>   
+						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.password"/>
+					</td>
+					<td>
+						<html:password 	property="password" redisplay="false" maxlength="15" />
+						<html:errors property="password" />
+					</td>
+				</tr>
+				 <tr>
+					<td>   
+						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.passwordAgain"/>
+					</td>  
+					<td>
+						<html:password 	property="passwordAgain" maxlength="15" redisplay="false"/>
+						<html:errors property="passwordAgain" />
+					</td>
+				 </tr>
 					<tr>
 						<td>   
 							<fmt:message key="editaEmpleado.nombre"/>
 						</td>   
 						<td>
-							<!--El id se pasa oculto para que no lo vea el usuario-->
-							<html:hidden property="idUsuario" />
 							<!--El nombre de usuario y lo demas es normal-->
 							<html:text 	property="nombre" size="15" maxlength="15" />
 							<html:errors property="nombre" />
 						</td>
 					</tr>  
+					<tr>
+						<td>
+							<html:hidden property="idUsuario" value="<%=form.getIdUsuario() %>"/>
+						</td>
+					</tr>
 					<tr>
 						<td>   
 							<fmt:message key="editaEmpleado.apellido1"/>

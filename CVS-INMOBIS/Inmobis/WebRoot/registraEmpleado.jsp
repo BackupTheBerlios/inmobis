@@ -37,6 +37,24 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <br><br>
 
 <table>
+  <tr>
+    <td>   
+      <font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.password"/>
+    </td>
+    <td>
+	  <html:password 	property="password" redisplay="false" maxlength="15" />
+	  <html:errors property="password" />
+	</td>
+ </tr>
+ <tr>
+    <td>   
+      <font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.passwordAgain"/>
+	</td>  
+	<td>
+	  <html:password 	property="passwordAgain" maxlength="15" redisplay="false"/>
+	  <html:errors property="passwordAgain" />
+	</td>
+ </tr>
  <tr>
   <td width="45%" align="right">
 	<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.nombre"/>
