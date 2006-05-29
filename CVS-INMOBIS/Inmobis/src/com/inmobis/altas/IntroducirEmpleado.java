@@ -7,11 +7,13 @@ import org.apache.struts.action.ActionForm;
 
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.GeneradorDeCodigos;
+import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
+import com.inmobis.bbdd.empleado.GestorAgenteBD;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
@@ -93,20 +95,20 @@ public class IntroducirEmpleado extends Introducir{
 				AgenteBean agente =new AgenteBean();
 				agente.setIdAgente(empleado.getIdEmpleado());
 				agente.setComision(((RegistraEmpleadoForm)datosEmpleado).getPorcentaje());
-				AgenteBD agenteBD =new AgenteBD(agente);
-				agenteBD.insert();
+				GestorAgenteBD gestorAgente =(GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
+				gestorAgente.insert();
 			}
 			if(((RegistraEmpleadoForm)datosEmpleado).getTipoEmpleado().toLowerCase().equals("gerente")){
-//				Todavia nada
+				//Todavia nada
 			}
 			if(((RegistraEmpleadoForm)datosEmpleado).getTipoEmpleado().toLowerCase().equals("administrador")){
-//				Todavia nada
+				//Todavia nada
 			}
 			if(((RegistraEmpleadoForm)datosEmpleado).getTipoEmpleado().toLowerCase().equals("contable")){
-//				Todavia nada
+				//Todavia nada
 			}
 		}
-		catch (Exception e){
+		catch (RowExistsException e){
 			errors.add("nif", new ActionMessage("errors.empleado.duplicated"));
 			if(i_log.isInfoEnabled())
 				i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());

@@ -49,7 +49,6 @@ public class IntroducirInmueble extends Introducir{
 		direccion.setProvincia(((RegistraPisoForm)datosInmueble).getProvincia());
 		direccion.setPais(((RegistraPisoForm)datosInmueble).getPais());
 		
-		//TODO probar y revisar
 		ClienteBean cliente=new ClienteBean();
 		GestorClienteBD gestorCliente=(GestorClienteBD)CreadorGestores.crearGestor("cliente",cliente);
 		try {

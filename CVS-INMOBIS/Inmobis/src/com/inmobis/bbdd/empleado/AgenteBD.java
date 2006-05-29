@@ -14,14 +14,6 @@ import com.inmobis.bbdd.cliente.ClienteBD;
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 
-/**
- * <p>Title: </p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2006</p>
- * <p>Company: </p>
- * @author not attributable
- * @version 1.0
- */
 
 public class AgenteBD implements BDObject,GestorAgenteBD{
 	  private AgenteBean agente;
