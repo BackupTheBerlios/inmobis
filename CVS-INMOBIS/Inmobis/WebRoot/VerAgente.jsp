@@ -65,12 +65,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						  -->
 						</tr>
 				      </logic:iterate>
-					</table>
-					
-					
-					
-					
-					
+					</table>	
 					
                 </div>
               </div>
