@@ -87,6 +87,14 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>	
 						<tr>
 							<td>
+								<fmt:message key="registraPiso.provincia"/>
+							</td>
+							<td>
+								<%@ include file="provincia.jsp" %>
+							</td>
+						</tr> 
+						<tr>
+							<td>
 								<fmt:message key="registraPiso.pais"/>
 							</td>
 							<td>
@@ -136,14 +144,6 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 											size="15" 
 											maxlength="15" />
 								<html:errors property="metros" />
-							</td>
-						</tr> 
-						<tr>
-							<td>
-								<fmt:message key="registraPiso.provincia"/>
-							</td>
-							<td>
-								<%@ include file="provincia.jsp" %>
 							</td>
 						</tr> 
 						<tr>
