@@ -40,7 +40,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<!--El id se pasa oculto para que no lo vea el usuario-->
 							<html:hidden property="idInmueble" />
 							<!--El numero de habitaciones y lo demas es normal-->
-							<html:text 	property="numHab" size="15"	maxlength="15" value="<%=form.getNumHab()%>"/>
+							<html:select property="numHab" size="1" value="<%=form.getNumHab()%>">				
+								<html:option value="1">Una</html:option>							
+								<html:option value="2">Dos</html:option>								
+								<html:option value="3">Tres</html:option>								
+								<html:option value="4">Cuatro</html:option>								
+								<html:option value="5">Cinco</html:option>
+							</html:select>
 							<html:errors property="numHab" />
 						</td>
 					</tr>
@@ -75,7 +81,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.regimen"/>	
 						</td>
 						<td>
-							<html:text 	property="regimen" size="15" maxlength="15" value="<%=form.getRegimen()%>" />
+							<html:select property="regimen" size="1" value="<%=form.getRegimen()%>">
+								<html:option value="Alquiler"/>
+								<html:option value="Venta"/>
+							</html:select>
 							<html:errors property="regimen" />
 						</td>
 					</tr>
@@ -147,7 +156,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.provincia"/>	
 						</td>
 						<td>
+							<html:select property="provincia" size="1" value="<%=form.getProvincia()%>">
 							<%@ include file="provincia.jsp" %>
+							</html:select>
+							<html:errors property="provincia" />
 						</td>
 					</tr>
 					<tr>

@@ -90,7 +90,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<fmt:message key="registraPiso.provincia"/>
 							</td>
 							<td>
-								<%@ include file="provincia.jsp" %>
+								<html:select property="provincia" size="1">
+									<%@ include file="provincia.jsp" %>
+								</html:select>
+								<html:errors property="provincia" />
 							</td>
 						</tr> 
 						<tr>

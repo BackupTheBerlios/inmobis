@@ -1,4 +1,3 @@
-<html:select property="provincia" size="1">
 	<html:option value="Alava"/>
 	<html:option value="Albacete"/>
 	<html:option value="Alicante"/>
@@ -50,5 +49,3 @@
 	<html:option value="Vizcaya"/>
 	<html:option value="Zamora"/>
 	<html:option value="Zaragoza"/>
-</html:select>
-<html:errors property="provincia" />

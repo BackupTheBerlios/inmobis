@@ -6,9 +6,11 @@
 <%if(tipoMenu.equals("general")){%>				
 	<div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuGenerico.message"/></h3>
+		<!--Esto sobra que está en la cabecera
 		<a href="index.jsp">
 			<fmt:message key="menuGenerico.principal"/>
 		</a>
+		-->
 		<a href="login.jsp">
 			<fmt:message key="menuGenerico.identificarse"/>
 		</a>

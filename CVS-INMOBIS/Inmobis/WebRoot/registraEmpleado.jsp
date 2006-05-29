@@ -296,9 +296,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 </td>
   <td width="5%"></td>
   <td width="50%" align="left">
-<html:text 	property="provincia" 
-		size="15" 
-		maxlength="15" />
+<html:select property="provincia" size="1">
+	<%@ include file="provincia.jsp" %>
+</html:select>
 <html:errors property="provincia" />
 </td>
 
