@@ -8,6 +8,8 @@ public class CreadorModificar {
 			return new ModificarEmpleado();
 		if (tipo.equals("cliente"))
 			return new ModificarCliente();
+		if (tipo.equals("traspasar"))
+			return new ModificarRelClienteAgente();
 		return null;
 	}
 }

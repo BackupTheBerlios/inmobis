@@ -75,7 +75,7 @@ public class EditaClienteForm extends ActionForm {
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
 		}
 		
-//		El nombre de usuario tiene que tener al menos 2 caractereres
+		//El nombre de usuario tiene que tener al menos 2 caractereres
 		if(nombreUsuario.equals("") || nombreUsuario.length() < 2){
 			errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.required"));	
 		}
@@ -99,6 +99,7 @@ public class EditaClienteForm extends ActionForm {
 		//El nif tiene que tener longitud 8
 		if (dni==null || dni.equals("") || dni.length()!=8)
 			errors.add("nif", new ActionMessage("errors.nif.notValid"));
+
 		
 		//Tiene que haber al menos 1 telefono de 9 cifras
 		if (telefono1.equals("")|| telefono1.length()!=9 )
