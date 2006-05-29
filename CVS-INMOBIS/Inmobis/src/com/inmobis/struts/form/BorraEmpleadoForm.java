@@ -20,12 +20,30 @@ public class BorraEmpleadoForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
 	private String idEmpleado;
-	/*private String nombreEmpleado;
-	private String apellido1;
-	private String apellido2;
-	private String fechaNacimiento;*/
-	//private String tipoEmpleado;// para saber si es empleado (agente, gerente,...) o si es administrador
 	// --------------------------------------------------------- Methods
+	/** 
+	 * Method reset
+	 * @param mapping
+	 * @param request
+	 */
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		this.idEmpleado = "";
+	}
+
+	/** 
+	 * Method validate
+	 * @param mapping
+	 * @param request
+	 * @return ActionErrors
+	 */
+	public ActionErrors validate(
+		ActionMapping mapping,
+		HttpServletRequest request) {
+
+		ActionErrors errors= new ActionErrors();
+		return errors;
+
+	}
 
 	public String getIdEmpleado() {
 		return idEmpleado;
@@ -34,44 +52,6 @@ public class BorraEmpleadoForm extends ActionForm {
 	public void setIdEmpleado(String idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
-	/*public String getApellido1() {
-		return apellido1;
-	}
-
-	public void setApellido1(String apellido1) {
-		this.apellido1 = apellido1;
-	}
-
-	public String getApellido2() {
-		return apellido2;
-	}
-
-	public void setApellido2(String apellido2) {
-		this.apellido2 = apellido2;
-	}
-
-	public String getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-
-	public void setFechaNacimiento(String fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-
-	public String getNombreEmpleado() {
-		return nombreEmpleado;
-	}
-
-	public void setNombreEmpleado(String nombreEmpleado) {
-		this.nombreEmpleado = nombreEmpleado;
-	}
-*/
-	/*public String getTipoEmpleado() {
-		return tipoEmpleado;
-	}
-
-	public void setTipoEmpleado(String tipoEmpleado) {
-		this.tipoEmpleado = tipoEmpleado;
-	}*/
+	
 }
 
