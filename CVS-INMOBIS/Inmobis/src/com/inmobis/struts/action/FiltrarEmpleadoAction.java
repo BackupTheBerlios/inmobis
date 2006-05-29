@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
@@ -52,10 +53,11 @@ public class FiltrarEmpleadoAction extends Action {
 			log.info("FiltrarEmpleado1: Antes de entrar en la base de datos");
 		}
 		
+		HttpSession session = request.getSession(true);
 		Consultar consultar=CreadorConsultar.CreaConsultar("empleado");
-		Vector listaEmpleados = consultar.listar(form);
+		Vector listaEmpleados = consultar.filtrarEmpleados(form);
 		
-		if (listaEmpleados.equals(null)){
+		if (listaEmpleados.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("FiltrarEmpleado2: Ha habido un error en la búsqueda en la bbdd");
 			}
@@ -67,6 +69,7 @@ public class FiltrarEmpleadoAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("FiltrarEmpleado3: Se ha realizado la busqueda con éxito");
 			}
+			session.setAttribute("listaEmpleados",listaEmpleados);
 			return mapping.findForward("exito");
 		}
 	}
