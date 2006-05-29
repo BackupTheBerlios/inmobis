@@ -156,11 +156,17 @@ public class UsuarioLoginBD implements BDObject {
                       MysqlUtils.toMysqlString(login.getTipoUsuario()));
      sqlString.append(" WHERE idUsuario=" +
                       MysqlUtils.toMysqlString(login.getIdUsuario()));
+     if (milog.isInfoEnabled()){
+			milog.info("Comando sql: "+sqlString);
+		}  
      stmt.execute(sqlString.toString());
 
 
         }
    catch (Exception ex) {
+	if (milog.isInfoEnabled()){
+			milog.info("Error en update");
+	} 
     throw new RowNotFoundException();
    }
    finally{

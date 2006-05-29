@@ -13,6 +13,7 @@ import com.inmobis.bbdd.email.InfoMailBean;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
+import com.inmobis.bbdd.empleado.GestorAgenteBD;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
 import com.inmobis.bbdd.empleado.RelAgenteClienteBD;
 import com.inmobis.bbdd.empleado.RelAgenteClienteBean;
@@ -75,12 +76,9 @@ public class ModificarEmpleado extends Modificar{
 		login.setNombreUsuario(((EditaEmpleadoForm)datosEmpleado).getNif());
 		login.setPassword(((EditaEmpleadoForm)datosEmpleado).getPassword());
 		login.setTipoUsuario(((EditaEmpleadoForm)datosEmpleado).getTipoEmpleado());
-		
-		//TODO hacer con interfaces
 		//Segun el tipo de usuario que sea, actualizo una u otra tabla
 		
 		//El nombre de usuario del empleado será el DNI, que es unico
-		//TODO con update.
 		try{
 			gestorEmpleado.updateLogin(login);
 			try{
@@ -101,17 +99,18 @@ public class ModificarEmpleado extends Modificar{
 				AgenteBean agente =new AgenteBean();
 				agente.setIdAgente(empleado.getIdEmpleado());
 				agente.setComision(((EditaEmpleadoForm)datosEmpleado).getPorcentaje());
-				AgenteBD agenteBD =new AgenteBD(agente);
-				AgenteBD agenteBDAux=new AgenteBD(agente);
-				try {
-					agenteBDAux.select();
-					agenteBD.update();
-					if(i_log.isInfoEnabled())
-						i_log.info(empleado.getDni()+" era un agente ->Actualizo");
-				} catch (RowNotFoundException e) {
+				GestorAgenteBD gestorAgente = (GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
+				gestorAgente.select();
+				//Si no era un agente
+				if(((AgenteBean)gestorAgente.getBean()).getComision()==null){
 					if(i_log.isInfoEnabled())
 						i_log.info(empleado.getDni()+" no era agente ->Introducirle");
-					agenteBD.insert();
+					gestorAgente.insert();
+				}
+				else{
+					gestorAgente.update();
+					if(i_log.isInfoEnabled())
+						i_log.info(empleado.getDni()+" era un agente ->Actualizo");
 				}
 			}
 			//Para los demas, tendre que ver si antes eran agentes.

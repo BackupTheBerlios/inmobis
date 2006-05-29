@@ -94,7 +94,7 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	    StringBuffer sqlString = new StringBuffer("UPDATE TAgente ");
 	    sqlString.append("set idAgente=" +
 	                     MysqlUtils.toMysqlString(agente.getIdAgente()));
-	    sqlString.append(" comision=" +
+	    sqlString.append(", comision=" +
 	                     MysqlUtils.toMysqlString(agente.getComision()));
 
 
