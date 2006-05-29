@@ -2,6 +2,12 @@
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
 
 <struts-config>
+<data-sources />	
+  <form-beans >
+  	<form-bean name="filtrarPisoForm" type="com.inmobis.struts.form.FiltrarPisoForm" />
+  </form-beans>
+
+
   <global-exceptions />
   <global-forwards ></global-forwards>
   <action-mappings >
@@ -26,15 +32,9 @@
       type="com.inmobis.struts.action.VerPisosAction">
       <forward name="exito" path="/VerPisos.jsp" />
     </action>
-    
-    
-
-
 
   </action-mappings>
 
   <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
 
-  <form-beans />
-    <form-bean name="filtrarPisoForm" type="com.inmobis.struts.form.FiltrarPisoForm" />
 </struts-config>
