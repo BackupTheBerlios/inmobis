@@ -40,6 +40,8 @@ public class EditaEmpleadoForm extends ActionForm{
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.idUsuario="";
+		this.password="";
+		this.passwordAgain="";
 		this.nombre="";
 		this.nombre="";
 		this.apellido1="";
@@ -69,6 +71,15 @@ public class EditaEmpleadoForm extends ActionForm{
 		if (i_log.isInfoEnabled()){
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
 		}
+		
+		//La contraseña tiene que tener al menos 4 caracteres
+		if(password.equals("") || password.length() < 4)
+			errors.add("password", new ActionMessage("errors.registro.password.required"));
+		
+		//Los campos contraseña y repitaContraseña tienen que ser iguales
+		if(!(password.equals(passwordAgain)))
+			errors.add("passwordAgain", new ActionMessage("errors.passwordAgain.notEqual"));
+		
 		
 		//Tiene que haber rellenado al menos el nombre y un apellido
 		if (nombre.equals("") || apellido1.equals("")|| !esNombre(nombre) || !esNombre(apellido1))

@@ -14,6 +14,9 @@ public class RegistraEmpleadoForm extends ActionForm{
 	//los datos de login de login los genera la aplicacion
 	//y se le muestran al superusuario xa que se los envie al interesado
 	private static final Logger i_log = Logger.getLogger(RegistraEmpleadoForm.class);
+	//datos de login
+	private String password;
+	private String passwordAgain;
 	//datos personales
 	private String nombre;
 	private String apellido1;
@@ -39,6 +42,8 @@ public class RegistraEmpleadoForm extends ActionForm{
 	private String pais;
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		this.password="";
+		this.passwordAgain="";
 		this.nombre="";
 		this.apellido1="";
 		this.apellido2="";
@@ -66,6 +71,15 @@ public class RegistraEmpleadoForm extends ActionForm{
 		if (i_log.isInfoEnabled()){
 			i_log.info("Antes de comprobar los errores. Nº errores: "+errors.size());
 		}
+		
+		//La contraseña tiene que tener al menos 4 caracteres
+		if(password.equals("") || password.length() < 4)
+			errors.add("password", new ActionMessage("errors.registro.password.required"));
+		
+		//Los campos contraseña y repitaContraseña tienen que ser iguales
+		if(!(password.equals(passwordAgain)))
+			errors.add("passwordAgain", new ActionMessage("errors.passwordAgain.notEqual"));
+		
 		//Tiene que haber rellenado al menos el nombre y un apellido
 		if (nombre.equals("") || apellido1.equals("")|| !esNombre(nombre) || !esNombre(apellido1))
 			errors.add("nombre", new ActionMessage("errors.realName.incomplete"));
@@ -182,6 +196,12 @@ public class RegistraEmpleadoForm extends ActionForm{
 		return valido;
 	}
 	//Getters
+	public String getPassword(){
+		return this.password;
+	}
+	public String getPasswordAgain(){
+		return this.passwordAgain;
+	}
 	public String getNombre(){
 		return this.nombre;
 	}
@@ -242,6 +262,12 @@ public class RegistraEmpleadoForm extends ActionForm{
 	
 	//Setters
 	
+	public void setPassword(String p){
+		this.password=p.trim();
+	}
+	public void setPasswordAgain(String pa){
+		this.passwordAgain=pa.trim();
+	}
 	public void setNombre(String nombre){
 		this.nombre=nombre.trim();
 	}

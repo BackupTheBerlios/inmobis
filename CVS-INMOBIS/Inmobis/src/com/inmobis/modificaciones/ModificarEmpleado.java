@@ -1,5 +1,7 @@
 package com.inmobis.modificaciones;
 
+import java.util.Vector;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMessage;
@@ -10,20 +12,15 @@ import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
-import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
 import com.inmobis.bbdd.empleado.GestorAgenteBD;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
-import com.inmobis.bbdd.empleado.RelAgenteClienteBD;
-import com.inmobis.bbdd.empleado.RelAgenteClienteBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 import com.inmobis.struts.form.EditaEmpleadoForm;
-import com.inmobis.struts.form.RegistraEmpleadoForm;
 
 public class ModificarEmpleado extends Modificar{
-//TODO EN LOS UML'S NO EXISTE!!!
 	private static final Logger i_log = Logger.getLogger(ModificarEmpleado.class);
 	
 	public ActionMessages modifica(ActionForm datosEmpleado){
@@ -48,7 +45,7 @@ public class ModificarEmpleado extends Modificar{
 
 		GestorEmpleadoBD gestorEmpleado=(GestorEmpleadoBD)CreadorGestores.crearGestor("empleado",empleado);
 		
-//		Creamos un Bean de Direccion asociada al empleado ya creado
+		//Creamos un Bean de Direccion asociada al empleado ya creado
 		InfoDirBean direccion=gestorEmpleado.newInfoDirEmpleados("casa");
 		//Rellenamos el bean
 		direccion.setCalle(((EditaEmpleadoForm)datosEmpleado).getCalle());
@@ -70,6 +67,14 @@ public class ModificarEmpleado extends Modificar{
 		//Rellenamos el bean
 		mail.setDirMail(((EditaEmpleadoForm)datosEmpleado).getEmail());
 		
+		//Aquí guardo de que tipo era antes
+		try {
+			gestorEmpleado.consultaLoginPorId(((EditaEmpleadoForm)datosEmpleado).getIdUsuario());
+		} catch (RowNotFoundException e) {
+			if(i_log.isInfoEnabled())
+				i_log.info("Fallo en BBDD :" + e.toString());
+		}
+		String tipoViejo=((UsuarioLoginBean)gestorEmpleado.getLoginBean()).getTipoUsuario().toLowerCase();
 		//Creamos un Bean de Login asociado al empleado ya creado
 		UsuarioLoginBean login=gestorEmpleado.newInfoLoginEmpleados(empleado.getIdEmpleado());
 		//Rellenamos el bean
@@ -93,58 +98,41 @@ public class ModificarEmpleado extends Modificar{
 					i_log.info("Fallo en BBDD :" + e.toString());
 			}
 			
-			//Al actualizar un agente, miro si ya existia. 
+			//Al actualizar a agente, miro si ya era agente. 
 			//Si no existia tendre que crear una nueva entrada en tagente.			
 			if(((EditaEmpleadoForm)datosEmpleado).getTipoEmpleado().toLowerCase().equals("agente")){
 				AgenteBean agente =new AgenteBean();
 				agente.setIdAgente(empleado.getIdEmpleado());
 				agente.setComision(((EditaEmpleadoForm)datosEmpleado).getPorcentaje());
 				GestorAgenteBD gestorAgente = (GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
-				gestorAgente.select();
-				//Si no era un agente
-				if(((AgenteBean)gestorAgente.getBean()).getComision()==null){
+				//Si no era agente le introduzco
+				if(!tipoViejo.equals("agente")){
 					if(i_log.isInfoEnabled())
 						i_log.info(empleado.getDni()+" no era agente ->Introducirle");
 					gestorAgente.insert();
 				}
+				//Si era agente le actualizo
 				else{
-					gestorAgente.update();
 					if(i_log.isInfoEnabled())
 						i_log.info(empleado.getDni()+" era un agente ->Actualizo");
+					gestorAgente.update();
 				}
 			}
 			//Para los demas, tendre que ver si antes eran agentes.
 			//Si lo eran, tendre que borrar su entrada en tagente, comprobando que no tenian clientes asociados
 			else{
-				AgenteBean agente =new AgenteBean();
-				agente.setIdAgente(empleado.getIdEmpleado());
-				AgenteBD agenteBD=new AgenteBD(agente);
-				RelAgenteClienteBean rel=new RelAgenteClienteBean();
-				rel.setIdAgente(empleado.getIdEmpleado());
-				RelAgenteClienteBD relBD=new RelAgenteClienteBD(rel);
-				boolean esAgente=false;
-				try {
-					agenteBD.select();
+				if(tipoViejo.equals("agente")){
 					if(i_log.isInfoEnabled())
 						i_log.info(empleado.getDni()+" era un agente ->Tengo que ver si no tenia clientes");
-					esAgente=true;
-				} catch (RowNotFoundException e) {
-					if(i_log.isInfoEnabled())
-						i_log.info(empleado.getDni()+" no era agente ->No hay que hacer nada.");
-				}
-				//Si era agente, miro sus clientes
-				if(esAgente){
-					try{
-						relBD.select();
-						if(i_log.isInfoEnabled())
-							i_log.info(empleado.getDni()+" tenia clientes ->No le puedo borrar");
-						errors.add("editaEmpleado", new ActionMessage("errors.listaClientes.notEmpty"));
-					}
-					catch(RowNotFoundException e){
+					AgenteBean agente =new AgenteBean();
+					agente.setIdAgente(empleado.getIdEmpleado());
+					GestorAgenteBD gestorAgente = (GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
+					Vector v=gestorAgente.listarClientesAsociados();
+					if(v.size()==0){
 						if(i_log.isInfoEnabled())
 							i_log.info(empleado.getDni()+" no tenia clientes ->Le borro");
 						try {
-							agenteBD.delete();
+							gestorAgente.delete();
 							if(i_log.isInfoEnabled())
 								i_log.info(empleado.getDni()+" Borrado");
 						} catch (RowNotFoundException e1) {
@@ -152,7 +140,15 @@ public class ModificarEmpleado extends Modificar{
 								i_log.info(empleado.getDni()+" No se ha podido borrar "+e1);
 						}
 					}
-				}
+					else{
+						if(i_log.isInfoEnabled())
+							i_log.info(empleado.getDni()+" tenia clientes ->No le puedo borrar");
+						errors.add("editaEmpleado", new ActionMessage("errors.listaClientes.notEmpty"));
+					}
+				} 
+				else
+					if(i_log.isInfoEnabled())
+						i_log.info(empleado.getDni()+" no era agente ->No hay que hacer nada.");
 			}
 		}
 		catch (RowExistsException e){

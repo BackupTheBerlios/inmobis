@@ -71,7 +71,7 @@ public class IntroducirEmpleado extends Introducir{
 		UsuarioLoginBean login=gestorEmpleado.newInfoLoginEmpleados(empleado.getIdEmpleado());
 		//Rellenamos el bean
 		login.setNombreUsuario(((RegistraEmpleadoForm)datosEmpleado).getNif());
-		login.setPassword("inmobis");
+		login.setPassword(((RegistraEmpleadoForm)datosEmpleado).getPassword());
 		login.setTipoUsuario(((RegistraEmpleadoForm)datosEmpleado).getTipoEmpleado());
 
 		//TODO hacer con interfaces
