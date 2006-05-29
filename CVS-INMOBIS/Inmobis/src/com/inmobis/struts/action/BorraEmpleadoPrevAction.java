@@ -82,10 +82,10 @@ public class BorraEmpleadoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraEmpleadoPrevAction 2:El empleado está en la base de datos");
 			}
-			form = (EditaEmpleadoForm)datos.dameDatos(((BorraEmpleadoPrevForm)form).getIdEmpleado());
-			/*((BorraEmpleadoPrevForm)form).setApellido1(aux.getApellido1());
+			aux = (EditaEmpleadoForm)datos.dameDatos(((BorraEmpleadoPrevForm)form).getIdEmpleado());
+			((BorraEmpleadoPrevForm)form).setApellido1(aux.getApellido1());
 			((BorraEmpleadoPrevForm)form).setApellido2(aux.getApellido2());	
-			((BorraEmpleadoPrevForm)form).setNombre(aux.getNombre());*/
+			((BorraEmpleadoPrevForm)form).setNombre(aux.getNombre());
 			session.setAttribute("empleado",form);
 			return mapping.findForward("exito");
 		}		
