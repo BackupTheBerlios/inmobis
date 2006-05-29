@@ -38,10 +38,11 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	                             MysqlUtils.toMysqlString(agente.getIdAgente()));
 	      if (rs.next()) {
 	        agente.setIdAgente(rs.getString("idAgente"));
-
-
 	      }
 	      else {
+	    	  if (milog.isInfoEnabled()){
+	    			milog.info("Error al seleccionar");
+	            }
 	        throw new RowNotFoundException();
 	      }
 
@@ -93,11 +94,11 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	    StringBuffer sqlString = new StringBuffer("UPDATE TAgente ");
 	    sqlString.append("set idAgente=" +
 	                     MysqlUtils.toMysqlString(agente.getIdAgente()));
-	    sqlString.append("comision=" +
+	    sqlString.append(" comision=" +
 	                     MysqlUtils.toMysqlString(agente.getComision()));
 
 
-	    sqlString.append("WHERE IdAgente=" +
+	    sqlString.append(" WHERE IdAgente=" +
 	                     MysqlUtils.toMysqlString(agente.getIdAgente()));
 	    
 	    if (milog.isInfoEnabled()){
