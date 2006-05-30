@@ -170,7 +170,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.pais"/>	
 						</td>
 						<td>
-							<html:text 	property="pais" size="15" maxlength="15" value="<%=form.getPais()%>" />
+							<html:text 	property="pais" size="15" maxlength="15" readonly="true" value="España"/>
 							<html:errors property="pais" />
 						</td>
 					</tr>
