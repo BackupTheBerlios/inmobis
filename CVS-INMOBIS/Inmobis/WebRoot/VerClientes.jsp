@@ -64,7 +64,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<table width="100%">
 						<tr>
 							<td>
-								<a href="filtrarCliente.do" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="menuAgente.filtrarCliente"/></a>
+								<a href="filtrarCliente.do" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="enlace.filtrarCliente"/></a>
 							</td>
 						</tr>
 					</table>
