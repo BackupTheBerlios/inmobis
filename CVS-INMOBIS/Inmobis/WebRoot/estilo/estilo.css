@@ -524,5 +524,9 @@ select, textarea {
 	border:1px solid #DDDDDD; 
 }
 
+.lista td{
+	border: 1px solid #457FB1;	
+}
+
 
 /********************* end **********************/
