@@ -38,7 +38,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.password"/>
 					</td>
 					<td>
-						<html:password 	property="password" redisplay="false" maxlength="15" />
+						<html:password 	property="password" redisplay="false" maxlength="15" value="<%=form.getPassword()%>" />
 						<html:errors property="password" />
 					</td>
 				</tr>
@@ -47,7 +47,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.passwordAgain"/>
 					</td>  
 					<td>
-						<html:password 	property="passwordAgain" maxlength="15" redisplay="false"/>
+						<html:password 	property="passwordAgain" maxlength="15" redisplay="false" value="<%=form.getPassword()%>"/>
 						<html:errors property="passwordAgain" />
 					</td>
 				 </tr>
