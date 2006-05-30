@@ -8,7 +8,6 @@ import org.apache.struts.action.ActionMessage;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.GeneradorDeCodigos;
 import com.inmobis.bbdd.RowExistsException;
-import com.inmobis.bbdd.RowNotFoundException;
 
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.cliente.GestorClienteBD;
@@ -16,8 +15,6 @@ import com.inmobis.bbdd.cliente.GestorClienteBD;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 
 import com.inmobis.bbdd.email.InfoMailBean;
-import com.inmobis.bbdd.empleado.AgenteBD;
-import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 
 import com.inmobis.bbdd.telefono.InfoTelfBean;
@@ -80,29 +77,30 @@ public class IntroducirCliente extends Introducir{
 		login.setTipoUsuario("cliente");		
 		boolean cInsertado=false;
 		//Compruebo que el nombre de usuario no esta repetido
-		try{
-			gestorCliente.insertaLogin(login);
-			try{
-				gestorCliente.insert();
-				gestorCliente.insertaDir(direccion);
-				gestorCliente.insertaMail(mail);
-				gestorCliente.insertaTelf(telefono);
-				cInsertado=true;
+
+			try {
+				gestorCliente.insertaLogin(login);
+				try {
+					gestorCliente.insert();
+					gestorCliente.insertaDir(direccion);
+					gestorCliente.insertaMail(mail);
+					gestorCliente.insertaTelf(telefono);
+					cInsertado=true;
+				} catch (RowExistsException e) {
+					if(((RegistraClienteForm)datosCliente).getEsAgente())
+						errors.add("registraClienteAgente", new ActionMessage(e.toString()));
+					else
+						errors.add("registraClienteCliente", new ActionMessage(e.toString()));
+					if(i_log.isInfoEnabled())
+						i_log.info("Fallo en BBDD al registrar nuevo cliente:" + e.toString());
+				}	
+			} catch (RowExistsException e) {
+				errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.duplicated"));
+							if(i_log.isInfoEnabled())
+								i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());
 			}
-			catch(Exception e){
-				if(((RegistraClienteForm)datosCliente).getEsAgente())
-					errors.add("registraClienteAgente", new ActionMessage(e.toString()));
-				else
-					errors.add("registraClienteCliente", new ActionMessage(e.toString()));
-				if(i_log.isInfoEnabled())
-					i_log.info("Fallo en BBDD al registrar nuevo cliente:" + e.toString());
-			}
-		}
-		catch (Exception e){
-			errors.add("nombreUsuario", new ActionMessage("errors.nombreUsuario.duplicated"));
-			if(i_log.isInfoEnabled())
-				i_log.info(login.getNombreUsuario()+" ya existe : " + e.toString());
-		}
+		if(i_log.isInfoEnabled())
+			i_log.info("El cliente se ha introducido correctamente");	
 		if(i_log.isInfoEnabled())
 			i_log.info("Le registra un agente?: "+((RegistraClienteForm)datosCliente).getEsAgente());
 		//Si le ha dado de alta un agente, se lo asociamos
