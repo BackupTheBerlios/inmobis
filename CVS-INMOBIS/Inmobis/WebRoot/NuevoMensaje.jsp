@@ -1,3 +1,4 @@
+<!--HAY QUE HACER UN IMPORT PARA COGER LA FECHA DE HOY-->
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS Real Estate - Nuevo mensaje";%>
 <%boolean esIndex=false; %>
@@ -53,7 +54,7 @@ String nombreO = (String)sesion.getAttribute("userName");
 							</td>     
 							<td>
 								<html:text 	property="nombrefecha" maxlength="50" />
-								<!--HAY QUE PONER LA FECHA DEL DÍA DE HOY CON java.util.date, HAY QUE SABER EL FORMATO DE LOS DATOS (es AAAAMMDD??)-->
+								<!--HAY QUE PONER LA FECHA DEL DÍA DE HOY CON newDate, HAY QUE SABER EL FORMATO DE LOS DATOS (es AAAAMMDD??)-->
 								<html:errors property="nombrefecha"/>
 							</td>
 						</tr>
