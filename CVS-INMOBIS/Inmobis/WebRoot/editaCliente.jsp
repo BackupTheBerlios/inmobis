@@ -187,7 +187,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.provincia"/>
 						</td>
 						<td>
-							<%@ include file="provincia.jsp" %>
+							<html:select property="provincia" size="1" value="<%=form.getProvincia()%>">
+								<%@ include file="provincia.jsp" %>
+							</html:select>
+							<html:errors property="provincia" />
 						</td>
 					 </tr>
 					 <tr>

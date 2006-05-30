@@ -55,7 +55,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.tipo"/>	
 						</td>
 						<td>
-							<%@ include file="tipoInmueble.jsp" %>
+							<html:select property="tipo" size="1" value="<%=form.getTipo()%>">
+								<%@ include file="tipoInmueble.jsp" %>
+							</html:select>
+							<html:errors property="tipo" />
 						</td>
 					</tr>
 					<tr>
@@ -157,7 +160,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</td>
 						<td>
 							<html:select property="provincia" size="1" value="<%=form.getProvincia()%>">
-							<%@ include file="provincia.jsp" %>
+								<%@ include file="provincia.jsp" %>
 							</html:select>
 							<html:errors property="provincia" />
 						</td>

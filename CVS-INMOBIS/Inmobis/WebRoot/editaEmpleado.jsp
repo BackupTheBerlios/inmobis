@@ -16,7 +16,6 @@ CON UN ANCHO DE 767 px -->
 <%
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");
-EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -108,19 +107,11 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.tipoEmpleado"/>
 						</td> 
 						<td>
-							<html:select property="tipoEmpleado" size="1">
-								<html:option value="agente" 
-								<%if(form.getTipoEmpleado() == "agente"){%> selected <%}%>
-								>Agente</html:option>
-								<html:option value="gerente" 
-								<%--if(form.getTipoEmpleado() == "gerente"){%> selected <%}%>
-								>Gerente</html:option>
-								<html:option value="contable" 
-								<%if(form.getTipoEmpleado() == "contable){%> selected <%}%>
-								>Contable</html:option>
-								<html:option value="administrador" 
-								<%if(form.getTipoEmpleado() == "administrador"){%> selected <%}%>
-								>Administrador</html:option>
+							<html:select property="tipoEmpleado" size="1" value="<%= form.getTipoEmpleado()%>">
+								<html:option value="agente">Agente</html:option>
+								<html:option value="gerente">Gerente</html:option>
+								<html:option value="contable">Contable</html:option>
+								<html:option value="administrador" >Administrador</html:option>
 							</html:select>
 							<html:errors property="tipoEmpleado" />
 						</td>
@@ -196,7 +187,7 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.codPostal"/>
 						</td>  
 						<td>
-							<html:text 	property="codPostal" size="5" maxlength="5" value="<%=form.getCodPstal()%>"/>
+							<html:text 	property="codPostal" size="5" maxlength="5" value="<%=form.getCodPostal()%>"/>
 							<html:errors property="codPostal" />
 						</td>
 					 </tr>
@@ -214,7 +205,10 @@ EditaEmpleadoForm form=(EditaEmpleadoForm)sesion.getAttribute("datosEmpleado");
 							<fmt:message key="editaEmpleado.provincia"/>
 						</td>
 						<td>
-							<%@ include file="provincia.jsp" %>
+							<html:select property="provincia" size="1" value="<%=form.getProvincia()%>">
+								<%@ include file="provincia.jsp" %>
+							</html:select>
+							<html:errors property="provincia" />
 						</td>
 					 </tr>
 					 <tr>
