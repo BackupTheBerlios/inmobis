@@ -59,7 +59,7 @@ public class VerAgentesPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerAgentesPrev 2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("listaempleados", new ActionMessage("errors.listaempleados.bbdd"));
+			errors.add("VerEmpleados", new ActionMessage("errors.listaempleados.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
