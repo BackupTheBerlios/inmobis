@@ -69,7 +69,7 @@
 		<a href="verClientesAgentePrev.do">
 			<fmt:message key="menuAgente.clientes"/>
 		</a>
-		<a href="listaAlertasPrev">
+		<a href="enConstruccion.jsp">
 			<fmt:message key="menuAgente.alertas"/>
 		</a>
 		<a href="listaMensajesPrev.do">
@@ -116,7 +116,7 @@
 		<a href="verClientesPrev.do">
 			<fmt:message key="menuGerente.clientes"/>
 		</a>
-		<a href="verQuejasPrev.do">
+		<a href="enConstruccion.jsp">
 			<fmt:message key="menuGerente.quejas"/>
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>

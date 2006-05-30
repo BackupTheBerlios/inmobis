@@ -139,12 +139,15 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 </td>
   <td width="5%"></td>
   <td width="50%" align="left">
-<html:text 	property="tipoEmpleado" 
-		size="15" 
-		maxlength="15" />
-<html:errors property="tipoEmpleado" />
-</td>
-
+							<html:select property="tipoEmpleado" size="1">
+								<html:option value="agente">Agente</html:option>
+								<html:option value="gerente">Gerente</html:option>
+								<html:option value="contable">Contable</html:option>
+								<html:option value="administrador" >Administrador</html:option>
+							</html:select>
+							<html:errors property="tipoEmpleado" />
+						</td>
+  
  </tr>
 
 
