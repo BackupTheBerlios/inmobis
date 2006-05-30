@@ -196,7 +196,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	}
 	
 	public void delete () throws RowNotFoundException{
-		//solo se borra de TMensajes si solo existe en TRelMensajes el
+		//solo se borra de TMensajes si solo existe en TRelMensaje el
 		//registro que se pide en los datos, si no , borramos solo de 
 		//TRelMensajes.
 		

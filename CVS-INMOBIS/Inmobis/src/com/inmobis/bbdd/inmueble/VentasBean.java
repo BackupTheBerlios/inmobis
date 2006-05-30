@@ -8,7 +8,8 @@ package com.inmobis.bbdd.inmueble;
  * @version 1.0
  */
 
-public class VentasBean {
+/*Este bean ha de tener los datos de ventas y los de inmuebles*/
+public class VentasBean extends InmuebleBean{
 
   protected String idAgente;
   protected String idInmueble;

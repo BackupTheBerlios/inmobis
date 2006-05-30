@@ -15,7 +15,10 @@ int cntEmpleados;
 int cntClientes;
 int cntInmuebles;
 int cntMensajes;
+
 private static GeneradorDeCodigos gc;
+
+
 private GeneradorDeCodigos (){
   leeContadorBD();
   leeContadorClientesBD();
@@ -53,7 +56,6 @@ private void actualizaContadorClienteBD (){
       catch (Exception ex) {
       System.out.println(ex);
     }
-
 }
 
 private void actualizaContadorInmuebleBD (){
@@ -136,7 +138,7 @@ private void leeContadorInmueblesBD (){
 	}
 
 private void leeContadorMensajesBD (){
-	 cntInmuebles=0;
+	 cntMensajes=0;
 	   try{
 	     Connection conn = ConnectionManager.getConection();
 	     Statement stmt = conn.createStatement();
