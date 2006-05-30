@@ -34,30 +34,78 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	}
 	
 	public void select()throws RowNotFoundException {
+		String nOrigen;
+		String nDestino;
+		String nom,ap1,ap2;
 		try {
 		      conn = ConnectionManager.getConection();
 		      Statement stmt = conn.createStatement();
-		      ResultSet rs = null;
+		      Statement stmt1 = conn.createStatement();
+		      Statement stmt2 = conn.createStatement();
+		      Statement stmt3 = conn.createStatement();
+		      ResultSet rs,rs1,rs2,rs3 = null;
 		      
 		      //obtenemos un ResultSet con los datos producidos por la consulta
 		      rs = stmt.executeQuery("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha,leido" +
 		      		" FROM TMensajes, TRelMensaje" +
 		      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
-		      		"AND idMensaje=" +
+		      		"AND idMensaje= " +
                       MysqlUtils.toMysqlString(mensaje.getIdMensaje()));
 		      if (rs.next()){//situarse en la siguiente fila
 		    	  mensaje.setAsunto(rs.getString("asunto"));
 		    	  mensaje.setIdMensaje(rs.getString("idMensaje"));
 		    	  mensaje.setTexto(rs.getString("texto"));
-		    	  mensaje.setDestino(rs.getString("destino"));
-		    	  mensaje.setOrigen(rs.getString("origen"));
 		    	  mensaje.setFecha(rs.getString("Fecha"));
 		    	  mensaje.setLeido(rs.getString("leido").charAt(0));
-		      }
-		      else{
+		    	  
+		    	  //Para el origen y el destino devolvemos su nombre,no su id.
+		    	  //Se busca en TClientes y/o TEmpleados para obtener su nombre 
+		    	  //y apellidos y devolverlos concatenados en nombreOrigen 
+		    	  //y nombreDestino
+		    	  rs1=stmt1.executeQuery("SELECT nombre,apellido1, apellido2" +
+		    			  "FROM TEmpleados WHERE IdEmpleado= " +
+		    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
+		    	  if(rs1.next()){ //el origen es empleado, por tanto el destino es cliente
+		    		  nom=rs1.getString("nombre");
+		    		  ap1=rs1.getString("apellido1");
+		    		  ap2=rs1.getString("apellido2");
+		    		  mensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
+		    		  //Destino=Cliente
+		    		  rs2=stmt2.executeQuery("SELECT nombre,apellido1, apellido2" +
+		    			  "FROM TCliente WHERE IdCliente= " +
+		    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
+		    		  if(rs2.next()){
+		    			  nom=rs2.getString("nombre");
+			    		  ap1=rs2.getString("apellido1");
+			    		  ap2=rs2.getString("apellido2");
+			    		  mensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
+		    		  }
+		    	  }else{//origen es cliente y destino es empleado
+		    		  //Origen=Cliente
+		    		  rs2=stmt2.executeQuery("SELECT nombre,apellido1, apellido2" +
+			    			  "FROM TCliente WHERE IdCliente= " +
+			    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
+			    		  if(rs2.next()){ 
+			    			  nom=rs2.getString("nombre");
+				    		  ap1=rs2.getString("apellido1");
+				    		  ap2=rs2.getString("apellido2");
+				    		  mensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
+			    		  }
+			    		  //Destino=Empleado
+			    		  rs3=stmt3.executeQuery("SELECT nombre,apellido1, apellido2" +
+				    			  "FROM TEmpleados WHERE IdEmpleado= " +
+				    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
+				    	  if(rs3.next()){ 
+				    		  nom=rs3.getString("nombre");
+				    		  ap1=rs3.getString("apellido1");
+				    		  ap2=rs3.getString("apellido2");
+				    		  mensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
+				    	  }
+		    	  }
+		    }else {
 		    	  throw new RowNotFoundException();
 		      }
-		
+		     
 		}catch(Exception e){
 			if (milog.isInfoEnabled()){
 	 			milog.info("error: "+ e.toString());
