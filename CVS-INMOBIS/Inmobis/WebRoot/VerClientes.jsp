@@ -23,7 +23,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature">
 				<!-- zona de codigo-->
-					<table width="100%">
+					<table width="100%" class="lista">
 						<tr> 
 							<th><fmt:message key="app.nombre" /></th>
 							<th><fmt:message key="app.apellido1" /></th>
@@ -31,7 +31,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<!--<th><fmt:message key=" app.IdCliente" /></th>-->
 							<th><fmt:message key="app.dniCliente" /></th>
 							<th><fmt:message key="app.fechNac" /></th>
-							<th>Opciones</th>
+							<th colspan="2">Opc.</th>
 						 </tr>
 						 <!-- iterate over the results of the query -->
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
@@ -56,7 +56,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</td>
 								<td>
 									<bean:write name="cliente" property="fechNacimiento" />
-								</td> 														
+								</td> 
+								<td width="15">
+									<a href="enConstruccion.jsp"><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
+								</td>
+								<td align="right" width="15">
+									<a href="enConstruccion.jsp" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+								</td>														
 							</tr>
 					</logic:iterate>
 					</table>

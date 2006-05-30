@@ -22,7 +22,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature"> 
                   <p> ¿ESTA SEGURO DE ELIMINAR EL SIGUIENTE INMUEBLE? </p>
-				  <table border="0" cellpading="0" cellspacing="0" width="100%">
+				  <table width="100%" class="lista">
 				  <tr>
 						<th>
 							<bean:message key="app.zona" />
@@ -53,22 +53,22 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<td>
 							<bean:write name="datos" property="numHab" />
 						</td>
-						  <td>
+						<td>
 					            <bean:write name="datos" property="metros" />
-						  </td>
-						  <td>
+						</td>
+						<td>
 					            <bean:write name="datos" property="regimen" />
-						  </td>
-						  <td>
+						</td>
+						<td>
 							<bean:write name="datos" property="tipo" /> 
-							</td>
-						  <td>
+						</td>
+						<td>
 					            <bean:write name="datos" property="precio" />
-						  </td>						  
-						  <td align="center">
+						</td>						  
+						<td align="center">
 							<a href="borraPiso.do?idInmueble=<bean:write name="datos"
 						      property="idInmueble" />"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
-						  </td>
+						</td>
 						</tr>
 					</table>
 				</div>
