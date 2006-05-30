@@ -31,6 +31,7 @@
       path="/verPisos"
       type="com.inmobis.struts.action.VerPisosAction">
       <forward name="exito" path="/VerPisos.jsp" />
+      <forward name="error" path="/VerPisos.jsp" />
     </action>
     <action
       attribute="VerPisoDetalleForm"
