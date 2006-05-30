@@ -53,9 +53,9 @@ String nombreO = (String)sesion.getAttribute("userName");
 								<fmt:message key="nuevoMensaje.fecha"/>
 							</td>     
 							<td>
-								<html:text 	property="nombrefecha" maxlength="50" />
+								<html:text 	property="fecha" maxlength="50" />
 								<!--HAY QUE PONER LA FECHA DEL DÍA DE HOY CON Date x= newDate(), HAY QUE SABER EL FORMATO DE LOS DATOS (es AAAAMMDD??)-->
-								<html:errors property="nombrefecha"/>
+								<html:errors property="fecha"/>
 							</td>
 						</tr>
 						<tr>  
