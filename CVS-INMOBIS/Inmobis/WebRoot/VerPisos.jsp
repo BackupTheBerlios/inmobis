@@ -23,7 +23,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature"> 
                    
-					<table width="100%" border="1" class="lista">
+					<table width="100%" class="lista">
 						<tr>   
 					       <th><bean:message key="app.numHab" /></th>
 						   <th><bean:message key="app.metros" /></th>
@@ -56,6 +56,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>
 				      </logic:iterate>
 					</table>
+					<a href="filtrarPiso.do">
+			           <fmt:message key="menuGenerico.filtrarPiso"/>
+		            	</a>
 
                 </div>
               </div>

@@ -21,21 +21,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%}%><%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
-                   <table width="100%">
+                   <table width="100%" class="lista">
 						 <!-- zona de c�digo-->
 						<tr>
-							<th>
-								Nombre
-							</th>
-							<th>
-								Apellido 1
-							</th>
-							<th>
-								Apellido 2
-							</th>
-							<th>
-								Opciones
-							</th>
+							<th><fmt:message key="app.nombre" /></th>
+							<th><fmt:message key="app.apellido1" /></th>
+							<th><fmt:message key="app.apellido2" /></th>
+							<th colspan="2">Opc.</th>
 						</tr>
 						<!-- iterate over the results of the query -->
 						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean">   
@@ -49,20 +41,14 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							  <td>
 									<bean:write name="empleado" property="apellido2" />
 							  </td>
-							  <td>
-									<table width="100%">
-									<tr>
-										<td>
-											<a href="borraEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
-										</td>
-										<td align="right">
-											<a href="editaEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
-										</td>
-									</tr>
-									</table>
-								</td>								
+							  <td width="15">
+									<a href="borraEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
+							  </td>
+							  <td align="right" width="15">
+									<a href="editaEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+							  </td>							
 						</tr>
-				      </logic:iterate>
+				      		</logic:iterate>
 					</table>
 					<a href="filtrarEmpleado.do">
 			           <fmt:message key="menuAdministrador.filtrarEmpleado"/>

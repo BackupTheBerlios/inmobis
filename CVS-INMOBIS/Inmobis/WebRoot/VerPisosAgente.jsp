@@ -23,29 +23,15 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%@ include file="menu_izdo.jsp" %>
 <div id="content"> 
 	<div class="feature">     
- 		<table width="100%">
+ 		<table width="100%" class="lista">
 			<tr>
-				<th>
-					Zona
-				</th>
-				<th>
-					n&ordm; de hab
-				</th>
-				<th>
-					m&sup2;
-				</th>
-				<th>
-					R&eacute;gimen
-				</th>
-				<th>
-					Tipo
-				</th>
-				<th>
-					Precio
-				</th>
-				<th>
-					Opciones
-				</th>
+				<th><bean:message key="app.zona" /></th>
+				<th><bean:message key="app.numHab" /></th>
+				<th><bean:message key="app.metros" /></th>
+				<th><bean:message key="app.regimen" /></th>
+				<th><bean:message key="app.tipo" /></th>
+				<th><bean:message key="app.precio" /></th>
+				<th colspan="2">Opc.</th>
 			</tr>
 			<!-- iterate over the results of the query -->
 			<logic:iterate id="inmueble"  name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean" >   
@@ -68,21 +54,18 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<td>
 					<bean:write name="inmueble" property="precio" /> 
 				</td>		
-				<td>
-					<table width="100%">
-						<tr>
-							<td>
-								<a href="BorraPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
-							</td>
-							<td align="right">
-								<a href="EditaPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
-							</td>
-						</tr>
-					</table>
+				<td width="15">
+					<a href="BorraPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
+				</td>
+				<td align="right" width="15">
+					<a href="EditaPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
 				</td>
 			</tr>
 			</logic:iterate>
-    	</table>	
+    	</table>
+    	<a href="filtrarPisoAgente.do">
+		<fmt:message key="menuAgente.filtrarPiso"/>
+	</a>	
 	</div> 
 </div> 
 <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
