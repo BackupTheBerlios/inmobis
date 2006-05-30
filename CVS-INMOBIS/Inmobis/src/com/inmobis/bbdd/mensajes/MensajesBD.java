@@ -132,34 +132,74 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		/* Se insertan datos en las dos tablas. En el caso de los mensajes genéricos
 		 * tambien, siendo el destino=todos.Si pasa esto habra que hacer en TRelMesajes
 		 * tantos insert como clientes dados de alta*/
-		/*Podemos hacerlo por codigo o por un trigger---->mirarlo*/
-		
+				
 		if (milog.isInfoEnabled()){
 			milog.info("Voy a insertar: "+mensaje.getIdMensaje());
 		}
 		try{
 			conn = ConnectionManager.getConection();
 		    Statement stmt = conn.createStatement();
-				    
+		    Statement stmt1 = conn.createStatement();
+		    ResultSet rs = null;
+			
+		    //transaccion
+		    conn.setAutoCommit(false);
+		    
+		    //TMensaje
 		    StringBuffer sb= new StringBuffer("INSERT INTO TMensajes ");
-		    sb.append("VALUES (" + MysqlUtils.toMysqlString(mensaje.getIdMensaje()) + ",");
+		    sb.append("VALUES ( " + 
+		    		MysqlUtils.toMysqlString(mensaje.getIdMensaje()) + ",");
 		    sb.append(MysqlUtils.toMysqlString(mensaje.getAsunto()) + ",");
 		    sb.append(MysqlUtils.toMysqlString(mensaje.getTexto()) + ")");
-		    
-		    if (milog.isInfoEnabled()){
-				milog.info("comando sql: "+sb);
-		    }
-		    //ejecuta la sentencia sql que acabamos de construir
+		  	//ejecuta la sentencia sql que acabamos de construir
 		    stmt.execute(sb.toString());
-		}catch (Exception e){
-			if (milog.isInfoEnabled()){
-				milog.info("error: "+ e.toString());
-			}
+		    
+		    //TRelMensaje
+		    if(mensaje.getDestino()=="todos"){
+		    	StringBuffer sqlString = new StringBuffer("SELECT IdCliente " +
+		    			"FROM TCliente");
+		    	rs=stmt.executeQuery(sqlString.toString());
+		    	while(rs.next()){//hacemos un insert para cada cliente
+		    		StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
+				    sb1.append("VALUES ( " + 
+				    		MysqlUtils.toMysqlString(mensaje.getOrigen()) + ",");
+				    sb1.append(MysqlUtils.toMysqlString(mensaje.getDestino()) + ",");
+				    sb1.append(MysqlUtils.toMysqlString(rs.getString(1)) + ",");//el idCliente obtenido de TCliente
+				    sb1.append(MysqlUtils.toMysqlString(mensaje.getFecha()) + ",");
+				    sb1.append(MysqlUtils.toMysqlString(mensaje.getLeido().toString()) + ")");
+                    // ejecuta la sentencia sql que acabamos de construir
+				    stmt1.execute(sb1.toString());
+		    	}
+		    	
+		    }else{//insertar solo un reg en TRelMensajes
+		    	StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
+			    sb1.append("VALUES ( " + 
+			    		MysqlUtils.toMysqlString(mensaje.getOrigen()) + ",");
+			    sb1.append(MysqlUtils.toMysqlString(mensaje.getDestino()) + ",");
+			    sb1.append(MysqlUtils.toMysqlString(mensaje.getIdMensaje()) + ",");
+			    sb1.append(MysqlUtils.toMysqlString(mensaje.getFecha()) + ",");
+			    sb1.append(MysqlUtils.toMysqlString(mensaje.getLeido().toString()) + ")");
+			    //ejecuta la sentencia sql que acabamos de construir
+			    stmt1.execute(sb1.toString());
+		    }
+		    conn.commit();
+		    //fin transaccion
+		    conn.setAutoCommit(true);
+		    
+		}catch (SQLException ex){
+			try{ conn.rollback(); 
+			//si se ha producido un error no se ejecuta ninguna sentencia
+			}catch(SQLException sqle){}				
+		}catch(Exception e){
+			try{ conn.rollback(); 
+			//si se ha producido un error no se ejecuta ninguna sentencia
+			}catch(SQLException sqle){}	
 			throw new RowExistsException();
 		}
 	     finally{
 	    	 if (conn != null) 
-	    		 try{conn.close();}catch(SQLException e){}
+	    		 try{conn.close();
+	         }catch(SQLException e){}	    		 
 	    } //Liberamos la conexion pase lo que pase
 	}
 	
@@ -213,7 +253,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    		"FROM TRelMensajes WHERE IdMensaje= " +
 		    		MysqlUtils.toMysqlString(mensaje.getIdMensaje()));
 		    
-		    n=rs.getInt(1); //nº de col empiezan por 1??
+		    n=rs.getInt(1); 
 		    if (n>1){ //borramos solo de TRelMensajes
 		    	StringBuffer sb= new StringBuffer("DELETE FROM TRelMensaje ");
 			    sb.append("WHERE idMensaje=" +
