@@ -33,12 +33,12 @@
       <forward name="exito" path="/VerPisos.jsp" />
     </action>
     <action
-      attribute="filtrarPisoAgenteForm"
+      attribute="VerPisoDetalleForm"
       input="/VerPisos.jsp"
-      name="filtrarPisoAgenteForm"
+      name="VerPisoDetalleForm"
       path="/verDetallePiso"
       scope="request"
-      type="com.inmobis.struts.action.VerDetallePisoAction" >
+      type="com.inmobis.struts.action.VerDetallePisoAction">
       <forward name="exito" path="/VerPisoDetalle.jsp" />
       <forward name="error" path="/VerPisos.jsp" />
     </action>
