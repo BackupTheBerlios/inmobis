@@ -85,7 +85,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									</td>
 									<td>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<%@ include file="tipoInmueble.jsp" %>
+										<html:select property="tipo" size="1">
+											<%@ include file="tipoInmueble.jsp" %>
+										</html:select>
+										<html:errors property="tipo" />
 									</td>
 								</tr>
 								<tr>
