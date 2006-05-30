@@ -107,7 +107,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.fechaNacimiento"/>
 						</td> 
 						<td>							
-							<%@ include file="fecha.jsp" %>
+							<%@ include file="fechaEdita.jsp" %>
 						</td>
 					 </tr>
 					 <tr>

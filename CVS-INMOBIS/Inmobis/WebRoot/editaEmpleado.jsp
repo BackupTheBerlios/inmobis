@@ -56,16 +56,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.nombre"/>
 						</td>   
 						<td>
+							<html:hidden property="idUsuario" value="<%=form.getIdUsuario()%>"/>
 							<!--El nombre de usuario y lo demas es normal-->
 							<html:text 	property="nombre" size="15" maxlength="15" value="<%=form.getNombre()%>"/>
 							<html:errors property="nombre" />
 						</td>
 					</tr>  
-					<tr>
-						<td>
-							<html:hidden property="idUsuario" value="<%=form.getIdUsuario()%>"/>
-						</td>
-					</tr>
 					<tr>
 						<td>   
 							<fmt:message key="editaEmpleado.apellido1"/>
@@ -98,7 +94,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaCliente.fechaNacimiento"/>
 						</td> 
 						<td>							
-							<%@ include file="fecha.jsp" %>
+							<%@ include file="fechaEdita.jsp" %>
 						</td>
 					 </tr>
 					 <tr>
