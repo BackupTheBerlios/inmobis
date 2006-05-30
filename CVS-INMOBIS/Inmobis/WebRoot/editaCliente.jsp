@@ -53,8 +53,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.password"/>
 						</td>     
 						<td>
-							<html:password 	property="password" size="15" redisplay="false" maxlength="15" />
-							<html:errors property="password" value="<%=form.getPassword()%>"/>
+							<html:password 	property="password" size="15" redisplay="false" maxlength="15" value="<%=form.getPassword()%>"/>
+							<html:errors property="password" />
 						</td>
 					</tr>
 					<tr>
