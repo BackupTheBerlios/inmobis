@@ -50,10 +50,15 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>
 				      		</logic:iterate>
 					</table>
-					<a href="filtrarEmpleado.do">
-			           <fmt:message key="menuAdministrador.filtrarEmpleado"/>
-		            </a>
-                </div>
+					<br><br>
+					<table width="100%">
+						<tr>
+							<td>
+								<a href="filtrarEmpleado.do" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="menuAdministrador.filtrarEmpleado"/></a>
+							</td>
+						</tr>
+					</table>
+				</div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
                 | &copy;2006 INMOBIS Real Estate</div>
