@@ -208,6 +208,10 @@
 	<!-- ***************FILTROS DEL CONTABLE******************* -->
   <filter-mapping> <url-pattern>/MenuContable.jsp</url-pattern>
    <filter-name>contableAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/VerPisosVendidos.jsp</url-pattern>
+   <filter-name>contableAccessFilter</filter-name></filter-mapping>
+  <filter-mapping> <url-pattern>/FiltrarPisosVendidos.jsp</url-pattern>
+   <filter-name>contableAccessFilter</filter-name></filter-mapping>
 
 </web-app>
 
