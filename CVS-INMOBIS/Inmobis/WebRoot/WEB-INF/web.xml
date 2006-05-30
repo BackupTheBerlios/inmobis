@@ -11,7 +11,8 @@
       /WEB-INF/struts-ClienteGenerico-config.xml,
       /WEB-INF/struts-Gerente-config.xml,
       /WEB-INF/struts-MensajeAlerta-config.xml,
-      /WEB-INF/struts-Admin-config.xml</param-value>
+      /WEB-INF/struts-Admin-config.xml,
+      /WEB-INF/struts-Contable-config.xml</param-value>
     </init-param>
     <init-param>
       <param-name>debug</param-name>

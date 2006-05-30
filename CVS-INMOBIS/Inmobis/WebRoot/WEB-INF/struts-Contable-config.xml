@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />	
+  <form-beans >
+    <form-bean name="verPisosVendidosForm" type="com.inmobis.struts.form.VerPisosVendidosForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards ></global-forwards>
+
+  <action-mappings >
+    <action
+      attribute="verPisosVendidosForm"
+      input="/MenuContable.jsp"
+      name="verPisosVendidosForm"
+      path="/verPisosVendidos"
+      scope="request"
+      type="com.inmobis.struts.action.VerPisosVendidosAction" >
+      <forward name="exito" path="/VerPisosVendidos.jsp" />
+      <forward name="error" path="/MenuContable.jsp" />
+    </action>
+
+    <action
+      attribute="verPisosVendidosForm"
+      input="/FiltrarPisosVendidos.jsp"
+      name="verPisosVendidosForm"
+      path="/filtrarPisosVendidos"
+      scope="request"
+      type="com.inmobis.struts.action.FiltrarPisosVendidosAction" >
+      <forward name="exito" path="/verPisosVendidos.do" />
+      <forward name="error" path="/FiltrarPisosVendidos.jsp" />
+    </action>
+
+
+ 
+  </action-mappings>
+
+  <message-resources parameter="com.inmobis.struts.ApplicationResources" ></message-resources>
+
+</struts-config>

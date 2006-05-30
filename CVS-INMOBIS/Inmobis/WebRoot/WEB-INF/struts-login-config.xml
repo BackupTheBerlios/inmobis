@@ -23,6 +23,7 @@
 		<forward name="exitoCliente" path="/MenuCliente.jsp"/>
 		<forward name="exitoAgente" path="/MenuAgente.jsp"/>
       <forward name="exitoGerente" path="/MenuGerente.jsp" />
+      <forward name="exitoContable" path="/MenuContable.jsp" />
    	</action>
     <action path="/registraClienteCliente"
     	attribute="registraClienteForm"

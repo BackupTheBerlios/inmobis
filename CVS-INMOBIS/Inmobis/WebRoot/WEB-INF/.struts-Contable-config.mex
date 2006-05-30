@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/MenuContable.jsp" location="15,195" dimension="150,52" />
+  <StrutsActivity path="/verPisosVendidos.do" location="240,165" dimension="181,88" />
+  <StrutsActivity path="/filtrarPisosVendidos.do" location="255,15" dimension="150,100" />
+  <StrutsActivity path="/VerPisosVendidos.jsp" location="495,180" dimension="150,61" />
+  <StrutsActivity path="/FiltrarPisosVendidos.jsp" location="495,60" dimension="150,61" />
+  <StrutsTransition id="/filtrarPisosVendidos.do,error,/VerPisosVendidos.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,115" />
+      <AbsolutePoint location="615,180" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaEmpleado.do,error,/editaEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="221,1011" />
+      <AbsolutePoint location="221,946" />
+      <AbsolutePoint location="193,946" />
+      <AbsolutePoint location="193,911" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaEmpleadoPrev.do,exito,/editaEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="513,762" />
+      <AbsolutePoint location="513,812" />
+      <AbsolutePoint location="163,812" />
+      <AbsolutePoint location="163,862" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/verEmpleadosPrev.do,exito,/VerEmpleados.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="441,425" />
+      <AbsolutePoint location="441,475" />
+      <AbsolutePoint location="676,475" />
+      <AbsolutePoint location="676,525" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/verEmpleadosPrev.do,error,/MenuAdministrador.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="417,337" />
+      <AbsolutePoint location="417,287" />
+      <AbsolutePoint location="382,287" />
+      <AbsolutePoint location="382,237" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraEmpleado.do,error,/registraEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="96,88" />
+      <AbsolutePoint location="96,123" />
+      <AbsolutePoint location="108,123" />
+      <AbsolutePoint location="108,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/FiltrarEmpleado.jsp,null,/filtrarEmpleado.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="968,525" />
+      <AbsolutePoint location="968,475" />
+      <AbsolutePoint location="995,475" />
+      <AbsolutePoint location="995,425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarEmpleado.do,error,/FiltrarEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="905,425" />
+      <AbsolutePoint location="905,525" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraEmpleado.do,cancel,/MenuAdministrador.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="265,88" />
+      <AbsolutePoint location="265,123" />
+      <AbsolutePoint location="382,123" />
+      <AbsolutePoint location="382,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/borraEmpleado.do,borraEmpleado,/borraEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="831,1011" />
+      <AbsolutePoint location="831,976" />
+      <AbsolutePoint location="933,976" />
+      <AbsolutePoint location="933,904" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuAdministrador.jsp,null,/verEmpleadosPrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="310,237" />
+      <AbsolutePoint location="310,287" />
+      <AbsolutePoint location="275,287" />
+      <AbsolutePoint location="275,337" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/verPisosVendidos.do,exito,/VerPisosVendidos.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="421,209" />
+      <AbsolutePoint location="495,209" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraEmpleado.do,reset,/registraEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="39,88" />
+      <AbsolutePoint location="39,123" />
+      <AbsolutePoint location="63,123" />
+      <AbsolutePoint location="63,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/verPisosVendidos.do,error,/MenuContable.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="240,180" />
+      <AbsolutePoint location="90,180" />
+      <AbsolutePoint location="90,195" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraEmpleado.jsp,null,/registraEmpleado.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="152,188" />
+      <AbsolutePoint location="152,88" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/borraEmpleadoPrev.do,exito,/borraEmpleado.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="902,762" />
+      <AbsolutePoint location="902,855" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerEmpleados.jsp,null,/borraEmpleadoPrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="720,574" />
+      <AbsolutePoint location="720,639" />
+      <AbsolutePoint location="829,639" />
+      <AbsolutePoint location="829,674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarEmpleado.do,exito,/VerEmpleados.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="815,425" />
+      <AbsolutePoint location="815,475" />
+      <AbsolutePoint location="735,475" />
+      <AbsolutePoint location="735,525" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarPisosVendidos.do,error,/FiltrarPisosVendidos.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="405,45" />
+      <AbsolutePoint location="570,45" />
+      <AbsolutePoint location="570,60" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarPisosVendidos.do,exito,/FiltrarPisosVendidos.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="405,31" />
+      <AbsolutePoint location="495,106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaEmpleado.do,exito,/verEmpleadosPrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="44,1011" />
+      <AbsolutePoint location="44,946" />
+      <AbsolutePoint location="72,946" />
+      <AbsolutePoint location="72,475" />
+      <AbsolutePoint location="251,475" />
+      <AbsolutePoint location="251,425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaEmpleadoPrev.do,error,/VerEmpleados.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="585,674" />
+      <AbsolutePoint location="585,639" />
+      <AbsolutePoint location="691,639" />
+      <AbsolutePoint location="691,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarPisosVendidos.do,exito,/verPisosVendidos.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="300,115" />
+      <AbsolutePoint location="300,165" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/borraEmpleado.jsp,null,/borraEmpleado.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="871,904" />
+      <AbsolutePoint location="871,946" />
+      <AbsolutePoint location="742,946" />
+      <AbsolutePoint location="742,1011" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/registraEmpleado.do,exito,/MenuAdministrador.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="209,88" />
+      <AbsolutePoint location="209,153" />
+      <AbsolutePoint location="310,153" />
+      <AbsolutePoint location="310,188" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/FiltrarPisosVendidos.jsp,null,/filtrarPisosVendidos.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="495,90" />
+      <AbsolutePoint location="405,90" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerEmpleados.jsp,null,/editaEmpleadoPrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="661,574" />
+      <AbsolutePoint location="661,609" />
+      <AbsolutePoint location="441,609" />
+      <AbsolutePoint location="441,674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editaEmpleado.jsp,null,/editaEmpleado.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="133,911" />
+      <AbsolutePoint location="133,1011" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/borraEmpleado.do,exito,/verEmpleadosPrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="652,1011" />
+      <AbsolutePoint location="652,946" />
+      <AbsolutePoint location="326,946" />
+      <AbsolutePoint location="326,475" />
+      <AbsolutePoint location="346,475" />
+      <AbsolutePoint location="346,425" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuContable.jsp,null,/verPisosVendidos.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="165,221" />
+      <AbsolutePoint location="240,221" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerPisosVendidos.jsp,null,/filtrarPisosVendidos.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="570,180" />
+      <AbsolutePoint location="285,115" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/borraEmpleadoPrev.do,error,/VerEmpleados.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="974,674" />
+      <AbsolutePoint location="974,609" />
+      <AbsolutePoint location="750,609" />
+      <AbsolutePoint location="750,574" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerPisosVendidos.jsp,null,/FiltrarPisosVendidos.jsp,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="570,180" />
+      <AbsolutePoint location="570,121" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

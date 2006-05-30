@@ -32,6 +32,17 @@
       type="com.inmobis.struts.action.VerPisosAction">
       <forward name="exito" path="/VerPisos.jsp" />
     </action>
+    <action
+      attribute="filtrarPisoAgenteForm"
+      input="/VerPisos.jsp"
+      name="filtrarPisoAgenteForm"
+      path="/verDetallePiso"
+      scope="request"
+      type="com.inmobis.struts.action.VerDetallePisoAction" >
+      <forward name="exito" path="/VerPisoDetalle.jsp" />
+      <forward name="error" path="/VerPisos.jsp" />
+    </action>
+
 
   </action-mappings>
 
