@@ -121,5 +121,14 @@
 		</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 	</div>
+<%}else if(tipoMenu.equals("contable")){%>
+	<html:errors property="menuContable"/>
+	<div id="sectionLinks2">	
+		<h3>&nbsp;<fmt:message key="menuContable.message"/></h3>	
+		<a href="verPisosVendidos.do">
+			<fmt:message key="menuContable.verPisos"/>
+		</a>
+		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>		
+	</div>
 <%}%>
 </div><!--del pageNav-->
