@@ -22,6 +22,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 <%@include file="menu_izdo.jsp" %>    	
 	
 	<html:form action="registraClienteAgente.do?esAgente=1"  >
+	<html:errors property="registraClienteAgente"/>
 
 	      <div id="content"> 
 		<div class="feature">

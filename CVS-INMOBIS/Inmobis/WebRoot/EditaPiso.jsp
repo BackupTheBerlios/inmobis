@@ -38,7 +38,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</td>
 						<td>
 							<!--El id se pasa oculto para que no lo vea el usuario-->
-							<html:hidden property="idInmueble" />
+							<html:hidden property="idInmueble" value="<%=form.getIdInmueble()%>"/>
+							<html:errors property="idInmueble" />
 							<!--El numero de habitaciones y lo demas es normal-->
 							<html:select property="numHab" size="1" value="<%=form.getNumHab()%>">				
 								<html:option value="1">Una</html:option>							

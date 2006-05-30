@@ -57,6 +57,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</td>   
 						<td>
 							<html:hidden property="idUsuario" value="<%=form.getIdUsuario()%>"/>
+							<html:errors property="idUsuario" />
 							<!--El nombre de usuario y lo demas es normal-->
 							<html:text 	property="nombre" size="15" maxlength="30" value="<%=form.getNombre()%>"/>
 							<html:errors property="nombre" />

@@ -38,10 +38,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 						</td>
 						<td>
 							<!--El id se pasa oculto para que no lo vea el usuario-->
-							<html:hidden property="idUsuario" />
+							<html:hidden property="idUsuario" value="<%=form.getIdUsuario()%>" />
+							<html:errors property="idUsuario" />
 							<!--El id del agente que registra se pasa oculto para que no lo vea el usuario-->
 							<!--DESCOMENTAR SI HACE FALTA PERO YO CREO QUE NO PORQUE EL AGENTE NO SE CAMBIARÁ AL EDITAR
 							<html:hidden property="idAgente" value="<%=form.getIdAgente()%>"/>
+							<html:errors property="idAgente" />
 							-->
 							<!--El nombre de usuario y lo demas es normal-->
 							<html:text 	property="nombreUsuario" size="15" maxlength="30" value="<%=form.getNombreUsuario()%>" />
