@@ -63,9 +63,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 			</tr>
 			</logic:iterate>
     	</table>
-    	<a href="filtrarPisoAgente.do">
-		<fmt:message key="menuAgente.filtrarPiso"/>
-	</a>	
+		<table width="100%">
+			<tr>
+				<td>
+					<a href="filtrarPisoAgente.do" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="menuAgente.filtrarPiso"/></a>	
+				</td>
+			</tr>
+		</table>    	
 	</div> 
 </div> 
 <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
