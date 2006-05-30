@@ -46,7 +46,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="apellido1" 
 													size="20" 
-													maxlength="20" />
+													maxlength="40" />
 										<html:errors property="apellido1" />
 									</td>
 								</tr>	
@@ -57,11 +57,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="apellido2" 
 													size="20" 
-													maxlength="20" />
+													maxlength="40" />
 										<html:errors property="apellido2" />
 									</td>
 								</tr>
 								<tr>
+									<!--ESTO HAY QUE CAMBIARLO A DÍA MES Y AÑO-->
 									<td>
 										<fmt:message key="filtrarCliente.fechaNacimiento"/>
 									</td>

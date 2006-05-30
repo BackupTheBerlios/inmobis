@@ -32,8 +32,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<fmt:message key="filtrarPisos.metros"/>
 									</td>
 									<td>
-										de&nbsp;&nbsp;<html:text property="metrosMin" size="15" maxlength="15" />
-										&nbsp;a&nbsp;&nbsp;<html:text property="metrosMax" size="15" maxlength="15" />&nbsp;m&sup2;
+										de&nbsp;&nbsp;<html:text property="metrosMin" size="15" maxlength="25" />
+										&nbsp;a&nbsp;&nbsp;<html:text property="metrosMax" size="15" maxlength="25" />&nbsp;m&sup2;
 										<html:errors property="metrosMax" />
 										<html:errors property="metrosMin" />
 									</td>
@@ -56,8 +56,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 										<fmt:message key="filtrarPisos.precio"/>
 									</td>
 									<td>
-										de&nbsp;&nbsp;<html:text property="precioMin" size="15" maxlength="15" />
-										&nbsp;a&nbsp;&nbsp;<html:text property="precioMax" size="15" maxlength="15" />&nbsp;Euros
+										de&nbsp;&nbsp;<html:text property="precioMin" size="15" maxlength="25" />
+										&nbsp;a&nbsp;&nbsp;<html:text property="precioMax" size="15" maxlength="25" />&nbsp;Euros
 										<html:errors property="precioMax" />
 										<html:errors property="precioMin" />
 									</td>
@@ -107,7 +107,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									</td>
 									<td>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<html:text 	property="zona" size="15" maxlength="15" />
+										<html:text 	property="zona" size="15" maxlength="40" />
 										<html:errors property="zona" />
 									</td>
 								</tr>
