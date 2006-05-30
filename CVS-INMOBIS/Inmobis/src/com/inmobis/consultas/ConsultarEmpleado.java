@@ -9,7 +9,9 @@ import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.email.InfoMailBean;
+import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
+import com.inmobis.bbdd.empleado.GestorAgenteBD;
 import com.inmobis.bbdd.empleado.GestorEmpleadoBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
@@ -108,10 +110,27 @@ public class ConsultarEmpleado extends Consultar{
 		form.setTelefono1(telf.getTelefono());
 		form.setTelefono2(telf.getTelefono2());
 		form.setEmail(email.getDirMail());
-		//form.setNombre(login.getNombreUsuario());
-		//TODO mostrar el porcentaje
 		form.setPassword(login.getPassword());
 		form.setTipoEmpleado(login.getTipoUsuario());
+		if(login.getTipoUsuario().toLowerCase().equals("agente")){
+			if(log.isInfoEnabled())
+				log.info("Es agente, cojo el porcentaje" );
+			//Miro el porcentaje
+			AgenteBean agente=new AgenteBean();
+			agente.setIdAgente(empleado.getIdEmpleado());
+			String porcentaje;
+			GestorAgenteBD gestorAgente=(GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
+			try {
+				gestorAgente.select();
+				porcentaje=((AgenteBean)gestorAgente.getBean()).getComision();
+				if(log.isInfoEnabled())
+					log.info("porcentaje: "+porcentaje );
+				form.setPorcentaje(porcentaje);
+			} catch (RowNotFoundException e) {
+				if(log.isInfoEnabled())
+					log.info("Error Porcentaje: "+e );
+			}
+		}
 		return form;
 	}
 	

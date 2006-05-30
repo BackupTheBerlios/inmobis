@@ -28,13 +28,13 @@ public class EditaClientePrevAction extends Action{
 		//Coger los datos de la lista que le llega al form, obtener los
 		//datos que faltan de la BBDD y pasarselos al jsp de editaUsuario
 		if (i_log.isInfoEnabled()){
-			i_log.info("Voy a coger los datos del usuario: "+((EditaClientePrevForm)form).getIdUsuario());
+			i_log.info("Voy a coger los datos del usuario: "+((EditaClientePrevForm)form).getIdCliente());
 		}
 		
 		
 		Consultar consult=CreadorConsultar.CreaConsultar("cliente");
 		
-		EditaClienteForm datosCliente=((EditaClienteForm)consult.dameDatos(((EditaClientePrevForm)form).getIdUsuario()));
+		EditaClienteForm datosCliente=((EditaClienteForm)consult.dameDatos(((EditaClientePrevForm)form).getIdCliente()));
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("Direccion "+datosCliente.getCalle());

@@ -29,6 +29,7 @@ public interface GestorClienteBD extends BDObject{
   InfoTelfBean newInfoTelfClientes(String desctelf);
   void darAgente(String idCliente) throws RowExistsException;
   void asociarAgenteACliente(String idCliente,String idAgente) throws RowExistsException;
+  String verAgenteDe(String idCliente) throws RowNotFoundException;
   String [] getIdMails();
   InfoMailBean newInfoMailClientes(String descMail);
   void consultaLoginPorId (String idUsuario) throws RowNotFoundException;

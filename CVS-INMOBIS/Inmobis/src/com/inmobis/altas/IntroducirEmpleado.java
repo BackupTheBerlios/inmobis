@@ -63,7 +63,7 @@ public class IntroducirEmpleado extends Introducir{
 		telefono.setTelefono2(((RegistraEmpleadoForm)datosEmpleado).getTelefono2());
 		
 		//Creamos un Bean de Mail asociada al cliente ya creado
-		InfoMailBean mail = gestorEmpleado.newInfoMailEmpleados("casa");
+		InfoMailBean mail = gestorEmpleado.newInfoMailEmpleados("personal");
 		//Rellenamos el bean
 		mail.setDirMail(((RegistraEmpleadoForm)datosEmpleado).getEmail());
 		
@@ -74,7 +74,6 @@ public class IntroducirEmpleado extends Introducir{
 		login.setPassword(((RegistraEmpleadoForm)datosEmpleado).getPassword());
 		login.setTipoUsuario(((RegistraEmpleadoForm)datosEmpleado).getTipoEmpleado());
 
-		//TODO hacer con interfaces
 		//Segun el tipo de usuario que sea, le inserto en una tabla u otra
 		
 		//El nombre de usuario del empleado será el DNI, que es unico

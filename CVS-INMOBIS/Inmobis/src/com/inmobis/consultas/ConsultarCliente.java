@@ -83,6 +83,18 @@ public class ConsultarCliente extends Consultar{
 				log.info("Error Cliente: "+e );
 		}
 		
+		//Miro el agente
+		String idAgente="nadie";
+
+		try {
+			idAgente=gestorCliente.verAgenteDe(cliente.getIdCliente());
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error IdAgente: "+e );
+		}
+
+		
+		
 		cliente=(ClienteBean)gestorCliente.getBean();
 		
 		if(log.isInfoEnabled())
@@ -117,6 +129,7 @@ public class ConsultarCliente extends Consultar{
 		form.setEmail(email.getDirMail());
 		form.setNombreUsuario(login.getNombreUsuario());
 		form.setPassword(login.getPassword());
+		form.setIdAgente(idAgente);
 		return form;
 	}
 	

@@ -88,7 +88,7 @@ public class RegistraClienteForm extends ActionForm{
 		if (!apellido2.equals("") && !esNombre(apellido2))
 			errors.add("nombre", new ActionMessage("errors.realName.incomplete"));
 		if (diaNacimiento.equals("") || mesNacimiento.equals("") || anioNacimiento.equals("")){
-			errors.add("registraClienteCliente", new ActionMessage("errors.fecha.notValid"));
+			errors.add("anioNacimiento", new ActionMessage("errors.fecha.notValid"));
 		}
 		//El nif tiene que tener longitud 8
 		if (dni==null || dni.equals("") || dni.length()!=8)

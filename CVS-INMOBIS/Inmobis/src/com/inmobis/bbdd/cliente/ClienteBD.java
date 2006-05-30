@@ -23,6 +23,8 @@ import com.inmobis.bbdd.email.InfoMailClientesBD;
 import com.inmobis.bbdd.empleado.AgenteBD;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.EmpleadoBean;
+import com.inmobis.bbdd.empleado.RelAgenteClienteBD;
+import com.inmobis.bbdd.empleado.RelAgenteClienteBean;
 import com.inmobis.bbdd.login.UsuarioLoginBD;
 import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
@@ -90,7 +92,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 
       if (rs.next()) {
         cliente.setIdCliente(rs.getString("idCliente"));
-        cliente.setIdCliente(rs.getString("dni"));
+        cliente.setDni(rs.getString("dni"));
         cliente.setNombre(rs.getString("nombre"));
         cliente.setApellido1(rs.getString("apellido1"));
         cliente.setApellido2(rs.getString("apellido2"));
@@ -568,6 +570,17 @@ public void updateMail (InfoMailBean miMail) throws RowNotFoundException {
 InfoMailClientesBD mail=new InfoMailClientesBD (miMail);
 mailCliente=miMail;
 mail.update();
+}
+
+public String verAgenteDe(String idCliente) throws RowNotFoundException{
+	 RelAgenteClienteBean rel=new RelAgenteClienteBean();
+	 rel.setIdCliente(idCliente);
+	 RelAgenteClienteBD relBD= new RelAgenteClienteBD(rel);
+	 relBD.selectPorIdCliente();
+	 if (milog.isInfoEnabled()){
+ 			milog.info("Agente de "+idCliente+" es "+((RelAgenteClienteBean)relBD.getBean()).getIdAgente());
+         }
+	 return ((RelAgenteClienteBean)relBD.getBean()).getIdAgente();
 }
 
   /*public static void main(String[] args) {

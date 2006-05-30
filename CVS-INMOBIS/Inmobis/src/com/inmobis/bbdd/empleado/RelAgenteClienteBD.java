@@ -66,6 +66,41 @@ public void select () throws RowNotFoundException {
 
 }
 
+public void selectPorIdCliente () throws RowNotFoundException {
+
+	  try {
+
+	    conn = ConnectionManager.getConection();
+	    Statement stmt = conn.createStatement();
+	    ResultSet rs = null;
+
+	    if (milog.isInfoEnabled()){
+			milog.info("idCliente: "+agenteCliente.getIdCliente());
+	    }
+	    rs = stmt.executeQuery("SELECT * FROM TAgentesClientes WHERE idCliente=" +
+	                           MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
+	    if (rs.next()) {
+	      agenteCliente.setIdAgente(rs.getString("idAgente"));
+	      agenteCliente.setIdCliente(rs.getString("idCliente"));
+
+
+	    }
+	    else {
+	      throw new RowNotFoundException();
+	    }
+
+
+	  }
+	  catch(Exception ex)
+	    {
+	    }
+	  finally{
+	 	 if (conn != null) 
+	 		 try{conn.close();}catch(SQLException e){}
+	 } //Liberamos la conexion pase lo que pase
+
+	}
+
 public void insert() throws RowExistsException {
 
 try {

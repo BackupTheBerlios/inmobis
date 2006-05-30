@@ -38,6 +38,7 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	                             MysqlUtils.toMysqlString(agente.getIdAgente()));
 	      if (rs.next()) {
 	        agente.setIdAgente(rs.getString("idAgente"));
+	        agente.setComision(rs.getString("comision"));
 	      }
 	      else {
 	    	  if (milog.isInfoEnabled()){

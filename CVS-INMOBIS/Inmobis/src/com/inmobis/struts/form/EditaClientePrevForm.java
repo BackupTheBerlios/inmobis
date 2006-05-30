@@ -9,7 +9,7 @@ import org.apache.struts.action.ActionMapping;
 
 public class EditaClientePrevForm extends ActionForm{
 	private static final Logger i_log = Logger.getLogger(EditaClientePrevForm.class);
-	private String idUsuario;
+	private String idCliente;
 	//datos personales
 	private String nombre;
 	private String apellido1;
@@ -18,7 +18,7 @@ public class EditaClientePrevForm extends ActionForm{
 	private String dni;
 
 	public void reset(ActionMapping mapping, HttpServletRequest request){
-		idUsuario="";
+		idCliente="";
 		nombre="";
 		apellido1="";
 		apellido2="";
@@ -31,14 +31,14 @@ public class EditaClientePrevForm extends ActionForm{
 		ActionErrors errors = new ActionErrors();
 			//TODO ver que hay solo 1 seleccionado
 		if (i_log.isInfoEnabled()){
-			i_log.info("Datos obtenidos del Ver: "+idUsuario+" "+nombre+" "+apellido1+" "+apellido2+" "+dni+" "+fechaNacimiento);
+			i_log.info("Datos obtenidos del Ver: "+idCliente+" "+nombre+" "+apellido1+" "+apellido2+" "+dni+" "+fechaNacimiento);
 		}
 		return errors;
 	}
 
 	//Getters
-	public String getIdUsuario(){
-		return this.idUsuario;
+	public String getIdCliente(){
+		return this.idCliente;
 	}
 	public String getNombre(){
 		return this.nombre;
@@ -57,8 +57,8 @@ public class EditaClientePrevForm extends ActionForm{
 	}
 	
 	//Setters
-	public void setIdUsuario(String id){
-		this.idUsuario=id.trim();
+	public void setIdCliente(String id){
+		this.idCliente=id.trim();
 	}
 	public void setNombre(String nombre){
 		this.nombre=nombre.trim();
