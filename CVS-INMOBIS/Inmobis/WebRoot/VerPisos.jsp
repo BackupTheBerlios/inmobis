@@ -23,7 +23,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature"> 
                    
-					<table width="100%" border="1" bordercolor="#457FB1">
+					<table width="100%" border="1" class="lista">
 						<tr>   
 					       <th><bean:message key="app.numHab" /></th>
 						   <th><bean:message key="app.metros" /></th>
