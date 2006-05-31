@@ -83,7 +83,7 @@ public class FiltrarPisoAction extends Action {
 				if (log.isInfoEnabled()){
 					log.info("FiltrarPisoAgenteAction 3: no hay pisos con esas características");	
 				}
-				errors.add("FiltrarPiso", new ActionMessage("errors.listainmuebles.vacia"));
+				errors.add("filtrarPiso", new ActionMessage("errors.listainmuebles.vacia"));
 				saveErrors(request,errors);
 				return (mapping.findForward("error"));
 			}

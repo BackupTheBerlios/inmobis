@@ -50,7 +50,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<!--El identificador de agente al que se asocia-->
 						<html:hidden property="idAgente" value="<%=idAgente%>"/>						
 						<!--El input correspondiente-->
-						<html:text 	property="nombreUsuario" maxlength="15" />
+						<html:text 	property="nombreUsuario" maxlength="25" />
 						<html:errors property="nombreUsuario" />
 					</td>
 				</tr>
@@ -59,7 +59,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.password"/>
 					</td>
 					<td>
-						<html:password 	property="password" redisplay="false"	maxlength="15" />
+						<html:password 	property="password" redisplay="false"	maxlength="12" />
 						<html:errors property="password" />
 					</td>
 				</tr>
@@ -68,7 +68,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.passwordAgain"/>
 					</td>  
 					<td>
-						<html:password 	property="passwordAgain" maxlength="15" redisplay="false"/>
+						<html:password 	property="passwordAgain" maxlength="12" redisplay="false"/>
 						<html:errors property="passwordAgain" />
 					</td>
 				 </tr>
@@ -77,7 +77,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.nombre"/>
 					 </td> 
 					 <td>
-						<html:text 	property="nombre" maxlength="15" />
+						<html:text 	property="nombre" maxlength="25" />
 						<html:errors property="nombre" />
 					 </td>
 				 </tr>
@@ -86,7 +86,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.apellido1"/>
 					 </td> 
 					 <td>
-						 <html:text property="apellido1" maxlength="15" />
+						 <html:text property="apellido1" maxlength="25" />
 						 <html:errors property="apellido1" />
 					  </td>
 				 </tr>
@@ -95,7 +95,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<fmt:message key="registraCliente.apellido2"/>
 					</td>
 					<td>
-						<html:text 	property="apellido2" maxlength="15" />
+						<html:text 	property="apellido2" maxlength="25" />
 						<html:errors property="apellido2" />
 					</td>
 				</tr>
@@ -104,7 +104,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.dni"/>
 					</td>
 					<td>
-						<html:text 	property="dni" maxlength="15" />
+						<html:text 	property="dni" maxlength="8" />
 						<html:errors property="dni" />
 					</td>
 				</tr>
@@ -139,7 +139,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<fmt:message key="registraCliente.email"/>
 					</td>
 					<td>
-						<html:text 	property="email" maxlength="35" />
+						<html:text 	property="email" maxlength="30" />
 						<html:errors property="email" />
 					</td>
 				</tr>
@@ -148,7 +148,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.calle"/>
 					</td>
 					<td>
-						<html:text 	property="calle" maxlength="35" />
+						<html:text 	property="calle" maxlength="30" />
 						<html:errors property="calle" />
 					</td>
 				</tr>
@@ -166,7 +166,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<fmt:message key="registraCliente.piso"/>
 					</td>
 					<td>
-						<html:text 	property="piso" maxlength="2" />
+						<html:text 	property="piso" maxlength="10" />
 						<html:errors property="piso" />
 					</td>
 
@@ -205,7 +205,7 @@ String idAgente=(String)sesion.getAttribute("IdUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraCliente.pais"/>
 					</td>
 					<td>
-						<html:text 	property="pais" maxlength="25" />
+						<html:text 	property="pais" size="15" maxlength="15" readonly="true" value="España" />
 						<html:errors property="pais" />
 					</td>
 				</tr>

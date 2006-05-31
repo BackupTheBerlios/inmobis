@@ -61,7 +61,7 @@ public class FiltrarEmpleadoAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("FiltrarEmpleado2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("FiltrarEmpleado", new ActionMessage("errors.listaempleados.bbdd"));
+			errors.add("filtrarEmpleado", new ActionMessage("errors.listaempleados.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}

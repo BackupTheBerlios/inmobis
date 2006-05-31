@@ -196,7 +196,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.poblacion"/>
 					</td>
   					<td>
-						<html:text 	property="poblacion" size="15" maxlength="30" />
+						<html:text 	property="poblacion" size="15" maxlength="25" />
 						<html:errors property="poblacion" />
 					</td>
 				</tr>
