@@ -7,6 +7,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.upload.FormFile;
 
 import org.apache.log4j.Logger;
 
@@ -33,6 +34,10 @@ public class RegistraPisoForm extends ActionForm {
 	private String pais;
 	//Datos del cliente
 	private String nombreUsuario;
+	private String foto1;
+	private String foto2;
+	private FormFile binFoto1;
+	private FormFile binFoto2;
 
 	
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
@@ -51,6 +56,8 @@ public class RegistraPisoForm extends ActionForm {
 		this.provincia="";
 		this.pais="";
 		this.nombreUsuario="";
+	    this.foto1="";
+	    this.foto2="";
 	}
 	
 	public ActionErrors validate(
@@ -252,6 +259,33 @@ public class RegistraPisoForm extends ActionForm {
 	}
 	public void setNombreUsuario(String nombre){
 		this.nombreUsuario =nombre.trim();
+	}
+	public String getFoto1() {
+		return foto1;
+	}
+	public String getFoto2() {
+		return foto2;
+	}
+	public void setFoto1(String foto1) {
+		this.foto1 = foto1;
+	}
+	public void setFoto2(String foto2) {
+		this.foto2 = foto2;
+	}
+
+	public FormFile getBinFoto1() {
+		return binFoto1;
+	}
+
+	public void setBinFoto1(FormFile binFoto1) {
+		this.binFoto1 = binFoto1;
+	}
+	public FormFile getBinFoto2() {
+		return binFoto2;
+	}
+
+	public void setBinFoto2(FormFile binFoto2) {
+		this.binFoto2 = binFoto2;
 	}
 }
 
