@@ -134,7 +134,8 @@ public class ConsultarInmueble extends Consultar{
 		//se crea el bean del inmueble
 		VentasBean inmuebleVen = new VentasBean();
 		//se crea el inmueble dase de datos	
-		GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmuebleVen);
+		//GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmuebleVen);
+		ContableBD gestorContable = new ContableBD();
 		
 		try{
 			if(log.isInfoEnabled()){
@@ -152,6 +153,12 @@ public class ConsultarInmueble extends Consultar{
 			log.info("ConsultarInmueble 3: Exito en el listado de los inmuebles vendidos. " );
 		}
 		return datos;	
+	}
+	
+	public static void main(String [] args){
+		ConsultarInmueble i = new ConsultarInmueble();
+		ActionForm form = null;
+		i.listarPisosVendidos(form);
 	}
 	
 	public ActionForm dameDatos (String id){

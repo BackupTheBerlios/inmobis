@@ -84,8 +84,8 @@ public class FiltrarPisosVendidosAction extends Action {
 						log.info("Ganancia: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getGanancia());
 						log.info("Id Agente: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getIdAgente());
 						log.info("Id Inmueble: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getIdInmueble());
-						log.info("Precio Final: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getPrecioFinal());
-						log.info("Precio Inicial: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getPrecioInicial());
+						//log.info("Precio Final: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getPrecioFinal());
+						//log.info("Precio Inicial: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getPrecioInicial());
 						i++;
 					}
 				}

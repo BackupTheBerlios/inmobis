@@ -16,7 +16,7 @@ import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.struts.form.RegistraPisoForm;
 import com.inmobis.bbdd.inmueble.VentasBean;
-import com.inmobis.struts.form.VerPisosVendidosForm;
+import com.inmobis.struts.form.VenderPisoForm;
 import com.inmobis.bbdd.empleado.AgenteBean;
 import com.inmobis.bbdd.empleado.GestorAgenteBD;
 
@@ -93,14 +93,14 @@ public class IntroducirInmueble extends Introducir{
 		
 		//Creamos y rellenamos el objeto Bean para el inmueble
 		VentasBean inmuebleVend=new VentasBean();
-		inmuebleVend.setFechaDesde(((VerPisosVendidosForm)datosInmuebleVendido).getFechIni());
-		inmuebleVend.setFechaHasta(((VerPisosVendidosForm)datosInmuebleVendido).getFechFin());
-		inmuebleVend.setFechVenta(((VerPisosVendidosForm)datosInmuebleVendido).getFechVenta());
-		inmuebleVend.setGanancia(((VerPisosVendidosForm)datosInmuebleVendido).getGanacia());
-		inmuebleVend.setIdAgente(((VerPisosVendidosForm)datosInmuebleVendido).getIdAgente());
-		inmuebleVend.setIdInmueble(((VerPisosVendidosForm)datosInmuebleVendido).getIdInmueble());
-		inmuebleVend.setPrecioFinal(((VerPisosVendidosForm)datosInmuebleVendido).getPrecioFinal());
-		inmuebleVend.setPrecioInicial(((VerPisosVendidosForm)datosInmuebleVendido).getPrecioInicial());		
+		inmuebleVend.setFechaDesde(((VenderPisoForm)datosInmuebleVendido).getFechIni());
+		inmuebleVend.setFechaHasta(((VenderPisoForm)datosInmuebleVendido).getFechFin());
+		inmuebleVend.setFechVenta(((VenderPisoForm)datosInmuebleVendido).getFechVenta());
+		inmuebleVend.setGanancia(((VenderPisoForm)datosInmuebleVendido).getGanacia());
+		inmuebleVend.setIdAgente(((VenderPisoForm)datosInmuebleVendido).getIdAgente());
+		inmuebleVend.setIdInmueble(((VenderPisoForm)datosInmuebleVendido).getIdInmueble());
+		inmuebleVend.setPrecioFinal(((VenderPisoForm)datosInmuebleVendido).getPrecioFinal());
+		inmuebleVend.setPrecioInicial(((VenderPisoForm)datosInmuebleVendido).getPrecioInicial());		
 		inmuebleVend.setIdInmueble(gc.asignaCodigoInmueble());
 		if(i_log.isInfoEnabled())
 			i_log.info("Codigo Inmueble:" + inmuebleVend.getIdInmueble());	
