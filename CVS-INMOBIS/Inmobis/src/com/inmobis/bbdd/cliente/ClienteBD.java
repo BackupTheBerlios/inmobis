@@ -128,7 +128,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 		  StringBuffer sqlString = new StringBuffer("INSERT INTO TCliente ");
 		  sqlString.append("VALUES (" + MysqlUtils.toMysqlString(cliente.getIdCliente()) + ", ");
 		  sqlString.append(MysqlUtils.toMysqlString(cliente.getDni()) + ", ");
-		  sqlString.append(MysqlUtils.toMysqlString(cliente.getNombreCliente()) +
+		  sqlString.append(MysqlUtils.toMysqlString(cliente.getNombre()) +
 		                   ", ");
 		  sqlString.append(MysqlUtils.toMysqlString(cliente.getApellido1()) + ", ");
 		  sqlString.append(MysqlUtils.toMysqlString(cliente.getApellido2()) + ", ");
@@ -165,7 +165,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
       sqlString.append("dni=" +
               MysqlUtils.toMysqlString(cliente.getDni()) +  ", ");
       sqlString.append("nombre=" +
-                       MysqlUtils.toMysqlString(cliente.getNombreCliente()) +
+                       MysqlUtils.toMysqlString(cliente.getNombre()) +
                        ", ");
       sqlString.append("apellido1=" +
                        MysqlUtils.toMysqlString(cliente.getApellido1()) + ", ");
@@ -274,8 +274,8 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 	      if (cliente.getDni()!=null)
 		       consulta.put("dni",cliente.getDni());
 
-	      if (cliente.getNombreCliente()!=null)
-	        consulta.put("nombre",cliente.getNombreCliente());
+	      if (cliente.getNombre()!=null)
+	        consulta.put("nombre",cliente.getNombre());
 
 	      if (cliente.getApellido1()!=null)
 	        consulta.put("apellido1",cliente.getApellido1());
