@@ -17,6 +17,8 @@ public final class CreadorGestores {
 			return (BDObject)new MensajesBD((MensajesBean)bean);
 		if(tipo.toLowerCase().equals("agente"))
 			return (BDObject)new AgenteBD((AgenteBean)bean);
+		if(tipo.toLowerCase().equals("contable"))
+			return (BDObject)new VentasBD((VentasBean)bean);
 		return null;
 	}
 }
