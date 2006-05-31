@@ -576,7 +576,7 @@ public String verAgenteDe(String idCliente) throws RowNotFoundException{
 	 RelAgenteClienteBean rel=new RelAgenteClienteBean();
 	 rel.setIdCliente(idCliente);
 	 RelAgenteClienteBD relBD= new RelAgenteClienteBD(rel);
-	 relBD.selectPorIdCliente();
+	 relBD.select();
 	 if (milog.isInfoEnabled()){
  			milog.info("Agente de "+idCliente+" es "+((RelAgenteClienteBean)relBD.getBean()).getIdAgente());
          }

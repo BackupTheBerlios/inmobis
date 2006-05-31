@@ -15,5 +15,7 @@ public interface GestorAgenteBD extends BDObject{
 	public  Vector listarAgentes() throws RowNotFoundException;
 	public  Vector listarClientesAsociados() throws RowNotFoundException ;
 	public  Vector listarInmueblesAgentes() throws RowNotFoundException ;
+	public void updateRelAgenteCliente(String idAgente, String idCliente) throws RowNotFoundException;
 	public void insertarVenta(VentasBean venta) throws RowExistsException;
+
 }

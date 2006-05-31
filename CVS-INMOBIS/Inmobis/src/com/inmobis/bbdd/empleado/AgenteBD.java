@@ -314,6 +314,21 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 		   return listaInmueblesAgentes;
 
 		 }
+
+	 
+	 public void updateRelAgenteCliente(String idAgente, String idCliente) throws RowNotFoundException{
+		 RelAgenteClienteBean rel=new RelAgenteClienteBean();
+		 rel.setIdCliente(idCliente);
+		 rel.setIdAgente(idAgente);
+		 if (milog.isInfoEnabled()){
+	  			milog.info("idAgente: "+idAgente);
+	  			milog.info("idCliente: "+idCliente);
+	          }
+		 RelAgenteClienteBD relBD=new RelAgenteClienteBD(rel);
+		 
+		 relBD.update();
+	 }
+
 	 
 	 //añadir una venta en la tabla TVentas:
 	 public void insertarVenta(VentasBean venta) throws RowExistsException
@@ -344,4 +359,5 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 			    	 }catch(SQLException e){}
 			    } //Liberamos la conexion pase lo que pase
 	 }
+
 }

@@ -137,7 +137,7 @@ try {
   StringBuffer sqlString = new StringBuffer("UPDATE TAgentesClientes ");
   sqlString.append("set idAgente=" +
                    MysqlUtils.toMysqlString(agenteCliente.getIdAgente()));
-  sqlString.append("idCliente=" +
+  sqlString.append(", idCliente=" +
                    MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
 
 
@@ -163,10 +163,10 @@ try {
   conn = ConnectionManager.getConection();
   Statement stmt = conn.createStatement();
   ResultSet rs = null;
-
   StringBuffer sqlString = new StringBuffer("DELETE FROM TAgentesClientes ");
   sqlString.append("WHERE idCliente=" +
                   MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
+
  stmt.execute(sqlString.toString());
 
 
