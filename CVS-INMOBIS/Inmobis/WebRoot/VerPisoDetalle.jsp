@@ -21,8 +21,6 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%@ include file="menu_izdo.jsp" %>
 	      <div id="content"> 
 			<div class="feature">
-				<html:errors property="VerDetallePiso"/>
-				<html:form action="VerDetallePiso.do"  >	
 				<%VerPisoDetalleForm form=(VerPisoDetalleForm)sesion.getAttribute("datosPiso");%>
 				<table width="100%">
 					<tr>
@@ -38,12 +36,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</td>
 						<td>
 							<!--El id se pasa oculto para que no lo vea el usuario-->
-							<html:hidden property="idInmueble" value="<%=form.getIdInmueble()%>"/>
-							<html:errors property="idInmueble" />
-							<!--El numero de habitaciones y lo demas es normal-->
-							<html:text 	property="numHab" size="15" maxlength="50" value="<%=form.getNumHab()%>" readonly="true" />
-							
-							<html:errors property="numHab" />
+							<%=form.getIdInmueble()%>
+							<%=form.getNumHab()%>
 						</td>
 					</tr>
 					<tr>
@@ -51,9 +45,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.tipo"/>	
 						</td>
 						<td>
-							<html:text 	property="tipo" size="15" maxlength="50" value="<%=form.getTipo()%>" readonly="true" />
-							
-							<html:errors property="tipo" />
+							<%=form.getTipo()%>
 						</td>
 					</tr>
 					<tr>
@@ -61,8 +53,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.zona"/>	
 						</td>
 						<td>
-							<html:text 	property="zona" size="15" maxlength="50" value="<%=form.getZona()%>" readonly="true" />
-							<html:errors property="zona" />
+							<%=form.getZona()%>
 						</td>
 					</tr>
 					<tr>
@@ -70,8 +61,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.metros"/>	
 						</td>
 						<td>
-							<html:text 	property="metros" size="15"	maxlength="20" value="<%=form.getMetros()%>" readonly="true" />
-							<html:errors property="metros" />
+							<%=form.getMetros()%>
 						</td>
 					</tr>
 					<tr>
@@ -79,9 +69,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.regimen"/>	
 						</td>
 						<td>
-							<html:text 	property="regimen" size="15"	maxlength="20" value="<%=form.getRegimen()%>" readonly="true" />
-							
-							<html:errors property="regimen" />
+							<%=form.getRegimen()%>
 						</td>
 					</tr>
 					<tr>
@@ -89,8 +77,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.precio"/>	
 						</td>
 						<td>
-							<html:text 	property="precio" size="15"	maxlength="20" value="<%=form.getPrecio()%>" readonly="true"/>
-							<html:errors property="precio" />
+							<%=form.getPrecio()%>
 						</td>
 					</tr>
 					<tr>
@@ -98,8 +85,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.datosDeInteres"/>	
 						</td>
 						<td>
-							<html:textarea 	property="datosDeInteres" value="<%=form.getDatosDeInteres()%>" readonly="true" />
-							<html:errors property="datosDeInteres" />
+							<%=form.getDatosDeInteres()%>
 						</td>
 					</tr>
 					<tr>
@@ -107,8 +93,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.calle"/>	
 						</td>
 						<td>
-							<html:text 	property="calle" size="15" maxlength="30" value="<%=form.getCalle()%>" readonly="true" />
-							<html:errors property="calle" />
+							<%=form.getCalle()%>
 						</td>
 					</tr>
 					<tr>
@@ -116,8 +101,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.num"/>	
 						</td>
 						<td>
-							<html:text 	property="num" size="8"	maxlength="20" value="<%=form.getNum()%>" readonly="true" />
-							<html:errors property="num" />
+							<%=form.getNum()%>
 						</td>
 					</tr>
 					<tr>
@@ -126,8 +110,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</td>
 						<td>
 						
-							<html:text 	property="piso" size="3" maxlength="10" value="<%=form.getPiso()%>" readonly="true" />
-							<html:errors property="piso" />
+							<%=form.getPiso()%>
 						</td>
 					</tr>
 					<tr>
@@ -135,8 +118,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.codPostal"/>	
 						</td>
 						<td>
-							<html:text 	property="codPostal" size="5" maxlength="5" value="<%=form.getCodPostal()%>" readonly="true" />
-							<html:errors property="codPostal" />
+							<%=form.getCodPostal()%>
 						</td>
 					</tr>
 					<tr>
@@ -144,8 +126,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.poblacion"/>	
 						</td>
 						<td>
-							<html:text 	property="poblacion" size="15" maxlength="50" value="<%=form.getPoblacion()%>" readonly="true" />
-							<html:errors property="poblacion" />
+							<%=form.getPoblacion()%>
 						</td>
 					</tr>
 					<tr>
@@ -153,9 +134,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.provincia"/>	
 						</td>
 						<td>
-							<html:text 	property="provincia" size="15" maxlength="50" value="<%=form.getProvincia()%>" readonly="true" />
-							
-							<html:errors property="provincia" />
+							<%=form.getProvincia()%>
 						</td>
 					</tr>
 					<tr>
@@ -163,13 +142,29 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.pais"/>	
 						</td>
 						<td>
-							<html:text 	property="pais" size="15" maxlength="50" readonly="true" value="España"/>
-							<html:errors property="pais" />
+							<IMG src="images/fotos/<%=form.getFoto1()%>" border="0">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.pais"/>	
+						</td>
+						<td>
+							<IMG src="images/fotos/<%=form.getFoto2()%>" border="0">
+							
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:message key="editaPiso.pais"/>	
+						</td>
+						<td>
+							"España"
 						</td>
 					</tr>
 				</table>
 								
-				</html:form>
+		
 			</div>
 		</div>
         <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

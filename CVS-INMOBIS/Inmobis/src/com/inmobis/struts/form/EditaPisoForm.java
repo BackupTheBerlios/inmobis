@@ -31,6 +31,8 @@ public class EditaPisoForm extends ActionForm {
 	private String poblacion;
 	private String provincia;
 	private String pais;
+	private String foto1;
+	private String foto2;
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
     	this.idInmueble="";
@@ -48,6 +50,8 @@ public class EditaPisoForm extends ActionForm {
 	    this.poblacion="";
 	    this.provincia="";
 	    this.pais="";
+	    this.foto1="";
+	    this.foto2="";
 	}
     
 
@@ -179,6 +183,12 @@ public class EditaPisoForm extends ActionForm {
 	}
 	
 	//getters
+	public String getFoto1() {
+		return foto1;
+	}
+	public String getFoto2() {
+		return foto2;
+	}
 	public String getIdInmueble(){
 		return idInmueble;
 	}
@@ -225,6 +235,12 @@ public class EditaPisoForm extends ActionForm {
 		return this.pais;
 	}
 	//setters
+	public void setFoto1(String foto1) {
+		this.foto1 = foto1;
+	}
+	public void setFoto2(String foto2) {
+		this.foto2 = foto2;
+	}
 	public void setIdInmueble(String id){
 		this.idInmueble=id.trim();
 	}

@@ -47,11 +47,11 @@ public class VerDetallePisoAction extends Action {
 		//Coger los datos de la lista que le llega al form, obtener los
 		//datos que faltan de la BBDD y pasarselos al jsp de editaPiso
 		if (i_log.isInfoEnabled()){
-			i_log.info("VerDetallePisoAction: Voy a coger los datos del piso: "+pisoDetalleForm.getTipo()+", zona: "+pisoDetalleForm.getZona());
+			i_log.info("VerDetallePisoAction: Voy a coger los datos del piso: "+pisoDetalleForm.getIdInmueble());
 		}
 				
 		Consultar consult=CreadorConsultar.CreaConsultar("inmueble");
-		VerPisoDetalleForm datosPiso=(VerPisoDetalleForm)consult.dameDatos(pisoDetalleForm.getIdInmueble());
+		VerPisoDetalleForm datosPiso=(VerPisoDetalleForm)consult.dameDatosFoto(pisoDetalleForm.getIdInmueble());
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("VerDetallePisoAction: Select con exito.");

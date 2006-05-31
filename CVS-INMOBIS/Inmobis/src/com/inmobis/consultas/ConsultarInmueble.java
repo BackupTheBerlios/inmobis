@@ -216,4 +216,58 @@ public class ConsultarInmueble extends Consultar{
 		
 		return form;
 	}
+	public ActionForm dameDatosFoto(String Id){
+		//form que va a tener los datos y se va a devolver
+		VerPisoDetalleForm form=new VerPisoDetalleForm();
+		
+		//se crea un inmueble bean
+		InmuebleBean inmueble=new InmuebleBean();
+		inmueble.setIdInmueble(Id);
+
+		GestorInmuebleBD gestorInmueble= (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",inmueble);
+		
+		InfoDirBean direccion=new InfoDirBean();
+		
+		try {
+			gestorInmueble.consultaDirPorId(Id);
+			direccion=gestorInmueble.getDireccionBean();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error1: "+e );
+		}
+		
+		try {
+			gestorInmueble.select();
+		} catch (RowNotFoundException e) {
+			if(log.isInfoEnabled())
+				log.info("Error2: "+e );
+		}
+		
+		inmueble=(InmuebleBean)gestorInmueble.getBean();
+		
+		if(log.isInfoEnabled())
+			log.info("direccion "+direccion.getCalle() );
+		if(log.isInfoEnabled())
+			log.info("tipo "+inmueble.getTipo() );
+		
+		form.setCalle(direccion.getCalle());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setNum(direccion.getNum());
+		form.setPais(direccion.getPais());
+		form.setPiso(direccion.getPiso());
+		form.setPoblacion(direccion.getPoblacion());
+		form.setProvincia(direccion.getProvincia());
+		form.setCodPostal(direccion.getCodPostal());
+		form.setDatosDeInteres(inmueble.getdatosDeInteres());
+		form.setMetros(inmueble.getMetros());
+		form.setIdInmueble(inmueble.getIdInmueble());
+		form.setNumHab(inmueble.getNumHab());
+		form.setPrecio(inmueble.getPrecio());
+		form.setRegimen(inmueble.getRegimen());
+		form.setTipo(inmueble.getTipo());
+		form.setZona(inmueble.getZona());
+		form.setFoto1(inmueble.getFoto1());
+		form.setFoto2(inmueble.getFoto2());
+		return form;
+	}	
 }

@@ -45,6 +45,7 @@
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${build.dir}/estilo" />
 		<mkdir dir="${build.dir}/images" />
+		<mkdir dir="${build.dir}/images/pisos" />
 		<mkdir dir="${build.dir}/META-INF" />
 		<mkdir dir="${build.dir}/WEB-INF" />
 		<mkdir dir="${build.dir}/WEB-INF/classes" />

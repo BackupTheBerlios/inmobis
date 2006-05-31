@@ -41,8 +41,11 @@ public abstract class Consultar {
     //se sobreescribe en ConsultarInmueble
 	public Vector filtrarPisosVendidos(ActionForm form){
 		return null;
-	}    
-	
+	} 
+		
+	public ActionForm dameDatosFoto(String Id){
+		return null;
+	}		
 	//se sobreescribe en ConsultarEmpleado
 	public Vector filtrarEmpleados (ActionForm form){
 		return null;

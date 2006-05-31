@@ -22,7 +22,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 	<div id="content"> 
                 <div class="feature">
 				<html:errors property="registraPiso"/>
-				<html:form action="registraPiso.do" focus="calle">
+				<html:form action="registraPiso.do" focus="calle" enctype="multipart/form-data">
 				<center>
 					<table width="100%">
 						<tr>
@@ -176,6 +176,16 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<html:errors property="numHab" />
 							</td>
 						</tr>
+						<TR>
+							<TD>
+								Foto1: <BR />
+								<html:file property="binFoto1" />
+							</TD>
+							<TD>
+								Foto2: <BR />
+							 	<html:file property="binFoto2" /> 
+							</TD>
+						</TR>
 						<tr>
 							<td colspan="2">
 								<br><fmt:message key="registraPiso.clienteTexto"/><br><br>
