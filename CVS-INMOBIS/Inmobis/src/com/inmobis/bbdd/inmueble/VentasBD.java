@@ -12,6 +12,7 @@ import com.inmobis.bbdd.ConnectionManager;
 import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
+import com.inmobis.bbdd.empleado.*;
 
 /**
  * <p>Title: </p>

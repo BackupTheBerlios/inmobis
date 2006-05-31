@@ -13,6 +13,7 @@ import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.cliente.ClienteBD;
 import com.inmobis.bbdd.cliente.ClienteBean;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
+import com.inmobis.bbdd.inmueble.VentasBean;
 
 
 public class AgenteBD implements BDObject,GestorAgenteBD{
@@ -145,8 +146,8 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	}
 	
 	/*Para que se asocie un agente automaticamente cuando un cliente se registra via Web*/
-	public String agregarCliente (String idCliente) throws
-	    RowExistsException {
+	public String agregarCliente (String idCliente) throws RowExistsException 
+	{
 	  Vector listaAgentes=new Vector();
 	   StringBuffer query=new StringBuffer();
 	   String id=null;
@@ -305,8 +306,42 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 		   }
 		   catch (Exception ex) {
 		     throw new RowNotFoundException();
-		   }
+		   }finally{
+		    	 if (conn != null) 
+		    		 try{conn.close();
+		    	 }catch(SQLException e){}
+		    } //Liberamos la conexion pase lo que pase
 		   return listaInmueblesAgentes;
 
 		 }
+	 
+	 //añadir una venta en la tabla TVentas:
+	 public void insertarVenta(VentasBean venta) throws RowExistsException
+	 {
+		 try {
+			    conn = ConnectionManager.getConection();
+			    Statement stmt = conn.createStatement();
+
+			    StringBuffer sqlString = new StringBuffer("INSERT INTO TVentas ");
+			    sqlString.append("VALUES (" + MysqlUtils.toMysqlString(venta.getIdAgente()) + ", ");
+			    sqlString.append(MysqlUtils.toMysqlString(venta.getIdInmueble()) + ", ");
+			    sqlString.append(MysqlUtils.toMysqlString(venta.getFechVenta()) + ", ");
+			    sqlString.append(MysqlUtils.toMysqlString(venta.getPrecioInicial()) + ", ");
+			    sqlString.append(MysqlUtils.toMysqlString(venta.getPrecioFinal()) + ", ");
+			    sqlString.append(MysqlUtils.toMysqlString(venta.getGanancia())+ ")");
+			    
+			    if (milog.isInfoEnabled()){
+		  			milog.info("comando sql: "+sqlString);
+		          }
+			    stmt.execute(sqlString.toString());
+			  }
+			  catch (Exception ex) {
+			    throw new RowExistsException();
+			  }
+			     finally{
+			    	 if (conn != null) 
+			    		 try{conn.close();
+			    	 }catch(SQLException e){}
+			    } //Liberamos la conexion pase lo que pase
+	 }
 }
