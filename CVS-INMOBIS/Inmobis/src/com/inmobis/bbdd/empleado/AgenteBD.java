@@ -148,11 +148,25 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	/*Para que se asocie un agente automaticamente cuando un cliente se registra via Web*/
 	public String agregarCliente (String idCliente) throws RowExistsException 
 	{
-	  Vector listaAgentes=new Vector();
+	 
 	   StringBuffer query=new StringBuffer();
 	   String id=null;
-	  query.append( "(select idAgente, 0  from TAgente where idAgente not in (SELECT idAgente FROM TAgentesClientes ) )"
-	 + "UNION (SELECT idAgente, count(idCliente) AS 'nom' FROM TAgentesClientes  GROUP BY idAgente  ORDER BY 'nom' )" );
+	   query.append( "(SELECT idAgente, count(idCliente) as cuenta "+
+               " FROM TAgentesClientes "+
+               " GROUP BY idAgente "+
+               " ORDER BY cuenta)");
+
+	   query.append(" UNION ");
+
+	   query.append("( SELECT idAgente, 0 as cuenta "+
+              "from TAgente "+
+              "where idAgente "+
+              "not in "+ 
+              "(SELECT idAgente "+ 
+              " FROM TAgentesClientes ))");
+ 
+
+	   query.append(" ORDER BY cuenta ");
 
 	   try {
 	          conn = ConnectionManager.getConection();
@@ -161,7 +175,7 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	  			milog.info("comando sql: "+query);
 	          }
 	          ResultSet rs=stmt.executeQuery(query.toString());
-	         while (rs.next()){
+	         if (rs.next()){
 	            id=(rs.getString("idAgente"));
 	            }
 
