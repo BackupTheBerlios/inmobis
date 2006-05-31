@@ -122,8 +122,8 @@ public class ConsultarCliente extends Consultar{
 		String fecha=cliente.getFechNacimiento();
 		String[] fechaSplit=fecha.split("-");
 		form.setAnioNacimiento(fechaSplit[0]);
-		form.setMesNacimiento(fechaSplit[1]);
-		form.setDiaNacimiento(fechaSplit[2]);		
+		form.setMesNacimiento((new Integer(fechaSplit[1])).toString());
+		form.setDiaNacimiento((new Integer(fechaSplit[2])).toString());		
 		form.setTelefono1(telf.getTelefono());
 		form.setTelefono2(telf.getTelefono2());
 		form.setEmail(email.getDirMail());
