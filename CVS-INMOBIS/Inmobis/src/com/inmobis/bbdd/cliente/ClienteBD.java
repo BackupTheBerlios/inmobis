@@ -192,17 +192,35 @@ public class ClienteBD implements BDObject,GestorClienteBD{
     try {
       conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
-      ResultSet rs = null;
+      Statement stmt1 = conn.createStatement();
+ 
 
+     //transaccion
+	  conn.setAutoCommit(false);
+	  	//tCliente
       StringBuffer sqlString = new StringBuffer("DELETE FROM TCliente ");
-      sqlString.append("WHERE idCliente=" +
+      sqlString.append("WHERE idCliente= " +
                        MysqlUtils.toMysqlString(cliente.getIdCliente()));
       stmt.execute(sqlString.toString());
+      	//TLogin
+      StringBuffer sb=new StringBuffer("DELETE FROM TLogin WHERE idUsuario= ");
+      sb.append(MysqlUtils.toMysqlString(cliente.getIdCliente()));
+      stmt1.execute(sb.toString());
+      
+      conn.commit();
+	 //fin transaccion
+	  conn.setAutoCommit(true);
 
-    }
-    catch (Exception ex) {
-     throw new RowNotFoundException();
-    }
+    }catch (SQLException ex){
+		try{ conn.rollback(); 
+		//si se ha producido un error no se ejecuta ninguna sentencia
+		}catch(SQLException sqle){}				
+	}catch(Exception e){
+		try{ conn.rollback(); 
+		//si se ha producido un error no se ejecuta ninguna sentencia
+		}catch(SQLException sqle){}	
+		throw new RowNotFoundException();
+	}
     finally{
    	 if (conn != null) 
    		 try{conn.close();}catch(SQLException e){}

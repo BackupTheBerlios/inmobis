@@ -29,7 +29,10 @@ public class ContableBD implements GestorContableBD{
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = null;
 		    
-		    rs = stmt.executeQuery("SELECT * FROM TVentas");
+		    rs = stmt.executeQuery("SELECT TInmueble.*,TVentas.idAgente," +
+		    		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
+		    		" TVentas.ganancia FROM TInmueble,TVentas " +
+		    		"WHERE TInmueble.idInmueble=TVentas.idInmueble");
 		    
 		    while(rs.next()){
 		    	VentasBean ventas=new VentasBean();
@@ -38,6 +41,15 @@ public class ContableBD implements GestorContableBD{
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
 		    	ventas.setPrecioFinal(rs.getString("ganancia"));
+		    	//campos correspondientes a TInmueble
+		    	ventas.setNumHab(rs.getString("numHab"));
+		    	ventas.setMetros(rs.getString("metros"));
+		    	ventas.setRegimen(rs.getString("regimen"));
+		    	ventas.setTipo(rs.getString("tipo"));
+		    	ventas.setZona(rs.getString("zona"));
+		    	ventas.setPrecio(rs.getString("precio"));
+		    	ventas.setDatosDeInteres(rs.getString("datosdeinteres"));
+		    	
 		    	listaVentas.add(ventas);
 		    }
 		    
@@ -74,7 +86,10 @@ public class ContableBD implements GestorContableBD{
 		    if (venta.getGanancia()!=null)
 			       consulta.put("precioFinal",venta.getGanancia());
 		    
-		    StringBuffer sqlString = new StringBuffer("SELECT * from TVentas WHERE ");
+		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.idAgente," +
+    		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
+    		" TVentas.ganancia FROM TInmueble,TVentas " +
+    		"WHERE TInmueble.idInmueble=TVentas.idInmueble AND ");
 		    Iterator it=consulta.keySet().iterator();
 		    
 		    while(it.hasNext()){
@@ -96,7 +111,15 @@ public class ContableBD implements GestorContableBD{
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
 		    	ventas.setPrecioFinal(rs.getString("ganancia"));
-		    	
+               //campos correspondientes a TInmueble
+		    	ventas.setNumHab(rs.getString("numHab"));
+		    	ventas.setMetros(rs.getString("metros"));
+		    	ventas.setRegimen(rs.getString("regimen"));
+		    	ventas.setTipo(rs.getString("tipo"));
+		    	ventas.setZona(rs.getString("zona"));
+		    	ventas.setPrecio(rs.getString("precio"));
+		    	ventas.setDatosDeInteres(rs.getString("datosdeinteres"));
+		    		    	
 		    	ventashechas.add(ventas);
 		    }
 		}catch (Exception ex){

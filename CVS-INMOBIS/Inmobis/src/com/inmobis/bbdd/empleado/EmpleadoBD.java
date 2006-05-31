@@ -183,19 +183,34 @@ public class EmpleadoBD implements BDObject,GestorEmpleadoBD {
     try {
       conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
-      ResultSet rs = null;
-
+      Statement stmt1 = conn.createStatement();
+ 
+//    transaccion
+	  conn.setAutoCommit(false);
+	  //empleado
       StringBuffer sqlString = new StringBuffer("DELETE FROM TEmpleados ");
       sqlString.append("WHERE idEmpleado=" +
                       MysqlUtils.toMysqlString(empleado.getIdEmpleado()));
       stmt.execute(sqlString.toString());
-
-
-
+//    TLogin
+      StringBuffer sb=new StringBuffer("DELETE FROM TLogin WHERE idUsuario= ");
+      sb.append(MysqlUtils.toMysqlString(empleado.getIdEmpleado()));
+      stmt1.execute(sb.toString());
+      
+      conn.commit();
+	 //fin transaccion
+	  conn.setAutoCommit(true);
     }
-    catch (Exception ex) {
-      throw new RowNotFoundException();
-    }
+    catch (SQLException ex){
+		try{ conn.rollback(); 
+		//si se ha producido un error no se ejecuta ninguna sentencia
+		}catch(SQLException sqle){}				
+	}catch(Exception e){
+		try{ conn.rollback(); 
+		//si se ha producido un error no se ejecuta ninguna sentencia
+		}catch(SQLException sqle){}	
+		throw new RowNotFoundException();
+	}
     finally{
    	 if (conn != null) 
    		 try{conn.close();}catch(SQLException e){}
