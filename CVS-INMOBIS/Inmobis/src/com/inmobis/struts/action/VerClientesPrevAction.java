@@ -60,7 +60,7 @@ public class VerClientesPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerClientesPrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("VerClientes", new ActionMessage("errors.listacliente.bbdd"));
+			errors.add("MenuGerente", new ActionMessage("errors.listacliente.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}

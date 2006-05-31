@@ -65,7 +65,7 @@ public class VerPisosVendidosAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerPisosVendidosAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("listainmueblesvendidos", new ActionMessage("errors.listainmueblesvendidos.bbdd"));
+			errors.add("MenuContable", new ActionMessage("errors.listainmueblesvendidos.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}

@@ -67,7 +67,7 @@ public class VerPisosAgenteAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerPisosAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("listainmuebles", new ActionMessage("errors.listainmuebles.bbdd"));
+			errors.add("MenuAgente", new ActionMessage("errors.listainmuebles.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
