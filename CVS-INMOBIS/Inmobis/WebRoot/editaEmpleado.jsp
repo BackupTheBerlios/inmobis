@@ -38,7 +38,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.password"/>
 					</td>
 					<td>
-						<html:password 	property="password" redisplay="false" maxlength="15" value="<%=form.getPassword()%>" />
+						<html:password 	property="password" redisplay="false" maxlength="12" value="<%=form.getPassword()%>" />
 						<html:errors property="password" />
 					</td>
 				</tr>
@@ -47,7 +47,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.passwordAgain"/>
 					</td>  
 					<td>
-						<html:password 	property="passwordAgain" maxlength="15" redisplay="false" value="<%=form.getPassword()%>"/>
+						<html:password 	property="passwordAgain" maxlength="12" redisplay="false" value="<%=form.getPassword()%>"/>
 						<html:errors property="passwordAgain" />
 					</td>
 				 </tr>
@@ -59,7 +59,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<html:hidden property="idUsuario" value="<%=form.getIdUsuario()%>"/>
 							<html:errors property="idUsuario" />
 							<!--El nombre de usuario y lo demas es normal-->
-							<html:text 	property="nombre" size="15" maxlength="30" value="<%=form.getNombre()%>"/>
+							<html:text 	property="nombre" size="15" maxlength="25" value="<%=form.getNombre()%>"/>
 							<html:errors property="nombre" />
 						</td>
 					</tr>  
@@ -68,7 +68,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.apellido1"/>
 						</td> 
 						<td>
-							<html:text 	property="apellido1" size="15" maxlength="30" value="<%=form.getApellido1()%>" />
+							<html:text 	property="apellido1" size="15" maxlength="25" value="<%=form.getApellido1()%>" />
 							<html:errors property="apellido1" />
 						</td>
 					</tr>
@@ -77,7 +77,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.apellido2"/>
 						</td>  
 						<td>
-							<html:text 	property="apellido2" size="15" maxlength="30" value="<%=form.getApellido2()%>"/>
+							<html:text 	property="apellido2" size="15" maxlength="25" value="<%=form.getApellido2()%>"/>
 							<html:errors property="apellido2" />
 						</td>
 					</tr>
@@ -86,7 +86,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.dni"/>
 						</td>   
 						<td>
-							<html:text 	property="nif" size="10" maxlength="10" value="<%=form.getNif()%>"/>
+							<html:text 	property="nif" size="10" maxlength="8" value="<%=form.getNif()%>"/>
 							<html:errors property="nif" />
 						</td>
 					</tr>
@@ -155,7 +155,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.email"/>
 						</td>
 						<td>
-							<html:text 	property="email" size="25" maxlength="50" value="<%=form.getEmail()%>"/>
+							<html:text 	property="email" size="25" maxlength="30" value="<%=form.getEmail()%>"/>
 							<html:errors property="email" />
 						</td>
 					 </tr>
@@ -164,7 +164,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.calle"/>
 						</td>  
 						<td>
-							<html:text 	property="calle" size="15" maxlength="50" value="<%=form.getCalle()%>"/>
+							<html:text 	property="calle" size="15" maxlength="30" value="<%=form.getCalle()%>"/>
 							<html:errors property="calle" />
 						</td>
 					 </tr>
@@ -173,7 +173,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.num"/>
 						</td>  
 						<td>
-							<html:text 	property="num" size="4" maxlength="15" value="<%=form.getNum()%>"/>
+							<html:text 	property="num" size="4" maxlength="4" value="<%=form.getNum()%>"/>
 							<html:errors property="num" />
 						</td>
 					 </tr>
@@ -200,7 +200,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.poblacion"/>
 						</td>   
 						<td>
-							<html:text 	property="poblacion" size="25" maxlength="50" value="<%=form.getPoblacion()%>"/>
+							<html:text 	property="poblacion" size="25" maxlength="30" value="<%=form.getPoblacion()%>"/>
 							<html:errors property="poblacion" />
 						</td>
 					 </tr>

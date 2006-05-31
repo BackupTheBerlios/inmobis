@@ -46,7 +46,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<html:errors property="idAgente" />
 							-->
 							<!--El nombre de usuario y lo demas es normal-->
-							<html:text 	property="nombreUsuario" size="15" maxlength="30" value="<%=form.getNombreUsuario()%>" />
+							<html:text 	property="nombreUsuario" size="15" maxlength="25" value="<%=form.getNombreUsuario()%>" />
 							<html:errors property="nombreUsuario" />
 						</td>
 					</tr>
@@ -55,7 +55,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.password"/>
 						</td>     
 						<td>
-							<html:password 	property="password" size="15" redisplay="false" maxlength="15" value="<%=form.getPassword()%>"/>
+							<html:password 	property="password" size="15" redisplay="false" maxlength="12" value="<%=form.getPassword()%>"/>
 							<html:errors property="password" />
 						</td>
 					</tr>
@@ -64,7 +64,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.passwordAgain"/>
 						</td>
 						<td>
-							<html:password 	property="passwordAgain" size="15" maxlength="15" redisplay="false" value="<%=form.getPassword()%>"/>
+							<html:password 	property="passwordAgain" size="15" maxlength="12" redisplay="false" value="<%=form.getPassword()%>"/>
 							<html:errors property="passwordAgain" />
 						</td>
 					</tr>
@@ -73,7 +73,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.nombre"/>
 						</td>   
 						<td>
-							<html:text 	property="nombre" size="15" maxlength="30" value="<%=form.getNombre()%>" />
+							<html:text 	property="nombre" size="15" maxlength="25" value="<%=form.getNombre()%>" />
 							<html:errors property="nombre" />
 						</td>
 					</tr>  				
@@ -82,7 +82,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.apellido1"/>
 						</td> 
 						<td>
-							<html:text 	property="apellido1" size="15" maxlength="30" value="<%=form.getApellido1()%>" />
+							<html:text 	property="apellido1" size="15" maxlength="25" value="<%=form.getApellido1()%>" />
 							<html:errors property="apellido1" />
 						</td>
 					</tr>
@@ -91,7 +91,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.apellido2"/>
 						</td>  
 						<td>
-							<html:text 	property="apellido2" size="15" maxlength="30" value="<%=form.getApellido2()%>"/>
+							<html:text 	property="apellido2" size="15" maxlength="25" value="<%=form.getApellido2()%>"/>
 							<html:errors property="apellido2" />
 						</td>
 					</tr>
@@ -100,7 +100,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.dni"/>
 						</td>   
 						<td>
-							<html:text 	property="dni" size="10" maxlength="10" value="<%=form.getDni()%>"/>
+							<html:text 	property="dni" size="10" maxlength="8" value="<%=form.getDni()%>"/>
 							<html:errors property="dni" />
 						</td>
 					</tr>
@@ -135,7 +135,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.email"/>
 						</td>
 						<td>
-							<html:text 	property="email" size="25" maxlength="50" value="<%=form.getEmail()%>"/>
+							<html:text 	property="email" size="25" maxlength="30" value="<%=form.getEmail()%>"/>
 							<html:errors property="email" />
 						</td>
 					 </tr>
@@ -144,7 +144,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.calle"/>
 						</td>  
 						<td>
-							<html:text 	property="calle" size="15" maxlength="50" value="<%=form.getCalle()%>"/>
+							<html:text 	property="calle" size="15" maxlength="30" value="<%=form.getCalle()%>"/>
 							<html:errors property="calle" />
 						</td>
 					 </tr>
@@ -153,7 +153,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.num"/>
 						</td>  
 						<td>
-							<html:text 	property="num" size="4" maxlength="20" value="<%=form.getNum()%>"/>
+							<html:text 	property="num" size="4" maxlength="4" value="<%=form.getNum()%>"/>
 							<html:errors property="num" />
 						</td>
 					 </tr>
@@ -180,7 +180,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");//Para mostrar el menú a
 							<fmt:message key="editaCliente.poblacion"/>
 						</td>   
 						<td>
-							<html:text 	property="poblacion" size="25" maxlength="50" value="<%=form.getPoblacion()%>"/>
+							<html:text 	property="poblacion" size="25" maxlength="30" value="<%=form.getPoblacion()%>"/>
 							<html:errors property="poblacion" />
 						</td>
 					 </tr>
