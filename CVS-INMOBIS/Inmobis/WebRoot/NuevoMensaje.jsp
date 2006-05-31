@@ -1,4 +1,4 @@
-<!--HAY QUE HACER UN IMPORT PARA COGER LA FECHA DE HOY-->
+<%--Librería específica de esta página: para obtener la fecha--%>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS Real Estate - Nuevo mensaje";%>
 <%boolean esIndex=false; %>
@@ -14,10 +14,12 @@ CON UN ANCHO DE 767 px -->
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");
 String nombreO = (String)sesion.getAttribute("userName");
+String idOrigen = (String)sesion.getAttribute("IdUsuario");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
-<%}%><%@ include file="menu_izdo.jsp" %>
+<%}%>
+<%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
 					<html:errors property="enviarMensaje"/>
@@ -37,6 +39,9 @@ String nombreO = (String)sesion.getAttribute("userName");
 							<td>
 								<html:text 	property="nombreOrigen" maxlength="50" readonly="true" value="<%=nombreO%>"/>
 								<html:errors property="nombreOrigen"/>
+								<!--El identificador del usuario que manda el mensaje-->
+								<html:hidden property="origen" value="<%=idOrigen%>"/>
+								<html:errors property="origen"/>
 							</td>
 						</tr>
 						<tr>  
@@ -44,26 +49,26 @@ String nombreO = (String)sesion.getAttribute("userName");
 								<fmt:message key="nuevoMensaje.nombreDestino"/>
 							</td>     
 							<td>
-								<html:text 	property="nombreDestino" maxlength="50" />
-								<html:errors property="nombreDestino"/>
+								<html:select property="destino" size="1">
+									<!--Se sacan las opciones de la lista de destinos-->
+									<html:options collection="listaDestinos" property="destino" labelProperty="nombreDestino" />
+									<!--PROBAR A VER SI FALLA-->
+								</html:select>
+								<html:errors property="destino"/>								
 							</td>
-						</tr>
-						<tr>  
-							<td>   
-								<fmt:message key="nuevoMensaje.fecha"/>
-							</td>     
-							<td>
-								<html:text 	property="fecha" maxlength="50" />
-								<!--HAY QUE PONER LA FECHA DEL DÍA DE HOY CON Date x= newDate(), HAY QUE SABER EL FORMATO DE LOS DATOS (es AAAAMMDD??)-->
-								<html:errors property="fecha"/>
-							</td>
-						</tr>
+						</tr>						
 						<tr>  
 							<td>   
 								<fmt:message key="nuevoMensaje.asunto"/>
 							</td>     
 							<td>
-								<html:text 	property="asunto" maxlength="50" />
+								<!--La fecha de envío-->
+								<jsp:useBean id="now" class="java.util.Date" />
+								<html:hidden property="fecha" value="<%$={now}%>"/>
+								<!--PROBAR SI DA ERROR LO DE ARRIBA-->
+								<html:errors property="fecha"/>
+								<!--El asunto-->
+								<html:text 	property="asunto" size="50" maxlength="80" />
 								<html:errors property="asunto"/>
 							</td>
 						</tr>
@@ -80,9 +85,10 @@ String nombreO = (String)sesion.getAttribute("userName");
 							</td>
 						</tr>
 					</table>
+					<br><br>
 					<table width="100%">
 						<tr>
-							<td>	
+							<td align="right">	
 								<html:submit>
 									<fmt:message key="nuevoMensaje.button.signon"/>
 								</html:submit>
