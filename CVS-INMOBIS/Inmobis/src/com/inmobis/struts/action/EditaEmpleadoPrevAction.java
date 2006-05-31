@@ -32,9 +32,12 @@ public class EditaEmpleadoPrevAction extends Action {
 				
 		Consultar consult=CreadorConsultar.CreaConsultar("empleado");
 		EditaEmpleadoForm datosEmpleado =(EditaEmpleadoForm)consult.dameDatos(((EditaEmpleadoPrevForm)form).getIdEmpleado());
-			
+		
+		if(!datosEmpleado.getTipoEmpleado().toLowerCase().equals("agente"))
+			datosEmpleado.setPorcentaje(" ");
 		if (i_log.isInfoEnabled()){
 			i_log.info("Direccion "+datosEmpleado.getCalle());
+			i_log.info("Porcentaje "+datosEmpleado.getPorcentaje());
 		}
 		//Poner los datos en una variable de sesion
 		HttpSession session = request.getSession(true);

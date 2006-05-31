@@ -112,13 +112,14 @@ public class ConsultarEmpleado extends Consultar{
 		form.setEmail(email.getDirMail());
 		form.setPassword(login.getPassword());
 		form.setTipoEmpleado(login.getTipoUsuario());
+		String porcentaje="";
 		if(login.getTipoUsuario().toLowerCase().equals("agente")){
 			if(log.isInfoEnabled())
 				log.info("Es agente, cojo el porcentaje" );
 			//Miro el porcentaje
 			AgenteBean agente=new AgenteBean();
 			agente.setIdAgente(empleado.getIdEmpleado());
-			String porcentaje;
+			
 			GestorAgenteBD gestorAgente=(GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
 			try {
 				gestorAgente.select();
@@ -131,6 +132,8 @@ public class ConsultarEmpleado extends Consultar{
 					log.info("Error Porcentaje: "+e );
 			}
 		}
+		if(log.isInfoEnabled())
+			log.info("Porcentaje: "+porcentaje );
 		return form;
 	}
 	

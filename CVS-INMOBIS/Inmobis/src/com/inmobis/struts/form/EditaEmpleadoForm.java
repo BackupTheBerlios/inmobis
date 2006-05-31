@@ -420,7 +420,7 @@ public class EditaEmpleadoForm extends ActionForm{
 		this.tipoEmpleado=tEmp.trim();
 	}
 	public void setPorcentaje(String p){
-		this.porcentaje=p.trim();
+		this.porcentaje=p;
 	}
 	public void setEmail(String email){
 		this.email=email.trim();
