@@ -62,7 +62,9 @@ public class UsuarioLoginBD implements BDObject {
      }
      catch(Exception ex)
        {
-        System.out.println(ex);
+    	 if (milog.isInfoEnabled()){
+ 			milog.info(ex);
+ 		}  
        }
      finally{
     	 if (conn != null) 
@@ -100,7 +102,9 @@ public class UsuarioLoginBD implements BDObject {
      }
      catch(Exception ex)
        {
-        System.out.println(ex);
+    	 if (milog.isInfoEnabled()){
+ 			milog.info(ex);
+ 		}  
        }
      finally{
     	 if (conn != null) 

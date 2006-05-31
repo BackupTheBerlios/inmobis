@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 import com.inmobis.bbdd.ConnectionManager;
 import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
@@ -26,7 +28,7 @@ import com.inmobis.bbdd.empleado.*;
 public class VentasBD {
 private VentasBean ventas;
 private Connection conn;
-
+private static final Logger milog = Logger.getLogger(VentasBD.class);
   public VentasBD(VentasBean _ventas) {
       ventas = _ventas;
 
@@ -86,7 +88,9 @@ private Connection conn;
       sqlString.append(MysqlUtils.toMysqlString(ventas.getPrecioFinal()) + ", ");
       sqlString.append(MysqlUtils.toMysqlString(ventas.getGanancia()) +
                        ")");
-      System.out.println(sqlString);
+      if (milog.isInfoEnabled()){
+			milog.info(sqlString);
+		}  
       stmt.execute(sqlString.toString());
     }
     catch (Exception ex) {

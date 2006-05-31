@@ -332,7 +332,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		  	String key=(String) it.next();
 		          sqlString.append(key +"="+
 		                        MysqlUtils.toMysqlString((String) consulta.get(key)));
-		          System.out.println(consulta.get(key));
+		          if (milog.isInfoEnabled()){
+			 			milog.info(consulta.get(key));
+			 		}
 		          if (it.hasNext())
 		              sqlString.append(" AND ");
 		  	}

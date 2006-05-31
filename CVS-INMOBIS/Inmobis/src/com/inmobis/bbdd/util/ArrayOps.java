@@ -2,9 +2,13 @@ package com.inmobis.bbdd.util;
 
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
+import com.inmobis.bbdd.empleado.ContableBD;
+
 
 public class ArrayOps {
-
+	private static final Logger milog = Logger.getLogger(ArrayOps.class);
 	/**
 	 *  Método que convierte un array de caracteres a Vector de Character
 	 *
@@ -41,7 +45,9 @@ public class ArrayOps {
 	 */
 	public static void print(Vector v) {
 		for (int i = 0; i < v.size(); i++) {
-			System.out.print(v.elementAt(i).toString());
+	    	  if (milog.isInfoEnabled()){
+	    			milog.info(v.elementAt(i).toString());
+	    		}
 		}
 	}
 
@@ -53,7 +59,9 @@ public class ArrayOps {
 	 */
 	public static void print(String v[]) {
 		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i]);
+			if (milog.isInfoEnabled()){
+    			milog.info(v[i]);
+    		}
 		}
 	}
 
