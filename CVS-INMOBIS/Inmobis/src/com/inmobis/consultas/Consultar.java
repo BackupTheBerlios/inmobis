@@ -50,4 +50,5 @@ public abstract class Consultar {
 
 	// se sobreescribe en ConsultarMensaje
 	public ActionForm VerMensaje(ActionForm form){return null;}
+	public Vector GetDestinosMensaje(ActionForm form){return null;}
 }
