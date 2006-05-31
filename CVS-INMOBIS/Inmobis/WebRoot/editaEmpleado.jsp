@@ -227,9 +227,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</html:submit>
 							</td>
 							<td>
-								<html:reset>
+								<html:cancel>
 									<fmt:message key="editaEmpleado.button.cancelar"/>
-								</html:reset>
+								</html:cancel>
 							</td>
 							</tr>
 						</table>
