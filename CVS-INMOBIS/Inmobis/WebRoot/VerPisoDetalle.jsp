@@ -1,5 +1,5 @@
 <%--Los includes específicos de esta página--%>
-<%@ page import="com.inmobis.struts.form.EditaPisoForm" %>
+<%@ page import="com.inmobis.struts.form.VerPisoDetalleForm" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "INMOBIS Real Estate - Edici&oacute;n de piso";%>
 <%boolean esIndex=false; %>
