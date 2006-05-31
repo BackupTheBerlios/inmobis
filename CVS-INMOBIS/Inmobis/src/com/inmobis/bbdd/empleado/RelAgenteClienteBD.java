@@ -42,8 +42,8 @@ public void select () throws RowNotFoundException {
     Statement stmt = conn.createStatement();
     ResultSet rs = null;
 
-    rs = stmt.executeQuery("SELECT * FROM TAgentesClientes WHERE idAgente=" +
-                           MysqlUtils.toMysqlString(agenteCliente.getIdAgente()));
+    rs = stmt.executeQuery("SELECT * FROM TAgentesClientes WHERE idCliente=" +
+                           MysqlUtils.toMysqlString(agenteCliente.idCliente));
     if (rs.next()) {
       agenteCliente.setIdAgente(rs.getString("idAgente"));
       agenteCliente.setIdCliente(rs.getString("idCliente"));
@@ -66,7 +66,7 @@ public void select () throws RowNotFoundException {
 
 }
 
-public void selectPorIdCliente () throws RowNotFoundException {
+public void selectPorIdAgente () throws RowNotFoundException {
 
 	  try {
 
@@ -75,10 +75,10 @@ public void selectPorIdCliente () throws RowNotFoundException {
 	    ResultSet rs = null;
 
 	    if (milog.isInfoEnabled()){
-			milog.info("idCliente: "+agenteCliente.getIdCliente());
+			milog.info("idAgente: "+agenteCliente.getIdAgente());
 	    }
-	    rs = stmt.executeQuery("SELECT * FROM TAgentesClientes WHERE idCliente=" +
-	                           MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
+	    rs = stmt.executeQuery("SELECT * FROM TAgentesClientes WHERE idAgente= " +
+	                           MysqlUtils.toMysqlString(agenteCliente.getIdAgente()));
 	    if (rs.next()) {
 	      agenteCliente.setIdAgente(rs.getString("idAgente"));
 	      agenteCliente.setIdCliente(rs.getString("idCliente"));
@@ -141,8 +141,8 @@ try {
                    MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
 
 
-  sqlString.append("WHERE IdAgente=" +
-                   MysqlUtils.toMysqlString(agenteCliente.getIdAgente()));
+  sqlString.append("WHERE IdCliente=" +
+                   MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
   stmt.execute(sqlString.toString());
 
 
@@ -165,8 +165,8 @@ try {
   ResultSet rs = null;
 
   StringBuffer sqlString = new StringBuffer("DELETE FROM TAgentesClientes ");
-  sqlString.append("WHERE idAgente=" +
-                  MysqlUtils.toMysqlString(agenteCliente.getIdAgente()));
+  sqlString.append("WHERE idCliente=" +
+                  MysqlUtils.toMysqlString(agenteCliente.getIdCliente()));
  stmt.execute(sqlString.toString());
 
 

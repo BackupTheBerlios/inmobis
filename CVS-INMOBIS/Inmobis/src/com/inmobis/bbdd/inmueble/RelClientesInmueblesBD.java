@@ -10,14 +10,7 @@ import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 
 
-/**
- * <p>Title: </p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2006</p>
- * <p>Company: </p>
- * @author unascribed
- * @version 1.0
- */
+
 
 public class RelClientesInmueblesBD {
   private RelClientesInmueblesBean clienteInmueble;
@@ -39,8 +32,8 @@ public class RelClientesInmueblesBD {
 	    Statement stmt = conn.createStatement();
 	    ResultSet rs = null;
 
-	    rs = stmt.executeQuery("SELECT * FROM TClientesInmuebles WHERE idCliente=" +
-	                           MysqlUtils.toMysqlString(clienteInmueble.getIdCliente()));
+	    rs = stmt.executeQuery("SELECT * FROM TClientesInmuebles WHERE idInmueble=" +
+	                           MysqlUtils.toMysqlString(clienteInmueble.getIdInmueble()));
 	    if (rs.next()) {
 	    	
 	    	clienteInmueble.setIdCliente(rs.getString("idCliente"));
@@ -102,8 +95,8 @@ public class RelClientesInmueblesBD {
 	                   MysqlUtils.toMysqlString(clienteInmueble.getIdInmueble()));
 
 
-	  sqlString.append("WHERE IdCliente=" +
-	                   MysqlUtils.toMysqlString(clienteInmueble.getIdCliente()));
+	  sqlString.append("WHERE IdInmueble=" +
+	                   MysqlUtils.toMysqlString(clienteInmueble.getIdInmueble()));
 	  stmt.execute(sqlString.toString());
 
 
@@ -126,8 +119,8 @@ public class RelClientesInmueblesBD {
 	  ResultSet rs = null;
 
 	  StringBuffer sqlString = new StringBuffer("DELETE FROM TClientesInmuebles ");
-	  sqlString.append("WHERE idCliente=" +
-	                  MysqlUtils.toMysqlString(clienteInmueble.getIdCliente()));
+	  sqlString.append("WHERE idInmueble=" +
+	                  MysqlUtils.toMysqlString(clienteInmueble.getIdInmueble()));
 	 stmt.execute(sqlString.toString());
 
 
