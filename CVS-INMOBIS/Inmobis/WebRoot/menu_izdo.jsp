@@ -102,7 +102,7 @@
 		<a href="verPisos.do">
 			<fmt:message key="menuCliente.inmuebles"/>
 		</a>
-		<a href="PonerQueja.jsp">
+		<a href="listaMensajesPrev.do">
 			<fmt:message key="menuCliente.quejas"/>
 		</a>
 		<a href="PonerMensaje.jsp">
