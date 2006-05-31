@@ -31,7 +31,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<th><bean:message key="app.regimen" /></th>
 				<th><bean:message key="app.tipo" /></th>
 				<th><bean:message key="app.precio" /></th>
-				<th colspan="2">Opc.</th>
+				<th colspan="3">Opc.</th>
 			</tr>
 			<!-- iterate over the results of the query -->
 			<logic:iterate id="inmueble"  name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean" >   
@@ -57,8 +57,11 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<td width="15">
 					<a href="BorraPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
 				</td>
-				<td align="right" width="15">
+				<td width="15">
 					<a href="EditaPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+				</td>
+				<td width="15">
+					<a href="VerDetallePiso.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_detalles.gif" WIDTH="25" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
 				</td>
 			</tr>
 			</logic:iterate>
