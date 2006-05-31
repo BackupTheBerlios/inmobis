@@ -24,6 +24,7 @@
       path="/filtrarPiso"
       type="com.inmobis.struts.action.FiltrarPisoAction">
       <forward name="exito" path="/VerPisos.jsp" />
+      <forward name="error" path="/FiltrarPisos.jsp" />
     </action>
 
     <action
