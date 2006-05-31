@@ -1,10 +1,18 @@
 package com.inmobis.altas;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.upload.FormFile;
 
+import com.inmobis.INMOCTES;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.GeneradorDeCodigos;
 import com.inmobis.bbdd.RowExistsException;
@@ -26,16 +34,19 @@ public class IntroducirInmueble extends Introducir{
 	public ActionMessages introduce(ActionForm datosInmueble){
 		GeneradorDeCodigos gc=GeneradorDeCodigos.getGeneradorDeCodigos();
 		ActionMessages errors= new ActionMessages();
+		RegistraPisoForm datosInmo = (RegistraPisoForm) datosInmueble;
 		
 		//Creamos y rellenamos el objeto Bean para el inmueble
 		InmuebleBean inmueble=new InmuebleBean();
-		inmueble.setMetros(((RegistraPisoForm)datosInmueble).getMetros());
-		inmueble.setPrecio(((RegistraPisoForm)datosInmueble).getPrecio());
-		inmueble.setRegimen(((RegistraPisoForm)datosInmueble).getRegimen());
-		inmueble.setNumHab(((RegistraPisoForm)datosInmueble).getNumHab());
-		inmueble.setTipo(((RegistraPisoForm)datosInmueble).getTipo());
-		inmueble.setZona(((RegistraPisoForm)datosInmueble).getZona());
-		inmueble.setDatosDeInteres(((RegistraPisoForm)datosInmueble).getDatosInteres());
+		inmueble.setMetros(datosInmo.getMetros());
+		inmueble.setPrecio(datosInmo.getPrecio());
+		inmueble.setRegimen(datosInmo.getRegimen());
+		inmueble.setNumHab(datosInmo.getNumHab());
+		inmueble.setTipo(datosInmo.getTipo());
+		inmueble.setZona(datosInmo.getZona());
+		inmueble.setDatosDeInteres(datosInmo.getDatosInteres());
+		inmueble.setFoto1(datosInmo.getFoto1());
+		inmueble.setFoto2(datosInmo.getFoto2());
 		inmueble.setIdInmueble(gc.asignaCodigoInmueble());
 		if(i_log.isInfoEnabled())
 			i_log.info("Codigo Inmueble:" + inmueble.getIdInmueble());
@@ -45,26 +56,39 @@ public class IntroducirInmueble extends Introducir{
 		//Creamos un Bean de Direccion asociada al inmueble ya creado
 		InfoDirBean direccion=gestorInmueble.newInfoDirInmuebles("casa");
 		//Rellenamos el bean 
-		direccion.setCalle(((RegistraPisoForm)datosInmueble).getCalle());
-		direccion.setNum(((RegistraPisoForm)datosInmueble).getNum());
-		direccion.setPiso(((RegistraPisoForm)datosInmueble).getPiso());
-		direccion.setCodPostal(((RegistraPisoForm)datosInmueble).getCodPostal());
-		direccion.setPoblacion(((RegistraPisoForm)datosInmueble).getPoblacion());
-		direccion.setProvincia(((RegistraPisoForm)datosInmueble).getProvincia());
-		direccion.setPais(((RegistraPisoForm)datosInmueble).getPais());
+		direccion.setCalle(datosInmo.getCalle());
+		direccion.setNum(datosInmo.getNum());
+		direccion.setPiso(datosInmo.getPiso());
+		direccion.setCodPostal(datosInmo.getCodPostal());
+		direccion.setPoblacion(datosInmo.getPoblacion());
+		direccion.setProvincia(datosInmo.getProvincia());
+		direccion.setPais(datosInmo.getPais());
 		
 		ClienteBean cliente=new ClienteBean();
 		GestorClienteBD gestorCliente=(GestorClienteBD)CreadorGestores.crearGestor("cliente",cliente);
 		try {
-			gestorCliente.consultaLoginPorNombreUsuario(((RegistraPisoForm)datosInmueble).getNombreUsuario());
+			gestorCliente.consultaLoginPorNombreUsuario(datosInmo.getNombreUsuario());
 			if(i_log.isInfoEnabled())
-				i_log.info("id de:"+((RegistraPisoForm)datosInmueble).getNombreUsuario()+" o "+
+				i_log.info("id de:"+datosInmo.getNombreUsuario()+" o "+
 						gestorCliente.getLoginBean().getNombreUsuario()+" es "+gestorCliente.getLoginBean().getIdUsuario());
 			if (gestorCliente.getLoginBean().getIdUsuario()!=null)	{
 				try {
-					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
+					//Guardamos la foto1 si la hay
+					if (!datosInmo.getFoto1().trim().equalsIgnoreCase(""))
+					{
+						if(i_log.isInfoEnabled())
+							i_log.info("NombreFoto1:"+datosInmo.getBinFoto1().getFileName());
+						errors = EscribeFichero(datosInmo.getBinFoto1(),errors);
+					}
+					if (!datosInmo.getFoto2().trim().equalsIgnoreCase(""))
+					{
+						if(i_log.isInfoEnabled())
+							i_log.info("NombreFoto2:"+datosInmo.getBinFoto2().getFileName());
+						errors = EscribeFichero(datosInmo.getBinFoto2(),errors);
+					}
 					gestorInmueble.insert();
 					gestorInmueble.insertaDir(direccion);
+					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
 				} catch (RowExistsException e) {
 					errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
 					if(i_log.isInfoEnabled())
@@ -83,6 +107,28 @@ public class IntroducirInmueble extends Introducir{
 				i_log.info("No se ha encontrado el cliente indicado");
 		}
 		
+		return errors;
+	}
+
+	private ActionMessages EscribeFichero(FormFile miFile, ActionMessages errors){
+		try {
+			OutputStream bos = new FileOutputStream(INMOCTES.pathFotos+miFile.getFileName());
+			InputStream stream = miFile.getInputStream();
+			byte[] buffer = new byte[8192];
+			int bytesLeidos = 0;
+			while((bytesLeidos = stream.read(buffer,0,8192))!= -1){
+				bos.write(buffer,0,bytesLeidos);
+			}
+			bos.close(); //Cerramos el fichero
+		} catch (FileNotFoundException e) {
+			errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+			if(i_log.isInfoEnabled())
+				i_log.info("Fallo al guardar la foto1:" + e.toString());							// TODO Auto-generated catch block
+		} catch (IOException e) {
+			errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
+			if(i_log.isInfoEnabled())
+				i_log.info("Fallo al guardar la foto1:" + e.toString());							// TODO Auto-generated catch block
+		}
 		return errors;
 	}
 	
