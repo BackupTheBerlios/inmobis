@@ -10,5 +10,5 @@ public final class INMOCTES {
 	public static String rolAgente = "agente";
 	public static String rolGerente = "gerente";
 	public static String rolContable = "contable";
-
+	public static String pathFotos = "c:\\tomcat\\webapps\\Inmobis\\images\\fotos\\";
 }
