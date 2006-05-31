@@ -121,6 +121,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</td> 							
 						<td>
 							<html:select property="porcentaje" size="1" value="<%=form.getPorcentaje()%>">
+								<html:option value=""></html:option>
 								<html:option value="5">5 %</html:option>
 								<html:option value="10">10 %</html:option>
 								<html:option value="15">15 %</html:option>
