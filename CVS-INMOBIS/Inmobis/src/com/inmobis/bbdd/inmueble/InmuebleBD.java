@@ -69,7 +69,8 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
          inmueble.setZona(rs.getString("zona"));
          inmueble.setPrecio(rs.getString("precio"));
          inmueble.setDatosDeInteres(rs.getString("datosdeinteres"));
-
+         inmueble.setFoto1(rs.getString("foto1"));
+         inmueble.setFoto2(rs.getString("foto2"));
 
        }
        else {
@@ -107,7 +108,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
      sqlString.append(MysqlUtils.toMysqlString(inmueble.getTipo()) + ", ");
      sqlString.append(MysqlUtils.toMysqlString(inmueble.getZona()) + ", ");
      sqlString.append(MysqlUtils.toMysqlString(inmueble.getPrecio()) + ", ");
-     sqlString.append(MysqlUtils.toMysqlString(inmueble.getdatosDeInteres()) +
+     sqlString.append(MysqlUtils.toMysqlString(inmueble.getdatosDeInteres())+", ");
+	 sqlString.append(MysqlUtils.toMysqlString(inmueble.getFoto1())+", ");
+     sqlString.append(MysqlUtils.toMysqlString(inmueble.getFoto2()) +
                       ")");
      if (milog.isInfoEnabled()){
 			milog.info("comando sql: "+sqlString);

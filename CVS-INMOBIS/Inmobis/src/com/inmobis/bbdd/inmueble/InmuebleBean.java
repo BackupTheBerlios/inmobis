@@ -18,7 +18,25 @@ public class InmuebleBean {
     protected String zona;
     protected String precio;
     protected String datosDeInteres;
+    protected String foto1;
+    protected String foto2;
 
+    public String getFoto1() {
+		return foto1;
+	}
+
+	public void setFoto1(String foto1) {
+		this.foto1 = foto1;
+	}
+
+	public String getFoto2() {
+		return foto2;
+	}
+
+	public void setFoto2(String foto2) {
+		this.foto2 = foto2;
+	}
+    
     public String getIdInmueble() {
     return idInmueble;
     }
