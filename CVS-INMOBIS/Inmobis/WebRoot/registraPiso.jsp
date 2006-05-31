@@ -37,7 +37,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="calle" 
 											size="15" 
-											maxlength="15" />
+											maxlength="30" />
 								<html:errors property="calle" />
 							</td>
 						</tr>	
@@ -48,7 +48,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="num" 
 											size="15" 
-											maxlength="15" />
+											maxlength="4" />
 								<html:errors property="num" />
 							</td>
 						</tr>	
@@ -59,7 +59,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="piso" 
 											size="15" 
-											maxlength="15" />
+											maxlength="10" />
 								<html:errors property="piso" />
 							</td>
 						</tr>	
@@ -70,7 +70,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="codPostal" 
 											size="15" 
-											maxlength="15" />
+											maxlength="5" />
 								<html:errors property="codPostal" />
 							</td>
 						</tr>	
@@ -81,7 +81,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="poblacion" 
 											size="15" 
-											maxlength="15" />
+											maxlength="30" />
 								<html:errors property="poblacion" />
 							</td>
 						</tr>	
@@ -101,9 +101,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<fmt:message key="registraPiso.pais"/>
 							</td>
 							<td>
-								<html:text 	property="pais" 
-											size="15" 
-											maxlength="15" />
+								<html:text 	property="pais" readonly="true" value="España"/>
 								<html:errors property="pais" />
 							</td>
 						</tr>						
@@ -148,7 +146,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="metros" 
 											size="15" 
-											maxlength="15" />
+											maxlength="10" />
 								<html:errors property="metros" />
 							</td>
 						</tr> 
@@ -159,7 +157,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="zona" 
 											size="15" 
-											maxlength="15" />
+											maxlength="30" />
 								<html:errors property="zona" />
 							</td>
 						</tr> 
@@ -190,7 +188,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<td>
 								<html:text 	property="nombreUsuario" 
 											size="15" 
-											maxlength="15" />
+											maxlength="25" />
 								<html:errors property="nombreUsuario" />
 							</td>
 						</tr> 

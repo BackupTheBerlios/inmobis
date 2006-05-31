@@ -35,7 +35,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="nombreCliente" 
 													size="40" 
-													maxlength="40" />
+													maxlength="25" />
 										<html:errors property="nombreCliente" />
 									</td>
 								</tr>	
@@ -46,7 +46,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="apellido1" 
 													size="20" 
-													maxlength="40" />
+													maxlength="25" />
 										<html:errors property="apellido1" />
 									</td>
 								</tr>	
@@ -57,7 +57,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="apellido2" 
 													size="20" 
-													maxlength="40" />
+													maxlength="25" />
 										<html:errors property="apellido2" />
 									</td>
 								</tr>
@@ -80,7 +80,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="dniCliente" 
 													size="15" 
-													maxlength="15" />
+													maxlength="8" />
 										<html:errors property="dniCliente" />
 									</td>
 								</tr>								

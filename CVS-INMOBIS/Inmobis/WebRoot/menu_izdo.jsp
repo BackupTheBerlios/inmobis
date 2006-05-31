@@ -45,14 +45,14 @@
 		<br>	
 		&nbsp;<html:text 	property="userName" 
 							size="15" 
-							maxlength="20" />
+							maxlength="25" />
 		&nbsp;<html:errors property="userName" />
 		<br><br>
 		&nbsp;<fmt:message key="login.password"/>
 		<br>
 		&nbsp;<html:password 	property="password" 
 								size="15" 
-								maxlength="20" 
+								maxlength="12" 
 								redisplay="false"/>
 		&nbsp;<html:errors property="password" />
 		<br><br>

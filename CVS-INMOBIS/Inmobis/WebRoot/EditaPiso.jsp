@@ -67,7 +67,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.zona"/>	
 						</td>
 						<td>
-							<html:text 	property="zona" size="15" maxlength="50" value="<%=form.getZona()%>" />
+							<html:text 	property="zona" size="15" maxlength="30" value="<%=form.getZona()%>" />
 							<html:errors property="zona" />
 						</td>
 					</tr>
@@ -76,7 +76,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.metros"/>	
 						</td>
 						<td>
-							<html:text 	property="metros" size="15"	maxlength="20" value="<%=form.getMetros()%>" />
+							<html:text 	property="metros" size="15"	maxlength="10" value="<%=form.getMetros()%>" />
 							<html:errors property="metros" />
 						</td>
 					</tr>
@@ -124,7 +124,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.num"/>	
 						</td>
 						<td>
-							<html:text 	property="num" size="8"	maxlength="20" value="<%=form.getNum()%>" />
+							<html:text 	property="num" size="8"	maxlength="4" value="<%=form.getNum()%>" />
 							<html:errors property="num" />
 						</td>
 					</tr>
@@ -151,7 +151,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaPiso.poblacion"/>	
 						</td>
 						<td>
-							<html:text 	property="poblacion" size="15" maxlength="50" value="<%=form.getPoblacion()%>"/>
+							<html:text 	property="poblacion" size="15" maxlength="30" value="<%=form.getPoblacion()%>"/>
 							<html:errors property="poblacion" />
 						</td>
 					</tr>
