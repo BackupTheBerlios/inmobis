@@ -61,7 +61,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<a href="EditaPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
 				</td>
 				<td width="15">
-					<a href="VerDetallePiso.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_detalles.gif" WIDTH="25" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
+					<a href="VerDetallePiso.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_detalles.gif" WIDTH="25" HEIGHT="16" BORDER="0" ALT="Ver detalles"></a>
 				</td>
 			</tr>
 			</logic:iterate>

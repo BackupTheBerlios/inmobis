@@ -32,6 +32,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						   <th><bean:message key="app.zona" /></th>
 						   <th><bean:message key="app.precio" /></th>
 						   <!--<th><bean:message key="app.datosdeinteres" /></th>-->  
+						   <th>Opc.</th>
    						</tr>
 						<logic:iterate id="inmueble" name="listaInmuebles">   
 					    <tr>
@@ -52,6 +53,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							</td>
 							<td>
 								<bean:write name="inmueble" property="precio" />
+							</td>ç
+							<td width="15">
+								<a href="VerDetallePiso.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_detalles.gif" WIDTH="25" HEIGHT="16" BORDER="0" ALT="Ver detalles"></a>
 							</td>
 						</tr>
 				      </logic:iterate>
