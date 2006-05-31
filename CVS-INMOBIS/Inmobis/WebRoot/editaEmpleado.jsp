@@ -120,8 +120,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="editaEmpleado.porcentaje"/>
 						</td> 							
 						<td>
-							<!--ESTO PROBABLEMENTE SEA UN SELECT-->
-							<html:text 	property="porcentaje" size="10" maxlength="10" value="<%=form.getPorcentaje()%>"/>
+							<html:select property="porcentaje" size="1" value="<%=form.getPorcentaje()%>">
+								<html:option value="5">5 %</html:option>
+								<html:option value="10">10 %</html:option>
+								<html:option value="15">15 %</html:option>
+								<html:option value="20" >20 %</html:option>
+								<html:option value="25" >25 %</html:option>
+							</html:select>
 							<html:errors property="porcentaje" />								
 						</td>
 					</tr>
@@ -227,9 +232,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</html:submit>
 							</td>
 							<td>
-								<html:cancel>
+								<html:reset>
 									<fmt:message key="editaEmpleado.button.cancelar"/>
-								</html:cancel>
+								</html:reset>
 							</td>
 							</tr>
 						</table>
