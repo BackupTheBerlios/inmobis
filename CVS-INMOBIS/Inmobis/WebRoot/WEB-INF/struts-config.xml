@@ -42,7 +42,8 @@
     	scope="request"
     	validate="true">
       <forward name="error" path="/editaCliente.jsp" />
-      <forward name="exito" path="/verClientesAgentePrev.do" />  	
+      <forward name="exito" path="/verClientesAgentePrev.do" /> 
+      <forward name="cancel" path="/verClientesAgentePrev.do" /> 	
     </action>
     
     <action

@@ -58,7 +58,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.nombre"/>
   					</td>
   					<td>		
-						<html:text 	property="nombre" size="15" maxlength="15" />
+						<html:text 	property="nombre" size="15" maxlength="25" />
 						<html:errors property="nombre" />
   					</td>
 				 </tr>
@@ -67,7 +67,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.apellido1"/>
   					</td>
   					<td>
-						<html:text 	property="apellido1" size="15" maxlength="15" />
+						<html:text 	property="apellido1" size="15" maxlength="25" />
 						<html:errors property="apellido1" />
 					</td>
 				</tr>
@@ -76,7 +76,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<fmt:message key="registraEmpleado.apellido2"/>
 					</td>
   					<td>
-						<html:text 	property="apellido2" size="15" maxlength="15" />
+						<html:text 	property="apellido2" size="15" maxlength="25" />
 						<html:errors property="apellido2" />
 					</td>
 				</tr>
@@ -94,7 +94,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.nif"/>
 					</td>
   					<td>
-						<html:text 	property="nif" size="15" maxlength="15" />
+						<html:text 	property="nif" size="15" maxlength="8" />
 						<html:errors property="nif" />
 	
 					</td>
@@ -133,7 +133,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.telefono1"/>
 					</td>
   					<td>
-						<html:text 	property="telefono1" size="15" maxlength="15" />
+						<html:text 	property="telefono1" size="15" maxlength="9" />
 						<html:errors property="telefono1" />
 					</td>
 				</tr>
@@ -142,7 +142,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<fmt:message key="registraEmpleado.telefono2"/>
 					</td>
   					<td width="50%" align="left">
-						<html:text 	property="telefono2" size="15" maxlength="15" />
+						<html:text 	property="telefono2" size="15" maxlength="9" />
 						<html:errors property="telefono2" />
 					</td>
 				</tr>
@@ -151,7 +151,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<fmt:message key="registraEmpleado.email"/>
 					</td>
   					<td>
-						<html:text 	property="email" size="15" maxlength="15" />
+						<html:text 	property="email" size="15" maxlength="30" />
 						<html:errors property="email" />
 					</td>
 				</tr>
@@ -160,7 +160,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.calle"/>
 					</td>
   					<td>
-						<html:text 	property="calle" size="15" maxlength="15" />
+						<html:text 	property="calle" size="15" maxlength="30" />
 						<html:errors property="calle" />
 					</td>
 				</tr>
@@ -169,7 +169,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.num"/>
 					</td>
   					<td>
-						<html:text 	property="num" size="15" maxlength="15" />
+						<html:text 	property="num" size="15" maxlength="4" />
 						<html:errors property="num" />
 					</td>
 				</tr>
@@ -178,7 +178,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<fmt:message key="registraEmpleado.piso"/>
 					</td>
   					<td>
-						<html:text 	property="piso" size="15" maxlength="15" />
+						<html:text 	property="piso" size="15" maxlength="10" />
 						<html:errors property="piso" />
 					</td>
 				</tr>
@@ -187,7 +187,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.codPostal"/>
 					</td>
   					<td>
-						<html:text 	property="codPostal" size="15" maxlength="15" />
+						<html:text 	property="codPostal" size="15" maxlength="5" />
 						<html:errors property="codPostal" />
 					</td>
 				</tr>
@@ -196,7 +196,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraEmpleado.poblacion"/>
 					</td>
   					<td>
-						<html:text 	property="poblacion" size="15" maxlength="15" />
+						<html:text 	property="poblacion" size="15" maxlength="30" />
 						<html:errors property="poblacion" />
 					</td>
 				</tr>

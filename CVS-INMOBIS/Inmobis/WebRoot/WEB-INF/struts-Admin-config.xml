@@ -56,6 +56,7 @@
       type="com.inmobis.struts.action.EditaEmpleadoAction" >
       <forward name="error" path="/editaEmpleado.jsp" />
       <forward name="exito" path="/verEmpleadosPrev.do" />
+      <forward name="cancel" path="/verEmpleadosPrev.do" />
       
     </action>
     <action
