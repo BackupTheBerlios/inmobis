@@ -7,7 +7,7 @@
 			</td>
 			<%if(tipoMenu.equals("general")||tipoMenu.equals("login")){} else {%>
 			<td align="right">
-				<font size="2" color="green">Usuario:&nbsp;<b><i><%=session.getAttribute("userName")%></i></b></font>
+				<font size="2" color="green">Usuario&nbsp;<i><%=session.getAttribute("tipoUsuario")%></i>:</font>&nbsp;<font color="blue"><b><%=session.getAttribute("userName")%></b></font>
 			</td>
 			<%}%>	
 		</tr>
@@ -111,7 +111,7 @@
 		<a href="listaMensajesPrev.do">
 			<fmt:message key="menuCliente.quejas"/>
 		</a>
-		<a href="PonerMensaje.jsp">
+		<a href="listarMensajesPrev.do">
 			<fmt:message key="menuCliente.mensajes"/>
 		</a>		 
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
