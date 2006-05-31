@@ -58,9 +58,9 @@ public class IntroducirInmueble extends Introducir{
 						gestorCliente.getLoginBean().getNombreUsuario()+" es "+gestorCliente.getLoginBean().getIdUsuario());
 			if (gestorCliente.getLoginBean().getIdUsuario()!=null)	{
 				try {
+					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
 					gestorInmueble.insert();
 					gestorInmueble.insertaDir(direccion);
-					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
 				} catch (RowExistsException e) {
 					errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
 					if(i_log.isInfoEnabled())
