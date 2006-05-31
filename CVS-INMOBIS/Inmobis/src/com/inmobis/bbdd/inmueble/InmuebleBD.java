@@ -404,7 +404,6 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          if (milog.isInfoEnabled()){
 		 			milog.info(sqlString);
 		 		}  
-	          
 
 	     rs=stmt.executeQuery(sqlString.toString());
 
@@ -421,9 +420,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	           inmueblesEncontrados.add(inmuebleNuevo);
 	         }
 
-	       if (milog.isInfoEnabled()){
-	 			milog.info(sqlString);
-	 		}  
+	     System.out.println(sqlString);
 	     }
 	     catch (Exception ex){
 
@@ -502,9 +499,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	           inmueblesEncontrados.add(inmuebleNuevo);
 	         }
 
-	       if (milog.isInfoEnabled()){
-	 			milog.info(sqlString);
-	 		}
+	     System.out.println(sqlString);
 	     }
 	     catch (Exception ex){
 
@@ -582,9 +577,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	             inmueblesEncontrados.add(inmuebleNuevo);
 	           }
 
-	         if (milog.isInfoEnabled()){
-		 			milog.info(sqlString);
-		 		}
+	       System.out.println(sqlString);
 	       }
 	       catch (Exception ex){
 
