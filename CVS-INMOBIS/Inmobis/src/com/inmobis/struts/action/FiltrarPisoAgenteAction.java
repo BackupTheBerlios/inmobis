@@ -73,7 +73,7 @@ public class FiltrarPisoAgenteAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("listainmuebles", new ActionMessage("errors.listainmuebles.bbdd"));
+			errors.add("filtrarPisoAgente", new ActionMessage("errors.listainmuebles.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}

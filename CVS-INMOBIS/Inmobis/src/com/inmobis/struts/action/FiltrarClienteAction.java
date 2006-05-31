@@ -61,7 +61,7 @@ public class FiltrarClienteAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("FiltrarCliente 2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("listaclientes", new ActionMessage("errors.listacliente.bbdd"));
+			errors.add("FiltrarCliente", new ActionMessage("errors.listacliente.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
