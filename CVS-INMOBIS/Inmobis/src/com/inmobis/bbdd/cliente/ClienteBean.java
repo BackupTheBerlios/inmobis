@@ -22,13 +22,13 @@ public class ClienteBean {
      return idCliente;
     }
     
-    public String getDni() {
+    public String getNombre() {
+		return nombre;
+	}
+
+	public String getDni() {
         return dni;
        }
-
-    public String getNombreCliente() {
-      return nombre;
-    }
 
     public String getApellido1() {
       return apellido1;

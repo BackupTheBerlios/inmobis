@@ -100,7 +100,7 @@ public class ConsultarCliente extends Consultar{
 		if(log.isInfoEnabled())
 			log.info("direccion "+direccion.getCalle() );
 		if(log.isInfoEnabled())
-			log.info("nombre "+cliente.getNombreCliente() );
+			log.info("nombre "+cliente.getNombre() );
 		if(log.isInfoEnabled())
 			log.info("telf "+telf.getTelefono() );
 		if(log.isInfoEnabled())
@@ -118,7 +118,7 @@ public class ConsultarCliente extends Consultar{
 		form.setApellido2(cliente.getApellido2());
 		form.setDni(cliente.getDni());
 		form.setIdUsuario(cliente.getIdCliente());
-		form.setNombre(cliente.getNombreCliente());
+		form.setNombre(cliente.getNombre());
 		String fecha=cliente.getFechNacimiento();
 		String[] fechaSplit=fecha.split("-");
 		form.setAnioNacimiento(fechaSplit[0]);

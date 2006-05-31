@@ -4,6 +4,7 @@
 package com.inmobis.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionMessage;
@@ -50,34 +51,25 @@ public class BorraClienteAction extends Action {
 		Eliminar eliminarC = CreadorEliminar.CreaEliminar("cliente");
 		
 		if (log.isInfoEnabled()){
-			log.info("BorraClienteAction1: Antes de la BDD tengo idCliente: "+ ((BorraClienteForm)form).getIDUsuario());
+			log.info("BorraClienteAction1: Antes de la BDD tengo idCliente: "+ ((BorraClienteForm)form).getIdCliente());
 		}
 		
-		if (!(eliminarC.validarRegistrado(form))){
+		if (!eliminarC.eliminarDesdeED(form)){
 			if (log.isInfoEnabled()){
-				log.info("borraClienteAction2:Después de validar y que no esté el cliente en la base de datos");
+				log.info("borraClienteAction3: Se ha intentado eliminar pero algo ha fallado");
 			}
-			errors.add("clienteNoExiste", new ActionMessage("errors.borraCliente.invalid"));
+			errors.add("clienteborrarfallo", new ActionMessage ("errors.AlborrarCliente.invalid"));
 			saveErrors(request,errors);
-			return (mapping.findForward("borraCliente"));	
+			return (mapping.findForward("error"));
 		}
 		else{
-			if (!eliminarC.eliminarDesdeED(form)){
-				if (log.isInfoEnabled()){
-					log.info("borraClienteAction3: Se ha intentado eliminar pero algo ha fallado");
-				}
-				errors.add("clienteborrarfallo", new ActionMessage ("errors.AlborrarCliente.invalid"));
-				saveErrors(request,errors);
-				return (mapping.findForward("borraCliente"));
+			if (log.isInfoEnabled()){
+				log.info("borraClienteAction4: Se ha eliminado con éxito");
 			}
-			else{
-				if (log.isInfoEnabled()){
-					log.info("borraClienteAction4: Se ha eliminado con éxito");
-				}
-				saveErrors(request,errors);
-				return (mapping.findForward("exito"));
-			}		
-		}	
-	}
+			saveErrors(request,errors);
+			return (mapping.findForward("exito"));
+		}		
+	}	
 }
+
 

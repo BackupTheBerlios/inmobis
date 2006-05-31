@@ -20,7 +20,12 @@ import org.apache.struts.action.ActionMapping;
 public class BorraClienteForm extends ActionForm {
 	
 	// --------------------------------------------------------- Instance Variables
-	private String idUsuario;
+		private String idCliente;
+		private String nombreCliente;
+		private String apellido1;
+		private String apellido2;
+		private String fechaNacimiento;
+		private String dniCliente;
 	// --------------------------------------------------------- Methods
 	
 	/** 
@@ -29,8 +34,12 @@ public class BorraClienteForm extends ActionForm {
 	 * @param request
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
-		this.idUsuario="";
-		
+		this.idCliente="";
+		this.nombreCliente="";
+		this.apellido1="";
+		this.apellido2="";
+		this.fechaNacimiento="";
+		this.dniCliente="";
 	}
 	/** 
 	 * Method validate
@@ -41,19 +50,43 @@ public class BorraClienteForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping,HttpServletRequest request) {
 
 		ActionErrors errors= new ActionErrors();
-		if (idUsuario == null || idUsuario.length() < 1)
-			errors.add("nombreUsuario",new ActionMessage("errors.nombreUsuario.required"));
 		return errors;
 	}
-	
-	
-	public String getIDUsuario() {
-		return idUsuario;
+	public String getApellido1() {
+		return apellido1;
 	}
-	public void setIDUsuario(String nombreUsuario) {
-		this.idUsuario = nombreUsuario;
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
 	}
-	
-
+	public String getApellido2() {
+		return apellido2;
+	}
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+	public String getDniCliente() {
+		return dniCliente;
+	}
+	public void setDniCliente(String dniCliente) {
+		this.dniCliente = dniCliente;
+	}
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	public String getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
+	}
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
 }
 

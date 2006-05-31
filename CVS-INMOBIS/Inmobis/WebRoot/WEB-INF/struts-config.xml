@@ -74,8 +74,10 @@
       name="verClientesAgentePrevForm"
       path="/verClientesAgentePrev"
       scope="request"
-      type="com.inmobis.struts.action.VerClientesAgentePrevAction" >
+      type="com.inmobis.struts.action.VerClientesAgentePrevAction">
       <forward name="exito" path="/VerClientes.jsp" />
+      <forward name="error" path="/MenuAgente.jsp" />
+      
     </action>
 
 	<action path="/registraClienteAgente"
