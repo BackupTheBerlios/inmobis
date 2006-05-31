@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 import com.inmobis.bbdd.ConnectionManager;
 import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
@@ -13,6 +15,8 @@ import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.inmueble.VentasBean;
 
 public class ContableBD implements GestorContableBD{
+	private static final Logger milog = Logger.getLogger(ContableBD.class);
+	
 	private Connection conn;
 	
 	//lista todos los reg de TVentas
@@ -77,7 +81,9 @@ public class ContableBD implements GestorContableBD{
 		    	String key=(String) it.next();
 		        sqlString.append(key +"="+
 		                      MysqlUtils.toMysqlString((String) consulta.get(key)));
-		        System.out.println(consulta.get(key));
+		        if (milog.isInfoEnabled()){
+		 			milog.info(consulta.get(key));
+		 		}  
 		        if (it.hasNext())
 		            sqlString.append(" AND ");
 		    }

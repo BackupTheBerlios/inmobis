@@ -315,7 +315,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	  	String key=(String) it.next();
 	          sqlString.append(key +"="+
 	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
-	          System.out.println(consulta.get(key));
+		        if (milog.isInfoEnabled()){
+		 			milog.info(consulta.get(key));
+		 		}  
 	          if (it.hasNext())
 	              sqlString.append(" AND ");
 	  	}
@@ -388,7 +390,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 
 	          sqlString.append(key +"="+
 	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
-	          System.out.println(consulta.get(key));
+		        if (milog.isInfoEnabled()){
+		 			milog.info(consulta.get(key));
+		 		}  
 	          if (it.hasNext())
 	              sqlString.append(" AND ");
 	          }
@@ -397,7 +401,10 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          }
 	          sqlString.append(" precio BETWEEN "+MysqlUtils.toMysqlString(precioMin)+" AND "
 	                           +MysqlUtils.toMysqlString(precioMax));
-	          System.out.println(sqlString);
+	          if (milog.isInfoEnabled()){
+		 			milog.info(sqlString);
+		 		}  
+	          
 
 	     rs=stmt.executeQuery(sqlString.toString());
 
@@ -414,7 +421,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	           inmueblesEncontrados.add(inmuebleNuevo);
 	         }
 
-	     System.out.println(sqlString);
+	       if (milog.isInfoEnabled()){
+	 			milog.info(sqlString);
+	 		}  
 	     }
 	     catch (Exception ex){
 
@@ -461,7 +470,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 
 	          sqlString.append(key +"="+
 	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
-	          System.out.println(consulta.get(key));
+		        if (milog.isInfoEnabled()){
+		 			milog.info(consulta.get(key));
+		 		}  
 	          if (it.hasNext())
 	              sqlString.append(" AND ");
 	          }
@@ -472,7 +483,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	                           +MysqlUtils.toMysqlString(metrosMax));*/
 	          sqlString.append(" metros BETWEEN "+metrosMin+" AND "+metrosMax);
 
-	          System.out.println(sqlString);
+	          if (milog.isInfoEnabled()){
+		 			milog.info(sqlString);
+		 		}  
 
 	     rs=stmt.executeQuery(sqlString.toString());
 
@@ -489,7 +502,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	           inmueblesEncontrados.add(inmuebleNuevo);
 	         }
 
-	     System.out.println(sqlString);
+	       if (milog.isInfoEnabled()){
+	 			milog.info(sqlString);
+	 		}
 	     }
 	     catch (Exception ex){
 
@@ -534,7 +549,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 
 	            sqlString.append(key +"="+
 	                          MysqlUtils.toMysqlString((String) consulta.get(key)));
-	            System.out.println(consulta.get(key));
+		        if (milog.isInfoEnabled()){
+		 			milog.info(consulta.get(key));
+		 		}  
 	            if (it.hasNext())
 	                sqlString.append(" AND ");
 	            }
@@ -546,7 +563,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          /*  sqlString.append(" AND metros BETWEEN "+MysqlUtils.toMysqlString(metrosMin)+" AND "
 	                             +MysqlUtils.toMysqlString(metrosMax));*/
 	              sqlString.append(" AND metros BETWEEN "+metrosMin+" AND "+metrosMax);
-	            System.out.println(sqlString);
+	              if (milog.isInfoEnabled()){
+	  	 			milog.info(sqlString);
+	  	 		}  
 
 	       rs=stmt.executeQuery(sqlString.toString());
 
@@ -563,7 +582,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	             inmueblesEncontrados.add(inmuebleNuevo);
 	           }
 
-	       System.out.println(sqlString);
+	         if (milog.isInfoEnabled()){
+		 			milog.info(sqlString);
+		 		}
 	       }
 	       catch (Exception ex){
 

@@ -1,6 +1,10 @@
 package com.inmobis.bbdd;
 
 import java.sql.*;
+
+import org.apache.log4j.Logger;
+
+import com.inmobis.bbdd.empleado.ContableBD;
 /**
  * <p>Title: </p>
  * <p>Description: </p>
@@ -11,6 +15,7 @@ import java.sql.*;
  */
 
 public class GeneradorDeCodigos {
+	private static final Logger milog = Logger.getLogger(GeneradorDeCodigos.class);
 int cntEmpleados;
 int cntClientes;
 int cntInmuebles;
@@ -42,7 +47,9 @@ private void actualizaContadorBD (){
 
     }
       catch (Exception ex) {
-      System.out.println(ex);
+    	  if (milog.isInfoEnabled()){
+	 			milog.info(ex);
+	 		}  
     }
 
 }
@@ -54,7 +61,9 @@ private void actualizaContadorClienteBD (){
 
     }
       catch (Exception ex) {
-      System.out.println(ex);
+    	  if (milog.isInfoEnabled()){
+	 			milog.info(ex);
+	 		}  
     }
 }
 
@@ -66,7 +75,9 @@ private void actualizaContadorInmuebleBD (){
 
       }
         catch (Exception ex) {
-        System.out.println(ex);
+      	  if (milog.isInfoEnabled()){
+	 			milog.info(ex);
+	 		}  
       }
 
   }
@@ -79,7 +90,9 @@ private void actualizaContadorMensajesBD (){
 
       }
         catch (Exception ex) {
-        System.out.println(ex);
+      	  if (milog.isInfoEnabled()){
+	 			milog.info(ex);
+	 		}  
       }
 
   }
@@ -97,7 +110,9 @@ private void leeContadorBD (){
    }
     }
       catch (Exception ex) {
-      System.out.println(ex);
+    	  if (milog.isInfoEnabled()){
+	 			milog.info(ex);
+	 		}  
     }
 
 }
@@ -114,7 +129,9 @@ private void leeContadorClientesBD (){
    }
     }
       catch (Exception ex) {
-      System.out.println(ex);
+    	  if (milog.isInfoEnabled()){
+	 			milog.info(ex);
+	 		}  
     }
 
 }
@@ -132,7 +149,9 @@ private void leeContadorInmueblesBD (){
 	   }
 	    }
 	      catch (Exception ex) {
-	      System.out.println(ex);
+	    	  if (milog.isInfoEnabled()){
+		 			milog.info(ex);
+		 		}  
 	    }
 
 	}
@@ -150,7 +169,9 @@ private void leeContadorMensajesBD (){
 	   }
 	    }
 	      catch (Exception ex) {
-	      System.out.println(ex);
+	    	  if (milog.isInfoEnabled()){
+		 			milog.info(ex);
+		 		}  
 	    }
 
 	}

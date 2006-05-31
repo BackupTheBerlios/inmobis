@@ -52,7 +52,9 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
      }
      catch(Exception ex)
        {
-        System.out.println(ex);
+    	 if (milog.isInfoEnabled()){
+  			milog.info(ex);
+  		}  
        }
      finally{
     	 if (conn != null) 
@@ -88,7 +90,9 @@ public InfoMailBD (InfoMailBean _mail, String _nombreTabla) {
      }
      catch(Exception ex)
        {
-        System.out.println(ex);
+    	 if (milog.isInfoEnabled()){
+  			milog.info(ex);
+  		}  
        }
      finally{
     	 if (conn != null) 
