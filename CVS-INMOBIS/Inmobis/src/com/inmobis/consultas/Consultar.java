@@ -33,6 +33,16 @@ public abstract class Consultar {
 		return null;
 	}
 	
+    //se sobreescribe en ConsultarInmueble
+	public Vector listarPisosVendidos(ActionForm form){
+		return null;
+	} 
+	
+    //se sobreescribe en ConsultarInmueble
+	public Vector filtrarPisosVendidos(ActionForm form){
+		return null;
+	}    
+	
 	//se sobreescribe en ConsultarEmpleado
 	public Vector filtrarEmpleados (ActionForm form){
 		return null;

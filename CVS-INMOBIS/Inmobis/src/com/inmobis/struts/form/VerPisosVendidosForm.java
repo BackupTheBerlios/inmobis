@@ -19,7 +19,17 @@ import org.apache.struts.action.ActionMapping;
 public class VerPisosVendidosForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
-
+	 String idAgente;
+	 String idInmueble;
+	 String fechVenta;
+	 String precioInicial;
+	 String precioFinal;
+	 String ganacia;
+	 
+	 //para el rango
+	 String fechIni;
+	 String fechFin;	 
+	 
 	// --------------------------------------------------------- Methods
 
 	/** 
@@ -30,9 +40,7 @@ public class VerPisosVendidosForm extends ActionForm {
 	 */
 	public ActionErrors validate(
 		ActionMapping mapping,
-		HttpServletRequest request) {
-
-		// TODO Auto-generated method stub
+		HttpServletRequest request) {		
 		return null;
 	}
 
@@ -42,8 +50,76 @@ public class VerPisosVendidosForm extends ActionForm {
 	 * @param request
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		this.idAgente="";
+		this.idInmueble="";		
+		this.fechVenta="";
+		this.precioInicial="";
+		this.precioFinal="";
+		this.ganacia="";		
+	}
 
-		// TODO Auto-generated method stub
+	public String getFechFin() {
+		return fechFin;
+	}
+
+	public void setFechFin(String fechFin) {
+		this.fechFin = fechFin;
+	}
+
+	public String getFechIni() {
+		return fechIni;
+	}
+
+	public void setFechIni(String fechIni) {
+		this.fechIni = fechIni;
+	}
+
+	public String getFechVenta() {
+		return fechVenta;
+	}
+
+	public void setFechVenta(String fechVenta) {
+		this.fechVenta = fechVenta;
+	}
+
+	public String getGanacia() {
+		return ganacia;
+	}
+
+	public void setGanacia(String ganacia) {
+		this.ganacia = ganacia;
+	}
+
+	public String getIdAgente() {
+		return idAgente;
+	}
+
+	public void setIdAgente(String idAgente) {
+		this.idAgente = idAgente;
+	}
+
+	public String getIdInmueble() {
+		return idInmueble;
+	}
+
+	public void setIdInmueble(String idInmueble) {
+		this.idInmueble = idInmueble;
+	}
+
+	public String getPrecioFinal() {
+		return precioFinal;
+	}
+
+	public void setPrecioFinal(String precioFinal) {
+		this.precioFinal = precioFinal;
+	}
+
+	public String getPrecioInicial() {
+		return precioInicial;
+	}
+
+	public void setPrecioInicial(String precioInicial) {
+		this.precioInicial = precioInicial;
 	}
 
 }

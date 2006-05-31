@@ -78,7 +78,7 @@ public class VerClientesAgentePrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerClientesAgentePrevAction 3: Se ha realizado el listado con éxito");
 			}
-			session.setAttribute("listaClientes",listaClientesAgente);
+			session.setAttribute("listaClientesAgente",listaClientesAgente);
 			return mapping.findForward("exito");
 		}
 	}
