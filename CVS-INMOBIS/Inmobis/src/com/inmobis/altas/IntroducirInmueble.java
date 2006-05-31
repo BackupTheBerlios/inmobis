@@ -15,6 +15,10 @@ import com.inmobis.bbdd.direccion.InfoDirBean;
 import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.struts.form.RegistraPisoForm;
+import com.inmobis.bbdd.inmueble.VentasBean;
+import com.inmobis.struts.form.VerPisosVendidosForm;
+import com.inmobis.bbdd.empleado.AgenteBean;
+import com.inmobis.bbdd.empleado.GestorAgenteBD;
 
 public class IntroducirInmueble extends Introducir{
 	private static final Logger i_log = Logger.getLogger(IntroducirInmueble.class);
@@ -77,6 +81,39 @@ public class IntroducirInmueble extends Introducir{
 			errors.add("registraPiso", new ActionMessage("errors.username.noexiste"));
 			if(i_log.isInfoEnabled())
 				i_log.info("No se ha encontrado el cliente indicado");
+		}
+		
+		return errors;
+	}
+	
+	public ActionMessages introduceVendido(ActionForm datosInmuebleVendido){
+		
+		GeneradorDeCodigos gc=GeneradorDeCodigos.getGeneradorDeCodigos();
+		ActionMessages errors= new ActionMessages();
+		
+		//Creamos y rellenamos el objeto Bean para el inmueble
+		VentasBean inmuebleVend=new VentasBean();
+		inmuebleVend.setFechaDesde(((VerPisosVendidosForm)datosInmuebleVendido).getFechIni());
+		inmuebleVend.setFechaHasta(((VerPisosVendidosForm)datosInmuebleVendido).getFechFin());
+		inmuebleVend.setFechVenta(((VerPisosVendidosForm)datosInmuebleVendido).getFechVenta());
+		inmuebleVend.setGanancia(((VerPisosVendidosForm)datosInmuebleVendido).getGanacia());
+		inmuebleVend.setIdAgente(((VerPisosVendidosForm)datosInmuebleVendido).getIdAgente());
+		inmuebleVend.setIdInmueble(((VerPisosVendidosForm)datosInmuebleVendido).getIdInmueble());
+		inmuebleVend.setPrecioFinal(((VerPisosVendidosForm)datosInmuebleVendido).getPrecioFinal());
+		inmuebleVend.setPrecioInicial(((VerPisosVendidosForm)datosInmuebleVendido).getPrecioInicial());		
+		inmuebleVend.setIdInmueble(gc.asignaCodigoInmueble());
+		if(i_log.isInfoEnabled())
+			i_log.info("Codigo Inmueble:" + inmuebleVend.getIdInmueble());	
+		
+		AgenteBean agente=new AgenteBean();
+		GestorAgenteBD gestorAgente=(GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
+		try {
+			gestorAgente.insertarVenta(inmuebleVend);			
+			
+		} catch (Exception e1) {			
+			errors.add("registraPiso", new ActionMessage("errors.username.noexiste"));
+			if(i_log.isInfoEnabled())
+				i_log.info("Fallo en la inserción del piso vendido.");
 		}
 		
 		return errors;

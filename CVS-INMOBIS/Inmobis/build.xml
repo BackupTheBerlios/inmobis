@@ -6,8 +6,8 @@
 -->
 <project basedir="." default="war" name="Inmobis">
     <!-- &buildfile; -->
-    <property name="Inmobis.location" value="C:/Documents and Settings/joseluis/workspace/Inmobis"/>
-	<property name="tomcat.home" value="c:/tomcat" />
+    <property name="Inmobis.location" value="H:/Documents and Settings/Ainhoa/workspace4/CVS-INMOBIS"/>
+	<property name="tomcat.home" value="H:/Documents and Settings/Ainhoa/Escritorio/tomcat" />
 	<property name="tomcat.deploy" value="${tomcat.home}/webapps" />
 	<property name="tomcatInmobis.dir" value="${tomcat.deploy}/Inmobis" />
 	<property name="localsrc.dir" value="${Inmobis.location}/src" />
