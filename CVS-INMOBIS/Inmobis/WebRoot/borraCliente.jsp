@@ -21,18 +21,22 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
-                  <p> ¿ESTA SEGURO DE ELIMINAR EL SIGUIENTE CLIENTE? </p>
+                <table width="100%">
+			<tr>
+				<td><H4>¿ESTA SEGURO DE <font color="red">ELIMINAR</font> EL SIGUIENTE CLIENTE?</H4></td>
+			</tr>
+		</table>                  
 				  <table width="100%">
 						<logic:iterate id="borraClienteForm" name="ClienteBean">
 						<tr>
 							<td>
-								<bean:write name="borraClienteForm" property="nombre" />
+								<bean:write name="cliente" property="nombre" />
 							</td>
 							<td>
-								<bean:write name="borraClienteForm" property="apellido1" />
+								<bean:write name="cliente" property="apellido1" />
 							</td>
 							<td>
-								<bean:write name="borraClienteForm" property="apellido2" />
+								<bean:write name="cliente" property="apellido2" />
 							</td>						  
 							<td align="center">
 								<a href="borraCliente.do?idCliente=<bean:write name='borraClienteForm'
@@ -40,7 +44,14 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							</td>
 						</tr>
 				      </logic:iterate>
-					</table>					
+					</table>	
+					<table width="100%">
+						<tr>
+							<td>
+								<a href=javascript:history.go(-1); style="color: #3962A6;"><IMG SRC="images/volver.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT=""> Volver</a>
+							</td>
+						</tr>
+					</table>				
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

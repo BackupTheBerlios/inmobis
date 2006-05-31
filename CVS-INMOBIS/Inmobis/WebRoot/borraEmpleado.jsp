@@ -22,7 +22,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%}%><%@ include file="menu_izdo.jsp" %>  
               <div id="content"> 
                 <div class="feature"> 
-                  <p> ¿ESTA SEGURO DE ELIMINAR EL SIGUIENTE EMPLEADO? </p>
+                <table width="100%">
+			<tr>
+				<td><H4>¿ESTA SEGURO DE <font color="red">ELIMINAR</font> EL SIGUIENTE EMPLEADO?</H4></td>
+			</tr>
+		</table>
+                  
 				  <table border="0" cellpading="0" cellspacing="0" width="100%">
 				  <tr>
 						<th>
@@ -48,6 +53,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						  <td align="center">
 							<a href="borraEmpleado.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
 						  </td>
+						</tr>
+					</table>
+					<table width="100%">
+						<tr>
+							<td>
+								<a href=javascript:history.go(-1); style="color: #3962A6;"><IMG SRC="images/volver.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT=""> Volver</a>
+							</td>
 						</tr>
 					</table>
 				</div>
