@@ -40,7 +40,7 @@ private static final Logger milog = Logger.getLogger(VentasBD.class);
   public void select() throws RowNotFoundException{
 
     try {
-      Connection conn = ConnectionManager.getConection();
+      conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
       ResultSet rs = null;
      
@@ -73,7 +73,7 @@ private static final Logger milog = Logger.getLogger(VentasBD.class);
   public void insert() throws RowExistsException{
 
     try {
-      Connection conn = ConnectionManager.getConection();
+      conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
       ResultSet rs = null;
 
@@ -105,7 +105,7 @@ private static final Logger milog = Logger.getLogger(VentasBD.class);
   public void update() throws RowNotFoundException {
 
     try {
-      Connection conn = ConnectionManager.getConection();
+       conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
       ResultSet rs = null;
 
@@ -143,7 +143,7 @@ private static final Logger milog = Logger.getLogger(VentasBD.class);
   public void delete()throws RowNotFoundException{
 
     try {
-      Connection conn = ConnectionManager.getConection();
+      conn = ConnectionManager.getConection();
       Statement stmt = conn.createStatement();
       ResultSet rs = null;
 
