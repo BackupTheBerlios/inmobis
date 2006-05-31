@@ -37,7 +37,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<bean:write name="cliente" property="nombreCliente" />
+									<bean:write name="cliente" property="nombre" />
 								</td>							  
 								<td>
 									<bean:write name="cliente" property="apellido1" />
