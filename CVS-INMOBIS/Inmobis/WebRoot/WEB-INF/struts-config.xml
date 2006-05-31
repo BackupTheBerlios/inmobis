@@ -21,17 +21,16 @@
   <global-forwards ></global-forwards>
   <action-mappings >
    
-    <action 
-    	path="/editaClientePrev"
-    	attribute="editaClientePrev"
-    	input="/editaClientePrev.jsp"
-    	type="com.inmobis.struts.action.EditaClientePrevAction"
-    	name="editaClientePrevForm" 
-    	scope="request"
-    	validate="true">
-    	<!-- En realidad viene de verClientesAgente.jsp y en caso error habría que redireccionar a VerClientesAgente-->
-      <forward name="error" path="/login.jsp" />
-      <forward name="exito" path="/editaCliente.jsp" />  	
+    <action
+      attribute="editaClientePrev"
+      input="/VerClientes.jsp"
+      name="editaClientePrevForm"
+      path="/editaClientePrev"
+      scope="request"
+      type="com.inmobis.struts.action.EditaClientePrevAction">
+      <forward name="exito" path="/editaCliente.jsp" />
+      <forward name="error" path="/VerClientes.jsp" />
+      
     </action>
     
     <action 
@@ -47,14 +46,15 @@
     </action>
     
     <action
-      attribute="modifBajaClientePrevForm"
+      attribute="borraClienteForm"
       input="/VerClientes.jsp"
-      name="modifBajaClientePrevForm"
-      path="/modifBajaClientePrev"
+      name="borraClienteForm"
+      path="/BajaClientePrev"
       scope="request"
-      type="com.inmobis.struts.action.ModifBajaClientePrevAction" >
+      type="com.inmobis.struts.action.BajaClientePrevAction">
+      
       <forward name="error" path="/VerClientes.jsp" />
-      <forward name="exito" path="/editaCliente.jsp" />
+      <forward name="exito" path="/borraCliente.jsp" />
     </action>
 
     <action
@@ -89,6 +89,17 @@
         <forward name="error" path="/registraClienteAgente.jsp" />
         <forward name="reset" path="/registraClienteAgente.jsp"></forward>
     </action>
+    <action
+      attribute="borraClienteForm"
+      input="/borraCliente.jsp"
+      name="borraClienteForm"
+      path="/borraCliente"
+      scope="request"
+      type="com.inmobis.struts.action.BorraClienteAction" >
+      <forward name="error" path="/borraCliente.jsp" />
+      <forward name="exito" path="/verClientesAgentePrev.do" />
+    </action>
+
     
     
     
