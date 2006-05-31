@@ -5,6 +5,7 @@
 <data-sources />	
   <form-beans >
   	<form-bean name="filtrarPisoAgenteForm" type="com.inmobis.struts.form.FiltrarPisoAgenteForm" />
+  	<form-bean name="verPisoDetalleForm" type="com.inmobis.struts.form.verPisoDetalleForm" />
   </form-beans>
 
 

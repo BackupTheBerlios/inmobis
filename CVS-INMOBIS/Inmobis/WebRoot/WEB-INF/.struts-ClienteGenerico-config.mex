@@ -24,8 +24,15 @@
   </StrutsTransition>
   <StrutsTransition id="/ponerQueja.do,volver,/PonerQueja.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="120,375" />
-      <AbsolutePoint location="120,289" />
+      <AbsolutePoint location="135,375" />
+      <AbsolutePoint location="135,289" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/verPisos.do,error,/VerPisos.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="225,105" />
+      <AbsolutePoint location="225,45" />
+      <AbsolutePoint location="270,45" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/filtrarPiso.do,exito,/VerPisos.jsp,1" routingType="0">
@@ -34,10 +41,17 @@
       <AbsolutePoint location="420,20" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/filtrarPiso.do,error,/FiltrarPisos.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="540,50" />
+      <AbsolutePoint location="450,50" />
+      <AbsolutePoint location="450,135" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/verDetallePiso.do,error,/VerPisos.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="315,-50" />
-      <AbsolutePoint location="315,15" />
+      <AbsolutePoint location="375,-50" />
+      <AbsolutePoint location="375,15" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/VerPisos.jsp,null,/verDetallePiso.do,2" routingType="0">
@@ -48,22 +62,34 @@
   </StrutsTransition>
   <StrutsTransition id="/FiltrarPisos.jsp,null,/filtrarPiso.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="450,135" />
-      <AbsolutePoint location="450,50" />
-      <AbsolutePoint location="540,50" />
+      <AbsolutePoint location="525,165" />
+      <AbsolutePoint location="615,165" />
+      <AbsolutePoint location="615,100" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/PonerQueja.jsp,null,/ponerQueja.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="90,289" />
-      <AbsolutePoint location="90,375" />
+      <AbsolutePoint location="105,289" />
+      <AbsolutePoint location="105,375" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/MenuGenerico.jsp,null,/verPisos.do,2" routingType="0">
     <AutomaticBendpoints>
+      <AbsolutePoint location="165,45" />
+      <AbsolutePoint location="195,45" />
+      <AbsolutePoint location="195,105" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuGenerico.jsp,null,/PonerQueja.jsp,0" routingType="0">
+    <AutomaticBendpoints>
       <AbsolutePoint location="90,91" />
-      <AbsolutePoint location="90,155" />
-      <AbsolutePoint location="150,155" />
+      <AbsolutePoint location="90,225" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuCliente.jsp,null,/verPisos.do,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="285,255" />
+      <AbsolutePoint location="285,205" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/VerPisos.jsp,null,/FiltrarPisos.jsp,0" routingType="0">
@@ -76,18 +102,6 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="225,274" />
       <AbsolutePoint location="180,274" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/MenuCliente.jsp,null,/verPisos.do,0" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="285,255" />
-      <AbsolutePoint location="285,205" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/MenuGenerico.jsp,null,/PonerQueja.jsp,0" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="60,91" />
-      <AbsolutePoint location="60,225" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>
