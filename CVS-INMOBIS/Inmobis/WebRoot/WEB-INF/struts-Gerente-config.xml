@@ -10,7 +10,7 @@
     <form-bean name="verAgentesPrevForm" type="com.inmobis.struts.form.VerAgentesPrevForm" />
     <form-bean name="seguimientoAgenteForm" type="com.inmobis.struts.form.SeguimientoAgenteForm" />
     <form-bean name="verClientesPrevForm" type="com.inmobis.struts.form.VerClientesPrevForm" />
-    <form-bean name="trapasarClientesForm" type="com.inmobis.struts.form.TrapasarClientesForm" />
+    <form-bean name="traspasarClientesForm" type="com.inmobis.struts.form.TrapasarClientesForm" />
     <form-bean name="traspasarClientesPrevForm" type="com.inmobis.struts.form.TraspasarClientesPrevForm" />
   </form-beans>
 
@@ -80,7 +80,7 @@
       
     </action>
     <action
-      attribute="trapasarClientesForm"
+      attribute="traspasarClientesForm"
       input="/TraspasarClientes.jsp"
       name="trapasarClientesForm"
       path="/trapasarClientes"
@@ -96,8 +96,8 @@
       path="/traspasarClientesPrev"
       scope="request"
       type="com.inmobis.struts.action.TraspasarClientesPrevAction" >
-      <forward name="error" path="/VerClientes.jsp" />
-      <forward name="exito" path="/TraspasarClientes.jsp" />
+      <forward name="error" path="/verClientesPrev.do" />
+      <forward name="exito" path="/VerAgentesPrev.do" />
     </action>
 
 
