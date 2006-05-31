@@ -62,10 +62,12 @@ public class ContableBD implements GestorContableBD{
 	    } //Liberamos la conexion pase lo que pase
 	     return listaVentas;
 	}
-	
+	//consultas a medida, por cualquier campo
 	public Vector BusquedaDetallada(VentasBean venta)
 	{
 		Vector ventashechas=new Vector();
+		boolean fecha=false;//se pone a true si se hace una consulta
+		//por rango de fechas, es decir si fechaDesde y FechaHasta estan rellenas.
 		
 		try{
 			Connection conn = ConnectionManager.getConection();
@@ -85,11 +87,24 @@ public class ContableBD implements GestorContableBD{
 		       consulta.put("precioFinal",venta.getPrecioFinal());
 		    if (venta.getGanancia()!=null)
 			       consulta.put("precioFinal",venta.getGanancia());
+		    //if(venta.getFechaDesde()!=null)
+		    	//consulta.put("fechaDesde",venta.getFechaDesde());
+		    if((venta.getFechaHasta()!=null)&& (venta.getFechaDesde()!=null))
+		    	//consulta.put("fechaHasta",venta.getFechaHasta());
+		    	fecha=true;
+		    	//estas no las metemos en la hastable
+		    
 		    
 		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.idAgente," +
     		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
     		" TVentas.ganancia FROM TInmueble,TVentas " +
     		"WHERE TInmueble.idInmueble=TVentas.idInmueble AND ");
+		    		    
+		    if(fecha){//hay que hacer un rango entre fechadesde y fechahasta
+		    	sqlString.append(" fechVenta BETWEEN "+MysqlUtils.toMysqlString(venta.getFechaDesde())+
+		    			" AND " +MysqlUtils.toMysqlString(venta.getFechaHasta())+ "AND ");
+		    }
+		    
 		    Iterator it=consulta.keySet().iterator();
 		    
 		    while(it.hasNext()){

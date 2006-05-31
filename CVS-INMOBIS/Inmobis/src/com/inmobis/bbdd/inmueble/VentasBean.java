@@ -17,6 +17,9 @@ public class VentasBean extends InmuebleBean {
   protected String precioInicial;
   protected String precioFinal;
   protected String ganancia;
+  //para los filtrados:
+  protected String fechaDesde;
+  protected String fechaHasta;
 
 
   public String getIdAgente (){
@@ -65,6 +68,22 @@ this.precioFinal=_precioFinal;
 
 public void setGanancia (String _ganancia){
 this.ganancia=_ganancia;
+}
+
+public String getFechaDesde() {
+	return fechaDesde;
+}
+
+public void setFechaDesde(String fechaDesde) {
+	this.fechaDesde = fechaDesde;
+}
+
+public String getFechaHasta() {
+	return fechaHasta;
+}
+
+public void setFechaHasta(String fechaHasta) {
+	this.fechaHasta = fechaHasta;
 }
 
 }

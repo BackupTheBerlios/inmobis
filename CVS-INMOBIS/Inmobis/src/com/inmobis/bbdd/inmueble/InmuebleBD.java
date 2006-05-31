@@ -306,7 +306,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	      		"WHERE idInmueble not in (select idInmueble from TVentas)");
+	      		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
 	      Iterator it=consulta.keySet().iterator();
 
 
@@ -379,7 +379,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	        consulta.put("zona",inmueble.getZona());
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	      		"WHERE idInmueble not in (select idInmueble from TVentas) ");
+	      		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
 	      Iterator it=consulta.keySet().iterator();
 
 
@@ -421,7 +421,9 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	           inmueblesEncontrados.add(inmuebleNuevo);
 	         }
 
-	     System.out.println(sqlString);
+	       if (milog.isInfoEnabled()){
+	 			milog.info(sqlString);
+	 		}  
 	     }
 	     catch (Exception ex){
 
@@ -457,7 +459,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	        consulta.put("precio",inmueble.getPrecio());
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	      		"WHERE idInmueble not in (select idInmueble from TVentas) ");
+	      		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
 	      Iterator it=consulta.keySet().iterator();
 
 
@@ -536,7 +538,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          consulta.put("zona",inmueble.getZona());
 
 	        StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	        		"WHERE idInmueble not in (select idInmueble from TVentas) ");
+	        		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
 	        Iterator it=consulta.keySet().iterator();
 
 
