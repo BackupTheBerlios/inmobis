@@ -1,114 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlowViewLayout Version="1.2">
-  <StrutsActivity path="/registraPiso.do" location="525,165" dimension="150,88" />
+  <StrutsActivity path="/registraPiso.do" location="540,135" dimension="150,88" />
   <StrutsActivity path="/borraPiso.do" location="0,0" dimension="151,88" />
   <StrutsActivity path="/EditaPiso.do" location="465,0" dimension="136,88" />
   <StrutsActivity path="/verPisosAgente.do" location="210,0" dimension="181,88" />
-  <StrutsActivity path="/filtrarPisoAgente.do" location="345,-240" dimension="166,88" />
-  <StrutsActivity path="/editaPisoPrev.do" location="495,-120" dimension="150,100" />
-  <StrutsActivity path="/borraPisoPrev.do" location="15,-120" dimension="150,100" />
-  <StrutsActivity path="/registraPiso.jsp" location="390,315" dimension="107,49" />
+  <StrutsActivity path="/filtrarPisoAgente.do" location="150,-345" dimension="166,88" />
+  <StrutsActivity path="/EditaPisoPrev.do" location="465,-120" dimension="261,88" />
+  <StrutsActivity path="/BorraPisoPrev.do" location="-240,-195" dimension="263,88" />
+  <StrutsActivity path="/registraPiso.jsp" location="270,270" dimension="107,49" />
   <StrutsActivity path="/MenuAgente.jsp" location="255,165" dimension="112,61" />
-  <StrutsActivity path="/borraPiso.jsp" location="-150,-75" dimension="96,49" />
-  <StrutsActivity path="/EditaPiso.jsp" location="675,-30" dimension="94,49" />
-  <StrutsActivity path="/VerPisosAgente.jsp" location="240,-90" dimension="150,54" />
-  <StrutsActivity path="filtrarPisoAgente.jsp" location="165,-210" dimension="127,49" />
+  <StrutsActivity path="/borraPiso.jsp" location="-180,-60" dimension="96,49" />
+  <StrutsActivity path="/EditaPiso.jsp" location="720,0" dimension="94,49" />
+  <StrutsActivity path="/VerPisosAgente.jsp" location="195,-165" dimension="150,54" />
+  <StrutsActivity path="/filtrarPisoAgente.jsp" location="30,-225" dimension="131,49" />
+  <StrutsActivity path="/venderPisoPrev.do" location="390,-225" dimension="271,88" />
+  <StrutsActivity path="/VenderPiso.jsp" location="675,-300" dimension="150,61" />
+  <StrutsActivity path="/venderPiso.do" location="465,-345" dimension="150,100" />
   <StrutsTransition id="/borraPiso.do,exito,/verPisosAgente.do,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="151,44" />
-      <AbsolutePoint location="210,44" />
+      <AbsolutePoint location="75,88" />
+      <AbsolutePoint location="75,104" />
+      <AbsolutePoint location="225,104" />
+      <AbsolutePoint location="225,88" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/registraPiso.do,error,/registraPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="525,195" />
-      <AbsolutePoint location="480,195" />
-      <AbsolutePoint location="480,315" />
+      <AbsolutePoint location="585,223" />
+      <AbsolutePoint location="585,241" />
+      <AbsolutePoint location="353,241" />
+      <AbsolutePoint location="353,270" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/VerClientesSinAgente.jsp,null,/asignarAgenteAClientes.do,2" routingType="0">
+  <StrutsTransition id="/VerPisosAgente.jsp,null,/EditaPisoPrev.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="120,334" />
-      <AbsolutePoint location="61,334" />
+      <AbsolutePoint location="300,-111" />
+      <AbsolutePoint location="300,-62" />
+      <AbsolutePoint location="465,-62" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarPisoAgente.jsp,null,/filtrarPisoAgente.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="125,-225" />
+      <AbsolutePoint location="125,-271" />
+      <AbsolutePoint location="150,-271" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/venderPisoPrev.do,error,/VerPisosAgente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="390,-200" />
+      <AbsolutePoint location="308,-200" />
+      <AbsolutePoint location="308,-165" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/venderPisoPrev.do,error,/VerPisosAgente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="390,-150" />
+      <AbsolutePoint location="345,-150" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/EditaPiso.jsp,null,/EditaPiso.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="722,19" />
-      <AbsolutePoint location="722,44" />
-      <AbsolutePoint location="601,44" />
+      <AbsolutePoint location="720,24" />
+      <AbsolutePoint location="601,24" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/borraPiso.do,error,/borraPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="0,74" />
-      <AbsolutePoint location="-102,74" />
-      <AbsolutePoint location="-102,-26" />
+      <AbsolutePoint location="0,44" />
+      <AbsolutePoint location="-165,44" />
+      <AbsolutePoint location="-165,-11" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/asignarAgenteAClientes.do,exito,/verClientesSinAgente.do,1" routingType="0">
+  <StrutsTransition id="/VerPisosAgente.jsp,null,/venderPisoPrev.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="-15,330" />
-      <AbsolutePoint location="-15,253" />
+      <AbsolutePoint location="345,-152" />
+      <AbsolutePoint location="390,-152" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/MenuAgente.jsp,null,/verPisosAgente.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="311,165" />
-      <AbsolutePoint location="311,88" />
+      <AbsolutePoint location="330,165" />
+      <AbsolutePoint location="330,88" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/EditaPisoPrev.do,error,/VerPisosAgente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="465,-92" />
+      <AbsolutePoint location="338,-92" />
+      <AbsolutePoint location="338,-111" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/venderPisoPrev.do,exito,/form/venderPiso.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="661,-170" />
+      <AbsolutePoint location="829,-170" />
+      <AbsolutePoint location="784,-221" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/registraPiso.jsp,null,/registraPiso.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="443,364" />
-      <AbsolutePoint location="443,493" />
-      <AbsolutePoint location="630,493" />
-      <AbsolutePoint location="630,253" />
+      <AbsolutePoint location="377,294" />
+      <AbsolutePoint location="615,294" />
+      <AbsolutePoint location="615,223" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/BorraPisoPrev.do,exito,/borraPiso.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-108,-107" />
+      <AbsolutePoint location="-108,-60" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/verPisosAgente.do,error,/MenuAgente.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="281,88" />
-      <AbsolutePoint location="281,165" />
+      <AbsolutePoint location="300,88" />
+      <AbsolutePoint location="300,165" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/editaPisoPrev.do,exito,/EditaPiso.jsp,1" routingType="0">
+  <StrutsTransition id="/venderPiso.do,error,/VenderPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="645,-70" />
-      <AbsolutePoint location="722,-70" />
-      <AbsolutePoint location="722,-30" />
+      <AbsolutePoint location="615,-315" />
+      <AbsolutePoint location="750,-315" />
+      <AbsolutePoint location="750,-300" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/filtrarPisoAgente.do,error,/filtrarPisoAgente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="150,-301" />
+      <AbsolutePoint location="95,-301" />
+      <AbsolutePoint location="95,-225" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/EditaPiso.do,error,/EditaPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="601,4" />
-      <AbsolutePoint location="675,4" />
+      <AbsolutePoint location="601,74" />
+      <AbsolutePoint location="767,74" />
+      <AbsolutePoint location="767,49" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/borraPisoPrev.do,exito,/borraPiso.jsp,1" routingType="0">
+  <StrutsTransition id="/VerPisosAgente.jsp,null,/venderPisoPrev.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="15,-60" />
-      <AbsolutePoint location="-54,-60" />
+      <AbsolutePoint location="300,-165" />
+      <AbsolutePoint location="300,-200" />
+      <AbsolutePoint location="390,-200" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/verPisosAgente.do,exito,/VerPisosAgente.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="300,0" />
-      <AbsolutePoint location="300,-36" />
+      <AbsolutePoint location="270,0" />
+      <AbsolutePoint location="270,-111" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/venderPiso.do,exito,/VerPisosAgente.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="465,-295" />
+      <AbsolutePoint location="368,-295" />
+      <AbsolutePoint location="368,-200" />
+      <AbsolutePoint location="270,-200" />
+      <AbsolutePoint location="270,-165" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/borraPiso.jsp,null,/borraPiso.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="-72,-26" />
-      <AbsolutePoint location="-72,44" />
-      <AbsolutePoint location="0,44" />
+      <AbsolutePoint location="-180,-35" />
+      <AbsolutePoint location="-315,-35" />
+      <AbsolutePoint location="-315,74" />
+      <AbsolutePoint location="0,74" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/filtrarPisoAgente.do,error,filtrarPisoAgente.jsp,1" routingType="0">
+  <StrutsTransition id="/BorraPisoPrev.do,error,/VerPisosAgente.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="345,-225" />
-      <AbsolutePoint location="228,-225" />
-      <AbsolutePoint location="228,-210" />
+      <AbsolutePoint location="23,-150" />
+      <AbsolutePoint location="195,-150" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/EditaPiso.do,cancel,/verPisosAgente.do,1" routingType="0">
@@ -117,42 +180,18 @@
       <AbsolutePoint location="391,74" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/VerPisosAgente.jsp,null,/editaPisoPrev.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="390,-63" />
-      <AbsolutePoint location="495,-63" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/VerPisosAgente.jsp,null,/borraPisoPrev.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="240,-63" />
-      <AbsolutePoint location="165,-63" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/asignarAgenteAClientes.do,error,/VerClientesSinAgente.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="61,364" />
-      <AbsolutePoint location="120,364" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/registraPiso.do,reset,/registraPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="600,253" />
-      <AbsolutePoint location="600,339" />
-      <AbsolutePoint location="497,339" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/borraPisoPrev.do,error,/VerPisosAgente.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="165,-105" />
-      <AbsolutePoint location="247,-105" />
-      <AbsolutePoint location="247,-90" />
+      <AbsolutePoint location="645,223" />
+      <AbsolutePoint location="645,394" />
+      <AbsolutePoint location="323,394" />
+      <AbsolutePoint location="323,319" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/filtrarPisoAgente.do,exito,/VerPisosAgente.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="375,-152" />
-      <AbsolutePoint location="375,-90" />
+      <AbsolutePoint location="300,-257" />
+      <AbsolutePoint location="300,-165" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/EditaPiso.do,exito,/verPisosAgente.do,1" routingType="0">
@@ -161,65 +200,71 @@
       <AbsolutePoint location="391,44" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="filtrarPisoAgente.jsp,null,/filtrarPisoAgente.do,2" routingType="0">
+  <StrutsTransition id="/form/venderPiso.jsp,null,/venderPisoPrev.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="292,-185" />
-      <AbsolutePoint location="345,-185" />
+      <AbsolutePoint location="705,-240" />
+      <AbsolutePoint location="661,-210" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/editaPisoPrev.do,error,/VerPisosAgente.jsp,1" routingType="0">
+  <StrutsTransition id="/venderPisoPrev.do,exito,/VenderPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="495,-105" />
-      <AbsolutePoint location="315,-105" />
-      <AbsolutePoint location="315,-90" />
+      <AbsolutePoint location="661,-181" />
+      <AbsolutePoint location="736,-181" />
+      <AbsolutePoint location="736,-239" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/verClientesSinAgente.do,exito,/VerClientesSinAgente.jsp,1" routingType="0">
+  <StrutsTransition id="/venderPisoPrev.do,exito,/form/venderPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="135,253" />
-      <AbsolutePoint location="135,315" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/MenuAgente.jsp,null,/verClientesSinAgente.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="255,195" />
-      <AbsolutePoint location="151,195" />
+      <AbsolutePoint location="661,-181" />
+      <AbsolutePoint location="741,-181" />
+      <AbsolutePoint location="771,-221" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/registraPiso.do,cancel,/MenuAgente.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="586,165" />
-      <AbsolutePoint location="586,133" />
-      <AbsolutePoint location="341,133" />
-      <AbsolutePoint location="341,165" />
+      <AbsolutePoint location="540,210" />
+      <AbsolutePoint location="367,210" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/registraPiso.do,exito,/MenuAgente.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="525,241" />
-      <AbsolutePoint location="341,241" />
-      <AbsolutePoint location="341,226" />
+      <AbsolutePoint location="540,180" />
+      <AbsolutePoint location="367,180" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/verClientesSinAgente.do,error,/MenuAgente.jsp,1" routingType="0">
+  <StrutsTransition id="/EditaPisoPrev.do,exito,/EditaPiso.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="46,253" />
-      <AbsolutePoint location="46,271" />
-      <AbsolutePoint location="311,271" />
-      <AbsolutePoint location="311,226" />
+      <AbsolutePoint location="586,-32" />
+      <AbsolutePoint location="586,-15" />
+      <AbsolutePoint location="766,-15" />
+      <AbsolutePoint location="766,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VerPisosAgente.jsp,null,/BorraPisoPrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="240,-111" />
+      <AbsolutePoint location="240,-92" />
+      <AbsolutePoint location="-78,-92" />
+      <AbsolutePoint location="-78,-107" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/VenderPiso.jsp,null,/venderPiso.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="675,-269" />
+      <AbsolutePoint location="615,-269" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/MenuAgente.jsp,null,/registraPiso.jsp,0" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="367,195" />
-      <AbsolutePoint location="443,195" />
-      <AbsolutePoint location="443,315" />
+      <AbsolutePoint location="323,226" />
+      <AbsolutePoint location="323,270" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/VerPisosAgente.jsp,null,filtrarPisoAgente.jsp,0" routingType="0">
+  <StrutsTransition id="/VerPisosAgente.jsp,null,/filtrarPisoAgente.jsp,0" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="277,-90" />
-      <AbsolutePoint location="277,-161" />
+      <AbsolutePoint location="240,-165" />
+      <AbsolutePoint location="240,-200" />
+      <AbsolutePoint location="161,-200" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>
