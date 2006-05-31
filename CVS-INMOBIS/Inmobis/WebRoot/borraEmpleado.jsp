@@ -1,5 +1,6 @@
 <%--Librería específica de esta página: Logic, para usar el iterator--%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS:Eliminar Empleado";%>
 <%boolean esIndex=true;//Se refiere a la cabecera sencilla que no incluye librerías %>
@@ -45,7 +46,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					            <bean:write name="empleado" property="apellido2" />
 						  </td>						  
 						  <td align="center">
-							<a href="borraEmpleado.do?idEmpleado=<bean:write name='empleado' property='idEmpleado'/>"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
+							<a href="borraEmpleado.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
 						  </td>
 						</tr>
 					</table>

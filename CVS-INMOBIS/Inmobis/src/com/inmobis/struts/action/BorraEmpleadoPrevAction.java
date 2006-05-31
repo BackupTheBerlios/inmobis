@@ -63,8 +63,14 @@ public class BorraEmpleadoPrevAction extends Action {
 		else{
 			tipoUsuario = "administrador";
 		}
+		
+		if (log.isInfoEnabled()){
+			log.info("borraEmpleadoPrevAction 0:tipo de usuario: "+tipoUsuario);
+			log.info("borraEmpleadoPrevAction 0:id: "+((BorraEmpleadoPrevForm)form).getIdEmpleado());
+		}
+		
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar(tipoUsuario);
-		Consultar datos = CreadorConsultar.CreaConsultar(tipoUsuario);
+		Consultar datos = CreadorConsultar.CreaConsultar("empleado");
 		
 		if (log.isInfoEnabled()){
 			log.info("borraEmpleadoPrevAction 1:Antes de entrar en la base de datos");
