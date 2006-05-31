@@ -16,10 +16,11 @@ CON UN ANCHO DE 767 px -->
                  
 				  <center>
 				 <IMG SRC="images/casa_hipotecas.jpg"> 
-				 <P>Con Hipoteca <B>INMOB<FONT COLOR="GREEN">IS</FONT></B> podrás conseguir la casa de tus sueños. El servicio centralizado de Gestión de Préstamos de <B>INMOB<FONT COLOR="GREEN">IS</FONT></B> cuenta con convenios de colaboración con las principales entidades bancarias para conseguir ofrecer a sus clientes los mejores productos hipotecarios del mercado.</P>
+				 <P>Con Hipoteca <B>INMOB<FONT COLOR="GREEN">IS</FONT></B> podrás conseguir la casa de tus sueños. El servicio centralizado de Gestión de Préstamos de <B>INMOB<FONT COLOR="GREEN">IS</FONT></B> cuenta con convenios de colaboración con las principales entidades bancarias para conseguir ofrecer a sus clientes los mejores productos hipotecarios del mercado</P>
 
 <P>Gracias al gran volumen hipotecario generado por la red <B>INMOB<FONT COLOR="GREEN">IS</FONT></B>, conseguimos condiciones preferentes para nuestros clientes. Con HIPOTECA <B>INMOB<FONT COLOR="GREEN">IS</FONT></B>, podrá mejorar las condiciones de su hipoteca actual, reunificar deudas, comprar su nueva vivienda sin tener que esperar a vender su casa, eligiendo la cuota a pagar... todo ello con un completo asesoramiento financiero y fiscal.</P>
-				  <IMG SRC="images/Hipotecacalculos.gif"> 
+				<IMG SRC="images/Hipotecacalculos.gif"> 
+
 				  </center>
              
                 </div>
