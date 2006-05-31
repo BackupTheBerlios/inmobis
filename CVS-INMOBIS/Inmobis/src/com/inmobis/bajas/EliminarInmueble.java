@@ -5,7 +5,8 @@ import com.inmobis.struts.form.BorraPisoForm;
 import com.inmobis.struts.form.BorraPisoPrevForm;
 
 import org.apache.log4j.Logger;
-import com.inmobis.bbdd.inmueble.InmuebleBD;
+import com.inmobis.bbdd.CreadorGestores;
+import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
 import com.inmobis.bbdd.inmueble.InmuebleBean;
 import com.inmobis.struts.action.BorraClienteAction;
 
@@ -18,15 +19,15 @@ public class EliminarInmueble extends Eliminar{
 		InmuebleBean inmueble = new InmuebleBean();
 		inmueble.setIdInmueble(((BorraPisoPrevForm)id).getIdInmueble());
 		//se crea un inmueble de la base de datos
-		InmuebleBD inmueblebd = new InmuebleBD(inmueble);
+		GestorInmuebleBD gestorInmueble = (GestorInmuebleBD) CreadorGestores.crearGestor("inmueble",inmueble);
 		//mensajes para ver los errores
 		if (log.isInfoEnabled()){
-			log.info("EliminarInmueble1: Antes de la BDD tengo idInmueble: "+ ((InmuebleBean)inmueblebd.getBean()).getIdInmueble());
+			log.info("EliminarInmueble1: Antes de la BDD tengo idInmueble: "+ ((InmuebleBean)gestorInmueble.getBean()).getIdInmueble());
 			log.info("EliminarInmueble2: Voy a entrar en la base de datos, para validar");
 		}
 		//miro a ver si el inmueble está en la BBDD
 		try {
-			inmueblebd.select();
+			gestorInmueble.select();
 		} catch (Exception E) {
 			if (log.isInfoEnabled()){
 				log.info("EliminarInmueble3: no ha visto al inmueble en la base de datos");
@@ -34,32 +35,32 @@ public class EliminarInmueble extends Eliminar{
 			return false;
 		}
 		if (log.isInfoEnabled()){
-			log.info("EliminarInmueble4:Datos de Interés:  "+ ((InmuebleBean)inmueblebd.getBean()).getdatosDeInteres()+
-				"ID del inmueble: " + ((InmuebleBean)inmueblebd.getBean()).getIdInmueble()+ 
-				"Metros: " + ((InmuebleBean)inmueblebd.getBean()).getMetros()+
-				"Precio: " + ((InmuebleBean)inmueblebd.getBean()).getPrecio()+ 
-				"Regimen: " + ((InmuebleBean)inmueblebd.getBean()).getRegimen());
+			log.info("EliminarInmueble4:Datos de Interés:  "+ ((InmuebleBean)gestorInmueble.getBean()).getdatosDeInteres()+
+				"ID del inmueble: " + ((InmuebleBean)gestorInmueble.getBean()).getIdInmueble()+ 
+				"Metros: " + ((InmuebleBean)gestorInmueble.getBean()).getMetros()+
+				"Precio: " + ((InmuebleBean)gestorInmueble.getBean()).getPrecio()+ 
+				"Regimen: " +((InmuebleBean)gestorInmueble.getBean()).getRegimen());
 		}
 		return true;
 	}
 	
 	public boolean eliminarDesdeED(ActionForm id){		
-//		se crea un Bean inmueble
+		//se crea un Bean inmueble
 		InmuebleBean inmueble = new InmuebleBean();
 		inmueble.setIdInmueble(((BorraPisoForm)id).getIdInmueble());
 		//se crea inmueble de la base de datos
-		InmuebleBD inmueblebd = new InmuebleBD (inmueble);
+		GestorInmuebleBD gestorInmueble = (GestorInmuebleBD) CreadorGestores.crearGestor("inmueble",inmueble);
 		//mensajes de error del log
 		if (log.isInfoEnabled()){
-			log.info("EliminarInmueble6:Antes de la BDD tengo idInmueble: "+ ((InmuebleBean)inmueblebd.getBean()).getIdInmueble());
-			log.info("EliminarInmueble7:voy a entrar en la base de datos para borrar el inmueble");
+			log.info("EliminarInmueble 6:Antes de la BDD tengo idInmueble: "+ ((InmuebleBean)gestorInmueble.getBean()).getIdInmueble());
+			log.info("EliminarInmueble 7:voy a entrar en la base de datos para borrar el inmueble");
 		}
 		//se borra el inmueble
 		try {
-			inmueblebd.delete();
+			gestorInmueble.delete();
 		} catch (Exception E) {
 			if (log.isInfoEnabled()){
-				log.info("EliminarInmueble8:ha lanzado una excepción y no ha eliminado el inmueble");
+				log.info("EliminarInmueble 8:ha lanzado una excepción y no ha eliminado el inmueble");
 			}
 			return false;
 		}
