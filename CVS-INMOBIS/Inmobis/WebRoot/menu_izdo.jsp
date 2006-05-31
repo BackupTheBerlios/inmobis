@@ -1,11 +1,17 @@
 <!--pagecell1-->
 <div id="pageName"> 
-	<h2><%= subtitulo%>
-	<%if(tipoMenu.equals("general")||tipoMenu.equals("login")){} else {%>
-	<br><font size="2" color="green">Usuario:&nbsp;<b><i><%=session.getAttribute("userName")%></i></b></font>
-	<%}%>
-	
-	</h2>
+	<table width="95%">
+		<tr>
+			<td>
+				<h2><%= subtitulo%></h2>
+			</td>
+			<%if(tipoMenu.equals("general")||tipoMenu.equals("login")){} else {%>
+			<td align="right">
+				<font size="2" color="green">Usuario:&nbsp;<b><i><%=session.getAttribute("userName")%></i></b></font>
+			</td>
+			<%}%>	
+		</tr>
+	</table>
 </div>
 <div id="pageNav"> 
 <%if(tipoMenu.equals("general")){%>				
