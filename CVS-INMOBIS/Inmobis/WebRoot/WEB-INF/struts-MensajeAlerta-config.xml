@@ -4,7 +4,7 @@
 <struts-config>
   <data-sources />	
   <form-beans >
-
+    <form-bean name="MensajeForm" type="com.inmobis.struts.form.MensajeForm" />
   </form-beans>
 
   <global-exceptions />
@@ -18,12 +18,12 @@
       <forward name="exito" path="/NuevoMensaje.jsp" />
     </action>
     <action
-      attribute="EnviarMensajeForm"
+      attribute="MensajeForm"
       input="/NuevoMensaje.jsp"
-      name="EnviarMensajeForm"
+      name="MensajeForm"
       path="/enviarMensaje"
       scope="request"
-      type="com.inmobis.struts.action.EnviarMensajeAction" >
+      type="com.inmobis.struts.action.EnviarMensajeAction">
       <forward name="exito" path="/listaMensajesPrev.do" />
       <forward name="error" path="/NuevoMensaje.jsp" />
     </action>
@@ -33,12 +33,13 @@
       path="/listaMensajesPrev"
       type="com.inmobis.struts.action.ListaMensajesPrevAction">
       <forward name="exito" path="/ListaMensajes.jsp" />
-      <forward name="error" path="/MenuCliente.jsp" />
+      <forward name="error" path="/ListaMensajes.jsp" />
+      
     </action>
     <action
-      attribute="BorrarMensajeForm"
+      attribute="MensajeForm"
       input="/ListaMensajes.jsp"
-      name="BorrarMensajeForm"
+      name="MensajeForm"
       path="/borrarMensajePrev"
       scope="request"
       type="com.inmobis.struts.action.BorrarMensajePrevAction" >
@@ -46,9 +47,9 @@
       <forward name="error" path="/ListaMensajes.jsp" />
     </action>
     <action
-      attribute="BorrarMensajeForm"
+      attribute="MensajeForm"
       input="/BorrarMensaje.jsp"
-      name="BorrarMensajeForm"
+      name="MensajeForm"
       path="/borrarMensaje"
       scope="request"
       type="com.inmobis.struts.action.BorrarMensajeAction" >
@@ -57,9 +58,9 @@
       <forward name="exito" path="/listaMensajesPrev.do" />
     </action>
     <action
-      attribute="VerMensajeForm"
+      attribute="MensajeForm"
       input="/ListaMensajes.jsp"
-      name="VerMensajeForm"
+      name="MensajeForm"
       path="/verMensaje"
       scope="request"
       type="com.inmobis.struts.action.VerMensajeAction" >
@@ -122,23 +123,6 @@
       <forward name="exito" path="/listaAlertasPrev.do" />
       <forward name="error" path="/borraAlerta.jsp" />
     </action>
-
-
-
-
-    
-
-    
-    
-
-    
-    
-
-
-
-
-
-
 
   </action-mappings>
 
