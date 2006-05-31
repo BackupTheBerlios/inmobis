@@ -211,6 +211,7 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 	     while (rs.next()) {
 	       EmpleadoBean empleado = new EmpleadoBean();
 	       empleado.setIdEmpleado(rs.getString("idEmpleado"));
+	       empleado.setDni(rs.getString("dni"));
 	       empleado.setNombre(rs.getString("nombre"));
 	       empleado.setApellido1(rs.getString("apellido1"));
 	       empleado.setApellido2(rs.getString("apellido2"));

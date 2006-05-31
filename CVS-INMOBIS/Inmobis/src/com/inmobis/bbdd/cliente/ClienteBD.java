@@ -222,7 +222,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 	      while (rs.next()) {
 	        ClienteBean cliente=new ClienteBean();
 	        cliente.setIdCliente(rs.getString("idCliente"));
-	        cliente.setIdCliente(rs.getString("dni"));
+	        cliente.setDni(rs.getString("dni"));
 	        cliente.setNombre(rs.getString("nombre"));
 	        cliente.setApellido1(rs.getString("apellido1"));
 	        cliente.setApellido2(rs.getString("apellido2"));
