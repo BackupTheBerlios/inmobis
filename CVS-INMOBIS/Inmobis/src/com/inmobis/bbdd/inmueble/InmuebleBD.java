@@ -332,11 +332,11 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	           InmuebleBean inmuebleNuevo=new InmuebleBean();
 	           
 	           inmuebleNuevo.setIdInmueble(rs.getString("idInmueble"));
-	           inmuebleNuevo.setMetros(rs.getString("numHab"));
+	           inmuebleNuevo.setNumHab(rs.getString("numHab"));
 	           inmuebleNuevo.setMetros(rs.getString("metros"));
 	           inmuebleNuevo.setRegimen(rs.getString("regimen"));
-	           inmuebleNuevo.setRegimen(rs.getString("tipo"));
-	           inmuebleNuevo.setRegimen(rs.getString("zona"));
+	           inmuebleNuevo.setTipo(rs.getString("tipo"));
+	           inmuebleNuevo.setZona(rs.getString("zona"));
 	           inmuebleNuevo.setPrecio(rs.getString("precio"));
 	           inmuebleNuevo.setDatosDeInteres(rs.getString("datosdeinteres"));
 	           inmueblesEncontrados.add(inmuebleNuevo);

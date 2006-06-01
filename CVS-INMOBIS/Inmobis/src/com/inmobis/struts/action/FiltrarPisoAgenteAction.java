@@ -96,6 +96,8 @@ public class FiltrarPisoAgenteAction extends Action {
 						log.info("Metros: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getMetros());
 						log.info("Precio: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getPrecio());
 						log.info("Regimen: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getRegimen());
+						log.info("numHab: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getNumHab());
+						log.info("Tipo: " + ((InmuebleBean)listaInmuebles.elementAt(i)).getTipo());
 						i++;
 					}
 				}
