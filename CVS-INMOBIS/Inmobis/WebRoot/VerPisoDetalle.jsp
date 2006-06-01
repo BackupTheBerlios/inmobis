@@ -35,12 +35,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<table width="100%">
 								<tr>
 									<td>
-										<IMG src="images/fotos/<%=form.getFoto1()%>" border="0">
+										<IMG src="pisos/<%=form.getFoto1()%>" border="0">
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<IMG src="images/fotos/<%=form.getFoto2()%>" border="0">
+										<IMG src="pisos/<%=form.getFoto2()%>" border="0">
 										
 									</td>
 								</tr>
