@@ -51,7 +51,7 @@ public class BorraClienteAction extends Action {
 		Eliminar eliminarC = CreadorEliminar.CreaEliminar("cliente");
 		
 		if (log.isInfoEnabled()){
-			log.info("BorraClienteAction1: Antes de la BDD tengo idCliente: "+ ((BorraClienteForm)form).getIdCliente());
+			log.info("BorraClienteAction1: Antes de la BDD tengo idCliente: "+ ((BorraClienteForm)form).getIdCliente()); 
 		}
 		
 		if (!eliminarC.eliminarDesdeED(form)){

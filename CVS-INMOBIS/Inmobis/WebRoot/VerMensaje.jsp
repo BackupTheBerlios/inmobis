@@ -34,14 +34,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<html:text property="nombreOrigen" size="25" maxlength="25" value="<%=form.getNombreOrigen()%>" readonly="true" />
 							</td>
 						</tr>
-						<tr>  
-							<td>   
-								<fmt:message key="verMensaje.nombreDestino"/>
-							</td>     
-							<td>
-								<html:text property="nombreDestino" size="25" maxlength="25" value="<%=form.getNombreDestino()%>" readonly="true" />
-							</td>
-						</tr>
+						
 						<tr>
 						<td>
 							<fmt:message key="verMensaje.fecha"/>
