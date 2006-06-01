@@ -293,7 +293,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		       		"AND TEmpleados.idEmpleado = TRelMensaje.Origen "+
 		       		"AND destino = " + MysqlUtils.toMysqlString((String) mensaje.getDestino()));
     	  if (milog.isInfoEnabled()){
-	    			milog.info(sqlString.toString());
+	    			milog.info("Busqueda Detallada: "+ sqlString.toString());
     	  }		
 		   rs=stmt.executeQuery(sqlString.toString());
 		   
