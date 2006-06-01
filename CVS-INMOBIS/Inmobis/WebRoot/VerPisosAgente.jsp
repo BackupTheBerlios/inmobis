@@ -24,6 +24,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <div id="content"> 
 	<div class="feature">     
  		<table width="100%" class="lista">
+ 			<tr><html:errors property="verPisosAgente"/></tr>
 			<tr>
 				<th><bean:message key="app.zona" /></th>
 				<th><bean:message key="app.numHab" /></th>
