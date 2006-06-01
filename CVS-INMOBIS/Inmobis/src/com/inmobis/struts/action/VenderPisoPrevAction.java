@@ -12,11 +12,18 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.altas.CreadorIntroducir;
 import com.inmobis.altas.Introducir;
 import com.inmobis.struts.form.VenderPisoForm;
+
+import com.inmobis.bbdd.empleado.ContableBD;
+
+import java.util.Vector;
+
+import com.inmobis.bbdd.inmueble.VentasBean;
 
 
 import com.inmobis.INMOCTES;
@@ -48,22 +55,45 @@ public class VenderPisoPrevAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		
-		//HttpSession session = request.getSession(true);
+		ActionMessages errors= new ActionMessages();
+		
+		String target = null;
+		
+		HttpSession session = request.getSession(true);
 		
 		//((VenderPisoForm)form).setIdInmueble(session.getAttribute(INMOCTES.idUsuario).toString());
+		
+		VentasBean i = new VentasBean();
+		i.setIdInmueble(((VenderPisoForm)form).getIdInmueble());
+		ContableBD cont = new ContableBD();
+		Vector listaInmuebles = cont.BusquedaDetallada(i);
 		
 		if (log.isInfoEnabled()){
 			log.info("VerPisosVendidosAction 1: Antes de entrar en la base de datos");
 		}		
-		Introducir pisoV=CreadorIntroducir.createIntroducir("inmueble");		
-		ActionMessages errors2 = pisoV.introduceVendido(form);
+		
+		
+		
 		//necesito tener una función que me liste a todos los inmuebles vendidos. Ahora lo aviso.
 		
-		if(errors2.size()>0){
-			saveErrors(request, errors2);
-			return (mapping.findForward("error"));
+		if ((listaInmuebles.size()==0)||(listaInmuebles.size()>1)){
+			if (log.isInfoEnabled()){
+				log.info("VerPisosVendidosAction2: Ha habido un error en la búsqueda en la bbdd, el numero de elementos es distinto de uno.");
+			}
+			errors.add("menuContable", new ActionMessage("errors.listainmuebles.bbdd"));
+			saveErrors(request,errors);
+			target = "error";			
 		}
-		return (mapping.findForward("exito"));
+		else{
+			if (listaInmuebles.size()==1){
+			if (log.isInfoEnabled()){
+				log.info("VerPisosVendidosAction 3: Se ha realizado el listado con éxito");
+			}
+			session.setAttribute("listaInmuebles",listaInmuebles);
+			target = "exito";			
+			}
+		}
+		return (mapping.findForward(target));
 	}
 
 }

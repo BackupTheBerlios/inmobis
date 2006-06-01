@@ -53,9 +53,9 @@ public class FiltrarPisosVendidosAction extends Action {
 		ActionMessages errors= new ActionMessages();
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
-		Vector listaInmueblesVendidos = consultar.filtrarPisosVendidos(form);
+		Vector listaInmuebles = consultar.filtrarPisosVendidos(form);
 	
-		if (listaInmueblesVendidos.size()==0){
+		if (listaInmuebles==null){
 			if (log.isInfoEnabled()){
 				log.info("FiltrarPisoAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
 			}
@@ -64,7 +64,7 @@ public class FiltrarPisosVendidosAction extends Action {
 			return (mapping.findForward("error"));
 		}
 		else{
-			if (listaInmueblesVendidos.size()==0){
+			if (listaInmuebles.size()==0){
 				if (log.isInfoEnabled()){
 					log.info("FiltrarPisoAgenteAction 3: no hay pisos con esas características");	
 				}
@@ -75,22 +75,22 @@ public class FiltrarPisosVendidosAction extends Action {
 			else{
 				if (log.isInfoEnabled()){
 					log.info("FiltrarPisoAgenteAction 4: Se ha realizado la busqueda con éxito");
-					log.info("FiltrarPisoAgenteAction 5: " + listaInmueblesVendidos.size());
+					log.info("FiltrarPisoAgenteAction 5: " + listaInmuebles.size());
 					int i=0;
-					while (i<listaInmueblesVendidos.size()){
-						log.info("Desde: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getFechaDesde());
-						log.info("Hasta: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getFechaHasta());
-						log.info("Venta: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getFechVenta());
-						log.info("Ganancia: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getGanancia());
-						log.info("Id Agente: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getIdAgente());
-						log.info("Id Inmueble: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getIdInmueble());
+					while (i<listaInmuebles.size()){
+						log.info("Desde: " + ((VentasBean)listaInmuebles.elementAt(i)).getFechaDesde());
+						log.info("Hasta: " + ((VentasBean)listaInmuebles.elementAt(i)).getFechaHasta());
+						log.info("Venta: " + ((VentasBean)listaInmuebles.elementAt(i)).getFechVenta());
+						log.info("Ganancia: " + ((VentasBean)listaInmuebles.elementAt(i)).getGanancia());
+						log.info("Id Agente: " + ((VentasBean)listaInmuebles.elementAt(i)).getIdAgente());
+						log.info("Id Inmueble: " + ((VentasBean)listaInmuebles.elementAt(i)).getIdInmueble());
 						//log.info("Precio Final: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getPrecioFinal());
 						//log.info("Precio Inicial: " + ((VentasBean)listaInmueblesVendidos.elementAt(i)).getPrecioInicial());
 						i++;
 					}
 				}
 				HttpSession session = request.getSession(true);
-				session.setAttribute("listaInmueblesVendidos",listaInmueblesVendidos);
+				session.setAttribute("listaInmuebles",listaInmuebles);
 				return mapping.findForward("exito");
 			}
 		}

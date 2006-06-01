@@ -149,7 +149,7 @@ public class IntroducirInmueble extends Introducir{
 		inmuebleVend.setIdInmueble(((VenderPisoForm)datosInmuebleVendido).getIdInmueble());
 		inmuebleVend.setPrecioFinal(((VenderPisoForm)datosInmuebleVendido).getPrecioFinal());
 		inmuebleVend.setPrecioInicial(((VenderPisoForm)datosInmuebleVendido).getPrecioInicial());		
-		inmuebleVend.setIdInmueble(gc.asignaCodigoInmueble());
+		//inmuebleVend.setIdInmueble(gc.asignaCodigoInmueble());
 		if(i_log.isInfoEnabled())
 			i_log.info("Codigo Inmueble:" + inmuebleVend.getIdInmueble());	
 		
