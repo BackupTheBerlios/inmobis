@@ -25,146 +25,146 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<table width="100%">
 					<tr>
 						<td>
-							<H2><fmt:message key="detalles.message"/></H2>
+							<H2><fmt:message key="detallesPiso.message"/></H2>
 						</td>
 					</tr>
 				</table>
 				<table width="100%">
 					<tr>
 						<td>
-							<fmt:message key="detalles.numHab"/>
+							<table width="100%">
+								<tr>
+									<td>
+										<IMG src="images/fotos/<%=form.getFoto1()%>" border="0">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<IMG src="images/fotos/<%=form.getFoto2()%>" border="0">
+										
+									</td>
+								</tr>
+							</table>
 						</td>
 						<td>
-							<!--El id se pasa oculto para que no lo vea el usuario-->
-							<%=form.getIdInmueble()%>
-							<%=form.getNumHab()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.tipo"/>	
-						</td>
-						<td>
-							<%=form.getTipo()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.zona"/>	
-						</td>
-						<td>
-							<%=form.getZona()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.metros"/>	
-						</td>
-						<td>
-							<%=form.getMetros()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.regimen"/>	
-						</td>
-						<td>
-							<%=form.getRegimen()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.precio"/>	
-						</td>
-						<td>
-							<%=form.getPrecio()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.datosDeInteres"/>	
-						</td>
-						<td>
-							<%=form.getDatosDeInteres()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.calle"/>	
-						</td>
-						<td>
-							<%=form.getCalle()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.num"/>	
-						</td>
-						<td>
-							<%=form.getNum()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.piso"/>	
-						</td>
-						<td>
-						
-							<%=form.getPiso()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.codPostal"/>	
-						</td>
-						<td>
-							<%=form.getCodPostal()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.poblacion"/>	
-						</td>
-						<td>
-							<%=form.getPoblacion()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.provincia"/>	
-						</td>
-						<td>
-							<%=form.getProvincia()%>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.pais"/>	
-						</td>
-						<td>
-							<IMG src="images/fotos/<%=form.getFoto1()%>" border="0">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.pais"/>	
-						</td>
-						<td>
-							<IMG src="images/fotos/<%=form.getFoto2()%>" border="0">
-							
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<fmt:message key="editaPiso.pais"/>	
-						</td>
-						<td>
-							"España"
+							<table width="100%">
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.numHab"/>
+									</td>
+									<td>
+										<%=form.getNumHab()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.tipo"/>	
+									</td>
+									<td>
+										<%=form.getTipo()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.zona"/>	
+									</td>
+									<td>
+										<%=form.getZona()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.metros"/>	
+									</td>
+									<td>
+										<%=form.getMetros()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.regimen"/>	
+									</td>
+									<td>
+										<%=form.getRegimen()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.precio"/>	
+									</td>
+									<td>
+										<%=form.getPrecio()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.datosDeInteres"/>	
+									</td>
+									<td>
+										<%=form.getDatosDeInteres()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.calle"/>	
+									</td>
+									<td>
+										<%=form.getCalle()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.num"/>	
+									</td>
+									<td>
+										<%=form.getNum()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.piso"/>	
+									</td>
+									<td>
+									
+										<%=form.getPiso()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.codPostal"/>	
+									</td>
+									<td>
+										<%=form.getCodPostal()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.poblacion"/>	
+									</td>
+									<td>
+										<%=form.getPoblacion()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.provincia"/>	
+									</td>
+									<td>
+										<%=form.getProvincia()%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<fmt:message key="detallesPiso.pais"/>	
+									</td>
+									<td>
+										"España"
+									</td>
+								</tr>					
+							</table>
 						</td>
 					</tr>
 				</table>
-								
-		
 			</div>
 		</div>
         <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
