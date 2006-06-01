@@ -196,6 +196,24 @@ table.cabecera-logo {
 	width: 82px;
 }
 
+/*--- MAPA---*/
+
+a.mapa:link, a.mapa:visited {
+	font-weight:none;
+	font-size:20px;
+	color: #457FB1;
+	text-decoration: none;
+
+}
+
+a.mapa:hover {
+	font-weight: none;
+	font-size:20px;
+	color:  #457FB1;
+	text-decoration: underline;
+	
+}
+
 /*---FINAL---*/
 
 /*---Barra de Navegación Inferior---*/
