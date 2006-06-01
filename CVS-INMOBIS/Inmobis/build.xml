@@ -9,7 +9,7 @@
     <property name="Inmobis.location" value="C:/Documents and Settings/joseluis/workspace/Inmobis"/>
 	<property name="tomcat.home" value="C:/tomcat" />
 	<property name="tomcat.deploy" value="${tomcat.home}/webapps" />
-	<property name="tomcatInmobis.dir" value="${tomcat.deploy}/Inmobis" />
+	<property name="tomcatInmobis.dir" value="${tomcat.deploy}/inmobis" />
 	<property name="localsrc.dir" value="${Inmobis.location}/src" />
 	<property name="localclasses.dir" value="${Inmobis.location}/WebRoot/WEB-INF/classes" />
 	<property name="build.dir" value="${Inmobis.location}/Build" />
@@ -40,7 +40,6 @@
     </path>
 
 	<target name="prepare">
-		<antcall target="distclean"></antcall>
 		<tstamp />
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${build.dir}/estilo" />
@@ -75,6 +74,10 @@
 				<include name="**/*.properties" />
 			</fileset>
 		</copy>
+		<copy todir="${build.dir}/pisos">
+			<fileset dir="${tomcatInmobis.dir}/pisos"></fileset>
+		</copy>
+		<antcall target="distclean"></antcall>
 	</target>
 	
 	<target name="compile" depends="prepare" >
