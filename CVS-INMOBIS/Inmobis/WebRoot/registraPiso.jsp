@@ -176,16 +176,22 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<html:errors property="numHab" />
 							</td>
 						</tr>
-						<TR>
-							<TD>
-								Foto1: <BR />
+						<tr>
+							<td>
+								<fmt:message key="registraPiso.foto1"/> 
+							</td>
+							<td>
 								<html:file property="binFoto1" />
-							</TD>
-							<TD>
-								Foto2: <BR />
-							 	<html:file property="binFoto2" /> 
-							</TD>
-						</TR>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<fmt:message key="registraPiso.foto2"/> 
+							</td>
+							<td>								
+								<html:file property="binFoto2" />										
+							</td>
+						</tr>
 						<tr>
 							<td colspan="2">
 								<br><fmt:message key="registraPiso.clienteTexto"/><br><br>
