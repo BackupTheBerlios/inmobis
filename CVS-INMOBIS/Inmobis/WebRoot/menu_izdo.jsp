@@ -102,9 +102,6 @@
 	<!-- he puesto un .do cualquiera para probarlo porque aun no estan las action a las que corresponde-->		
 	 <div id="sectionLinks2">
 		<h3>&nbsp;<fmt:message key="menuCliente.message"/></h3>	
-		<a href="registraClienteCliente.jsp">
-			<fmt:message key="menuCliente.registrar"/>
-		</a>
 		<a href="verPisos.do">
 			<fmt:message key="menuCliente.inmuebles"/>
 		</a>

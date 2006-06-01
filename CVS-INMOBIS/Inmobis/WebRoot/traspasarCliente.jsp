@@ -56,7 +56,7 @@ String idCliente=(String)sesion.getAttribute("idCliente");
 									<bean:write name="empleado" property="dni" />
 							  </td>
 							  <td width="15">
-									<a href="traspasarClientes.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_tick.jpg" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
+									<a href="traspasarClientes.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_tick.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
 							  </td>							  							  
 						</tr>
 				      		</logic:iterate>
