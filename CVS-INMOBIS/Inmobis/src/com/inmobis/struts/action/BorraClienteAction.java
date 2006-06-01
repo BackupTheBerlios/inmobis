@@ -58,7 +58,7 @@ public class BorraClienteAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borraClienteAction3: Se ha intentado eliminar pero algo ha fallado");
 			}
-			errors.add("clienteborrarfallo", new ActionMessage ("errors.AlborrarCliente.invalid"));
+			errors.add("verPisosAgente", new ActionMessage ("errors.AlborrarCliente.invalid"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
