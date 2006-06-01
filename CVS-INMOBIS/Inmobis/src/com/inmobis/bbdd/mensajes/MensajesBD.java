@@ -41,7 +41,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		      rs = stmt.executeQuery("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha,leido" +
 		      		" FROM TMensajes, TRelMensaje" +
 		      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
-		      		"AND idMensaje= " +
+		      		"AND TMensajes.idMensaje= " +
                       MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
                     "AND origen= " +
                       MysqlUtils.toMysqlString(mensaje.getOrigen())+
