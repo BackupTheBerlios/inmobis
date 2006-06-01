@@ -131,19 +131,20 @@ public class EditaClienteForm extends ActionForm {
 			String[] tokens = email.split("@");
 			//Solo puede haber una arroba y no puede haber espacios
 			if(tokens.length==2){
-				String[] tokens2 = tokens[1].split("\\.");
+				String dominio=tokens[1];
+				String[] tokens2 = dominio.split("\\.");
 				//Pero puede haber muchos puntos (@domain.co.uk)
 				if(tokens2.length>1){
 					boolean tokens2valid=true;
 					//El primer campo tiene que tener 2 o mas caracteres
 					if (tokens2[0].length()<2 || tokens2[0].contains(" ")){
-						tokens2valid=false; 
+						tokens2valid=false;
 					}
 					//El resto tienen que tener 2 o 3
 					for(int i=1; i<tokens2.length;i++)
-						if (tokens2[i].length()<2 ||tokens2[i].length()>3 || tokens[i].contains(" "))
+						if (tokens2[i].length()<2 ||tokens2[i].length()>3 ||tokens2[i].contains(" "))
 							tokens2valid=false;
-					if(tokens[0].trim().length()<=0 || !tokens2valid || tokens[0].contains(" "))
+					if(tokens[0].trim().length()<=0 || !tokens2valid ||tokens[0].contains(" "))
 						errors.add("email" , new ActionMessage("errors.email.notValid"));					
 				}
 				else
