@@ -286,7 +286,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		try{ // 
 		   conn = ConnectionManager.getConection();
 	       Statement stmt = conn.createStatement();
-	       ResultSet rs,rs1,rs2,rs3 = null;
+	       ResultSet rs = null;
 
 	       StringBuffer sqlString = new StringBuffer("SELECT * " +
 		       		" FROM TMensajes,TRelMensaje, TEmpleados WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
@@ -326,11 +326,10 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 
 	public Vector BusquedaDetalladaAgente() {
 		Vector mensajesEncontrados= new Vector();
-		String nom,ap1,ap2;
+		ResultSet rs = null;
 		try{ // 
 		   conn = ConnectionManager.getConection();
 	       Statement stmt = conn.createStatement();
-	       ResultSet rs,rs1,rs2,rs3 = null;
 
 	       StringBuffer sqlString = new StringBuffer("SELECT * " +
 		       		" FROM TMensajes,TRelMensaje, TCliente WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
