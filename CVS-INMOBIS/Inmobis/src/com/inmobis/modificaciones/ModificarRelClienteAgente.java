@@ -27,7 +27,7 @@ public class ModificarRelClienteAgente extends Modificar{
 		try {
 			gestorAgente.updateRelAgenteCliente(((TraspasarClientesForm)datos).getIdEmpleado(),((TraspasarClientesForm)datos).getIdCliente());
 		} catch (RowNotFoundException e) {
-			errors.add("MenuGerente",new ActionMessage("errors.traspasar.ClienteNotFound"));
+			errors.add("traspasarCliente",new ActionMessage("errors.traspasar.ClienteNotFound"));
 		}
 		
 		

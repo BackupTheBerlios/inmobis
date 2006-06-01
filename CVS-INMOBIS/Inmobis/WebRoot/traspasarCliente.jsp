@@ -34,6 +34,9 @@ String idCliente=(String)sesion.getAttribute("idCliente");
                    <table width="100%" class="lista">
 						 <!-- zona de c�digo-->
 						<tr>
+							<html:errors property="traspasarCliente"/>
+						</tr>
+						<tr>
 							<th><fmt:message key="app.nombre" /></th>
 							<th><fmt:message key="app.apellido1" /></th>
 							<th><fmt:message key="app.apellido2" /></th>
@@ -56,7 +59,7 @@ String idCliente=(String)sesion.getAttribute("idCliente");
 									<bean:write name="empleado" property="dni" />
 							  </td>
 							  <td width="15">
-									<a href="traspasarClientes.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_tick.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
+									<a href="traspasarClientes.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>&idCliente=<%=idCliente%> "><IMG SRC="images/ico_tick.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
 							  </td>							  							  
 						</tr>
 				      		</logic:iterate>
