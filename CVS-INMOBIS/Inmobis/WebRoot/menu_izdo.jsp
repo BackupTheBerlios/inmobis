@@ -108,10 +108,10 @@
 		<a href="verPisos.do">
 			<fmt:message key="menuCliente.inmuebles"/>
 		</a>
-		<a href="listaMensajesPrev.do">
+		<a href="listaMensajeClientePrev.do">
 			<fmt:message key="menuCliente.quejas"/>
 		</a>
-		<a href="listarMensajesPrev.do">
+		<a href="listaMensajeClientePrev.do">
 			<fmt:message key="menuCliente.mensajes"/>
 		</a>		 
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>

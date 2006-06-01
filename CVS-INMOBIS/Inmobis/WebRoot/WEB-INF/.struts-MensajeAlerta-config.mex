@@ -14,7 +14,6 @@
   <StrutsActivity path="/borrarAlerta.do" location="-195,165" dimension="150,100" />
   <StrutsActivity path="/NuevoMensaje.jsp" location="450,0" dimension="150,55" />
   <StrutsActivity path="/ListaMensajes.jsp" location="435,255" dimension="120,56" />
-  <StrutsActivity path="/MenuCliente.jsp" location="45,120" dimension="150,61" />
   <StrutsActivity path="/MenuAgente.jsp" location="60,345" dimension="150,61" />
   <StrutsActivity path="/BorrarMensaje.jsp" location="480,540" dimension="150,59" />
   <StrutsActivity path="/VerMensaje.jsp" location="810,255" dimension="150,53" />
@@ -22,6 +21,8 @@
   <StrutsActivity path="/VerAlerta.jsp" location="-465,570" dimension="106,61" />
   <StrutsActivity path="/EditaAlerta.jsp" location="-240,615" dimension="121,61" />
   <StrutsActivity path="/borraAlerta.jsp" location="-360,90" dimension="150,63" />
+  <StrutsActivity path="/MenuCliente.jsp" location="-15,75" dimension="150,61" />
+  <StrutsActivity path="/listaMensajeClientePrev.do" location="15,180" dimension="150,100" />
   <StrutsTransition id="/ListaAlertas.jsp,null,/verAlerta.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="-360,360" />
@@ -85,6 +86,12 @@
       <AbsolutePoint location="315,325" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/listaMensajeClientePrev.do,exito,/listaMensajesPrev.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="165,245" />
+      <AbsolutePoint location="210,245" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/borrarMensaje.do,error,/BorrarMensaje.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="375,525" />
@@ -94,9 +101,15 @@
   </StrutsTransition>
   <StrutsTransition id="/MenuAgente.jsp,null,/listaMensajesPrev.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="210,390" />
-      <AbsolutePoint location="285,390" />
+      <AbsolutePoint location="210,360" />
+      <AbsolutePoint location="285,360" />
       <AbsolutePoint location="285,325" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuCliente.jsp,null,/listaMensajeClientePrev.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="60,136" />
+      <AbsolutePoint location="60,180" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/borrarAlertaPrev.do,error,/ListaAlertas.jsp,1" routingType="0">
@@ -150,13 +163,6 @@
       <AbsolutePoint location="495,220" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/listaMensajesPrev.do,error,/MenuCliente.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="285,225" />
-      <AbsolutePoint location="285,150" />
-      <AbsolutePoint location="195,150" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/borrarMensajePrev.do,error,/ListaMensajes.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="495,375" />
@@ -165,8 +171,8 @@
   </StrutsTransition>
   <StrutsTransition id="/listaMensajesPrev.do,error,/ListaMensajes.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="360,310" />
-      <AbsolutePoint location="435,310" />
+      <AbsolutePoint location="360,305" />
+      <AbsolutePoint location="435,305" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/verMensaje.do,error,/ListaMensajes.jsp,1" routingType="0">
@@ -238,13 +244,6 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="480,120" />
       <AbsolutePoint location="480,55" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/MenuCliente.jsp,null,/listaMensajesPrev.do,0" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="120,181" />
-      <AbsolutePoint location="120,280" />
-      <AbsolutePoint location="210,280" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>

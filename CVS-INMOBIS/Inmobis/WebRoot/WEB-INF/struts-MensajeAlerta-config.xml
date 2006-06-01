@@ -12,8 +12,11 @@
 
   <action-mappings >
     <action
+      attribute="MensajeForm"
       input="/ListaMensajes.jsp"
+      name="MensajeForm"
       path="/crearMensaje"
+      scope="request"
       type="com.inmobis.struts.action.CrearMensajeAction">
       <forward name="exito" path="/NuevoMensaje.jsp" />
     </action>
@@ -33,8 +36,7 @@
       path="/listaMensajesPrev"
       type="com.inmobis.struts.action.ListaMensajesPrevAction">
       <forward name="exito" path="/ListaMensajes.jsp" />
-      <forward name="error" path="/ListaMensajes.jsp" />
-      
+      <forward name="error" path="/ListaMensajes.jsp" />   
     </action>
     <action
       attribute="MensajeForm"
@@ -123,6 +125,13 @@
       <forward name="exito" path="/listaAlertasPrev.do" />
       <forward name="error" path="/borraAlerta.jsp" />
     </action>
+    <action
+      input="/MenuCliente.jsp"
+      path="/listaMensajeClientePrev"
+      type="com.inmobis.struts.action.ListaMensajeClientePrevAction" >
+      <forward name="exito" path="/listaMensajesPrev.do" />
+    </action>
+
 
   </action-mappings>
 

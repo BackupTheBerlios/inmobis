@@ -51,7 +51,7 @@ public class CrearMensajeAction extends Action {
 		ActionMessages errors= new ActionMessages();
 
 		HttpSession session = request.getSession(true);
-		((MensajeForm) form).setOrigen((String)session.getAttribute(INMOCTES.userName));
+		((MensajeForm) form).setOrigen((String)session.getAttribute(INMOCTES.idUsuario));
 
 		//Pongo en el log el origen para listar.
 		if (log.isInfoEnabled()){
@@ -72,7 +72,7 @@ public class CrearMensajeAction extends Action {
 		}
 		else{
 			if (log.isInfoEnabled()){
-				log.info("CrearMensajeAction 3: Se han recuperado "+ listaDestinos.size()+" mensajes");
+				log.info("CrearMensajeAction 3: Se han recuperado "+ listaDestinos.size()+" destinos");
 			}
 			session.setAttribute("listaDestinos",listaDestinos);
 			return (mapping.findForward("exito"));

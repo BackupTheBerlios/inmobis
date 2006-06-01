@@ -8,8 +8,6 @@ import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import java.sql.*;
-import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Vector;
 
 public class MensajesBD implements BDObject, GestorMensajesBD{
@@ -390,7 +388,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	       sqlString.append(MysqlUtils.toMysqlString((String) mensaje.origen));
 		   
 		   rs=stmt.executeQuery(sqlString.toString());
-		   
+
 		   if (rs.next()) { //El origen es un cliente,cogemos su agente
 			   MensajesBean destBean = new MensajesBean();
 			   destBean.setDestino(rs.getString("idAgente"));
