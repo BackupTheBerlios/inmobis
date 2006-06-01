@@ -24,11 +24,11 @@ public class VerPisosVendidosForm extends ActionForm {
 	 String fechVenta;
 	 String precioInicial;
 	 String precioFinal;
-	 String ganacia;
+	 String ganancia;
 	 
 	 //para el rango
-	 //String fechIni;
-	 //String fechFin;	 
+	 String fechIni;
+	 String fechFin;	 
 	 
 	// --------------------------------------------------------- Methods
 
@@ -55,10 +55,10 @@ public class VerPisosVendidosForm extends ActionForm {
 		this.fechVenta="";
 		this.precioInicial="";
 		this.precioFinal="";
-		this.ganacia="";		
+		this.ganancia="";		
 	}
 
-/*	public String getFechFin() {
+	public String getFechFin() {
 		return fechFin;
 	}
 
@@ -72,7 +72,7 @@ public class VerPisosVendidosForm extends ActionForm {
 
 	public void setFechIni(String fechIni) {
 		this.fechIni = fechIni;
-	}*/
+	}
 
 	public String getFechVenta() {
 		return fechVenta;
@@ -82,12 +82,12 @@ public class VerPisosVendidosForm extends ActionForm {
 		this.fechVenta = fechVenta;
 	}
 
-	public String getGanacia() {
-		return ganacia;
+	public String getGanancia() {
+		return ganancia;
 	}
 
-	public void setGanacia(String ganacia) {
-		this.ganacia = ganacia;
+	public void setGanancia(String ganacia) {
+		this.ganancia = ganacia;
 	}
 
 	public String getIdAgente() {

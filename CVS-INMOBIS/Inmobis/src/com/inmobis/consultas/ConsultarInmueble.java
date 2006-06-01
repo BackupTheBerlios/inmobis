@@ -83,18 +83,18 @@ public class ConsultarInmueble extends Consultar{
 		VentasBean pisoVend = new VentasBean();
 		
 		//se rellean el bean con los datos que se han recogido del formulario
-//		if (!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals(null)) &&
-//				!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals("")))
-//			pisoVend.setFechaHasta(((VerPisosVendidosForm)datosBusqueda).getFechFin());
-//		if (!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals(null)) &&
-//				!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals("")))
-//			pisoVend.setFechaDesde(((VerPisosVendidosForm)datosBusqueda).getFechIni());
+		if (!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals(null)) &&
+				!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals("")))
+			pisoVend.setFechaHasta(((VerPisosVendidosForm)datosBusqueda).getFechFin());
+		if (!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals(null)) &&
+				!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals("")))
+			pisoVend.setFechaDesde(((VerPisosVendidosForm)datosBusqueda).getFechIni());
 		if (!(((VerPisosVendidosForm)datosBusqueda).getFechVenta().equals(null)) &&
 				!(((VerPisosVendidosForm)datosBusqueda).getFechVenta().equals("")))
 			pisoVend.setFechVenta(((VerPisosVendidosForm)datosBusqueda).getFechVenta());
-		if (!(((VerPisosVendidosForm)datosBusqueda).getGanacia().equals(null)) &&
-				!(((VerPisosVendidosForm)datosBusqueda).getGanacia().equals("")))
-			pisoVend.setGanancia(((VerPisosVendidosForm)datosBusqueda).getGanacia());
+		if (!(((VerPisosVendidosForm)datosBusqueda).getGanancia().equals(null)) &&
+				!(((VerPisosVendidosForm)datosBusqueda).getGanancia().equals("")))
+			pisoVend.setGanancia(((VerPisosVendidosForm)datosBusqueda).getGanancia());
 		if (!(((VerPisosVendidosForm)datosBusqueda).getIdAgente().equals(null)) &&
 				!(((VerPisosVendidosForm)datosBusqueda).getIdAgente().equals("")))
 			pisoVend.setIdAgente(((VerPisosVendidosForm)datosBusqueda).getIdAgente());
@@ -111,7 +111,9 @@ public class ConsultarInmueble extends Consultar{
 		
 		
 		//se crea el empleado dase de datos		
-		GestorContableBD gestorContable = (GestorContableBD) CreadorGestores.crearGestor("contable",pisoVend);
+		//GestorContableBD gestorContable = (GestorContableBD) CreadorGestores.crearGestor("contable",pisoVend);
+		
+		ContableBD gestorContable = new ContableBD();
 		
 		try{
 			datos=gestorContable.BusquedaDetallada(pisoVend);
