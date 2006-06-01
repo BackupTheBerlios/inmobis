@@ -54,6 +54,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>
 				      		</logic:iterate>
 					</table>
+					<% if(tipoU.equals("gerente")){} else {%>
 					<br><br>
 					<table width="100%">
 						<tr>
@@ -62,6 +63,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							</td>
 						</tr>
 					</table>
+					<%}%>
 				</div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

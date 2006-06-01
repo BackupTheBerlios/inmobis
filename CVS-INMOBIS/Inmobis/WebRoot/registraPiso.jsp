@@ -28,11 +28,15 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<tr>
 							<td><H2><fmt:message key="registraPiso.message"/></H2></td>
 						</tr>
+						<tr>
+							<td><font size="1" color="red"><b>(*)&nbsp;Campos obligatorios</b></font></td>
+						</tr>
 					</table>
+					<br><br>
 					<table width="100%">													
 						<tr>
 							<td width="30%">
-								<fmt:message key="registraPiso.calle"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.calle"/>
 							</td>
 							<td>
 								<html:text 	property="calle" 
@@ -43,7 +47,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>	
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.num"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.num"/>
 							</td>
 							<td>
 								<html:text 	property="num" 
@@ -65,7 +69,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>	
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.codPostal"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.codPostal"/>
 							</td>
 							<td>
 								<html:text 	property="codPostal" 
@@ -76,7 +80,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>	
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.poblacion"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.poblacion"/>
 							</td>
 							<td>
 								<html:text 	property="poblacion" 
@@ -87,7 +91,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>	
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.provincia"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.provincia"/>
 							</td>
 							<td>
 								<html:select property="provincia" size="1">
@@ -98,7 +102,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr> 
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.pais"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.pais"/>
 							</td>
 							<td>
 								<html:text 	property="pais" readonly="true" value="España"/>
@@ -107,7 +111,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>						
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.regimen"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.regimen"/>
 							</td>
 							<td>
 								<html:select property="regimen" size="1">
@@ -119,7 +123,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr> 
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.tipo"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.tipo"/>
 							</td>
 							<td>
 								<html:select property="tipo" size="1">
@@ -130,7 +134,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.precio"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.precio"/>
 							</td>
 							<td>
 								<html:text 	property="precio" 
@@ -141,7 +145,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr> 
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.metros"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.metros"/>
 							</td>
 							<td>
 								<html:text 	property="metros" 
@@ -152,7 +156,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr> 
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.zona"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.zona"/>
 							</td>
 							<td>
 								<html:text 	property="zona" 
@@ -163,7 +167,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr> 
 						<tr>
 							<td>
-								<fmt:message key="registraPiso.numHab"/>
+								<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="registraPiso.numHab"/>
 							</td>
 							<td>
 								<html:select property="numHab" size="1">
@@ -176,22 +180,16 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<html:errors property="numHab" />
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<fmt:message key="registraPiso.foto1"/> 
-							</td>
-							<td>
+						<TR>
+							<TD>
+								Foto1: <BR />
 								<html:file property="binFoto1" />
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fmt:message key="registraPiso.foto2"/> 
-							</td>
-							<td>								
-								<html:file property="binFoto2" />										
-							</td>
-						</tr>
+							</TD>
+							<TD>
+								Foto2: <BR />
+							 	<html:file property="binFoto2" /> 
+							</TD>
+						</TR>
 						<tr>
 							<td colspan="2">
 								<br><fmt:message key="registraPiso.clienteTexto"/><br><br>

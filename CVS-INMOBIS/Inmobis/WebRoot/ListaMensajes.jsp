@@ -1,15 +1,16 @@
-<%--Librería específica de esta página: Logic, para usar el iterator--%>
+<%--LibrerÃ­a especÃ­fica de esta pÃ¡gina: Logic, para usar el iterator--%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%--El título de la página se debe pasar como parámetro a la cabecera--%>
-<%String tituloPag = "&copy INMOBIS Real Estate - Listado de mensajes";%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%--El tÃ­tulo de la pÃ¡gina se debe pasar como parÃ¡metro a la cabecera--%>
+<%String tituloPag = "&copy INMOBIS: Listado de empleados";%>
 <%boolean esIndex=false; %>
-<%@include file="cabecera.jsp" %>
+<%@ include file="cabecera.jsp" %>
 
-<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
+<!-- AquÃ­ es donde va la PARTE PRINCIPAL DE LA PÃ?GINA 
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
-<%String subtitulo="P&aacute;gina de Listado";%>
+<%String subtitulo="Listado de empleados";%>
 <%String tipoMenu="general";//Si no se ha registrado%>
 <%
 HttpSession sesion=request.getSession();
@@ -18,25 +19,65 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
 <%}%><%@ include file="menu_izdo.jsp" %>
-
               <div id="content"> 
                 <div class="feature"> 
+                   <table width="100%" class="lista">
+						 <!-- zona de cï¿½digo-->
+						<tr>
+														
+							<th><fmt:message key="verMensaje.nombreOrigen" /></th>
+							<th><fmt:message key="verMensaje.nombreDestino" /></th>
+							<th><fmt:message key="verMensaje.asunto" /></th>
+							<th><fmt:message key="verMensaje.fecha" /></th>
+							<th><fmt:message key="verMensaje.leido" /></th>													
+							
+							<th colspan="2">Opc.</th>
+						</tr>
+						<!-- iterate over the results of the query -->
+						<logic:iterate id="empleado" name="listaMensajes" type="com.inmobis.bbdd.mensajes.MensajesBean">   
+						<tr>
+							  <td> 
+									<bean:write name="mensaje" property="nombreOrigen" />
+							  </td>
+							  <td>
+									<bean:write name="mensaje" property="nombreDestino" />
+							  </td>
+							  <td>
+									<bean:write name="mensaje" property="asunto" />
+							  </td>
+							  <td>
+									<bean:write name="mensaje" property="fecha" />
+							  </td>
+							  <td>
+									<bean:write name="mensaje" property="leido" />
+							  </td>
+							  
+							  
+							  <td width="15">
+									<a href="VerMensaje.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/> "><IMG SRC="images/lupa.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Ver detalles del mensaje"></a>
+							  </td>
+							  <td width="15">
+									<a href="BorrarMensajePrev.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar mensaje"></a>
+							  </td>
+							  						
+						</tr>
+				      		</logic:iterate>
+					</table>
+					<br><br>
 					<table width="100%">
 						<tr>
 							<td>
-								<IMG SRC="images/enconstruccion.gif" WIDTH="81" HEIGHT="50" BORDER="0" ALT="">
-							</td>
-							<td>
-								<h3><FONT COLOR="RED"> EN CONSTRUCCI&Oacute;N</FONT></h3>
+								<a href="CrearMensaje.do"><IMG SRC="images/ico_editar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Crear mensaje">Crear un mensaje nuevo</a>
 							</td>
 						</tr>
-					</table>                  
-                </div>
+					</table>
+					
+				</div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
                 | &copy;2006 INMOBIS Real Estate</div>
 
-<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA PÁGINA -->
+<!-- FIN de la parte donde va la PARTE PRINCIPAL DE LA Pï¿½GINA -->
 
 			
 

@@ -34,7 +34,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						   <!--<th><bean:message key="app.datosdeinteres" /></th>-->  
 						   <th>Opc.</th>
    						</tr>
-						<logic:iterate id="inmueble" name="listaInmuebles">   
+						<logic:iterate id="inmueble" name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean">   
 					    <tr>
 							<td>
 								<bean:write name="inmueble" property="numHab" />
