@@ -50,10 +50,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							  
 				 			  
 							  <td width="15">
-									<a href="verMensaje.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/> "><IMG SRC="images/lupa.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Ver detalles del mensaje"></a>
+									<a href="verMensaje.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/>&origen=<bean:write name="mensaje" property="origen" />&destino=<bean:write name="mensaje" property="destino" />&fecha=<bean:write name="mensaje" property="fecha" /> "><IMG SRC="images/lupa.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Ver detalles del mensaje"></a>
 							  </td>
 							  <td width="15">
-									<a href="borrarMensajePrev.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar mensaje"></a>
+									<a href="borrarMensajePrev.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/>&origen=<bean:write name="mensaje" property="origen" />&destino=<bean:write name="mensaje" property="destino" />&fecha=<bean:write name="mensaje" property="fecha" /> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar mensaje"></a>
 							  </td>
 							  						
 						</tr>
