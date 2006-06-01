@@ -28,7 +28,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 			</tr>
 		</table>
                   
-				  <table border="0" cellpading="0" cellspacing="0" width="100%">
+				  <table border="0" cellpading="0" cellspacing="0" width="100%" class="lista" >
 				  <tr>
 						<th>
 							<bean:message key="app.nombre" />
