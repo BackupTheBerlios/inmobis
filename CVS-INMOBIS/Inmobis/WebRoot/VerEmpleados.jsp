@@ -28,7 +28,11 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<th><fmt:message key="app.apellido1" /></th>
 							<th><fmt:message key="app.apellido2" /></th>
 							<th><fmt:message key="app.dni" /></th>
+							<% if(tipoU.equals("gerente")){%>
+							<th colspan="1">Opc.</th>
+							<%} else {%>
 							<th colspan="2">Opc.</th>
+							<%}%>
 						</tr>
 						<!-- iterate over the results of the query -->
 						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean">   
@@ -45,10 +49,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							  <td>
 									<bean:write name="empleado" property="dni" />
 							  </td>
+							  
+							  <% if(tipoU.equals("gerente")){} else {%>
 							  <td width="15">
 									<a href="borraEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
 							  </td>
-							  <td align="right" width="15">
+							  <%}%>
+							  <td align="center" width="15">
 									<a href="editaEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
 							  </td>							
 						</tr>
