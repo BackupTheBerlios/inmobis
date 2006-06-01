@@ -134,8 +134,8 @@ public class ConsultarInmueble extends Consultar{
 		//se crea el bean del inmueble
 		VentasBean inmueble = new VentasBean();
 		//se crea el inmueble dase de datos	
-		GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmueble);
-		
+		//GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmueble);
+		ContableBD gestorContable = new ContableBD();
 		
 		try{
 			if(log.isInfoEnabled()){

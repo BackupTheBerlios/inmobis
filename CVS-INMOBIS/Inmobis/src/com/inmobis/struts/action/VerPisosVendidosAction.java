@@ -32,7 +32,7 @@ import org.apache.log4j.Logger;
 public class VerPisosVendidosAction extends Action {
 
 	// --------------------------------------------------------- Instance Variables
-	private static final Logger log = Logger.getLogger(VerPisosAction.class);
+	private static final Logger log = Logger.getLogger(VerPisosVendidosAction.class);
 	// --------------------------------------------------------- Methods
 
 	/** 

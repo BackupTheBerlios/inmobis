@@ -141,8 +141,8 @@ public class IntroducirInmueble extends Introducir{
 		
 		//Creamos y rellenamos el objeto Bean para el inmueble
 		VentasBean inmuebleVend=new VentasBean();
-		inmuebleVend.setFechaDesde(((VenderPisoForm)datosInmuebleVendido).getFechIni());
-		inmuebleVend.setFechaHasta(((VenderPisoForm)datosInmuebleVendido).getFechFin());
+		//inmuebleVend.setFechaDesde(((VenderPisoForm)datosInmuebleVendido).getFechIni());
+		//inmuebleVend.setFechaHasta(((VenderPisoForm)datosInmuebleVendido).getFechFin());
 		inmuebleVend.setFechVenta(((VenderPisoForm)datosInmuebleVendido).getFechVenta());
 		inmuebleVend.setGanancia(((VenderPisoForm)datosInmuebleVendido).getGanacia());
 		inmuebleVend.setIdAgente(((VenderPisoForm)datosInmuebleVendido).getIdAgente());
