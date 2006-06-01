@@ -62,16 +62,18 @@ String idOrigen = (String)sesion.getAttribute("IdUsuario");
 								<fmt:message key="nuevoMensaje.asunto"/>
 							</td>     
 							<td>
-								<!--La fecha de envío-->
-								<jsp:useBean id="now" class="java.util.Date" />
-								<html:hidden property="fecha" value="<%$={now}%>"/>
-								<!--PROBAR SI DA ERROR LO DE ARRIBA-->
-								<html:errors property="fecha"/>
-								<!--El asunto-->
-								<html:text 	property="asunto" size="50" maxlength="80" />
+								<html:text 	property="asunto" maxlength="50" />
 								<html:errors property="asunto"/>
 							</td>
-						</tr>
+						</tr>   
+							<tr>
+					<td>
+						<font size="1" color="red"><b>(*)</b></font>&nbsp;Fecha
+					</td>
+					<td>
+						<%@ include file="fecha.jsp" %>                
+					</td>
+				</tr>
 						<!--El texto en una fila porque puede ser largo-->
 						<tr>  
 							<td colspan = "2">   

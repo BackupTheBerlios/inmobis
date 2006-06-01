@@ -42,15 +42,14 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<html:text property="nombreDestino" size="25" maxlength="25" value="<%=form.getNombreDestino()%>" readonly="true" />
 							</td>
 						</tr>
-						<tr>  
-							<td>   
-								<fmt:message key="verMensaje.fecha"/>
-							</td>     
-							<td>
-								<!--HABRÁ QUE PONER BIEN EL FORMATO-->
-								<html:text property="fecha" size="25" maxlength="25" value="<%=form.getFecha()%>" readonly="true" />
-							</td>
-						</tr>
+						<tr>
+						<td>
+							<fmt:message key="verMensaje.fecha"/>
+						</td> 
+						<td>							
+							<%@ include file="fechaEdita.jsp" %>
+						</td>
+					 </tr>
 												
 						<tr>  
 							<td>   

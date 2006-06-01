@@ -172,6 +172,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 			    sb1.append(MysqlUtils.toMysqlString(mensaje.getLeido().toString()) + ")");
 			    //ejecuta la sentencia sql que acabamos de construir
 			    //stmt1.execute(sb1.toString());
+				if (milog.isInfoEnabled()){
+					milog.info("Voy a insertar: "+sb1.toString());
+				}
 			    stmt.addBatch(sb1.toString());
 			    stmt.executeBatch();
 		   // }

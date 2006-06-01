@@ -106,7 +106,7 @@ public class ConsultarMensaje extends Consultar {
 		msgBean.setIdMensaje(msgForm.getIdMensaje());
 		msgBean.setOrigen(msgForm.getOrigen());
 		msgBean.setDestino(msgForm.getDestino());
-		msgBean.setFecha(msgForm.getFecha());
+		msgBean.setFecha(msgForm.getAnioNacimiento()+"-"+msgForm.getMesNacimiento()+"-"+msgForm.getDiaNacimiento());
 
 		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msgBean);
 
@@ -121,7 +121,11 @@ public class ConsultarMensaje extends Consultar {
 			msgBean = (MensajesBean) gestmsg.getBean();
 			msgForm.setAsunto(msgBean.getAsunto());
 			msgForm.setDestino(msgBean.getDestino());
-			msgForm.setFecha(msgBean.getFecha());
+			String fecha=msgBean.getFecha();
+			String[] fechaSplit=fecha.split("-");
+			msgForm.setAnioNacimiento(fechaSplit[0]);
+			msgForm.setMesNacimiento((new Integer(fechaSplit[1])).toString());
+			msgForm.setDiaNacimiento((new Integer(fechaSplit[2])).toString());		
 			msgForm.setIdMensaje(msgBean.getIdMensaje());
 			msgForm.setLeido(msgBean.getLeido());
 			msgForm.setNombreDestino(msgBean.getNombreDestino());

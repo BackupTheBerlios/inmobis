@@ -18,7 +18,7 @@ public class EliminarMensaje extends Eliminar{
 		msg.setIdMensaje(((MensajeForm)id).getIdMensaje());
 		msg.setOrigen(((MensajeForm)id).getOrigen());
 		msg.setDestino(((MensajeForm)id).getDestino());
-		msg.setFecha(((MensajeForm)id).getFecha());
+		msg.setFecha(((MensajeForm)id).getAnioNacimiento()+"-"+((MensajeForm)id).getMesNacimiento()+"-"+((MensajeForm)id).getDiaNacimiento());
 		//se crea un empleado de la base de datos
 		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensaje",msg);
 
@@ -48,7 +48,7 @@ public class EliminarMensaje extends Eliminar{
 		msg.setIdMensaje(((MensajeForm)id).getIdMensaje());
 		msg.setOrigen(((MensajeForm)id).getOrigen());
 		msg.setDestino(((MensajeForm)id).getDestino());
-		msg.setFecha(((MensajeForm)id).getFecha());
+		msg.setFecha(((MensajeForm)id).getAnioNacimiento()+"-"+((MensajeForm)id).getMesNacimiento()+"-"+((MensajeForm)id).getDiaNacimiento());
 		//se crea un empleado de la base de datos
 		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensaje",msg);
 

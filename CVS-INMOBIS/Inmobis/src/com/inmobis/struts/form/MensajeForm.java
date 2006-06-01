@@ -24,7 +24,9 @@ public class MensajeForm extends ActionForm {
 	protected String origen;
 	protected String destino;
 	protected Character leido;  //vale s/n
-	protected String fecha;
+	private String diaNacimiento;
+	private String mesNacimiento;
+	private String anioNacimiento;
 	//para devolver los nombre de origen y destino en vez de los id
 	protected String nombreOrigen;
 	protected String nombreDestino;
@@ -89,14 +91,6 @@ public class MensajeForm extends ActionForm {
 		this.destino = destino;
 	}
 
-	public String getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
 	public String getIdMensaje() {
 		return idMensaje;
 	}
@@ -127,6 +121,30 @@ public class MensajeForm extends ActionForm {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}
+
+	public String getAnioNacimiento() {
+		return anioNacimiento;
+	}
+
+	public void setAnioNacimiento(String anioNacimiento) {
+		this.anioNacimiento = anioNacimiento;
+	}
+
+	public String getDiaNacimiento() {
+		return diaNacimiento;
+	}
+
+	public void setDiaNacimiento(String diaNacimiento) {
+		this.diaNacimiento = diaNacimiento;
+	}
+
+	public String getMesNacimiento() {
+		return mesNacimiento;
+	}
+
+	public void setMesNacimiento(String mesNacimiento) {
+		this.mesNacimiento = mesNacimiento;
 	}
 
 }

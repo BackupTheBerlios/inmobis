@@ -32,7 +32,7 @@ public class IntroducirMensaje extends Introducir{
 		msgBean.setIdMensaje(gc.asignaCodigoMensaje());
 		msgBean.setOrigen(msgForm.getOrigen());
 		msgBean.setDestino(msgForm.getDestino());
-		msgBean.setFecha(msgForm.getFecha());
+		msgBean.setFecha(msgForm.getAnioNacimiento()+"-"+msgForm.getMesNacimiento()+"-"+msgForm.getDiaNacimiento());
 		msgBean.setAsunto(msgForm.getAsunto());
 		msgBean.setLeido('N');
 		msgBean.setTexto(msgForm.getTexto());
