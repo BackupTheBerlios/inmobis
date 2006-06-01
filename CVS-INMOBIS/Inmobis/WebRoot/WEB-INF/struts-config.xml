@@ -50,7 +50,7 @@
       attribute="borraClienteForm"
       input="/VerClientes.jsp"
       name="borraClienteForm"
-      path="/BajaClientePrev"
+      path="/bajaClientePrev"
       scope="request"
       type="com.inmobis.struts.action.BajaClientePrevAction">
       
