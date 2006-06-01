@@ -20,7 +20,7 @@ public class VerClientesPrevForm extends ActionForm {
 
 	// --------------------------------------------------------- Instance Variables
 	private String idCliente;
-	private String nombreCliente;
+	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private String fechaNacimiento;
@@ -42,7 +42,7 @@ public class VerClientesPrevForm extends ActionForm {
 		ActionErrors errors= new ActionErrors();
 		
 		if (apellido1.equals(null) && apellido2.equals(null) && fechaNacimiento.equals(null) &&
-				idCliente.equals(null) && nombreCliente.equals(null) && dniCliente.equals(null))
+				idCliente.equals(null) && nombre.equals(null) && dniCliente.equals(null))
 			errors.add("vacio", new ActionMessage("errors.vacio.required"));
 			
 		return errors;
@@ -59,7 +59,7 @@ public class VerClientesPrevForm extends ActionForm {
 		this.apellido2="";
 		this.fechaNacimiento="";
 		this.idCliente="";
-		this.nombreCliente="";
+		this.nombre="";
 		this.dniCliente="";
 		
 		this.esBusqueda=false;
@@ -97,12 +97,12 @@ public class VerClientesPrevForm extends ActionForm {
 		this.idCliente = idCliente;
 	}
 
-	public String getNombreCliente() {
-		return nombreCliente;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
+	public void setNombre(String nombreCliente) {
+		this.nombre = nombre;
 	}
 
 	public String getDniCliente() {

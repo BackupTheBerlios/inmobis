@@ -6,7 +6,7 @@
 <%boolean esIndex=false; %>
 <%@ include file="cabecera.jsp" %>
 
-<!-- Aquí es donde va la PARTE PRINCIPAL DE LA PÁGINA 
+<!-- Aquí es donde va la PARTE PRINCIPAL DE LA P�?GINA 
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
@@ -37,7 +37,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<bean:write name="cliente" property="nombreCliente" />
+									<bean:write name="cliente" property="nombre" />
 								</td>							  
 								<td>
 									<bean:write name="cliente" property="apellido1" />
