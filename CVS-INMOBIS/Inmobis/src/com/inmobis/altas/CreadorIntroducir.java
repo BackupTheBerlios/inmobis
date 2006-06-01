@@ -9,7 +9,7 @@ public final class CreadorIntroducir {
 		if (tipo.equals("cliente"))
 			return new IntroducirCliente();
 		if (tipo.equals("mensaje"))
-			return new IntroducirCliente();
+			return new IntroducirMensaje();
 		return null;
 	}
 }

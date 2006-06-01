@@ -43,14 +43,14 @@ public class EnviarMensajeAction extends Action {
 		ActionForm form,
 		HttpServletRequest request,
 		HttpServletResponse response) {
-		MensajeForm EnviarMensajeForm = (MensajeForm) form;
+		//MensajeForm EnviarMensajeForm = (MensajeForm) form;
 		
 		if (i_log.isInfoEnabled()){
 			i_log.info("EnviarMensajeAction1 : Empezando");
 		}
 
 		Introducir introMsg = CreadorIntroducir.createIntroducir("mensaje");
-		ActionMessages errors = introMsg.introduce(EnviarMensajeForm);
+		ActionMessages errors = introMsg.introduce(form);
 
 		if(errors.size()>0){
 			saveErrors(request, errors);

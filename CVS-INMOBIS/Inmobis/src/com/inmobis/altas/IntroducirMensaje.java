@@ -17,16 +17,17 @@ public class IntroducirMensaje extends Introducir{
 	@Override
 	public ActionMessages introduce(ActionForm form) {
 		MensajeForm msgForm = (MensajeForm) form;
-		GeneradorDeCodigos gc=GeneradorDeCodigos.getGeneradorDeCodigos();
 		ActionMessages errors= new ActionMessages();
-
-		if ((msgForm.getOrigen().matches("")) || (msgForm.getDestino().matches(""))){
+		if(i_log.isInfoEnabled())
+			i_log.info("IntroducirMensaje: Entro");
+		
+		if (((msgForm.getOrigen()== null)||(msgForm.getDestino()== null))||(((msgForm.getOrigen().equalsIgnoreCase("")) || (msgForm.getDestino().equalsIgnoreCase(""))))){
 			errors.add("insertaMensaje", new ActionMessage("errors.mensaje.vacios"));
 			return errors;
 		}		
 		
-		//Creamos y rellenamos el objeto Bean para el inmueble
-
+		GeneradorDeCodigos gc=GeneradorDeCodigos.getGeneradorDeCodigos();
+		//Creamos y rellenamos el objeto Bean para el mensaje
 		MensajesBean msgBean = new MensajesBean();
 		msgBean.setIdMensaje(gc.asignaCodigoMensaje());
 		msgBean.setOrigen(msgForm.getOrigen());
@@ -39,7 +40,7 @@ public class IntroducirMensaje extends Introducir{
 		if(i_log.isInfoEnabled())
 			i_log.info("InsertarMensaje1:" + msgBean.getIdMensaje());
 		
-		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensaje",msgBean);
+		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensajes",msgBean);
 		try {
 			gestMsg.insert();
 		} catch (Exception E) {
