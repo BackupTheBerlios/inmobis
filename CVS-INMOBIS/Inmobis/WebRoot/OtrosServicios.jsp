@@ -1,5 +1,5 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
-<%String tituloPag = "INMOBIS Real Estate - Seguros";%>
+<%String tituloPag = "INMOBIS Real Estate - Otros servicios";%>
 <%boolean esIndex=false; %>
 <%@include file="cabecera.jsp" %>
 
@@ -20,18 +20,38 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
                 
               <div id="content"> 
                 <div class="feature">
-					<center>
-<P>Las valoraciones precisas y fiables son fundamentales para conseguir el éxito en cada inversión inmobiliaria. Con los servicios que ofrece el Departamento de Valoraciones de INMOBIS, estamos capacitados para realizar valoraciones de alta calidad que ayuden a nuestros clientes a tomar las decisiones inmobiliarias correctas. Ostentamos una posición de liderazgo en el mercado español, unida a extensos recursos y a un profundo conocimiento del mercado.</P>
-					<img SRC="images/valoraciones.jpg">
-
-<P>Comprendemos las necesidades de negocio de nuestros clientes. Un gran número de bancos comerciales y de inversión, de sociedades, de fondos de pensiones y de agencias gubernamentales han utilizado nuestros servicios para satisfacer las necesidades de su negocio. INMOBIS sabe que muchos de sus clientes necesitan información rápida y segura para tomar importantes decisiones estratégicas. Por eso, empleamos nuestro conocimiento y experiencia para aplicar procedimientos ágiles y eficaces en la recogida y el análisis de datos. Se trata de un proceso que nos permite añadir valor, y colaborar como una parte integral del equipo de negocio de nuestros clientes.</P>
-
-<P>Nuestra avanzada tecnología, acompañada de recursos para obtener información del mercado, ayudan a nuestros clientes a tomar decisiones más competitivas. Nuestra información procede de fuentes fiables y complejas, reforzadas por la más completa base de datos de propiedades comerciales y residenciales.</P>
-
-
-
-					</center>
-
+					<table width="100%">
+						<tr>
+							<td>
+								<h2><B>INMOB<FONT COLOR="GREEN">IS</FONT></B> - Otros servicios</h2>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<br><br><br>
+								<P>Las valoraciones precisas y fiables son fundamentales para conseguir el éxito en cada inversión inmobiliaria. Con los servicios que ofrece el Departamento de Valoraciones de INMOBIS, estamos capacitados para realizar valoraciones de alta calidad que ayuden a nuestros clientes a tomar las decisiones inmobiliarias correctas. Ostentamos una posición de liderazgo en el mercado español, unida a extensos recursos y a un profundo conocimiento del mercado.</P>
+							</td>
+						</tr>
+						<tr>
+							<td align="center">
+								<br><br><br>
+								<img SRC="images/valoraciones.jpg">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<br><br><br>
+								<P>Comprendemos las necesidades de negocio de nuestros clientes. Un gran número de bancos comerciales y de inversión, de sociedades, de fondos de pensiones y de agencias gubernamentales han utilizado nuestros servicios para satisfacer las necesidades de su negocio. INMOBIS sabe que muchos de sus clientes necesitan información rápida y segura para tomar importantes decisiones estratégicas. Por eso, empleamos nuestro conocimiento y experiencia para aplicar procedimientos ágiles y eficaces en la recogida y el análisis de datos. Se trata de un proceso que nos permite añadir valor, y colaborar como una parte integral del equipo de negocio de nuestros clientes.</P>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<br><br><br>
+								<P>Nuestra avanzada tecnología, acompañada de recursos para obtener información del mercado, ayudan a nuestros clientes a tomar decisiones más competitivas. Nuestra información procede de fuentes fiables y complejas, reforzadas por la más completa base de datos de propiedades comerciales y residenciales.</P>
+								<br><br><br>
+							</td>
+						</tr>
+					</table>
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

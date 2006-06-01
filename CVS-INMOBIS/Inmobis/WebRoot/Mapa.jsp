@@ -1,5 +1,5 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
-<%String tituloPag = "INMOBIS Real Estate - Seguros";%>
+<%String tituloPag = "INMOBIS Real Estate - Mapa";%>
 <%boolean esIndex=false; %>
 <%@include file="cabecera.jsp" %>
 
@@ -20,21 +20,58 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
                 
               <div id="content"> 
                 <div class="feature">
-					<center>
-
-<P><A HREF="Financiacion.jsp">Financiación</A>
-<P><A HREF="Hipotecas.jsp">Hipotecas</A>
-<P><A HREF="Seguros.jsp">Seguros</A>
-<P><A HREF="Privacidad.jsp">Privacidad</A>
-<P><A HREF="Uso.jsp">Términos de uso</A>
-<P><A HREF="Prestamos.jsp">Préstamos</A>
-<P><A HREF="OtrosServicios.jsp">Otros servicios</A>
-
-
-
-
-					</center>
-
+					<table width="100%">
+						<tr>
+							<td>
+								<table width="100%">
+									<tr>
+										<td>
+											<A HREF="Financiacion.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Financiación</A>
+											<br><br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<A HREF="Hipotecas.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Hipotecas</A>
+											<br><br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<A HREF="Seguros.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Seguros</A>
+											<br><br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<A HREF="Privacidad.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Privacidad</A>
+											<br><br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<A HREF="Uso.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Términos de uso</A>
+											<br><br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<A HREF="Prestamos.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Préstamos</A>
+											<br><br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<A HREF="OtrosServicios.jsp" class="mapa"><IMG SRC="images/BlurMetalDg4.gif" WIDTH="11" HEIGHT="11" BORDER="0" ALT="">&nbsp;Otros servicios</A>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<IMG SRC="images/mapaTesoro.jpg" WIDTH="84" HEIGHT="87" BORDER="0" ALT="">
+							</td>
+						</tr>
+					</table>
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

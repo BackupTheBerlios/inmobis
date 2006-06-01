@@ -1,5 +1,5 @@
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
-<%String tituloPag = "INMOBIS Real Estate - Seguros";%>
+<%String tituloPag = "INMOBIS Real Estate - Nosotros";%>
 <%boolean esIndex=false; %>
 <%@include file="cabecera.jsp" %>
 

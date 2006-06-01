@@ -28,7 +28,8 @@
 		</a>
 		<a href="PonerQueja.jsp">
 			<fmt:message key="menuGenerico.quejas"/>
-		</a>		
+		</a>
+		<a href=javascript:history.go(-1);>Volver</a>
 	</div>
 <%}else if(tipoMenu.equals("login")){%><!--Este menu tiene que ser asi-->
 	<html:errors property="login"/>				
@@ -54,6 +55,7 @@
 		&nbsp;<html:submit>
 					<fmt:message key="login.button.signon"/>
 		</html:submit><br>
+		<a href=javascript:history.go(-1);>Volver</a>
 	</div>
 	</html:form>
 <%}else if(tipoMenu.equals("administrador")){%>
@@ -66,7 +68,8 @@
 		<a href="verEmpleadosPrev.do">
 			<fmt:message key="menuAdministrador.lista"/>
 		</a>
-		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>		
+		<a href=javascript:history.go(-1);>Volver</a>
+		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 	</div>
 <%}else if(tipoMenu.equals("agente")){%>
 	<html:errors property="menuAgente"/>				 	
@@ -90,6 +93,7 @@
 		<a href="registraClienteAgente.jsp">
 			<fmt:message key="menuAgente.registraCliente"/>
 		</a>
+		<a href=javascript:history.go(-1);>Volver</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 	</div>	
 <%}else if(tipoMenu.equals("cliente")){%>
@@ -105,7 +109,8 @@
 		</a>
 		<a href="listaMensajeClientePrev.do">
 			<fmt:message key="menuCliente.mensajes"/>
-		</a>		 
+		</a>	
+		<a href=javascript:history.go(-1);>Volver</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 	</div>
 <%}else if(tipoMenu.equals("gerente")){%>
@@ -122,6 +127,7 @@
 		<a href="enConstruccion.jsp">
 			<fmt:message key="menuGerente.quejas"/>
 		</a>
+		<a href=javascript:history.go(-1);>Volver</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>
 	</div>
 <%}else if(tipoMenu.equals("contable")){%>
@@ -131,6 +137,7 @@
 		<a href="verPisosVendidos.do">
 			<fmt:message key="menuContable.verPisos"/>
 		</a>
+		<a href=javascript:history.go(-1);>Volver</a>
 		<a class="block_item" href="CerrarSesion.jsp" title="Cerrar la sesion"><font color="red"><b>CERRAR SESION</b></font></a>		
 	</div>
 <%}%>

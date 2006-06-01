@@ -51,7 +51,7 @@
      								<td class="navbar-boton2"><a href="Financiacion.jsp" class="tnav" alt="Financiación">Financiaci&oacute;n</a></td>
      								<td class="navbar-boton3"><a href="Hipotecas.jsp" class="tnav" alt="Hipotecas">Hipotecas</a></td>
      								<td class="navbar-boton4"><a href="Seguros.jsp" class="tnav" alt="Seguros">Seguros</a></td>
-     								<td class="navbar-boton5"><a href="http://es.wikipedia.org/wiki/Vivienda_en_Espa%C3%B1a" class="tnav" alt="Ayuda" title="Ayuda, información de la vivienda en España" target="_blank">Ayuda</a></td>
+     								<td class="navbar-boton5"><a href="Ayuda.jsp" class="tnav" alt="Ayuda" title="Ayuda, información de la vivienda en España">Ayuda</a></td>
 		 							<td class="navbar-boton6"><a href="mailto:inmobisweb@gmail.com" class="tnav" alt="Contactar" title="Contactar con nosotros">Contactar</a></td>
      								<td class="navbar-espacio">&nbsp;</td>
 							</tr>

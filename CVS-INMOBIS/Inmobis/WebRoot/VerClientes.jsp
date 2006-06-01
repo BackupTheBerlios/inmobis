@@ -57,24 +57,22 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<td>
 									<bean:write name="cliente" property="fechNacimiento" />
 								</td> 
+								<% if(tipoU.equals("gerente")){%>						
+							  	<td align="right" width="15">
+									<a href="traspasarClientesPrev.do?idCliente=<bean:write name="cliente" property="idCliente"/>" /><IMG SRC="images/ico_traspasar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Traspasar cliente"></a>
+							  	</td>	
+							  	<%}else {%>
 								<td width="15">
 									<a href="bajaClientePrev.do?idCliente=<bean:write name="cliente" property="idCliente"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>									
 								</td>
 								<td align="right" width="15">
 									<a href="editaClientePrev.do?idCliente=<bean:write name="cliente" property="idCliente"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
-								</td>		
-								<% if(tipoU.equals("gerente")){%>						
-							  	<td align="right" width="15">
-									<a href="traspasarClientesPrev.do?idCliente=<bean:write name="cliente" property="idCliente"/>" /><IMG SRC="images/ico_traspasar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Traspasar cliente"></a>
-							  	</td>	
-							  	<%}%>
-												
+								</td>	
+								<%}%>											
 							</tr>
 					</logic:iterate>
-					</table>
-					<% if(tipoU.equals("gerente")){} else {%>
-					<br><br>
-					
+					</table>					
+					<br><br>					
 					<table width="100%">
 						<tr>
 							<td>
@@ -82,7 +80,6 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							</td>
 						</tr>
 					</table>
-					<%}%>
 				</div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
