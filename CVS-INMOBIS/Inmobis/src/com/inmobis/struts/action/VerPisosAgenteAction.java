@@ -63,7 +63,7 @@ public class VerPisosAgenteAction extends Action {
 		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
 		Vector listaInmuebles = consultar.listarPisosAgente(form);
 		
-		if (listaInmuebles.equals(null)){
+		if (listaInmuebles.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("VerPisosAgenteAction 2: Ha habido un error en la búsqueda en la bbdd");
 			}

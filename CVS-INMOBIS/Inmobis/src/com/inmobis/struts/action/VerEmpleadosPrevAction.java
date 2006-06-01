@@ -59,7 +59,7 @@ public class VerEmpleadosPrevAction extends Action {
 		Consultar consultar=CreadorConsultar.CreaConsultar("empleado");
 		Vector listaEmpleados = consultar.listar(form);
 		
-		if (listaEmpleados.equals(null)){
+		if (listaEmpleados.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("VerEmpleadosPrevAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
