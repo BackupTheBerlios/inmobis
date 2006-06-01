@@ -23,15 +23,15 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature">
 					<!--Es un form para poner los datos en el mismo formato de toda la aplicación-->
-					<FORM METHOD=POST ACTION="">
-					<%MensajeForm form=(MensajeForm)sesion.getAttribute("datosMensaje");%>
+					<html:form action="verMensaje.do"  >
+					<%MensajeForm form=(MensajeForm)sesion.getAttribute("mensaje");%>
 					<table width="100%">
 						<tr>  
 							<td>   
 								<fmt:message key="verMensaje.nombreOrigen"/>
 							</td>     
 							<td>
-								<input type="text" name="nombreOrigen" value="<%=form.getNombreOrigen()%>" readonly >
+								<html:text property="nombreOrigen" size="25" maxlength="25" value="<%=form.getNombreOrigen()%>" readonly="true" />
 							</td>
 						</tr>
 						<tr>  
@@ -39,7 +39,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								<fmt:message key="verMensaje.nombreDestino"/>
 							</td>     
 							<td>
-								<input type="text" name="nombrerDestino" value="<%=form.getNombreDestino()%>" readonly>
+								<html:text property="nombreDestino" size="25" maxlength="25" value="<%=form.getNombreDestino()%>" readonly="true" />
 							</td>
 						</tr>
 						<tr>  
@@ -48,23 +48,16 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							</td>     
 							<td>
 								<!--HABRÁ QUE PONER BIEN EL FORMATO-->
-								<input type="text" name="fecha" value="<%=form.getFecha()%>" readonly >
+								<html:text property="fecha" size="25" maxlength="25" value="<%=form.getFecha()%>" readonly="true" />
 							</td>
 						</tr>
-						<tr>  
-							<td>   
-								<fmt:message key="verMensaje.leido"/>
-							</td>     
-							<td>
-								<input type="text" name="leido" value="<%=form.getLeido()%>" readonly>
-							</td>
-						</tr>
+												
 						<tr>  
 							<td>   
 								<fmt:message key="verMensaje.asunto"/>
 							</td>     
 							<td>
-								<input type="text" name="asunto" value="<%=form.getAsunto()%>" readonly>
+								<html:text property="asunto" size="25" maxlength="25" value="<%=form.getAsunto()%>" readonly="true" />
 							</td>
 						</tr>
 						<!--El texto en una fila porque puede ser largo-->
@@ -75,13 +68,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						</tr>
 						<tr>
 							<td colspan = "2">
-								<TEXTAREA rows="5" cols="80" NAME="texto" >
+								<TEXTAREA rows="5" cols="80" NAME="texto" readonly="true">
 									<%=form.getTexto()%>
 								</TEXTAREA>
 							</td>
 						</tr>
 					</table>
-					</FORM>                  
+					</html:form>                  
                 </div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 
