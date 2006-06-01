@@ -2,7 +2,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
-<%String tituloPag = "&copy INMOBIS: Listado de empleados";%>
+<%String tituloPag = "&copy INMOBIS: Listado de mensajes";%>
 <%boolean esIndex=false; %>
 <%@ include file="cabecera.jsp" %>
 
@@ -10,7 +10,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo que tienen todas las paginas-->
-<%String subtitulo="Listado de empleados";%>
+<%String subtitulo="Listado de mensajes";%>
 <%String tipoMenu="general";//Si no se ha registrado%>
 <%
 HttpSession sesion=request.getSession();
