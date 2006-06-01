@@ -26,7 +26,6 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<tr>
 														
 							<th><fmt:message key="verMensaje.nombreOrigen" /></th>
-							<th><fmt:message key="verMensaje.nombreDestino" /></th>
 							<th><fmt:message key="verMensaje.asunto" /></th>
 							<th><fmt:message key="verMensaje.fecha" /></th>
 							<th><fmt:message key="verMensaje.leido" /></th>													
@@ -34,13 +33,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<th colspan="2">Opc.</th>
 						</tr>
 						<!-- iterate over the results of the query -->
-						<logic:iterate id="empleado" name="listaMensajes" type="com.inmobis.bbdd.mensajes.MensajesBean">   
+						<logic:iterate id="mensaje" name="listaMensajes" type="com.inmobis.bbdd.mensajes.MensajesBean">   
 						<tr>
 							  <td> 
 									<bean:write name="mensaje" property="nombreOrigen" />
-							  </td>
-							  <td>
-									<bean:write name="mensaje" property="nombreDestino" />
 							  </td>
 							  <td>
 									<bean:write name="mensaje" property="asunto" />
@@ -52,7 +48,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<bean:write name="mensaje" property="leido" />
 							  </td>
 							  
-							  
+				 			  
 							  <td width="15">
 									<a href="VerMensaje.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/> "><IMG SRC="images/lupa.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Ver detalles del mensaje"></a>
 							  </td>
@@ -67,7 +63,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<table width="100%">
 						<tr>
 							<td>
-								<a href="CrearMensaje.do"><IMG SRC="images/ico_editar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Crear mensaje">Crear un mensaje nuevo</a>
+								<a href="crearMensaje.do"><IMG SRC="images/ico_editar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Crear mensaje">Crear un mensaje nuevo</a>
 							</td>
 						</tr>
 					</table>

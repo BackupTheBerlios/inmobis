@@ -37,9 +37,6 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		try {
 		      conn = ConnectionManager.getConection();
 		      Statement stmt = conn.createStatement();
-		      Statement stmt1 = conn.createStatement();
-		      Statement stmt2 = conn.createStatement();
-		      Statement stmt3 = conn.createStatement();
 		      ResultSet rs,rs1,rs2,rs3 = null;
 		      
 		      //obtenemos un ResultSet con los datos producidos por la consulta
@@ -69,7 +66,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    	  //Se busca en TClientes y/o TEmpleados para obtener su nombre 
 		    	  //y apellidos y devolverlos concatenados en nombreOrigen 
 		    	  //y nombreDestino
-		    	  rs1=stmt1.executeQuery("SELECT nombre,apellido1, apellido2" +
+		    	  rs1=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
 		    			  "FROM TEmpleados WHERE IdEmpleado= " +
 		    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
 		    	  if(rs1.next()){ //el origen es empleado, por tanto el destino es cliente
@@ -78,7 +75,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    		  ap2=rs1.getString("apellido2");
 		    		  mensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
 		    		  //Destino=Cliente
-		    		  rs2=stmt2.executeQuery("SELECT nombre,apellido1, apellido2" +
+		    		  rs2=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
 		    			  "FROM TCliente WHERE IdCliente= " +
 		    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
 		    		  if(rs2.next()){
@@ -89,7 +86,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    		  }
 		    	  }else{//origen es cliente y destino es empleado
 		    		  //Origen=Cliente
-		    		  rs2=stmt2.executeQuery("SELECT nombre,apellido1, apellido2" +
+		    		  rs2=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
 			    			  "FROM TCliente WHERE IdCliente= " +
 			    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
 			    		  if(rs2.next()){ 
@@ -99,7 +96,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 				    		  mensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
 			    		  }
 			    		  //Destino=Empleado
-			    		  rs3=stmt3.executeQuery("SELECT nombre,apellido1, apellido2" +
+			    		  rs3=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
 				    			  "FROM TEmpleados WHERE IdEmpleado= " +
 				    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
 				    	  if(rs3.next()){ 
@@ -294,48 +291,18 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	public Vector BusquedaDetallada () {
 		Vector mensajesEncontrados= new Vector();
 		String nom,ap1,ap2;
-		try{
+		try{ // 
 		   conn = ConnectionManager.getConection();
 	       Statement stmt = conn.createStatement();
-	       Statement stmt1 = conn.createStatement();
-		   Statement stmt2 = conn.createStatement();
-		   Statement stmt3 = conn.createStatement();
 	       ResultSet rs,rs1,rs2,rs3 = null;
-	       Hashtable consulta = new Hashtable();
-	       
-	       if(mensaje.getIdMensaje()!=null)
-	    	   consulta.put("idMensaje",mensaje.getIdMensaje());
-	       if(mensaje.getAsunto()!=null)
-	    	   consulta.put("asunto", mensaje.getAsunto());
-	       if(mensaje.getTexto()!=null)
-	    	   consulta.put("texto",mensaje.getTexto());
-	       if(mensaje.getOrigen()!=null)
-	    	   consulta.put("origen",mensaje.getOrigen());
-	       if(mensaje.getDestino()!=null)
-	    	   consulta.put("destino",mensaje.getDestino());
-	       if(mensaje.getFecha()!=null)
-	    	   consulta.put("Fecha",mensaje.getFecha());
-	       if(mensaje.getLeido()!=null)
-	    	   consulta.put("leido",mensaje.getLeido());
-	       
-	       StringBuffer sqlString = new StringBuffer("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha" +
-	       		" FROM TMensajes,TRelMensajes WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
-	       		"AND ");
-		   Iterator it=consulta.keySet().iterator();
-		   
-		   //componer la consulta con los campos rellenados
-		   while(it.hasNext())
-		  	{
-		  	String key=(String) it.next();
-		          sqlString.append(key +"="+
-		                        MysqlUtils.toMysqlString((String) consulta.get(key)));
-		          if (milog.isInfoEnabled()){
-			 			milog.info(consulta.get(key));
-			 		}
-		          if (it.hasNext())
-		              sqlString.append(" AND ");
-		  	}
-		   
+
+	       StringBuffer sqlString = new StringBuffer("SELECT * " +
+		       		" FROM TMensajes,TRelMensaje, TEmpleados WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
+		       		"AND TEmpleados.idEmpleado = TRelMensaje.Origen "+
+		       		"AND destino = " + MysqlUtils.toMysqlString((String) mensaje.getDestino()));
+    	  if (milog.isInfoEnabled()){
+	    			milog.info(sqlString.toString());
+    	  }		
 		   rs=stmt.executeQuery(sqlString.toString());
 		   
 		   while (rs.next()) {
@@ -348,54 +315,13 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 			   nuevomensaje.setDestino(rs.getString("destino"));
 			   nuevomensaje.setFecha(rs.getString("Fecha"));
 			   nuevomensaje.setLeido(rs.getString("leido").charAt(0));	
-			   //nombres de origen y destino:
-			   rs1=stmt1.executeQuery("SELECT nombre,apellido1, apellido2" +
-		    			  "FROM TEmpleados WHERE IdEmpleado= " +
-		    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
-		    	  if(rs1.next()){ //el origen es empleado, por tanto el destino es cliente
-		    		  nom=rs1.getString("nombre");
-		    		  ap1=rs1.getString("apellido1");
-		    		  ap2=rs1.getString("apellido2");
-		    		  nuevomensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
-		    		  //Destino=Cliente
-		    		  rs2=stmt2.executeQuery("SELECT nombre,apellido1, apellido2" +
-		    			  "FROM TCliente WHERE IdCliente= " +
-		    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
-		    		  if(rs2.next()){
-		    			  nom=rs2.getString("nombre");
-			    		  ap1=rs2.getString("apellido1");
-			    		  ap2=rs2.getString("apellido2");
-			    		  nuevomensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
-		    		  }
-		    	  }else{//origen es cliente y destino es empleado
-		    		  //Origen=Cliente
-		    		  rs2=stmt2.executeQuery("SELECT nombre,apellido1, apellido2" +
-			    			  "FROM TCliente WHERE IdCliente= " +
-			    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
-			    		  if(rs2.next()){ 
-			    			  nom=rs2.getString("nombre");
-				    		  ap1=rs2.getString("apellido1");
-				    		  ap2=rs2.getString("apellido2");
-				    		  nuevomensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
-			    		  }
-			    		  //Destino=Empleado
-			    		  rs3=stmt3.executeQuery("SELECT nombre,apellido1, apellido2" +
-				    			  "FROM TEmpleados WHERE IdEmpleado= " +
-				    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
-				    	  if(rs3.next()){ 
-				    		  nom=rs3.getString("nombre");
-				    		  ap1=rs3.getString("apellido1");
-				    		  ap2=rs3.getString("apellido2");
-				    		  nuevomensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
-				    	  }
-		    	  }
-			   
+			   nuevomensaje.setNombreOrigen(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));	
 			   //añadir los datos de cada mensaje encontrado a un vector 
 			   //para devolverlos.
 			   mensajesEncontrados.add(nuevomensaje);
 			   
-		   }
-		}
+		   }//Fin del while
+		} //Fin del try
 	     catch (Exception ex){
 
 	     }
@@ -405,6 +331,50 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	    } //Liberamos la conexion pase lo que pase
 	     return mensajesEncontrados;
 	}
+
+	public Vector BusquedaDetalladaAgente() {
+		Vector mensajesEncontrados= new Vector();
+		String nom,ap1,ap2;
+		try{ // 
+		   conn = ConnectionManager.getConection();
+	       Statement stmt = conn.createStatement();
+	       ResultSet rs,rs1,rs2,rs3 = null;
+
+	       StringBuffer sqlString = new StringBuffer("SELECT * " +
+		       		" FROM TMensajes,TRelMensaje, TCliente WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
+		       		"AND TCliente.idCliente = TRelMensaje.Origen "+
+		       		"AND destino = " + MysqlUtils.toMysqlString((String) mensaje.getDestino()));
+    	  if (milog.isInfoEnabled()){
+	    			milog.info(sqlString.toString());
+    	  }		
+		   rs=stmt.executeQuery(sqlString.toString());
+		   
+		   while (rs.next()) {
+			   MensajesBean nuevomensaje = new MensajesBean();
+			   
+			   nuevomensaje.setIdMensaje(rs.getString("idMensaje"));
+			   nuevomensaje.setAsunto(rs.getString("asunto"));
+			   nuevomensaje.setTexto(rs.getString("texto"));
+			   nuevomensaje.setOrigen(rs.getString("origen"));
+			   nuevomensaje.setDestino(rs.getString("destino"));
+			   nuevomensaje.setFecha(rs.getString("Fecha"));
+			   nuevomensaje.setLeido(rs.getString("leido").charAt(0));	
+			   nuevomensaje.setNombreOrigen(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));	
+			   //añadir los datos de cada mensaje encontrado a un vector 
+			   //para devolverlos.
+			   mensajesEncontrados.add(nuevomensaje);
+			   
+		   }//Fin del while
+		} //Fin del try
+	     catch (Exception ex){
+
+	     }
+	     finally{
+	    	 if (conn != null) 
+	    		 try{conn.close();}catch(SQLException e){}
+	    } //Liberamos la conexion pase lo que pase
+	     return mensajesEncontrados;
+	}	
 
 	public Vector GetDestinosMensaje() {
 		Vector listaDestinos = new Vector();
@@ -452,5 +422,6 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	    		 try{conn.close();}catch(SQLException e){}
 	    } //Liberamos la conexion pase lo que pase
 	     return listaDestinos;
-	}	
+	}
+
 }

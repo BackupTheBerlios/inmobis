@@ -3,6 +3,7 @@
   <StrutsActivity path="/login.do" location="210,90" dimension="221,88" />
   <StrutsActivity path="/registraClienteCliente.do" location="105,-195" dimension="181,88" />
   <StrutsActivity path="/MenuAdministrador.jsp" location="330,255" dimension="143,49" />
+  <StrutsActivity path="/MenuContable.jsp" location="150,255" dimension="150,54" />
   <StrutsActivity path="/login.jsp" location="15,-15" dimension="73,49" />
   <StrutsActivity path="/MenuAgente.jsp" location="480,255" dimension="112,49" />
   <StrutsActivity path="/MenuCliente.jsp" location="600,255" dimension="110,49" />
@@ -10,7 +11,6 @@
   <StrutsActivity path="/registraClienteCliente.jsp" location="390,-150" dimension="150,61" />
   <StrutsActivity path="/index.jsp" location="165,-15" dimension="91,61" />
   <StrutsActivity path="/MenuGenerico.jsp" location="435,-15" dimension="150,61" />
-  <StrutsActivity path="/MenuContable.jsp" location="150,255" dimension="150,54" />
   <StrutsTransition id="/login.do,exitoAdmin,/MenuAdministrador.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="345,178" />
@@ -91,16 +91,16 @@
       <AbsolutePoint location="285,255" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/index.jsp,null,/login.jsp,0" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="165,15" />
-      <AbsolutePoint location="88,15" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/index.jsp,null,/MenuGenerico.jsp,0" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="256,15" />
       <AbsolutePoint location="435,15" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.jsp,null,/login.jsp,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="165,15" />
+      <AbsolutePoint location="88,15" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/index.jsp,null,/registraClienteCliente.jsp,0" routingType="0">
@@ -109,6 +109,12 @@
       <AbsolutePoint location="225,-32" />
       <AbsolutePoint location="465,-32" />
       <AbsolutePoint location="465,-89" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/MenuGenerico.jsp,null,/registraClienteCliente.jsp,0" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="510,-15" />
+      <AbsolutePoint location="510,-89" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>

@@ -14,8 +14,7 @@ public class ConsultarMensaje extends Consultar {
 
 	private static final Logger log = Logger.getLogger(ConsultarAgente.class);
 	
-	@Override
-	public Vector listar(ActionForm datosBusqueda) {
+	private Vector listarBBDD(ActionForm datosBusqueda,String tipo) {
 	
 		//hacemos el cast de la clase
 		MensajeForm msgForm = (MensajeForm) datosBusqueda;
@@ -23,18 +22,19 @@ public class ConsultarMensaje extends Consultar {
 		Vector datos = new Vector();
 
 		MensajesBean msg = new MensajesBean();
-		msg.setOrigen(msgForm.getOrigen());
+		msg.setDestino(msgForm.getDestino());
 		
-		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msg);
+		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensajes",msg);
 
 		if(log.isInfoEnabled()){
 			log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );
 			log.info("ConsultarMensaje 2:  " +					 
-					 "Origen del mensaje: " + msgForm.getOrigen());
+					 "Destinatario del mensaje: " + msgForm.getDestino());
 		}
 		
 		try{
-			datos = gestmsg.BusquedaDetallada();
+			if (tipo.equalsIgnoreCase("cliente")) datos = gestmsg.BusquedaDetallada();
+			else datos = gestmsg.BusquedaDetalladaAgente();
 		}catch (Exception E){
 			if(log.isInfoEnabled()){
 				log.info("ConsultarMensaje 3: Fallo en BBDD: " + E.getMessage());
@@ -42,6 +42,19 @@ public class ConsultarMensaje extends Consultar {
 			return datos;//si hay un error en la base de datos devuelve un vector con un elemento que indica error
 		}
 		return datos;
+	}
+	@Override
+	public Vector listar(ActionForm datosBusqueda){
+		if(log.isInfoEnabled()){
+			log.info("ConsultarMensaje : ListarCliente");
+		}
+		return listarBBDD(datosBusqueda,"cliente");
+	}
+	public Vector listarAgente(ActionForm form){
+		if(log.isInfoEnabled()){
+			log.info("ConsultarMensaje 3: ListarAgente");
+		}
+		return listarBBDD(form,"agente");
 	}
 	
 	public ActionForm VerMensaje(ActionForm form){

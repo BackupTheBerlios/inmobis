@@ -54,16 +54,20 @@ public class ListaMensajesPrevAction extends Action {
 
 		form = new MensajeForm(); //Me da igual lo que me pasen, lo creo
 		HttpSession session = request.getSession(true);
-		((MensajeForm) form).setOrigen((String)session.getAttribute(INMOCTES.userName));
+		((MensajeForm) form).setDestino((String)session.getAttribute(INMOCTES.idUsuario));
 
 		//Pongo en el log el origen para listar.
 		if (log.isInfoEnabled()){
-			log.info("ListaMensajesPrevAction: Antes de entrar en la base de datos Origen = "+
-					((MensajeForm) form).getOrigen());
+			log.info("ListaMensajesPrevAction: Antes de entrar en la base de datos Destino = "+
+					((MensajeForm) form).getDestino()+" TipoUsu="+(String)session.getAttribute(INMOCTES.tipoUsuario));
 		}
 
 		Consultar consultar=CreadorConsultar.CreaConsultar("mensaje");
-		Vector listaMensajes = consultar.listar(form);
+		Vector listaMensajes;
+		if (((String)session.getAttribute(INMOCTES.tipoUsuario)).equalsIgnoreCase("agente")){
+			listaMensajes = consultar.listarAgente(form);}
+		else{
+			listaMensajes = consultar.listar(form);}
 
 		if (listaMensajes.equals(null)){
 			if (log.isInfoEnabled()){
