@@ -15,6 +15,7 @@ CON UN ANCHO DE 767 px -->
 <%
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");
+String idCliente=(String)sesion.getAttribute("idCliente");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -24,7 +25,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
                 
                 <table width="100%">
 			<tr>
-				<td><H4>¿A qué agente quieres fraspasar el cliente: <font color="blue"><b><%=session.getAttribute("clienteTraspasado")%></b></font>?</H4></td>
+				<td>
+					<H4>¿A qué agente quieres traspasar el cliente: <font color="blue"><b><%=session.getAttribute("clienteTraspasado")%></b></font>?</H4>
+				</td>
 			</tr>
 		</table>
 		
@@ -38,9 +41,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<th>Opc.</th>
 						</tr>
 						<!-- iterate over the results of the query -->
-						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean">   
+						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean"> 
 						<tr>
-							  <td> 
+							  <td> 	
 									<bean:write name="empleado" property="nombre" />
 							  </td>
 							  <td>
@@ -53,7 +56,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<bean:write name="empleado" property="dni" />
 							  </td>
 							  <td width="15">
-									<a href="traspasarCliente.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_tick.jpg" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
+									<a href="traspasarClientes.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_tick.jpg" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
 							  </td>							  							  
 						</tr>
 				      		</logic:iterate>

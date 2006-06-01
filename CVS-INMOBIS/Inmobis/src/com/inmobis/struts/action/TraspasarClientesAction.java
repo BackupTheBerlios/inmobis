@@ -27,7 +27,7 @@ public class TraspasarClientesAction extends Action {
 
 		if (i_log.isInfoEnabled()){
 			i_log.info("idCliente a traspasar: "+((TraspasarClientesForm)form).getIdCliente());
-			i_log.info("idAgente al que se traspasa: "+((TraspasarClientesForm)form).getIdAgente());
+			i_log.info("idAgente al que se traspasa: "+((TraspasarClientesForm)form).getIdEmpleado());
 		}
 		
 		Modificar traspaso=CreadorModificar.createModificar("traspasar");

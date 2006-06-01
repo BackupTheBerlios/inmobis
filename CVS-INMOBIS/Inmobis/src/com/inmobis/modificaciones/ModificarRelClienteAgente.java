@@ -25,7 +25,7 @@ public class ModificarRelClienteAgente extends Modificar{
 		AgenteBean agente =new AgenteBean();
 		GestorAgenteBD gestorAgente=((GestorAgenteBD)CreadorGestores.crearGestor("agente",agente));
 		try {
-			gestorAgente.updateRelAgenteCliente(((TraspasarClientesForm)datos).getIdAgente(),((TraspasarClientesForm)datos).getIdCliente());
+			gestorAgente.updateRelAgenteCliente(((TraspasarClientesForm)datos).getIdEmpleado(),((TraspasarClientesForm)datos).getIdCliente());
 		} catch (RowNotFoundException e) {
 			errors.add("MenuGerente",new ActionMessage("errors.traspasar.ClienteNotFound"));
 		}
