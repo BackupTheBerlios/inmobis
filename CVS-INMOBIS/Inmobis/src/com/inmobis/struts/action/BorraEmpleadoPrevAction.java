@@ -54,23 +54,21 @@ public class BorraEmpleadoPrevAction extends Action {
 		ActionMessages errors= new ActionMessages();
 		HttpSession session = request.getSession(true);
 		EditaEmpleadoForm aux = new EditaEmpleadoForm();
-		String tipoUsuario;
+		String tipoUsuario="";
 		
-		//vemos el tipo de usuario que es
-		if (!(((String)session.getAttribute(INMOCTES.tipoUsuario)).equals("administrador"))){
-			tipoUsuario ="empleado";
-		}
-		else{
-			tipoUsuario = "administrador";
-		}
 		
 		if (log.isInfoEnabled()){
-			log.info("borraEmpleadoPrevAction 0:tipo de usuario: "+tipoUsuario);
 			log.info("borraEmpleadoPrevAction 0:id: "+((BorraEmpleadoPrevForm)form).getIdEmpleado());
 		}
-		
-		Eliminar eliminarE = CreadorEliminar.CreaEliminar(tipoUsuario);
 		Consultar datos = CreadorConsultar.CreaConsultar("empleado");
+		tipoUsuario=datos.dameTipoUsuario(((BorraEmpleadoPrevForm)form).getIdEmpleado());
+		if (!(tipoUsuario.toLowerCase().equals("administrador")))
+			tipoUsuario="empleado";
+		if (log.isInfoEnabled()){
+			log.info("borraEmpleadoPrevAction1: "+tipoUsuario);
+		}
+		Eliminar eliminarE = CreadorEliminar.CreaEliminar(tipoUsuario);
+		
 		
 		if (log.isInfoEnabled()){
 			log.info("borraEmpleadoPrevAction 1:Antes de entrar en la base de datos");

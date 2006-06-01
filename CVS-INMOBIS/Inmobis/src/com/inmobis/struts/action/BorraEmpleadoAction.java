@@ -6,6 +6,8 @@ package com.inmobis.struts.action;
 
 import com.inmobis.INMOCTES;
 import com.inmobis.bajas.*;
+import com.inmobis.consultas.Consultar;
+import com.inmobis.consultas.CreadorConsultar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.log4j.Logger;
+import com.inmobis.struts.form.*;
 
 /** 
  * MyEclipse Struts
@@ -46,16 +49,20 @@ public class BorraEmpleadoAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		
+		if (log.isInfoEnabled()){
+			log.info("Estoy en el form");
+			log.info("borraEmpleadoForm 0 : "+ ((BorraEmpleadoForm)form).getIdEmpleado());
+		}
+		
 		ActionMessages errors= new ActionMessages();
 		HttpSession session = request.getSession(true);
-		String tipoUsuario;
-		
-//		Si el empleado que se quiere borrar no está registrado no se puede borrar
-		if (!(((String)session.getAttribute(INMOCTES.tipoUsuario)).equals("administrador"))){
-			tipoUsuario ="empleado";
-		}
-		else{
-			tipoUsuario = "administrador";
+		String tipoUsuario="";
+		Consultar datos = CreadorConsultar.CreaConsultar("empleado");
+		tipoUsuario=datos.dameTipoUsuario(((BorraEmpleadoForm)form).getIdEmpleado());
+		if (!(tipoUsuario.toLowerCase().equals("administrador")))
+			tipoUsuario="empleado";
+		if (log.isInfoEnabled()){
+			log.info("borraEmpleadoAction1: "+tipoUsuario);
 		}
 		Eliminar eliminarE = CreadorEliminar.CreaEliminar(tipoUsuario);
 		

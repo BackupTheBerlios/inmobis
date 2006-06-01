@@ -4,7 +4,8 @@ import java.util.Vector;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
-
+import com.inmobis.bbdd.login.UsuarioLoginBD;
+import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.direccion.InfoDirBean;
@@ -17,7 +18,8 @@ import com.inmobis.bbdd.login.UsuarioLoginBean;
 import com.inmobis.bbdd.telefono.InfoTelfBean;
 import com.inmobis.struts.form.EditaEmpleadoForm;
 import com.inmobis.struts.form.EditaEmpleadoPrevForm;
-import com.inmobis.struts.form.FiltrarEmpleadoForm;;
+import com.inmobis.struts.form.FiltrarEmpleadoForm;
+import com.inmobis.struts.form.BorraEmpleadoForm;
 
 public class ConsultarEmpleado extends Consultar{
 	
@@ -204,6 +206,23 @@ public class ConsultarEmpleado extends Consultar{
 		}
 		return datos;
 		
+	}
+	
+	public String dameTipoUsuario(String id){
+		String tipoUsuario="error";
+		UsuarioLoginBean u = new UsuarioLoginBean();
+		u.setIdUsuario(id);
+		UsuarioLoginBD g = new UsuarioLoginBD(u);
+		try{
+			g.selectAll();
+		}catch(Exception e){
+			if(log.isInfoEnabled()){
+				log.info("ConsultarEmpleado 3: Fallo  " );
+			}
+			return tipoUsuario;
+		}
+		tipoUsuario= ((UsuarioLoginBean)g.getBean()).getTipoUsuario();
+		return tipoUsuario;
 	}
 
 }

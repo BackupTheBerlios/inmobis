@@ -72,6 +72,8 @@ public class UsuarioLoginBD implements BDObject {
     } //Liberamos la conexion pase lo que pase
   }
  
+ 
+ 
  public void select () throws RowNotFoundException {
 
      try {

@@ -3,7 +3,11 @@
 
 package com.inmobis.struts.form;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
 /** 
  * MyEclipse Struts
@@ -20,6 +24,31 @@ public class BorraEmpleadoPrevForm extends ActionForm {
 	private String apellido1;
 	private String apellido2;
 	private String fechnacimiento;
+	
+	/** 
+	 * Method reset
+	 * @param mapping
+	 * @param request
+	 */
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		this.apellido1="";
+		this.apellido2="";
+		this.dni="";
+		this.fechnacimiento="";
+		this.idEmpleado="";
+		this.nombre="";
+	}
+	/** 
+	 * Method validate
+	 * @param mapping
+	 * @param request
+	 * @return ActionErrors
+	 */
+	public ActionErrors validate(ActionMapping mapping,HttpServletRequest request) {
+
+		ActionErrors errors= new ActionErrors();
+		return errors;
+	}
 
 	public String getApellido1() {
 		return apellido1;
