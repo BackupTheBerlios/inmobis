@@ -32,16 +32,20 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<table width="100%">
 					<tr>
 						<td>
+							<!--Las fotos no se muestran si no está la ruta (así no sale la cruz roja)-->
 							<table width="100%">
 								<tr>
 									<td>
+										<%if (form.getFoto1().equals("")){}else{%>
 										<IMG src="pisos/<%=form.getFoto1()%>" border="0">
+										<%}%>
 									</td>
 								</tr>
 								<tr>
 									<td>
+										<%if (form.getFoto2().equals("")){}else{%>
 										<IMG src="pisos/<%=form.getFoto2()%>" border="0">
-										
+										<%}%>
 									</td>
 								</tr>
 							</table>
