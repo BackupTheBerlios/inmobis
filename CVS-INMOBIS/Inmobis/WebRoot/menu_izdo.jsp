@@ -55,8 +55,9 @@
 		&nbsp;<html:submit>
 					<fmt:message key="login.button.signon"/>
 		</html:submit>
-		<a href=javascript:history.go(-1);>Volver</a></div>
-	</html:form>
+		</html:form>
+		<a href=javascript:history.go(-1);>Volver</a>
+	</div>	
 <%}else if(tipoMenu.equals("administrador")){%>
 	<html:errors property="menuAdministrador"/>
 	<div id="sectionLinks2">	
