@@ -159,7 +159,7 @@ public class IntroducirInmueble extends Introducir{
 			gestorAgente.insertarVenta(inmuebleVend);			
 			
 		} catch (Exception e1) {			
-			errors.add("registraPiso", new ActionMessage("errors.username.noexiste"));
+			errors.add("verPisosAgente", new ActionMessage("errors.username.noexiste"));
 			if(i_log.isInfoEnabled())
 				i_log.info("Fallo en la inserción del piso vendido.");
 		}
