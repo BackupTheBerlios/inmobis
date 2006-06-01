@@ -22,7 +22,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
-                   
+                    <html:errors property="verPisos"/>
 					<table width="100%" class="lista">
 						<tr>   
 					       <th><bean:message key="app.numHab" /></th>

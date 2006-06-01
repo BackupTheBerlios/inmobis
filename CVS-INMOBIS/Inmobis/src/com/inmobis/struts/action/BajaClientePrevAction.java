@@ -82,7 +82,7 @@ public class BajaClientePrevAction extends Action {
 			((BorraClienteForm)form).setApellido2(aux.getApellido2());
 			((BorraClienteForm)form).setDniCliente(aux.getDni());
 			((BorraClienteForm)form).setFechaNacimiento(aux.getDiaNacimiento()+"-"+aux.getMesNacimiento()+"-"+aux.getAnioNacimiento());
-			((BorraClienteForm)form).setNombreCliente(aux.getNombre());
+			((BorraClienteForm)form).setNombre(aux.getNombre());
 			session.setAttribute("cliente",form);
 			return mapping.findForward("exito");
 		}			

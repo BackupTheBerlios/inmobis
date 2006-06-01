@@ -27,7 +27,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<td><H4>¿ESTA SEGURO DE <font color="red">ELIMINAR</font> EL SIGUIENTE CLIENTE?</H4></td>
 			</tr>
 		</table>                  
-				  <table width="100%">						
+				  <table width="100%" class="lista">						
 						<tr>
 						<th>
 							<bean:message key="app.nombre" />

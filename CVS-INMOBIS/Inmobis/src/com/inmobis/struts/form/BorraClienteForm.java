@@ -21,7 +21,7 @@ public class BorraClienteForm extends ActionForm {
 	
 	// --------------------------------------------------------- Instance Variables
 		private String idCliente;
-		private String nombreCliente;
+		private String nombre;
 		private String apellido1;
 		private String apellido2;
 		private String fechaNacimiento;
@@ -35,7 +35,7 @@ public class BorraClienteForm extends ActionForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.idCliente="";
-		this.nombreCliente="";
+		this.nombre="";
 		this.apellido1="";
 		this.apellido2="";
 		this.fechaNacimiento="";
@@ -82,11 +82,11 @@ public class BorraClienteForm extends ActionForm {
 	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
 	}
-	public String getNombreCliente() {
-		return nombreCliente;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
+	public void setNombre(String nombreCliente) {
+		this.nombre = nombreCliente;
 	}
 }
 
