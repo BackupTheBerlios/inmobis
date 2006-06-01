@@ -61,8 +61,14 @@ public class ConsultarMensaje extends Consultar {
 			Vector listaDestinos = new Vector();
 			try{
 				if (tipo.equalsIgnoreCase("cliente")){
+					if(log.isInfoEnabled()){
+						log.info("ConsultarMensaje 3: Voy a entrar en GetDestinosMensajeCliente " );
+					}
 					listaDestinos = gestmsg.GetDestinosMensajeCliente();}
 				else{
+					if(log.isInfoEnabled()){
+						log.info("ConsultarMensaje 3: Voy a entrar en GetDestinosMensajeAgente " );
+					}
 					listaDestinos = gestmsg.GetDestinosMensajeAgente();}
 				
 				if(log.isInfoEnabled()){

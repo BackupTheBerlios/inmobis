@@ -386,7 +386,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		       		" FROM TCliente, TAgentesClientes WHERE TAgentesClientes.idCliente=TCliente.idCliente" +
 		   			" AND TAgentesClientes.idAgente = ");
 		       sqlString.append(MysqlUtils.toMysqlString((String) mensaje.origen));
-			   
+			      if (milog.isInfoEnabled()){
+		    			milog.info("GetDestinosMensajeAgente : "+sqlString.toString());
+		    	  }				   
 			   rs=stmt.executeQuery(sqlString.toString());
 			   while (rs.next()){
 				   MensajesBean destBean = new MensajesBean();
@@ -418,7 +420,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	       		" FROM TEmpleados, TAgentesClientes WHERE TAgentesClientes.idAgente=TEmpleados.idEmpleado" +
 	   			" AND TAgentesClientes.idCliente = ");
 	       sqlString.append(MysqlUtils.toMysqlString((String) mensaje.origen));
-		   
+	      if (milog.isInfoEnabled()){
+	    			milog.info("GetDestinosMensajeCliente : "+sqlString.toString());
+	    	  }			   
 		   rs=stmt.executeQuery(sqlString.toString());
 
 		   if (rs.next()){
