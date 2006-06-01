@@ -103,6 +103,7 @@
     </action>
     <action
       attribute="venderPisoForm"
+      input="/VerPisosAgente.jsp"
       name="venderPisoForm"
       path="/venderPisoPrev"
       scope="request"
@@ -117,7 +118,7 @@
       path="/venderPiso"
       type="com.inmobis.struts.action.VenderPisoAction" >
       <forward name="error" path="/VenderPiso.jsp" />
-      <forward name="exito" path="/VerPisosAgente.jsp" />
+      <forward name="exito" path="/verPisosAgente.do" />
     </action>
 
             
