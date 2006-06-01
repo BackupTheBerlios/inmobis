@@ -179,14 +179,11 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
    try {
      conn = ConnectionManager.getConection();
      Statement stmt = conn.createStatement();
-     
+    
      StringBuffer sqlString = new StringBuffer("DELETE FROM TInmueble ");
      sqlString.append("WHERE idInmueble=" +
                      MysqlUtils.toMysqlString(inmueble.getIdInmueble()));
-    stmt.execute(sqlString.toString());
-
-
-
+     stmt.execute(sqlString.toString());
    }
    catch (Exception ex) {
      throw new RowNotFoundException();
@@ -195,8 +192,25 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
   	 if (conn != null) 
   		 try{conn.close();}catch(SQLException e){}
   } //Liberamos la conexion pase lo que pase
+   
+   //borrar de TClientesInmuebles el registro correspondiente
+   try{
+	   conn=ConnectionManager.getConection();
+	   Statement stmt=conn.createStatement();
+	   
+	   StringBuffer sb= new StringBuffer("DELETE FROM TClientesInmuebles " +
+	   		"WHERE idInmueble= " + MysqlUtils.toMysqlString(inmueble.getIdInmueble()));
+	   stmt.execute(sb.toString());
+	   
+   }catch(Exception ex){
+	   throw new RowNotFoundException();
+   }finally{
+	   if (conn != null) 
+	  		 try{conn.close();}catch(SQLException e){}
+	  } //Liberamos la conexion pase lo que pase
+   }
 
- }
+ 
  //Solo se listan los inmuebles no vendidos
  public  Vector  listarInmuebles() throws RowNotFoundException {
 	    Vector listaInmuebles = new Vector();
