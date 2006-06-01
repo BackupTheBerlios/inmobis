@@ -132,10 +132,10 @@ public class ConsultarInmueble extends Consultar{
 		Vector datos = new Vector();
 		
 		//se crea el bean del inmueble
-		VentasBean inmuebleVen = new VentasBean();
+		VentasBean inmueble = new VentasBean();
 		//se crea el inmueble dase de datos	
-		//GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmuebleVen);
-		ContableBD gestorContable = new ContableBD();
+		GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmueble);
+		
 		
 		try{
 			if(log.isInfoEnabled()){

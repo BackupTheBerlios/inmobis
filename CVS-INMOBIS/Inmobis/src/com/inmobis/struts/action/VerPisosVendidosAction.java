@@ -58,14 +58,14 @@ public class VerPisosVendidosAction extends Action {
 		}
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
-		Vector listaInmueblesVendidos = consultar.listar(form); 
+		Vector listaInmuebles = consultar.listarPisosVendidos(form); 
 		//necesito tener una función que me liste a todos los inmuebles vendidos. Ahora lo aviso.
 		
-		if (listaInmueblesVendidos.size()==0){
+		if (listaInmuebles.size()==0){
 			if (log.isInfoEnabled()){
 				log.info("VerPisosVendidosAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("menuContable", new ActionMessage("errors.listainmueblesvendidos.bbdd"));
+			errors.add("menuContable", new ActionMessage("errors.listainmuebles.bbdd"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
@@ -73,7 +73,7 @@ public class VerPisosVendidosAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerPisosVendidosAction 3: Se ha realizado el listado con éxito");
 			}
-			session.setAttribute("listaInmuebles",listaInmueblesVendidos);
+			session.setAttribute("listaInmuebles",listaInmuebles);
 			return (mapping.findForward("exito"));
 		}
 		
