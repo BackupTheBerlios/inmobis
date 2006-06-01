@@ -35,7 +35,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<td>
 										<html:text 	property="nombreEmpleado" 
 													size="40" 
-													maxlength=25" />
+													maxlength="25" />
 										<html:errors property="nombreEmpleado" />
 									</td>
 								</tr>	

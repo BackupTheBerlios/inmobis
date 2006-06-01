@@ -150,7 +150,7 @@ public class EditaEmpleadoForm extends ActionForm{
 	     //Hay que rellenar obligatoriamente todo menos el piso
 		if(calle.equals("") || num.equals("") || codPostal.equals("") || 
 				poblacion.equals("") || provincia.equals("") || pais.equals(""))
-			errors.add("registraEmpleado", new ActionMessage("errors.direccion.incomplete"));
+			errors.add("editaEmpleado", new ActionMessage("errors.direccion.incomplete"));
 		if(!esNombre(poblacion))
 			errors.add("poblacion", new ActionMessage("errors.poblacion.notValid"));
 		if(!esNombre(provincia))
