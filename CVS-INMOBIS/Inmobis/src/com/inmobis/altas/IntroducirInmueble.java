@@ -69,8 +69,8 @@ public class IntroducirInmueble extends Introducir{
 		try {
 			gestorCliente.consultaLoginPorNombreUsuario(datosInmo.getNombreUsuario());
 			if(i_log.isInfoEnabled())
-				i_log.info("id de:"+datosInmo.getNombreUsuario()+" o "+
-						gestorCliente.getLoginBean().getNombreUsuario()+" es "+gestorCliente.getLoginBean().getIdUsuario());
+				i_log.info("Foto1:"+datosInmo.getBinFoto1().getFileName()+" Foto2: "+
+						datosInmo.getBinFoto2().getFileName());
 			if (gestorCliente.getLoginBean().getIdUsuario()!=null)	{
 				try {
 					//Guardamos la foto1 si la hay
@@ -78,17 +78,17 @@ public class IntroducirInmueble extends Introducir{
 					{
 						if(i_log.isInfoEnabled())
 							i_log.info("NombreFoto1:"+datosInmo.getBinFoto1().getFileName());
-						errors = EscribeFichero(datosInmo.getBinFoto1(),errors);
+						errors = EscribeFichero(datosInmo.getBinFoto1(),errors,datosInmo.getFoto1());
 					}
 					if (!datosInmo.getFoto2().trim().equalsIgnoreCase(""))
 					{
 						if(i_log.isInfoEnabled())
 							i_log.info("NombreFoto2:"+datosInmo.getBinFoto2().getFileName());
-						errors = EscribeFichero(datosInmo.getBinFoto2(),errors);
+						errors = EscribeFichero(datosInmo.getBinFoto2(),errors,datosInmo.getFoto2());
 					}
+					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
 					gestorInmueble.insert();
 					gestorInmueble.insertaDir(direccion);
-					gestorInmueble.asociarClienteInmueble(gestorCliente.getLoginBean().getIdUsuario(),inmueble.getIdInmueble());
 				} catch (RowExistsException e) {
 					errors.add("registraPiso", new ActionMessage("errors.bbdd.clave"));
 					if(i_log.isInfoEnabled())
@@ -110,9 +110,11 @@ public class IntroducirInmueble extends Introducir{
 		return errors;
 	}
 
-	private ActionMessages EscribeFichero(FormFile miFile, ActionMessages errors){
+	private ActionMessages EscribeFichero(FormFile miFile, ActionMessages errors, String nombreFich){
 		try {
-			OutputStream bos = new FileOutputStream(INMOCTES.pathFotos+miFile.getFileName());
+			OutputStream bos = new FileOutputStream(INMOCTES.pathFotos+nombreFich);
+			if(i_log.isInfoEnabled())
+				i_log.info("Esribe Fichero - Path de la foto:" + INMOCTES.pathFotos+nombreFich);							// TODO Auto-generated catch block
 			InputStream stream = miFile.getInputStream();
 			byte[] buffer = new byte[8192];
 			int bytesLeidos = 0;

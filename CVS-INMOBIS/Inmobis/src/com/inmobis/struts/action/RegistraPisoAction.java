@@ -38,10 +38,10 @@ public class RegistraPisoAction extends Action {
 			if (resetear.booleanValue())
 				return (mapping.findForward("reset"));
 		//Si hay puesto algo en las fotos le ponemos el nombre de usuario delante para evitar duplicados
-		if (!registraPisoForm.getFoto1().trim().equalsIgnoreCase(""))
-			registraPisoForm.setFoto1(registraPisoForm.getNombreUsuario()+registraPisoForm.getFoto1());
-		if (!registraPisoForm.getFoto2().trim().equalsIgnoreCase(""))
-			registraPisoForm.setFoto2(registraPisoForm.getNombreUsuario()+registraPisoForm.getFoto2());
+		if (!registraPisoForm.getBinFoto1().getFileName().trim().equalsIgnoreCase(""))
+			registraPisoForm.setFoto1(registraPisoForm.getNombreUsuario()+registraPisoForm.getBinFoto1().getFileName());
+		if (!registraPisoForm.getBinFoto2().getFileName().trim().equalsIgnoreCase(""))
+			registraPisoForm.setFoto2(registraPisoForm.getNombreUsuario()+registraPisoForm.getBinFoto2().getFileName());
 		
 		Introducir intro=CreadorIntroducir.createIntroducir("piso");
 		ActionMessages errors=intro.introduce(form);
