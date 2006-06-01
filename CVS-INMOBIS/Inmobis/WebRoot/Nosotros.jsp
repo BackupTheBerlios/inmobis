@@ -7,7 +7,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo-->
-<%String subtitulo="Ayuda";%>
+<%String subtitulo="Informaci&oacute;n sobre el grupo INMOBIS";%>
 <%String tipoMenu="general";//Si no se ha registrado%>
 <%
 HttpSession sesion=request.getSession();
@@ -21,24 +21,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature">
 					<center>
-<P>A nuestros visitantes:</P>
-
-<P>La estructura de este sitio ha sido organizada para mostrar en primer lugar las áreas de mayor interés para los posibles visitantes. La elaboración se ha efectuado procurando conciliar la claridad, la agilidad y el contenido informativo.</P>
-
-<P>Sugerencias:</P>
-
-<P>Para acceder rápidamente a la información que desea consultar, visite el Indice del Sitio.</P>
-
-<P>Si desea volver a la página principal de INMOBIS desde cualquier página, haga clic en el enlace Inicio en la parte superior izquierda de la página.</P>
-
-<P>Todos los contenidos de este sitio web son accesibles con Mozilla Firefox y Microsoft Internet Explorer</P>
-
-<P>Si tiene algún comentario que hacernos visite la sección de contacto.</P>
-
-
-
-
-
+					<img SRC="images/nosotros.jpg">
+					<p>Con motivo de la realización de la asignatura de Ingeniería del Software, quince personas se juntaron para dar forma al grupo INMOBIS. Este grupo de desarrolladores, especializado en plataformas web, dispone de experiencia de desarrollo en la plataforma J2EE. Tras ocho meses de intenso trabajo este grupo ha dado forma a la aplicación INMOBIS, lider en el mercado de sistemas de gestión inmobiliario.</p>
+					<p>Estamos a su disposición para la realización de cualquier tipo de proyecto, para lo cual le ofreceremos un presupuesto sin compromiso por su parte, para que constate nuestra calidad y bajos costes frente a los de terceras empresas. Si quiere que desarrollemos su proyecto a medida póngase en contacto con nosotros a través de la dirección detallada en la sección contacto de esta misma web.</p>
 					</center>
 
                 </div>

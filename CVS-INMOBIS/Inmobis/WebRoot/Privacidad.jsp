@@ -7,7 +7,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo-->
-<%String subtitulo="Ayuda";%>
+<%String subtitulo="Informaci&oacute;n sobre privacidad";%>
 <%String tipoMenu="general";//Si no se ha registrado%>
 <%
 HttpSession sesion=request.getSession();
@@ -21,23 +21,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature">
 					<center>
-<P>A nuestros visitantes:</P>
 
-<P>La estructura de este sitio ha sido organizada para mostrar en primer lugar las áreas de mayor interés para los posibles visitantes. La elaboración se ha efectuado procurando conciliar la claridad, la agilidad y el contenido informativo.</P>
+<P>INMOBIS ha elaborado esta declaración sobre la privacidad de los datos para corroborar el compromiso con la protección de la privacidad de sus usuarios. EN NINGÚN SUPUESTO INMOBIS DARÁ A CONOCER A NINGÚN TERCERO INFORMACIÓN QUE IDENTIFIQUE A SUS USUARIOS INDIVIDUALMENTE, SIN UNA AUTORIZACIÓN EXPRESA DE DICHOS USUARIOS.</P>
 
-<P>Sugerencias:</P>
+<P>INMOBIS trabaja con datos personales de usuarios a la hora del alta para poder acceder al sistema. En el momento del alta, la baja y la modificación de los datos,INMOBIS solicita el nombre del usuario y su dirección de correo electrónico; y puede llegar a pedir información adicional que en cualquier caso es voluntaria.</P>
 
-<P>Para acceder rápidamente a la información que desea consultar, visite el Indice del Sitio.</P>
-
-<P>Si desea volver a la página principal de INMOBIS desde cualquier página, haga clic en el enlace Inicio en la parte superior izquierda de la página.</P>
-
-<P>Todos los contenidos de este sitio web son accesibles con Mozilla Firefox y Microsoft Internet Explorer</P>
-
-<P>Si tiene algún comentario que hacernos visite la sección de contacto.</P>
-
-
-
-
+<P>Si tiene cualquier duda o comentario sobre la forma en que INMOBIS utiliza los datos de sus usuarios y suscriptores, puede ponerse en contacto con nosotros a través de la dirección incluida en la sección contacto.</P>
 
 					</center>
 

@@ -7,7 +7,7 @@
 CON UN ANCHO DE 767 px -->
 
 <!--El menu izquierdo-->
-<%String subtitulo="Ayuda";%>
+<%String subtitulo="Mapa del sitio web";%>
 <%String tipoMenu="general";//Si no se ha registrado%>
 <%
 HttpSession sesion=request.getSession();
@@ -21,20 +21,14 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
               <div id="content"> 
                 <div class="feature">
 					<center>
-<P>A nuestros visitantes:</P>
 
-<P>La estructura de este sitio ha sido organizada para mostrar en primer lugar las áreas de mayor interés para los posibles visitantes. La elaboración se ha efectuado procurando conciliar la claridad, la agilidad y el contenido informativo.</P>
-
-<P>Sugerencias:</P>
-
-<P>Para acceder rápidamente a la información que desea consultar, visite el Indice del Sitio.</P>
-
-<P>Si desea volver a la página principal de INMOBIS desde cualquier página, haga clic en el enlace Inicio en la parte superior izquierda de la página.</P>
-
-<P>Todos los contenidos de este sitio web son accesibles con Mozilla Firefox y Microsoft Internet Explorer</P>
-
-<P>Si tiene algún comentario que hacernos visite la sección de contacto.</P>
-
+<P><A HREF="Financiacion.jsp">Financiación</A>
+<P><A HREF="Hipotecas.jsp">Hipotecas</A>
+<P><A HREF="Seguros.jsp">Seguros</A>
+<P><A HREF="Privacidad.jsp">Privacidad</A>
+<P><A HREF="Uso.jsp">Términos de uso</A>
+<P><A HREF="Prestamos.jsp">Préstamos</A>
+<P><A HREF="OtrosServicios.jsp">Otros servicios</A>
 
 
 
