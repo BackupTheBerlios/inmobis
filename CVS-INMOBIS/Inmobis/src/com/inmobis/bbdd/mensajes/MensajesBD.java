@@ -64,6 +64,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    	  //Se busca en TClientes y/o TEmpleados para obtener su nombre 
 		    	  //y apellidos y devolverlos concatenados en nombreOrigen 
 		    	  //y nombreDestino
+/*
 		    	  rs1=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
 		    			  "FROM TEmpleados WHERE IdEmpleado= " +
 		    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
@@ -103,7 +104,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 				    		  ap2=rs3.getString("apellido2");
 				    		  mensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
 				    	  }
-		    	  }
+		    	  }*/
 		    }else {
 		    	  throw new RowNotFoundException();
 		      }
