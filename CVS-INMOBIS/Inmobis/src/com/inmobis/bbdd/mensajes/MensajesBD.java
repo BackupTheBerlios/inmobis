@@ -131,11 +131,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		try{
 			conn = ConnectionManager.getConection();
 		    Statement stmt = conn.createStatement();
-		    Statement stmt1 = conn.createStatement();
+	//	    Statement stmt1 = conn.createStatement();
 		    ResultSet rs = null;
-			
 		    //transaccion
-		    conn.setAutoCommit(false);
 		    
 		    //TMensaje
 		    StringBuffer sb= new StringBuffer("INSERT INTO TMensajes ");
@@ -144,9 +142,10 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    sb.append(MysqlUtils.toMysqlString(mensaje.getAsunto()) + ",");
 		    sb.append(MysqlUtils.toMysqlString(mensaje.getTexto()) + ")");
 		  	//ejecuta la sentencia sql que acabamos de construir
-		    stmt.execute(sb.toString());
-		    
+		    //stmt.execute(sb.toString());
+		    stmt.addBatch(sb.toString());
 		    //TRelMensaje
+/*
 		    if(mensaje.getDestino()=="todos"){
 		    	StringBuffer sqlString = new StringBuffer("SELECT IdCliente " +
 		    			"FROM TCliente");
@@ -164,7 +163,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    	}
 		    	
 		    }else{//insertar solo un reg en TRelMensajes
-		    	StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
+	*/	    	StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
 			    sb1.append("VALUES ( " + 
 			    		MysqlUtils.toMysqlString(mensaje.getOrigen()) + ",");
 			    sb1.append(MysqlUtils.toMysqlString(mensaje.getDestino()) + ",");
@@ -172,20 +171,15 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 			    sb1.append(MysqlUtils.toMysqlString(mensaje.getFecha()) + ",");
 			    sb1.append(MysqlUtils.toMysqlString(mensaje.getLeido().toString()) + ")");
 			    //ejecuta la sentencia sql que acabamos de construir
-			    stmt1.execute(sb1.toString());
-		    }
-		    conn.commit();
+			    //stmt1.execute(sb1.toString());
+			    stmt.addBatch(sb1.toString());
+			    stmt.executeBatch();
+		   // }
 		    //fin transaccion
-		    conn.setAutoCommit(true);
 		    
 		}catch (SQLException ex){
-			try{ conn.rollback(); 
-			//si se ha producido un error no se ejecuta ninguna sentencia
-			}catch(SQLException sqle){}				
+						
 		}catch(Exception e){
-			try{ conn.rollback(); 
-			//si se ha producido un error no se ejecuta ninguna sentencia
-			}catch(SQLException sqle){}	
 			throw new RowExistsException();
 		}
 	     finally{
