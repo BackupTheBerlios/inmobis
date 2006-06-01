@@ -13,26 +13,42 @@ import com.inmobis.bbdd.MysqlUtils;
 import com.inmobis.bbdd.RowExistsException;
 import com.inmobis.bbdd.RowNotFoundException;
 import com.inmobis.bbdd.inmueble.VentasBean;
+import com.inmobis.bbdd.BDObject;
 
-public class ContableBD implements GestorContableBD{
+public class ContableBD implements BDObject,GestorContableBD{
+	private VentasBean  venta;
 	private static final Logger milog = Logger.getLogger(ContableBD.class);
 	
 	private Connection conn;
 	
+	public Object getBean() {
+		return venta;
+	}
+	
+	public void select () throws RowNotFoundException {}
+	
+	public void delete () throws RowNotFoundException {}
+	
+	public void insert () throws RowExistsException  {}
+	
+	public void update () throws RowNotFoundException {}
+	
 	//lista todos los reg de TVentas
 	public Vector listadoVentas()throws RowNotFoundException
 	{
+		
+		
+		
 		Vector listaVentas=new Vector();
 		
-		try{
-			Connection conn = ConnectionManager.getConection();
+		try{			
+			conn = ConnectionManager.getConection();
 		    Statement stmt = conn.createStatement();
-		    ResultSet rs = null;
-		    
+		    ResultSet rs = null;		    
 		    rs = stmt.executeQuery("SELECT TInmueble.*,TVentas.idAgente," +
 		    		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
 		    		" TVentas.ganancia FROM TInmueble,TVentas " +
-		    		"WHERE TInmueble.idInmueble=TVentas.idInmueble");
+		    		"WHERE TInmueble.idInmueble=TVentas.idInmueble");   
 		    
 		    while(rs.next()){
 		    	VentasBean ventas=new VentasBean();
@@ -40,7 +56,9 @@ public class ContableBD implements GestorContableBD{
 		    	ventas.setIdInmueble(rs.getString("idInmueble"));
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
-		    	ventas.setPrecioFinal(rs.getString("ganancia"));
+		    	ventas.setPrecioFinal(rs.getString("precioFinal"));		    	
+		    	ventas.setGanancia(rs.getString("ganancia"));		   	
+		    	
 		    	//campos correspondientes a TInmueble
 		    	ventas.setNumHab(rs.getString("numHab"));
 		    	ventas.setMetros(rs.getString("metros"));
@@ -70,7 +88,7 @@ public class ContableBD implements GestorContableBD{
 		//por rango de fechas, es decir si fechaDesde y FechaHasta estan rellenas.
 		
 		try{
-			Connection conn = ConnectionManager.getConection();
+			conn = ConnectionManager.getConection();
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = null;
 		    Hashtable consulta = new Hashtable();

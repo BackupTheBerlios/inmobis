@@ -58,8 +58,7 @@ public class VerPisosVendidosAction extends Action {
 		}
 		
 		Consultar consultar=CreadorConsultar.CreaConsultar("inmueble");
-		Vector listaInmuebles = consultar.listarPisosVendidos(form); 
-		//necesito tener una función que me liste a todos los inmuebles vendidos. Ahora lo aviso.
+		Vector listaInmuebles = consultar.listarPisosVendidos(form);		
 		
 		if (listaInmuebles.size()==0){
 			if (log.isInfoEnabled()){

@@ -83,12 +83,12 @@ public class ConsultarInmueble extends Consultar{
 		VentasBean pisoVend = new VentasBean();
 		
 		//se rellean el bean con los datos que se han recogido del formulario
-		if (!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals(null)) &&
-				!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals("")))
-			pisoVend.setFechaHasta(((VerPisosVendidosForm)datosBusqueda).getFechFin());
-		if (!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals(null)) &&
-				!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals("")))
-			pisoVend.setFechaDesde(((VerPisosVendidosForm)datosBusqueda).getFechIni());
+//		if (!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals(null)) &&
+//				!(((VerPisosVendidosForm)datosBusqueda).getFechFin().equals("")))
+//			pisoVend.setFechaHasta(((VerPisosVendidosForm)datosBusqueda).getFechFin());
+//		if (!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals(null)) &&
+//				!(((VerPisosVendidosForm)datosBusqueda).getFechIni().equals("")))
+//			pisoVend.setFechaDesde(((VerPisosVendidosForm)datosBusqueda).getFechIni());
 		if (!(((VerPisosVendidosForm)datosBusqueda).getFechVenta().equals(null)) &&
 				!(((VerPisosVendidosForm)datosBusqueda).getFechVenta().equals("")))
 			pisoVend.setFechVenta(((VerPisosVendidosForm)datosBusqueda).getFechVenta());
@@ -132,7 +132,7 @@ public class ConsultarInmueble extends Consultar{
 		Vector datos = new Vector();
 		
 		//se crea el bean del inmueble
-		VentasBean inmueble = new VentasBean();
+		//VentasBean inmueble = new VentasBean();
 		//se crea el inmueble dase de datos	
 		//GestorContableBD gestorContable=(GestorContableBD)CreadorGestores.crearGestor("contable",inmueble);
 		ContableBD gestorContable = new ContableBD();
