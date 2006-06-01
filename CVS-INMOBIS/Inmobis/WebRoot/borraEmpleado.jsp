@@ -39,6 +39,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<th>
 							<bean:message key="app.apellido2" />
 						</th>
+						<th>
+							Opc.
+						</th>
 					</tr>
 					<tr>
 						  <td>
@@ -50,7 +53,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						  <td>
 					            <bean:write name="empleado" property="apellido2" />
 						  </td>						  
-						  <td align="center">
+						  <td width="15">
 							<a href="borraEmpleado.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
 						  </td>
 						</tr>

@@ -26,10 +26,24 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<td><H4>¿ESTA SEGURO DE <font color="red">ELIMINAR</font> EL SIGUIENTE CLIENTE?</H4></td>
 			</tr>
 		</table>                  
-				  <table width="100%">
-						<logic:iterate id="borraClienteForm" name="ClienteBean">
+				  <table width="100%">						
 						<tr>
-							<td>
+						<th>
+							<bean:message key="app.nombre" />
+						</th>
+						<th>
+							<bean:message key="app.apellido1" />
+						</th>
+						<th>
+							<bean:message key="app.apellido2" />
+						</th>	
+						<th>
+							Opc.
+						</th>						
+						</tr>
+						<tr>
+						
+						  	<td>
 								<bean:write name="cliente" property="nombre" />
 							</td>
 							<td>
@@ -37,13 +51,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							</td>
 							<td>
 								<bean:write name="cliente" property="apellido2" />
-							</td>						  
-							<td align="center">
-								<a href="borraCliente.do?idCliente=<bean:write name='borraClienteForm'
-								  property='idCliente' />"> ELIMINAR </a>
+							</td>					  
+							<td width="15">
+								<a href="borraCliente.do?idCliente=<bean:write name="cliente"
+								  property="idCliente" />"> <IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"> </a>
 							</td>
 						</tr>
-				      </logic:iterate>
+				      
 					</table>	
 					<table width="100%">
 						<tr>
