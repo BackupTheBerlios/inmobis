@@ -58,7 +58,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<bean:write name="cliente" property="fechNacimiento" />
 								</td> 
 								<td width="15">
-									<a href="borraClientePrev.do?idCliente=<bean:write name="cliente" property="idCliente"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>									
+									<a href="bajaClientePrev.do?idCliente=<bean:write name="cliente" property="idCliente"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>									
 								</td>
 								<td align="right" width="15">
 									<a href="editaClientePrev.do?idCliente=<bean:write name="cliente" property="idCliente"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
