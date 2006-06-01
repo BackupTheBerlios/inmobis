@@ -21,6 +21,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%}%><%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
+                
+                <table width="100%">
+			<tr>
+				<td><H4>¿A qué agente quieres fraspasar el cliente: <font color="blue"><b><%=session.getAttribute("clienteTraspasado")%></b></font>?</H4></td>
+			</tr>
+		</table>
+		
                    <table width="100%" class="lista">
 						 <!-- zona de cï¿½digo-->
 						<tr>
@@ -28,7 +35,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<th><fmt:message key="app.apellido1" /></th>
 							<th><fmt:message key="app.apellido2" /></th>
 							<th><fmt:message key="app.dni" /></th>
-							<th colspan="2">Opc.</th>
+							<th>Opc.</th>
 						</tr>
 						<!-- iterate over the results of the query -->
 						<logic:iterate id="empleado" name="listaEmpleados" type="com.inmobis.bbdd.empleado.EmpleadoBean">   
@@ -46,22 +53,11 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<bean:write name="empleado" property="dni" />
 							  </td>
 							  <td width="15">
-									<a href="borraEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar elemento"></a>
-							  </td>
-							  <td align="right" width="15">
-									<a href="editaEmpleadoPrev.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
-							  </td>							
+									<a href="traspasarCliente.do?idEmpleado=<bean:write name="empleado" property="idEmpleado"/> "><IMG SRC="images/ico_tick.jpg" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Traspasar a este Agente"></a>
+							  </td>							  							  
 						</tr>
 				      		</logic:iterate>
-					</table>
-					<br><br>
-					<table width="100%">
-						<tr>
-							<td>
-								<a href="FiltrarEmpleado.jsp" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="enlace.filtrarEmpleado"/></a>
-							</td>
-						</tr>
-					</table>
+					</table>					
 				</div>
               </div>
               <div id="siteInfo"><a href="mailto:inmobisweb@gmail.com">Contacto</a> 

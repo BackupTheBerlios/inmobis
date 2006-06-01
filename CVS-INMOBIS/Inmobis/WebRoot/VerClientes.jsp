@@ -31,13 +31,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<!--<th><fmt:message key=" app.IdCliente" /></th>-->
 							<th><fmt:message key="app.dniCliente" /></th>
 							<th><fmt:message key="app.fechNac" /></th>
-							<th colspan="2">Opc.</th>
+							<th colspan="3">Opc.</th>
 						 </tr>
 						 <!-- iterate over the results of the query -->
 						<logic:iterate id="cliente" name="listaClientes" type="com.inmobis.bbdd.cliente.ClienteBean" >
 							<tr>
 								<td> 
-									<bean:write name="cliente" property="nombre" />
+									<bean:write name="cliente" property="nombreCliente" />
 								</td>							  
 								<td>
 									<bean:write name="cliente" property="apellido1" />
@@ -62,7 +62,13 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 								</td>
 								<td align="right" width="15">
 									<a href="editaClientePrev.do?idCliente=<bean:write name="cliente" property="idCliente"/>" /><IMG SRC="images/ico_editar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Editar elemento"></a>
-								</td>														
+								</td>		
+								<% if(tipoU.equals("gerente")){%>						
+							  	<td align="right" width="15">
+									<a href="traspasarClientesPrev.do?idCliente=<bean:write name="cliente" property="idCliente"/>" /><IMG SRC="images/ico_traspasar.gif" WIDTH="13" HEIGHT="16" BORDER="0" ALT="Traspasar cliente"></a>
+							  	</td>	
+							  	<%}%>
+												
 							</tr>
 					</logic:iterate>
 					</table>
@@ -70,7 +76,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<table width="100%">
 						<tr>
 							<td>
-								<a href="filtrarCliente.do" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="enlace.filtrarCliente"/></a>
+								<a href="FiltrarCliente.jsp" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="enlace.filtrarCliente"/></a>
 							</td>
 						</tr>
 					</table>
