@@ -59,7 +59,7 @@ public class BorraEmpleadoAction extends Action {
 		String tipoUsuario="";
 		Consultar datos = CreadorConsultar.CreaConsultar("empleado");
 		tipoUsuario=datos.dameTipoUsuario(((BorraEmpleadoForm)form).getIdEmpleado());
-		if (!(tipoUsuario.toLowerCase().equals("administrador")))
+		if (!(tipoUsuario.equals("administrador")))
 			tipoUsuario="empleado";
 		if (log.isInfoEnabled()){
 			log.info("borraEmpleadoAction1: "+tipoUsuario);
