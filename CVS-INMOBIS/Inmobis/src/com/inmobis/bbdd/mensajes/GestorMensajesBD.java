@@ -8,5 +8,6 @@ import com.inmobis.bbdd.BDObject;
 public interface GestorMensajesBD extends BDObject {
 	Vector BusquedaDetallada(); //Un cliente pincha en verMensajes
 	Vector BusquedaDetalladaAgente(); //Un agente pincha en verMensajes
-	Vector GetDestinosMensaje();
+	Vector GetDestinosMensajeCliente();
+	Vector GetDestinosMensajeAgente();
 }

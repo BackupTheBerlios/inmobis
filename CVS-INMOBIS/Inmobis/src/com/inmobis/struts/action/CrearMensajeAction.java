@@ -60,8 +60,15 @@ public class CrearMensajeAction extends Action {
 		}
 
 		Consultar consultar=CreadorConsultar.CreaConsultar("mensaje");
-		Vector listaDestinos = consultar.GetDestinosMensaje(form);
-
+		Vector listaDestinos;
+		if (((String)session.getAttribute(INMOCTES.idUsuario)).equalsIgnoreCase("agente"))
+		{	
+			listaDestinos = consultar.GetDestinosMensajeAgente(form);
+		}
+		else
+		{
+			listaDestinos = consultar.GetDestinosMensajeCliente(form);			
+		}
 		if (listaDestinos.equals(null)){
 			if (log.isInfoEnabled()){
 				log.info("CrearMensajeAction 2: Error en bbdd");

@@ -374,7 +374,39 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	     return mensajesEncontrados;
 	}	
 
-	public Vector GetDestinosMensaje() {
+	public Vector GetDestinosMensajeAgente(){
+		Vector listaDestinos = new Vector();
+
+		try{
+			   conn = ConnectionManager.getConection();
+		       Statement stmt = conn.createStatement();
+		       ResultSet rs = null;      
+		
+		      StringBuffer sqlString = new StringBuffer("SELECT TAgentesClientes.idCliente, nombre, apellido1, apellido2" +
+		       		" FROM TCliente, TAgentesClientes WHERE TAgentesClientes.idCliente=TCliente.idCliente" +
+		   			" AND TAgentesClientes.idAgente = ");
+		       sqlString.append(MysqlUtils.toMysqlString((String) mensaje.origen));
+			   
+			   rs=stmt.executeQuery(sqlString.toString());
+			   while (rs.next()){
+				   MensajesBean destBean = new MensajesBean();
+				   destBean.setDestino(rs.getString("idCliente"));
+				   destBean.setNombreDestino(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));
+				   //nombres de origen y destino:
+				   listaDestinos.add(destBean);
+			   }
+		}
+		catch (Exception ex){
+
+			     }
+			     finally{
+			    	 if (conn != null) 
+			    		 try{conn.close();}catch(SQLException e){}
+			    } //Liberamos la conexion pase lo que pase
+			     return listaDestinos;
+		
+	}
+	public Vector GetDestinosMensajeCliente() {
 		Vector listaDestinos = new Vector();
 		try{
 		   conn = ConnectionManager.getConection();
@@ -383,34 +415,19 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	       
 	       //probamos si el que lo envia es un cliente
 	       StringBuffer sqlString = new StringBuffer("SELECT TAgentesClientes.idAgente, nombre, apellido1, apellido2" +
-	       		" FROM TEmpleados, TAgentesClientes WHERE TAgentesClientes.idAgente=TEmpleado.idEmpleado" +
+	       		" FROM TEmpleados, TAgentesClientes WHERE TAgentesClientes.idAgente=TEmpleados.idEmpleado" +
 	   			" AND TAgentesClientes.idCliente = ");
 	       sqlString.append(MysqlUtils.toMysqlString((String) mensaje.origen));
 		   
 		   rs=stmt.executeQuery(sqlString.toString());
 
-		   if (rs.next()) { //El origen es un cliente,cogemos su agente
+		   if (rs.next()){
 			   MensajesBean destBean = new MensajesBean();
 			   destBean.setDestino(rs.getString("idAgente"));
 			   destBean.setNombreDestino(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));
 			   //nombres de origen y destino:
 			   listaDestinos.add(destBean);
-		   }else{ //el origen es un agente y tenemos que devolver la lista de clientes.
-		       sqlString = new StringBuffer("SELECT TAgentesClientes.idCliente, nombre, apellido1, apellido2" +
-			       		" FROM TCliente, TAgentesClientes WHERE TAgentesClientes.idCliente=TCliente.idCliente" +
-			   			" AND TAgentesClientes.idAgente = ");
-			       sqlString.append(MysqlUtils.toMysqlString((String) mensaje.origen));
-				   
-				   rs=stmt.executeQuery(sqlString.toString());
-				   while (rs.next()){
-					   MensajesBean destBean = new MensajesBean();
-					   destBean.setDestino(rs.getString("idCliente"));
-					   destBean.setNombreDestino(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));
-					   //nombres de origen y destino:
-					   listaDestinos.add(destBean);
-				   }
-		   }
-		   
+			   }
 		}
 	     catch (Exception ex){
 

@@ -43,6 +43,40 @@ public class ConsultarMensaje extends Consultar {
 		}
 		return datos;
 	}
+	private Vector GetDestinosMensaje(ActionForm form, String tipo){
+		//Devuelve la lista de posibles destinos de un mensaje segun su origen
+			MensajeForm msgForm = (MensajeForm) form;
+			
+			MensajesBean msgBean = new MensajesBean();
+			msgBean.setOrigen(msgForm.getOrigen());
+
+			GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msgBean);
+
+			if(log.isInfoEnabled()){
+				log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );
+				log.info("ConsultarMensaje 2:  " +					 
+						 "Origen del mensaje: " + msgForm.getOrigen());
+			}
+
+			Vector listaDestinos = new Vector();
+			try{
+				if (tipo.equalsIgnoreCase("cliente")){
+					listaDestinos = gestmsg.GetDestinosMensajeCliente();}
+				else{
+					listaDestinos = gestmsg.GetDestinosMensajeAgente();}
+				
+				if(log.isInfoEnabled()){
+					log.info("ConsultarMensaje 3: Recuperados "+listaDestinos.size()+" destinos");
+				}
+			}catch (Exception E){
+				if(log.isInfoEnabled()){
+					log.info("ConsultarMensaje 3: Fallo en BBDD: " + E.getMessage());
+				}
+				return listaDestinos;//Devolvemos la lista
+			}		
+			return listaDestinos;
+		}
+	
 	@Override
 	public Vector listar(ActionForm datosBusqueda){
 		if(log.isInfoEnabled()){
@@ -97,34 +131,11 @@ public class ConsultarMensaje extends Consultar {
 		return form;
 	}	
 	
-	public Vector GetDestinosMensaje(ActionForm form){
-	//Devuelve la lista de posibles destinos de un mensaje segun su origen
-		MensajeForm msgForm = (MensajeForm) form;
-		
-		MensajesBean msgBean = new MensajesBean();
-		msgBean.setOrigen(msgForm.getOrigen());
-
-		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msgBean);
-
-		if(log.isInfoEnabled()){
-			log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );
-			log.info("ConsultarMensaje 2:  " +					 
-					 "Origen del mensaje: " + msgForm.getOrigen());
-		}
-
-		Vector listaDestinos = new Vector();
-		try{
-			listaDestinos = gestmsg.GetDestinosMensaje();
-			if(log.isInfoEnabled()){
-				log.info("ConsultarMensaje 3: Recuperados "+listaDestinos.size()+" destinos");
-			}
-		}catch (Exception E){
-			if(log.isInfoEnabled()){
-				log.info("ConsultarMensaje 3: Fallo en BBDD: " + E.getMessage());
-			}
-			return listaDestinos;//Devolvemos la lista
-		}		
-		return listaDestinos;
+	public Vector GetDestinosMensajeCliente(ActionForm form){
+		return GetDestinosMensaje(form, "cliente");
+	}
+	public Vector GetDestinosMensajeAgente(ActionForm form){
+		return GetDestinosMensaje(form, "agente");		
 	}
 
 	public ActionForm dameDatos (String id){
