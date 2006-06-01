@@ -61,7 +61,7 @@ public class CrearMensajeAction extends Action {
 
 		Consultar consultar=CreadorConsultar.CreaConsultar("mensaje");
 		Vector listaDestinos;
-		if (((String)session.getAttribute(INMOCTES.idUsuario)).equalsIgnoreCase("agente"))
+		if (((String)session.getAttribute(INMOCTES.tipoUsuario)).equalsIgnoreCase("agente"))
 		{	
 			listaDestinos = consultar.GetDestinosMensajeAgente(form);
 		}

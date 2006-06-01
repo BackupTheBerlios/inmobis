@@ -8,6 +8,8 @@ import org.apache.struts.action.ActionForm;
 import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.mensajes.*;
 import com.inmobis.struts.form.MensajeForm;
+
+import java.sql.SQLException;
 import java.util.Vector;
 
 public class ConsultarMensaje extends Consultar {
@@ -50,7 +52,7 @@ public class ConsultarMensaje extends Consultar {
 			MensajesBean msgBean = new MensajesBean();
 			msgBean.setOrigen(msgForm.getOrigen());
 
-			GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msgBean);
+			GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensajes",msgBean);
 
 			if(log.isInfoEnabled()){
 				log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );

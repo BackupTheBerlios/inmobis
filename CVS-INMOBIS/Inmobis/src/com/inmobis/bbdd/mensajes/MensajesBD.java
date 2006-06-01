@@ -399,12 +399,14 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 			   }
 		}
 		catch (Exception ex){
-
-			     }
-			     finally{
-			    	 if (conn != null) 
-			    		 try{conn.close();}catch(SQLException e){}
-			    } //Liberamos la conexion pase lo que pase
+		      if (milog.isInfoEnabled()){
+	    			milog.info("MensajesBD: GetDestinosMensajeAgente : "+ex.toString());
+	    	  	}	
+	   }
+	    finally{
+		    	 if (conn != null) 
+		    		 try{conn.close();}catch(SQLException e){}
+	    } //Liberamos la conexion pase lo que pase
 			     return listaDestinos;
 		
 	}
@@ -434,7 +436,9 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 			   }
 		}
 	     catch (Exception ex){
-
+		      if (milog.isInfoEnabled()){
+	    			milog.info("MensajesBD: GetDestinosMensajeCliente : "+ex.toString());
+	    	  }	
 	     }
 	     finally{
 	    	 if (conn != null) 
