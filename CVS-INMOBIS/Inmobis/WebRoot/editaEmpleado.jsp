@@ -33,6 +33,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					</tr>
 				</table>
 				<table width="100%">
+				<%if (tipoU.equals("administrador")){ //El administrador registra los nuevos empleados y puede ver su contraseña, el gerente no puede.%>
 				<tr>
 					<td>   
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.password"/>
@@ -41,7 +42,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<html:password 	property="password" redisplay="false" maxlength="12" value="<%=form.getPassword()%>" />
 						<html:errors property="password" />
 					</td>
-				</tr>
+				</tr>				
 				 <tr>
 					<td>   
 						<font size="1" color="red"><b>(*)</b></font>&nbsp;<fmt:message key="editaCliente.passwordAgain"/>
@@ -51,6 +52,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 						<html:errors property="passwordAgain" />
 					</td>
 				 </tr>
+				 <%}%>
 					<tr>
 						<td>   
 							<fmt:message key="editaEmpleado.nombre"/>
