@@ -80,6 +80,9 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<br>
 					<table width="100%">
 						<tr>
+						    <td width="15">
+									<a href="borrarMensaje.do?idMensaje=<bean:write name="mensaje" property="idMensaje"/>&origen=<bean:write name="mensaje" property="origen" />&destino=<bean:write name="mensaje" property="destino" />&fecha=<bean:write name="mensaje" property="fecha" /> "><IMG SRC="images/ico_eliminar.gif" WIDTH="14" HEIGHT="16" BORDER="0" ALT="Eliminar mensaje"> Eliminar mensaje</a>
+					        </td>
 							<td>
 								<a href=javascript:history.go(-1); style="color: #3962A6;"><IMG SRC="images/volver.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT=""> Volver</a>
 							</td>
