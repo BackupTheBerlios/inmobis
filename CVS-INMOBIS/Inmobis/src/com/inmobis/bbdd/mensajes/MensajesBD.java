@@ -29,85 +29,63 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 	}
 	
 	public void select()throws RowNotFoundException {
-		String nOrigen;
-		String nDestino;
-		String nom,ap1,ap2;
 		try {
 		      conn = ConnectionManager.getConection();
 		      Statement stmt = conn.createStatement();
-		      ResultSet rs,rs1,rs2,rs3 = null;
+		      ResultSet rsAgente,rsCliente = null;
 		      
 		      //obtenemos un ResultSet con los datos producidos por la consulta
-		      rs = stmt.executeQuery("SELECT TMensajes.idMensaje,asunto,texto,origen,destino,Fecha,leido" +
-		      		" FROM TMensajes, TRelMensaje" +
-		      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje " +
-		      		"AND TMensajes.idMensaje= " +
+		     String sb = new String("SELECT * FROM TMensajes, TRelMensaje, TEmpleados" +
+		      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
+		      		" AND TEmpleados.idEmpleado= TRelMensaje.origen" +
+		      		" AND TMensajes.idMensaje= " +
                       MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
-                    "AND origen= " +
+                    " AND origen= " +
                       MysqlUtils.toMysqlString(mensaje.getOrigen())+
-                    "AND destino= " +
-                      MysqlUtils.toMysqlString(mensaje.getOrigen())+
-                    "AND Fecha= " +
+                    " AND Fecha= " +
                       MysqlUtils.toMysqlString(mensaje.getFecha()));
+		      if (milog.isInfoEnabled()){
+		 			milog.info("MensajeBD SELECT: "+ sb.toString());
+				}
+		      rsAgente = stmt.executeQuery(sb.toString());
 		      
-		      if (rs.next()){//situarse en la siguiente fila
-		    	  mensaje.setAsunto(rs.getString("asunto"));
-		    	  mensaje.setIdMensaje(rs.getString("idMensaje"));
-		    	  mensaje.setTexto(rs.getString("texto"));
-		    	  mensaje.setOrigen(rs.getString("origen"));
-		    	  mensaje.setDestino(rs.getString("destino"));
-		    	  mensaje.setFecha(rs.getString("Fecha"));
-		    	  mensaje.setLeido(rs.getString("leido").charAt(0));
-		    	  
-		    	  
-		    	  //Para el origen y el destino devolvemos su nombre,no su id.
-		    	  //Se busca en TClientes y/o TEmpleados para obtener su nombre 
-		    	  //y apellidos y devolverlos concatenados en nombreOrigen 
-		    	  //y nombreDestino
-/*
-		    	  rs1=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
-		    			  "FROM TEmpleados WHERE IdEmpleado= " +
-		    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
-		    	  if(rs1.next()){ //el origen es empleado, por tanto el destino es cliente
-		    		  nom=rs1.getString("nombre");
-		    		  ap1=rs1.getString("apellido1");
-		    		  ap2=rs1.getString("apellido2");
-		    		  mensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
-		    		  //Destino=Cliente
-		    		  rs2=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
-		    			  "FROM TCliente WHERE IdCliente= " +
-		    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
-		    		  if(rs2.next()){
-		    			  nom=rs2.getString("nombre");
-			    		  ap1=rs2.getString("apellido1");
-			    		  ap2=rs2.getString("apellido2");
-			    		  mensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
-		    		  }
-		    	  }else{//origen es cliente y destino es empleado
-		    		  //Origen=Cliente
-		    		  rs2=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
-			    			  "FROM TCliente WHERE IdCliente= " +
-			    			  MysqlUtils.toMysqlString(mensaje.getOrigen()));
-			    		  if(rs2.next()){ 
-			    			  nom=rs2.getString("nombre");
-				    		  ap1=rs2.getString("apellido1");
-				    		  ap2=rs2.getString("apellido2");
-				    		  mensaje.setNombreOrigen("nom " + "ap1 " + "ap2 ");
-			    		  }
-			    		  //Destino=Empleado
-			    		  rs3=stmt.executeQuery("SELECT nombre,apellido1, apellido2" +
-				    			  "FROM TEmpleados WHERE IdEmpleado= " +
-				    			  MysqlUtils.toMysqlString(mensaje.getDestino()));
-				    	  if(rs3.next()){ 
-				    		  nom=rs3.getString("nombre");
-				    		  ap1=rs3.getString("apellido1");
-				    		  ap2=rs3.getString("apellido2");
-				    		  mensaje.setNombreDestino("nom " + "ap1 " + "ap2 ");
-				    	  }
-		    	  }*/
-		    }else {
-		    	  throw new RowNotFoundException();
-		      }
+		      if (rsAgente.next()){//si es true es el agente
+		    	  mensaje.setAsunto(rsAgente.getString("asunto"));
+		    	  mensaje.setIdMensaje(rsAgente.getString("idMensaje"));
+		    	  mensaje.setTexto(rsAgente.getString("texto"));
+		    	  mensaje.setOrigen(rsAgente.getString("origen"));
+		    	  mensaje.setDestino(rsAgente.getString("destino"));
+		    	  mensaje.setFecha(rsAgente.getString("Fecha"));
+		    	  mensaje.setLeido(rsAgente.getString("leido").charAt(0));
+				  mensaje.setNombreOrigen(rsAgente.getString("nombre")+" "+rsAgente.getString("apellido1")+" "+rsAgente.getString("apellido2"));	
+		      }else {
+		    	//  rsAgente.close();
+		    	//  stmt.close();
+				     sb = new String("SELECT * FROM TMensajes, TRelMensaje, TCliente" +
+					      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
+					      		" AND TCliente.idCliente = TRelMensaje.origen" +
+					      		" AND TMensajes.idMensaje= " +
+			                      MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
+			                    " AND origen= " +
+			                      MysqlUtils.toMysqlString(mensaje.getOrigen())+
+			                    " AND Fecha= " +
+			                      MysqlUtils.toMysqlString(mensaje.getFecha()));
+					      rsCliente = stmt.executeQuery(sb.toString());
+					      if (milog.isInfoEnabled()){
+					 			milog.info("MensajeBD SELECT cliente: "+ sb.toString());
+							}
+					      if (rsCliente.next()){//si es true es el agente
+					    	  mensaje.setAsunto(rsAgente.getString("asunto"));
+					    	  mensaje.setIdMensaje(rsAgente.getString("idMensaje"));
+					    	  mensaje.setTexto(rsAgente.getString("texto"));
+					    	  mensaje.setOrigen(rsAgente.getString("origen"));
+					    	  mensaje.setDestino(rsAgente.getString("destino"));
+					    	  mensaje.setFecha(rsAgente.getString("Fecha"));
+					    	  mensaje.setLeido(rsAgente.getString("leido").charAt(0));
+							  mensaje.setNombreOrigen(rsAgente.getString("nombre")+" "+rsAgente.getString("apellido1")+" "+rsAgente.getString("apellido2"));	
+					      }else {		    	  
+					    	  throw new RowNotFoundException();}
+		      } //de rsAgente else
 		     
 		}catch(Exception e){
 			if (milog.isInfoEnabled()){
@@ -132,9 +110,6 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		try{
 			conn = ConnectionManager.getConection();
 		    Statement stmt = conn.createStatement();
-	//	    Statement stmt1 = conn.createStatement();
-		    ResultSet rs = null;
-		    //transaccion
 		    
 		    //TMensaje
 		    StringBuffer sb= new StringBuffer("INSERT INTO TMensajes ");
@@ -145,26 +120,7 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		  	//ejecuta la sentencia sql que acabamos de construir
 		    //stmt.execute(sb.toString());
 		    stmt.addBatch(sb.toString());
-		    //TRelMensaje
-/*
-		    if(mensaje.getDestino()=="todos"){
-		    	StringBuffer sqlString = new StringBuffer("SELECT IdCliente " +
-		    			"FROM TCliente");
-		    	rs=stmt.executeQuery(sqlString.toString());
-		    	while(rs.next()){//hacemos un insert para cada cliente
-		    		StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
-				    sb1.append("VALUES ( " + 
-				    		MysqlUtils.toMysqlString(mensaje.getOrigen()) + ",");
-				    sb1.append(MysqlUtils.toMysqlString(mensaje.getDestino()) + ",");
-				    sb1.append(MysqlUtils.toMysqlString(rs.getString(1)) + ",");//el idCliente obtenido de TCliente
-				    sb1.append(MysqlUtils.toMysqlString(mensaje.getFecha()) + ",");
-				    sb1.append(MysqlUtils.toMysqlString(mensaje.getLeido().toString()) + ")");
-                    // ejecuta la sentencia sql que acabamos de construir
-				    stmt1.execute(sb1.toString());
-		    	}
-		    	
-		    }else{//insertar solo un reg en TRelMensajes
-	*/	    	StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
+		    	StringBuffer sb1= new StringBuffer("INSERT INTO TRelMensaje ");
 			    sb1.append("VALUES ( " + 
 			    		MysqlUtils.toMysqlString(mensaje.getOrigen()) + ",");
 			    sb1.append(MysqlUtils.toMysqlString(mensaje.getDestino()) + ",");
@@ -178,8 +134,6 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 				}
 			    stmt.addBatch(sb1.toString());
 			    stmt.executeBatch();
-		   // }
-		    //fin transaccion
 		    
 		}catch (SQLException ex){
 						
@@ -239,39 +193,37 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		    
 		    //contamos cuantos reg hay en RelM con el id pasado.
 		    //en rs devolvera una columna con una fila
+
+		    //Ahora solo de puede mandar de uno en 1 y no tiene sentido
+/*
 		    rs=stmt1.executeQuery("SELECT COUNT(IdMensaje)" +
 		    		"FROM TRelMensajes WHERE IdMensaje= " +
 		    		MysqlUtils.toMysqlString(mensaje.getIdMensaje()));
 		    
 		    n=rs.getInt(1); 
-		    if (n>1){ //borramos solo de TRelMensajes
-		    	StringBuffer sb= new StringBuffer("DELETE FROM TRelMensaje ");
-			    sb.append("WHERE idMensaje=" +
-			    		MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
-			    	   "AND origen= " +
-	                     MysqlUtils.toMysqlString(mensaje.getOrigen())+
-	                   "AND destino= " +
-	                     MysqlUtils.toMysqlString(mensaje.getOrigen())+
-	                   "AND Fecha= " +
-	                     MysqlUtils.toMysqlString(mensaje.getFecha()));
+		    stmt1.close();*/
+	    	StringBuffer sb= new StringBuffer("DELETE FROM TRelMensaje ");
+		    sb.append("WHERE idMensaje=" +
+		    		MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
+		    	   "AND origen= " +
+                     MysqlUtils.toMysqlString(mensaje.getOrigen())+
+                   "AND destino= " +
+                     MysqlUtils.toMysqlString(mensaje.getDestino())+
+                   "AND Fecha= " +
+                     MysqlUtils.toMysqlString(mensaje.getFecha()));
+		    
+		    stmt.addBatch(sb.toString());
+//		    if (n==1){ //borramos solo de TMensajes tambien
+		    	sb= new StringBuffer("DELETE FROM TMensajes ");
+			    sb.append("WHERE TMensajes.idMensaje = " +
+			    		MysqlUtils.toMysqlString(mensaje.getIdMensaje()));
+		    	  if (milog.isInfoEnabled()){
+		    			milog.info("Borra TMensajes: "+ sb.toString());
+		    	  }		
 			    
-			    stmt.execute(sb.toString());
-		    }else if (n==1){
-		    	StringBuffer sb= new StringBuffer("DELETE FROM TMensajes,TRelMensaje ");
-			    sb.append("WHERE TMensajes.idMensaje=TRelMensajes.idMensaje " +
-			    		"AND TMensajes.idMensaje = " +
-			    		MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
-			    	   "AND origen= " +
-	                     MysqlUtils.toMysqlString(mensaje.getOrigen())+
-	                   "AND destino= " +
-	                     MysqlUtils.toMysqlString(mensaje.getOrigen())+
-	                   "AND Fecha= " +
-	                     MysqlUtils.toMysqlString(mensaje.getFecha()));
-			    
-			    stmt.execute(sb.toString());
-		    }else{
-		    	 throw new RowNotFoundException();
-		    }	  
+			    stmt.addBatch(sb.toString());
+		  //  }
+		    stmt.executeBatch();
 		    
 		} catch(Exception e){
 			throw new RowNotFoundException();

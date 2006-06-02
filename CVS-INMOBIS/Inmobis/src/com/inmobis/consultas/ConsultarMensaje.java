@@ -9,7 +9,6 @@ import com.inmobis.bbdd.CreadorGestores;
 import com.inmobis.bbdd.mensajes.*;
 import com.inmobis.struts.form.MensajeForm;
 
-import java.sql.SQLException;
 import java.util.Vector;
 
 public class ConsultarMensaje extends Consultar {
@@ -106,9 +105,9 @@ public class ConsultarMensaje extends Consultar {
 		msgBean.setIdMensaje(msgForm.getIdMensaje());
 		msgBean.setOrigen(msgForm.getOrigen());
 		msgBean.setDestino(msgForm.getDestino());
-		msgBean.setFecha(msgForm.getAnioNacimiento()+"-"+msgForm.getMesNacimiento()+"-"+msgForm.getDiaNacimiento());
+		msgBean.setFecha(msgForm.getFecha());
 
-		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensaje",msgBean);
+		GestorMensajesBD gestmsg = (GestorMensajesBD)CreadorGestores.crearGestor("mensajes",msgBean);
 
 		if(log.isInfoEnabled()){
 			log.info("ConsultarMensaje 1: Antes de entrar en la base de datos " );
@@ -121,11 +120,7 @@ public class ConsultarMensaje extends Consultar {
 			msgBean = (MensajesBean) gestmsg.getBean();
 			msgForm.setAsunto(msgBean.getAsunto());
 			msgForm.setDestino(msgBean.getDestino());
-			String fecha=msgBean.getFecha();
-			String[] fechaSplit=fecha.split("-");
-			msgForm.setAnioNacimiento(fechaSplit[0]);
-			msgForm.setMesNacimiento((new Integer(fechaSplit[1])).toString());
-			msgForm.setDiaNacimiento((new Integer(fechaSplit[2])).toString());		
+			msgForm.setFecha(msgBean.getFecha());
 			msgForm.setIdMensaje(msgBean.getIdMensaje());
 			msgForm.setLeido(msgBean.getLeido());
 			msgForm.setNombreDestino(msgBean.getNombreDestino());

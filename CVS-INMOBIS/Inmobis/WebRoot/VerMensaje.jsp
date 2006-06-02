@@ -40,7 +40,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="verMensaje.fecha"/>
 						</td> 
 						<td>							
-							<%@ include file="fechaEdita.jsp" %>
+							<html:text property="fecha" size="25" maxlength="25" value="<%=form.getFecha()%>" readonly="true" />
 						</td>
 					 </tr>
 												

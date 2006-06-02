@@ -64,6 +64,8 @@ public class BorrarMensajeAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borrarMensajeAction4:Se ha eliminado con éxito");
 			}
+			errors.add("idmensaje",new ActionMessage("Se ha borrado el mensaje con éxito."));
+			saveErrors(request,errors);
 			return (mapping.findForward("exito"));
 		}	
 	}

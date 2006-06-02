@@ -18,9 +18,9 @@ public class EliminarMensaje extends Eliminar{
 		msg.setIdMensaje(((MensajeForm)id).getIdMensaje());
 		msg.setOrigen(((MensajeForm)id).getOrigen());
 		msg.setDestino(((MensajeForm)id).getDestino());
-		msg.setFecha(((MensajeForm)id).getAnioNacimiento()+"-"+((MensajeForm)id).getMesNacimiento()+"-"+((MensajeForm)id).getDiaNacimiento());
+		msg.setFecha(((MensajeForm)id).getFecha());
 		//se crea un empleado de la base de datos
-		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensaje",msg);
+		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensajes",msg);
 
 		//mensajes para ver los errores
 		if (log.isInfoEnabled()){
@@ -28,7 +28,7 @@ public class EliminarMensaje extends Eliminar{
 		}
 		//miro a ver si el mensaje está en la BBDD
 		try {
-			gestMsg.BusquedaDetallada();
+			gestMsg.select();
 		} catch (Exception E) {
 			if (log.isInfoEnabled()){
 				log.info("EliminarMensaje2: no he encontrado ese mensaje en la bbdd");
@@ -48,9 +48,9 @@ public class EliminarMensaje extends Eliminar{
 		msg.setIdMensaje(((MensajeForm)id).getIdMensaje());
 		msg.setOrigen(((MensajeForm)id).getOrigen());
 		msg.setDestino(((MensajeForm)id).getDestino());
-		msg.setFecha(((MensajeForm)id).getAnioNacimiento()+"-"+((MensajeForm)id).getMesNacimiento()+"-"+((MensajeForm)id).getDiaNacimiento());
+		msg.setFecha(((MensajeForm)id).getFecha());
 		//se crea un empleado de la base de datos
-		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensaje",msg);
+		GestorMensajesBD gestMsg = (GestorMensajesBD) CreadorGestores.crearGestor("mensajes",msg);
 
 		//mensajes para ver los errores
 		if (log.isInfoEnabled()){
