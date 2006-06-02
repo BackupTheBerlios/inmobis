@@ -32,7 +32,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<th><bean:message key="app.regimen" /></th>
 				<th><bean:message key="app.tipo" /></th>
 				<th><bean:message key="app.precio" /></th>
-				<th colspan="3">Opc.</th>
+				<th colspan="4">Opc.</th>
 			</tr>
 			<!-- iterate over the results of the query -->
 			<logic:iterate id="inmueble"  name="listaInmuebles" type="com.inmobis.bbdd.inmueble.InmuebleBean" >   
@@ -64,11 +64,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				<td width="15">
 					<a href="verDetallePiso.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/ico_detalles.gif" WIDTH="25" HEIGHT="16" BORDER="0" ALT="Ver detalles"></a>
 				</td>
-				<!-- DESCOMENTA ESTO SI NECESITAS QUE PASA EL ID DEL INMUEBLE A VENDER y pon arriba donde pone colspan=3 un 4 donde el 3
+				<!-- DESCOMENTA ESTO SI NECESITAS QUE PASA EL ID DEL INMUEBLE A VENDER y pon arriba donde pone colspan=3 un 4 donde el 3-->
 				<td width="15">
 					<a href="VenderPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/vender.gif" WIDTH="19" HEIGHT="19" BORDER="0" ALT="Vender piso"></a>
-				</td>
-				-->
+				</td>				
 			</tr>
 			</logic:iterate>
     	</table>
@@ -78,12 +77,12 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 					<a href="filtrarPisoAgente.jsp" style="color: #3962A6;"><IMG SRC="images/lupa.gif" WIDTH="21" HEIGHT="22" BORDER="0" ALT=""> <fmt:message key="enlace.filtrarPiso"/></a>	
 				</td>
 			</tr>
-			<!--SI DESCOMENTAS LO ANTERIOR TIENES QUE COMENTAR ESTO DESDE <tr> HASTA </tr> AMBOS INCLUIDOS-->
+			<!--SI DESCOMENTAS LO ANTERIOR TIENES QUE COMENTAR ESTO DESDE <tr> HASTA </tr> AMBOS INCLUIDOS
 			<tr>
 				<td>
 					<a href="VenderPisoPrev.do" style="color: #3962A6;"><IMG SRC="images/vender.gif" WIDTH="19" HEIGHT="19" BORDER="0" ALT=""> Vender pisos</a>	
 				</td>
-			</tr>
+			</tr>-->
 		</table>    	
 	</div> 
 </div> 
