@@ -145,7 +145,7 @@ public class IntroducirInmueble extends Introducir{
 		//inmuebleVend.setFechaHasta(((VenderPisoForm)datosInmuebleVendido).getFechFin());
 		inmuebleVend.setFechVenta(((VenderPisoForm)datosInmuebleVendido).getFechVenta());
 		inmuebleVend.setGanancia(((VenderPisoForm)datosInmuebleVendido).getGanancia());
-		inmuebleVend.setIdAgente(((VenderPisoForm)datosInmuebleVendido).getIdAgente());
+		//inmuebleVend.setIdAgente(((VenderPisoForm)datosInmuebleVendido).getIdAgente());
 		inmuebleVend.setIdInmueble(((VenderPisoForm)datosInmuebleVendido).getIdInmueble());
 		inmuebleVend.setPrecioFinal(((VenderPisoForm)datosInmuebleVendido).getPrecioFinal());
 		inmuebleVend.setPrecioInicial(((VenderPisoForm)datosInmuebleVendido).getPrecioInicial());		
@@ -154,6 +154,8 @@ public class IntroducirInmueble extends Introducir{
 			i_log.info("Codigo Inmueble:" + inmuebleVend.getIdInmueble());	
 		
 		AgenteBean agente=new AgenteBean();
+		agente.setIdAgente(((VenderPisoForm)datosInmuebleVendido).getIdAgente());
+		//agente.setIdInmueble(((VenderPisoForm)datosInmuebleVendido).getIdInmueble());
 		GestorAgenteBD gestorAgente=(GestorAgenteBD)CreadorGestores.crearGestor("agente",agente);
 		try {
 			gestorAgente.insertarVenta(inmuebleVend);			

@@ -124,9 +124,9 @@ public class VenderPisoPrevAction extends Action {
 				int i2 = 0;
 				while (i2<listaInmuebles.size()){
 					log.info("VenderPisoPrevAction 3: "+((InmuebleBean)listaInmuebles.get(i2)).getIdInmueble());
-					datosPiso2 = (InmuebleBean)listaInmuebles.get(0);
+					datosPiso2 = (InmuebleBean)listaInmuebles.get(i2);
 					VenderPisoForm datosPiso = new VenderPisoForm();					
-					datosPiso.setIdInmueble(((InmuebleBean)datosPiso2).getIdInmueble());
+					datosPiso.setIdInmueble(((InmuebleBean)datosPiso2).getIdInmueble());					
 					//datosPiso.setIdAgente(((InmuebleBean)datosPiso2).getIdAgente());
 					session.setAttribute("datosPiso",datosPiso);
 					i2=i2+1;
