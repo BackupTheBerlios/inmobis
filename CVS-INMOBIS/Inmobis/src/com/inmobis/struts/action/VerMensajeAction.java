@@ -49,7 +49,7 @@ public class VerMensajeAction extends Action {
 
 		ActionMessages errors= new ActionMessages();
 		
-		//vamos a comprobar que el mensaje a borrar está en la base de datos.
+		//vamos a traer el mensaje de la base de datos.
 		Consultar consultaM = CreadorConsultar.CreaConsultar("mensaje");
 		
 		if (log.isInfoEnabled()){
@@ -58,12 +58,23 @@ public class VerMensajeAction extends Action {
 		
 		MensajeForm msgForm = (MensajeForm) consultaM.VerMensaje(VerMensajeForm);
 		
-		if (log.isInfoEnabled()){
-				log.info("VerMensajeAction 2:Mensaje recuperado");
+		if (msgForm.getIdMensaje().equalsIgnoreCase("ERROR"))
+		{
+			if (log.isInfoEnabled()){
+				log.info("VerMensajeAction 2:Error al recuperar el mensaje");
+			}
+			errors.add("ListaMensaje",new ActionMessage("errors.listamensajes.bbdd"));
+			saveErrors(request,errors);
+			return mapping.findForward("error");
 		}
+		else{
+			if (log.isInfoEnabled()){
+				log.info("VerMensajeAction 2:Mensaje recuperado");
+			}
 			HttpSession session = request.getSession(true);
 			session.setAttribute("mensaje",msgForm);
 			return mapping.findForward("exito");
+		}	
 	}
 
 }

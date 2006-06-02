@@ -17,6 +17,8 @@ import org.apache.struts.action.ActionMessages;
 
 import com.inmobis.bajas.CreadorEliminar;
 import com.inmobis.bajas.Eliminar;
+import com.inmobis.consultas.Consultar;
+import com.inmobis.consultas.CreadorConsultar;
 import com.inmobis.struts.form.MensajeForm;
 
 /** 
@@ -50,28 +52,32 @@ public class BorrarMensajePrevAction extends Action {
 		ActionMessages errors= new ActionMessages();
 		
 		//vamos a comprobar que el mensaje a borrar está en la base de datos.
-		Eliminar eliminarE = CreadorEliminar.CreaEliminar("mensaje");
+		Consultar consultaM = CreadorConsultar.CreaConsultar("mensaje");
 		
 		if (log.isInfoEnabled()){
 			log.info("borrarMensajePrevAction 1:Antes de entrar en la base de datos");
 		}
 		
-		if  (!(eliminarE.validarRegistrado(BorrarMensajeForm))){
+		MensajeForm msgForm = (MensajeForm) consultaM.VerMensaje(BorrarMensajeForm);
+
+		if (msgForm.getIdMensaje().equalsIgnoreCase("ERROR"))
+		{
 			if (log.isInfoEnabled()){
-				log.info("borrarMensajePrevAction 2:Después de validar y que exista el mensaje");
+				log.info("borrarMensajeAction 2:Error al recuperar el mensaje");
 			}
-			errors.add("idMensaje", new ActionMessage("errors.borraMensaje.noexiste"));
+			errors.add("idMensaje",new ActionMessage("errors.listamensajes.bbdd"));
 			saveErrors(request,errors);
 			return mapping.findForward("error");
 		}
 		else{
 			if (log.isInfoEnabled()){
-				log.info("borraMensajePrevAction 2:El mensaje está en la base de datos");
+				log.info("borrarMensajeAction 2:Mensaje recuperado");
 			}
 			HttpSession session = request.getSession(true);
-			session.setAttribute("mensaje",BorrarMensajeForm);
+			session.setAttribute("mensaje",msgForm);
 			return mapping.findForward("exito");
 		}		
+		
 	} // Fin del procedimiento
 
 }

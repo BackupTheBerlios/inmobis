@@ -32,36 +32,39 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 		try {
 		      conn = ConnectionManager.getConection();
 		      Statement stmt = conn.createStatement();
-		      ResultSet rsAgente,rsCliente = null;
-		      
-		      //obtenemos un ResultSet con los datos producidos por la consulta
-		     String sb = new String("SELECT * FROM TMensajes, TRelMensaje, TEmpleados" +
-		      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
-		      		" AND TEmpleados.idEmpleado= TRelMensaje.origen" +
-		      		" AND TMensajes.idMensaje= " +
-                      MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
-                    " AND origen= " +
-                      MysqlUtils.toMysqlString(mensaje.getOrigen())+
-                    " AND Fecha= " +
-                      MysqlUtils.toMysqlString(mensaje.getFecha()));
-		      if (milog.isInfoEnabled()){
-		 			milog.info("MensajeBD SELECT: "+ sb.toString());
-				}
-		      rsAgente = stmt.executeQuery(sb.toString());
-		      
-		      if (rsAgente.next()){//si es true es el agente
-		    	  mensaje.setAsunto(rsAgente.getString("asunto"));
-		    	  mensaje.setIdMensaje(rsAgente.getString("idMensaje"));
-		    	  mensaje.setTexto(rsAgente.getString("texto"));
-		    	  mensaje.setOrigen(rsAgente.getString("origen"));
-		    	  mensaje.setDestino(rsAgente.getString("destino"));
-		    	  mensaje.setFecha(rsAgente.getString("Fecha"));
-		    	  mensaje.setLeido(rsAgente.getString("leido").charAt(0));
-				  mensaje.setNombreOrigen(rsAgente.getString("nombre")+" "+rsAgente.getString("apellido1")+" "+rsAgente.getString("apellido2"));	
-		      }else {
-		    	//  rsAgente.close();
-		    	//  stmt.close();
-				     sb = new String("SELECT * FROM TMensajes, TRelMensaje, TCliente" +
+		      ResultSet rs = null;
+		      //Para el agente
+		      if (mensaje.getDestino().charAt(0)=='C')
+		      {
+			      //obtenemos un ResultSet con los datos producidos por la consulta
+				     String sb = new String("SELECT * FROM TMensajes, TRelMensaje, TEmpleados" +
+				      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
+				      		" AND TEmpleados.idEmpleado= TRelMensaje.origen" +
+				      		" AND TMensajes.idMensaje= " +
+		                      MysqlUtils.toMysqlString(mensaje.getIdMensaje())+
+		                    " AND origen= " +
+		                      MysqlUtils.toMysqlString(mensaje.getOrigen())+
+		                    " AND Fecha= " +
+		                      MysqlUtils.toMysqlString(mensaje.getFecha()));
+				      if (milog.isInfoEnabled()){
+				 			milog.info("MensajeBD SELECT: "+ sb.toString());
+						}
+				      try{
+				    	  rs = stmt.executeQuery(sb.toString());
+				      }catch(SQLException e){};  
+				      
+				      if (rs.next()){//si es true es el agente
+				    	  mensaje.setAsunto(rs.getString("asunto"));
+				    	  mensaje.setIdMensaje(rs.getString("idMensaje"));
+				    	  mensaje.setTexto(rs.getString("texto"));
+				    	  mensaje.setOrigen(rs.getString("origen"));
+				    	  mensaje.setDestino(rs.getString("destino"));
+				    	  mensaje.setFecha(rs.getString("Fecha"));
+				    	  mensaje.setLeido(rs.getString("leido").charAt(0));
+						  mensaje.setNombreOrigen(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));	
+				      }		    	  
+		      }else{
+				 String   sb = new String("SELECT * FROM TMensajes, TRelMensaje, TCliente" +
 					      		" WHERE TMensajes.idMensaje=TRelMensaje.idMensaje" +
 					      		" AND TCliente.idCliente = TRelMensaje.origen" +
 					      		" AND TMensajes.idMensaje= " +
@@ -70,23 +73,25 @@ public class MensajesBD implements BDObject, GestorMensajesBD{
 			                      MysqlUtils.toMysqlString(mensaje.getOrigen())+
 			                    " AND Fecha= " +
 			                      MysqlUtils.toMysqlString(mensaje.getFecha()));
-					      rsCliente = stmt.executeQuery(sb.toString());
+					      	try{
+						      rs = stmt.executeQuery(sb.toString());
+					      	}catch(SQLException e){};  
 					      if (milog.isInfoEnabled()){
 					 			milog.info("MensajeBD SELECT cliente: "+ sb.toString());
 							}
-					      if (rsCliente.next()){//si es true es el agente
-					    	  mensaje.setAsunto(rsAgente.getString("asunto"));
-					    	  mensaje.setIdMensaje(rsAgente.getString("idMensaje"));
-					    	  mensaje.setTexto(rsAgente.getString("texto"));
-					    	  mensaje.setOrigen(rsAgente.getString("origen"));
-					    	  mensaje.setDestino(rsAgente.getString("destino"));
-					    	  mensaje.setFecha(rsAgente.getString("Fecha"));
-					    	  mensaje.setLeido(rsAgente.getString("leido").charAt(0));
-							  mensaje.setNombreOrigen(rsAgente.getString("nombre")+" "+rsAgente.getString("apellido1")+" "+rsAgente.getString("apellido2"));	
+					      if (rs.next()){
+					    	  mensaje.setAsunto(rs.getString("asunto"));
+					    	  mensaje.setIdMensaje(rs.getString("idMensaje"));
+					    	  mensaje.setTexto(rs.getString("texto"));
+					    	  mensaje.setOrigen(rs.getString("origen"));
+					    	  mensaje.setDestino(rs.getString("destino"));
+					    	  mensaje.setFecha(rs.getString("Fecha"));
+					    	  mensaje.setLeido(rs.getString("leido").charAt(0));
+							  mensaje.setNombreOrigen(rs.getString("nombre")+" "+rs.getString("apellido1")+" "+rs.getString("apellido2"));	
 					      }else {		    	  
 					    	  throw new RowNotFoundException();}
-		      } //de rsAgente else
-		     
+		      } //del else
+			    
 		}catch(Exception e){
 			if (milog.isInfoEnabled()){
 	 			milog.info("error: "+ e.toString());

@@ -69,7 +69,7 @@ public class ListaMensajesPrevAction extends Action {
 		else{
 			listaMensajes = consultar.listar(form);}
 
-		if (listaMensajes.equals(null)){
+/*		if (listaMensajes.equals(null)){
 			if (log.isInfoEnabled()){
 				log.info("ListaMensajesPrevAction 2: Error en bbdd");
 			}
@@ -77,13 +77,13 @@ public class ListaMensajesPrevAction extends Action {
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));
 		}
-		else{
+		else{*/
 			if (log.isInfoEnabled()){
 				log.info("ListaMensajesPrevAction 3: Se han recuperado "+ listaMensajes.size()+" mensajes");
 			}
 			session.setAttribute("listaMensajes",listaMensajes);
 			return (mapping.findForward("exito"));
-		}
+		//}
 	}
 }
 

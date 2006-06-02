@@ -132,6 +132,7 @@ public class ConsultarMensaje extends Consultar {
 			if(log.isInfoEnabled()){
 				log.info("ConsultarMensaje 3: Fallo en BBDD: " + E.getMessage());
 			}
+			msgForm.setIdMensaje("ERROR");
 			return msgForm;//Devolvemos el Form
 		}
 

@@ -21,6 +21,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 <%}%><%@ include file="menu_izdo.jsp" %>
               <div id="content"> 
                 <div class="feature"> 
+                <html:errors property="ListaMensaje"/>                
                    <table width="100%" class="lista">
 						 <!-- zona de c�digo-->
 						<tr>

@@ -56,7 +56,7 @@ public class BorrarMensajeAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borrarMesajeAction2: Se ha intentado eliminar pero algo ha fallado");
 			}
-			errors.add("idmensaje",new ActionMessage("errors.mensaje.borrar"));
+			errors.add("ListaMensaje",new ActionMessage("errors.mensaje.borrar"));
 			saveErrors(request,errors);
 			return (mapping.findForward("error"));	
 		}	
@@ -64,7 +64,7 @@ public class BorrarMensajeAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("borrarMensajeAction4:Se ha eliminado con éxito");
 			}
-			errors.add("idmensaje",new ActionMessage("Se ha borrado el mensaje con éxito."));
+			errors.add("ListaMensaje",new ActionMessage("exito.mensaje.borrar"));
 			saveErrors(request,errors);
 			return (mapping.findForward("exito"));
 		}	

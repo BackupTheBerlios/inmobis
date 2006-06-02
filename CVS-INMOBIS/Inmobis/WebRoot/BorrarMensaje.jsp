@@ -1,6 +1,7 @@
 <%--Librería específica de esta página: Logic, para usar el iterator--%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ page import="com.inmobis.struts.form.MensajeForm" %>
 <%--El título de la página se debe pasar como parámetro a la cabecera--%>
 <%String tituloPag = "&copy INMOBIS:Eliminar Mensaje";%>
 <%boolean esIndex=true;//Se refiere a la cabecera sencilla que no incluye librerías %>
