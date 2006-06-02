@@ -108,9 +108,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    	fecha=true;
 		    	//estas no las metemos en la hastable		    
 		    
-		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.idAgente," +
-    		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
-    		" TVentas.ganancia FROM TInmueble,TVentas " +
+		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.* FROM TInmueble,TVentas " +
     		"WHERE TInmueble.idInmueble=TVentas.idInmueble");
 		    		    
 		    if(fecha){//hay que hacer un rango entre fechadesde y fechahasta
