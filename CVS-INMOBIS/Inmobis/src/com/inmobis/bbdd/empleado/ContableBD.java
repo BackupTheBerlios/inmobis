@@ -100,7 +100,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    if (venta.getPrecioFinal()!=null)
 		       consulta.put("precioFinal",venta.getPrecioFinal());
 		    if (venta.getGanancia()!=null)
-			       consulta.put("ganancia",venta.getGanancia());
+			       consulta.put("ganacia",venta.getGanancia());
 		    //if(venta.getFechaDesde()!=null)
 		    	//consulta.put("fechaDesde",venta.getFechaDesde());
 		    if((venta.getFechaHasta()!=null)&& (venta.getFechaDesde()!=null))
