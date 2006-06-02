@@ -120,6 +120,7 @@ public class VenderPisoPrevAction extends Action {
 				int i2 = 0;
 				while (i2<listaInmuebles.size()){
 					log.info("VenderPisoPrevAction 3: "+((VentasBean)listaInmuebles.get(i2)).getIdInmueble());
+					i2=i2+1;
 				}
 				
 			}
