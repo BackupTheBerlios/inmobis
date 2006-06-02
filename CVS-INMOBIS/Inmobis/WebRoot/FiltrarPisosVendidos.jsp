@@ -72,8 +72,8 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 									<fmt:message key="filtrarPisosVendidos.ganancia"/>
 								</td>
 								<td>
-									<html:text 	property="ganacia" maxlength="30" />
-									<html:errors property="ganacia" />
+									<html:text 	property="ganancia" maxlength="30" />
+									<html:errors property="ganancia" />
 								</td>
 							</tr>							
 						</table>
