@@ -27,8 +27,8 @@ public class VenderPisoForm extends ActionForm {
 	 String ganacia;
 	 
 	 //para el rango
-	 //String fechIni;
-	 //String fechFin;	 
+	 String fechIni;
+	 String fechFin;	 
 	 
 	// --------------------------------------------------------- Methods
 
@@ -58,7 +58,7 @@ public class VenderPisoForm extends ActionForm {
 		this.ganacia="";		
 	}
 
-/*	public String getFechFin() {
+	public String getFechFin() {
 		return fechFin;
 	}
 
@@ -72,7 +72,7 @@ public class VenderPisoForm extends ActionForm {
 
 	public void setFechIni(String fechIni) {
 		this.fechIni = fechIni;
-	}*/
+	}
 
 	public String getFechVenta() {
 		return fechVenta;
@@ -82,11 +82,11 @@ public class VenderPisoForm extends ActionForm {
 		this.fechVenta = fechVenta;
 	}
 
-	public String getGanacia() {
+	public String getGanancia() {
 		return ganacia;
 	}
 
-	public void setGanacia(String ganacia) {
+	public void setGanancia(String ganacia) {
 		this.ganacia = ganacia;
 	}
 

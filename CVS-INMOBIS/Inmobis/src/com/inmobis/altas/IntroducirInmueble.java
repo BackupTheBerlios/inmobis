@@ -144,12 +144,12 @@ public class IntroducirInmueble extends Introducir{
 		//inmuebleVend.setFechaDesde(((VenderPisoForm)datosInmuebleVendido).getFechIni());
 		//inmuebleVend.setFechaHasta(((VenderPisoForm)datosInmuebleVendido).getFechFin());
 		inmuebleVend.setFechVenta(((VenderPisoForm)datosInmuebleVendido).getFechVenta());
-		inmuebleVend.setGanancia(((VenderPisoForm)datosInmuebleVendido).getGanacia());
+		inmuebleVend.setGanancia(((VenderPisoForm)datosInmuebleVendido).getGanancia());
 		inmuebleVend.setIdAgente(((VenderPisoForm)datosInmuebleVendido).getIdAgente());
 		inmuebleVend.setIdInmueble(((VenderPisoForm)datosInmuebleVendido).getIdInmueble());
 		inmuebleVend.setPrecioFinal(((VenderPisoForm)datosInmuebleVendido).getPrecioFinal());
 		inmuebleVend.setPrecioInicial(((VenderPisoForm)datosInmuebleVendido).getPrecioInicial());		
-		//inmuebleVend.setIdInmueble(gc.asignaCodigoInmueble());
+		inmuebleVend.setIdInmueble(gc.asignaCodigoInmueble());
 		if(i_log.isInfoEnabled())
 			i_log.info("Codigo Inmueble:" + inmuebleVend.getIdInmueble());	
 		
@@ -160,8 +160,10 @@ public class IntroducirInmueble extends Introducir{
 			
 		} catch (Exception e1) {			
 			errors.add("verPisosAgente", new ActionMessage("errors.username.noexiste"));
-			if(i_log.isInfoEnabled())
+			if(i_log.isInfoEnabled()){
 				i_log.info("Fallo en la inserción del piso vendido.");
+				i_log.info(e1.getMessage());
+			}
 		}
 		
 		return errors;

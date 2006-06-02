@@ -55,6 +55,10 @@ public class VenderPisoPrevAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		
+		if (log.isInfoEnabled()){
+			log.info("VenderPisoPrevAction 1: entro en el execute.");
+		}
+		
 		ActionMessages errors= new ActionMessages();
 		
 		String target = null;
@@ -64,35 +68,63 @@ public class VenderPisoPrevAction extends Action {
 		//((VenderPisoForm)form).setIdInmueble(session.getAttribute(INMOCTES.idUsuario).toString());
 		
 		VentasBean i = new VentasBean();
+		if (log.isInfoEnabled()){
+			log.info("VenderPisoPrevAction2: es el idInmueble: "+ ((VenderPisoForm)form).getIdInmueble());
+		}
 		i.setIdInmueble(((VenderPisoForm)form).getIdInmueble());
+		i.setIdAgente(null);
+		i.setPrecioFinal(null);
+		i.setPrecioInicial(null);
+		i.setGanancia(null);
+		i.setFechaDesde(null);
+		i.setFechaHasta(null);
 		ContableBD cont = new ContableBD();
+		
+		
+		VentasBean datosPiso2;
+		
+		if (log.isInfoEnabled()){
+			log.info("VenderPisoPrevAction 1: Antes de entrar en la base de datos");
+		}		
+		
 		Vector listaInmuebles = cont.BusquedaDetallada(i);
 		
 		if (log.isInfoEnabled()){
-			log.info("VerPisosVendidosAction 1: Antes de entrar en la base de datos");
-		}		
-		
-		
-		
-		//necesito tener una función que me liste a todos los inmuebles vendidos. Ahora lo aviso.
-		
-		if ((listaInmuebles.size()==0)||(listaInmuebles.size()>1)){
-			if (log.isInfoEnabled()){
-				log.info("VerPisosVendidosAction2: Ha habido un error en la búsqueda en la bbdd, el numero de elementos es distinto de uno.");
-			}
-			errors.add("menuContable", new ActionMessage("errors.listainmuebles.bbdd"));
-			saveErrors(request,errors);
-			target = "error";			
+			log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdInmueble());
+			log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdAgente());
 		}
-		else{
-			if (listaInmuebles.size()==1){
+		if (log.isInfoEnabled()){
+			log.info("VenderPisoPrevAction12: inmueble conseguido 2 "+((VentasBean)listaInmuebles.get(1)).getIdInmueble());
+			log.info("VenderPisoPrevAction12: inmueble conseguido 2 "+((VentasBean)listaInmuebles.get(1)).getIdAgente());
+		}
+		
+		
+		
+		//if ((listaInmuebles.size()==0)||(listaInmuebles.size()>1)){
+			//if (log.isInfoEnabled()){
+			//	log.info("VenderPisoPrevAction2: Ha habido un error en la búsqueda en la bbdd, el numero de elementos es distinto de uno.");
+			//}
+			//errors.add("menuContable", new ActionMessage("errors.listainmuebles.bbdd"));
+			//saveErrors(request,errors);
+		//	target = "error";			
+		//}
+		//else{
+			if (listaInmuebles.size()>0){
 			if (log.isInfoEnabled()){
-				log.info("VerPisosVendidosAction 3: Se ha realizado el listado con éxito");
+				log.info("VenderPisoPrevAction 3: Se ha realizado el listado con éxito");
 			}
-			session.setAttribute("listaInmuebles",listaInmuebles);
+			datosPiso2 = (VentasBean)listaInmuebles.get(0);
+			VenderPisoForm datosPiso = new VenderPisoForm();
+			datosPiso.setIdAgente(((VentasBean)datosPiso2).getIdAgente());
+			datosPiso.setIdInmueble(((VentasBean)datosPiso2).getIdInmueble());
+			datosPiso.setPrecioFinal(((VentasBean)datosPiso2).getPrecioFinal());
+			datosPiso.setPrecioInicial(((VentasBean)datosPiso2).getPrecioInicial());
+			datosPiso.setGanancia(((VentasBean)datosPiso2).getGanancia());
+			datosPiso.setFechVenta(((VentasBean)datosPiso2).getFechVenta());
+			session.setAttribute("datosPiso",datosPiso);
 			target = "exito";			
 			}
-		}
+		//}
 		return (mapping.findForward(target));
 	}
 

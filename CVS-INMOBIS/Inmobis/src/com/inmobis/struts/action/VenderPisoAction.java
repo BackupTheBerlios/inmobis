@@ -60,9 +60,10 @@ public class VenderPisoAction extends Action {
 		if (log.isInfoEnabled()){
 			log.info("VerPisosVendidosAction 1: Antes de entrar en la base de datos");
 		}		
-		Introducir pisoV=CreadorIntroducir.createIntroducir("inmueble");		
+		Introducir pisoV=CreadorIntroducir.createIntroducir("piso");
+		
 		ActionMessages errors2 = pisoV.introduceVendido(form);
-		//necesito tener una función que me liste a todos los inmuebles vendidos. Ahora lo aviso.
+		
 		
 		if(errors2.size()>0){
 			saveErrors(request, errors2);
