@@ -42,9 +42,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 			conn = ConnectionManager.getConection();
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = null;		    
-		    rs = stmt.executeQuery("SELECT TInmueble.*,TVentas.idAgente," +
-		    		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
-		    		" TVentas.ganancia FROM TInmueble,TVentas " +
+		    rs = stmt.executeQuery("SELECT TInmueble.*,TVentas.* FROM TInmueble,TVentas " +
 		    		"WHERE TInmueble.idInmueble=TVentas.idInmueble");   
 		    
 		    while(rs.next()){
