@@ -309,7 +309,7 @@ public class ClienteBD implements BDObject,GestorClienteBD{
 	           ClienteBean clienteNuevo=new ClienteBean();
 	           
 	           clienteNuevo.setIdCliente(rs.getString("idCliente"));
-	           clienteNuevo.setIdCliente(rs.getString("dni"));
+	           clienteNuevo.setDni(rs.getString("dni"));
 	           clienteNuevo.setNombre(rs.getString("nombre"));
 	           clienteNuevo.setApellido1(rs.getString("apellido1"));
 	           clienteNuevo.setApellido2(rs.getString("apellido2"));
