@@ -53,7 +53,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
 		    	ventas.setPrecioFinal(rs.getString("precioFinal"));		    	
-		    	ventas.setGanancia(rs.getString("ganancia"));		    	
+		    	ventas.setGanancia(rs.getString("ganacia"));		    	
 		    	//campos correspondientes a TInmueble
 		    	ventas.setNumHab(rs.getString("numHab"));
 		    	ventas.setMetros(rs.getString("metros"));
@@ -139,7 +139,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
 		    	ventas.setPrecioFinal(rs.getString("precioFinal"));
-		    	ventas.setGanancia(rs.getString("ganancia"));
+		    	ventas.setGanancia(rs.getString("ganacia"));
                //campos correspondientes a TInmueble
 		    	ventas.setNumHab(rs.getString("numHab"));
 		    	ventas.setMetros(rs.getString("metros"));
