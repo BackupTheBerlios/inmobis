@@ -67,12 +67,6 @@ String idOrigen = (String)sesion.getAttribute("IdUsuario");
 							</td>
 						</tr>   
 							<tr>
-					<td>
-						<font size="1" color="red"><b>(*)</b></font>&nbsp;Fecha
-					</td>
-					<td>
-						<%@ include file="fecha.jsp" %>                
-					</td>
 				</tr>
 						<!--El texto en una fila porque puede ser largo-->
 						<tr>  

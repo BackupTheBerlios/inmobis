@@ -3,6 +3,9 @@
 
 package com.inmobis.struts.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,11 +47,14 @@ public class EnviarMensajeAction extends Action {
 		HttpServletRequest request,
 		HttpServletResponse response) {
 		//MensajeForm EnviarMensajeForm = (MensajeForm) form;
+		Date fecha = new Date();
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
-		if (i_log.isInfoEnabled()){
-			i_log.info("EnviarMensajeAction1 : Empezando");
-		}
+		((MensajeForm) form).setFecha(formato.format(fecha)); 
 
+		if (i_log.isInfoEnabled()){
+			i_log.info("EnviarMensajeAction1 : Empezando fecha mensaje:"+formato.format(fecha));
+		}
 		Introducir introMsg = CreadorIntroducir.createIntroducir("mensaje");
 		ActionMessages errors = introMsg.introduce(form);
 
