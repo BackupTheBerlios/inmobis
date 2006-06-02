@@ -35,10 +35,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 	
 	//lista todos los reg de TVentas
 	public Vector listadoVentas()throws RowNotFoundException
-	{
-		
-		
-		
+	{		
 		Vector listaVentas=new Vector();
 		
 		try{			
@@ -52,13 +49,13 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    
 		    while(rs.next()){
 		    	VentasBean ventas=new VentasBean();
+		    	
 		    	ventas.setIdAgente(rs.getString("idAgente"));
 		    	ventas.setIdInmueble(rs.getString("idInmueble"));
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
 		    	ventas.setPrecioFinal(rs.getString("precioFinal"));		    	
-		    	ventas.setGanancia(rs.getString("ganancia"));		   	
-		    	
+		    	ventas.setGanancia(rs.getString("ganancia"));		    	
 		    	//campos correspondientes a TInmueble
 		    	ventas.setNumHab(rs.getString("numHab"));
 		    	ventas.setMetros(rs.getString("metros"));
@@ -80,6 +77,7 @@ public class ContableBD implements BDObject,GestorContableBD{
 	    } //Liberamos la conexion pase lo que pase
 	     return listaVentas;
 	}
+	
 	//consultas a medida, por cualquier campo
 	public Vector BusquedaDetallada(VentasBean venta)
 	{
@@ -104,14 +102,13 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    if (venta.getPrecioFinal()!=null)
 		       consulta.put("precioFinal",venta.getPrecioFinal());
 		    if (venta.getGanancia()!=null)
-			       consulta.put("precioFinal",venta.getGanancia());
+			       consulta.put("ganancia",venta.getGanancia());
 		    //if(venta.getFechaDesde()!=null)
 		    	//consulta.put("fechaDesde",venta.getFechaDesde());
 		    if((venta.getFechaHasta()!=null)&& (venta.getFechaDesde()!=null))
 		    	//consulta.put("fechaHasta",venta.getFechaHasta());
 		    	fecha=true;
-		    	//estas no las metemos en la hastable
-		    
+		    	//estas no las metemos en la hastable		    
 		    
 		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.idAgente," +
     		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
@@ -139,11 +136,13 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    
 		    while (rs.next()) {
 		    	VentasBean ventas=new VentasBean();
+		    	
 		    	ventas.setIdAgente(rs.getString("idAgente"));
 		    	ventas.setIdInmueble(rs.getString("idInmueble"));
 		    	ventas.setFechVenta(rs.getString("fechVenta"));
 		    	ventas.setPrecioInicial(rs.getString("precioInicial"));
-		    	ventas.setPrecioFinal(rs.getString("ganancia"));
+		    	ventas.setPrecioFinal(rs.getString("precioFinal"));
+		    	ventas.setGanancia(rs.getString("ganancia"));
                //campos correspondientes a TInmueble
 		    	ventas.setNumHab(rs.getString("numHab"));
 		    	ventas.setMetros(rs.getString("metros"));
