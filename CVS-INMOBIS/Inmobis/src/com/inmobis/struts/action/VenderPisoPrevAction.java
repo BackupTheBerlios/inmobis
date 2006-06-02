@@ -19,7 +19,9 @@ import com.inmobis.altas.CreadorIntroducir;
 import com.inmobis.altas.Introducir;
 import com.inmobis.struts.form.VenderPisoForm;
 
+import com.inmobis.bbdd.*;
 import com.inmobis.bbdd.empleado.ContableBD;
+import com.inmobis.bbdd.empleado.GestorContableBD;
 
 import java.util.Vector;
 
@@ -61,7 +63,7 @@ public class VenderPisoPrevAction extends Action {
 		
 		ActionMessages errors= new ActionMessages();
 		
-		String target = null;
+		String target = "error";
 		
 		HttpSession session = request.getSession(true);
 		
@@ -78,7 +80,8 @@ public class VenderPisoPrevAction extends Action {
 		i.setGanancia(null);
 		i.setFechaDesde(null);
 		i.setFechaHasta(null);
-		ContableBD cont = new ContableBD();
+		GestorContableBD gestorContable = (GestorContableBD)CreadorGestores.crearGestor("contable",i);
+		//ContableBD cont = new ContableBD();
 		
 		
 		VentasBean datosPiso2;
@@ -87,16 +90,16 @@ public class VenderPisoPrevAction extends Action {
 			log.info("VenderPisoPrevAction 1: Antes de entrar en la base de datos");
 		}		
 		
-		Vector listaInmuebles = cont.BusquedaDetallada(i);
+		Vector listaInmuebles = gestorContable.BusquedaDetallada(i);
 		
-		if (log.isInfoEnabled()){
-			log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdInmueble());
-			log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdAgente());
-		}
-		if (log.isInfoEnabled()){
-			log.info("VenderPisoPrevAction12: inmueble conseguido 2 "+((VentasBean)listaInmuebles.get(1)).getIdInmueble());
-			log.info("VenderPisoPrevAction12: inmueble conseguido 2 "+((VentasBean)listaInmuebles.get(1)).getIdAgente());
-		}
+		//if (log.isInfoEnabled()){
+		//	log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdInmueble());
+		//	log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdAgente());
+		//}
+		//if (log.isInfoEnabled()){
+		//	log.info("VenderPisoPrevAction12: inmueble conseguido 2 "+((VentasBean)listaInmuebles.get(1)).getIdInmueble());
+		//	log.info("VenderPisoPrevAction12: inmueble conseguido 2 "+((VentasBean)listaInmuebles.get(1)).getIdAgente());
+		//}
 		
 		
 		
@@ -113,6 +116,13 @@ public class VenderPisoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VenderPisoPrevAction 3: Se ha realizado el listado con éxito");
 			}
+			if (log.isInfoEnabled()){
+				int i2 = 0;
+				while (i2<listaInmuebles.size()){
+					log.info("VenderPisoPrevAction 3: "+((VentasBean)listaInmuebles.get(i2)).getIdInmueble());
+				}
+				
+			}
 			datosPiso2 = (VentasBean)listaInmuebles.get(0);
 			VenderPisoForm datosPiso = new VenderPisoForm();
 			datosPiso.setIdAgente(((VentasBean)datosPiso2).getIdAgente());
@@ -124,7 +134,12 @@ public class VenderPisoPrevAction extends Action {
 			session.setAttribute("datosPiso",datosPiso);
 			target = "exito";			
 			}
-		//}
+			else {
+				if (log.isInfoEnabled()){
+						log.info("VenderPisoPrevAction2: Ha habido un error en la búsqueda en la bbdd, el numero de elementos es distinto de uno.");
+					}
+			}
+		//}			
 		return (mapping.findForward(target));
 	}
 

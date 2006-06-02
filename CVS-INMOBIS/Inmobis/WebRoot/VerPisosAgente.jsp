@@ -66,7 +66,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 				</td>
 				<!-- DESCOMENTA ESTO SI NECESITAS QUE PASA EL ID DEL INMUEBLE A VENDER y pon arriba donde pone colspan=3 un 4 donde el 3-->
 				<td width="15">
-					<a href="VenderPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/vender.gif" WIDTH="19" HEIGHT="19" BORDER="0" ALT="Vender piso"></a>
+					<a href="venderPisoPrev.do?idInmueble=<bean:write name="inmueble" property="idInmueble"/>" /><IMG SRC="images/vender.gif" WIDTH="19" HEIGHT="19" BORDER="0" ALT="Vender piso"></a>
 				</td>				
 			</tr>
 			</logic:iterate>
