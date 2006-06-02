@@ -113,24 +113,25 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.idAgente," +
     		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
     		" TVentas.ganancia FROM TInmueble,TVentas " +
-    		"WHERE TInmueble.idInmueble=TVentas.idInmueble AND ");
+    		"WHERE TInmueble.idInmueble=TVentas.idInmueble ");
 		    		    
 		    if(fecha){//hay que hacer un rango entre fechadesde y fechahasta
-		    	sqlString.append(" fechVenta BETWEEN "+MysqlUtils.toMysqlString(venta.getFechaDesde())+
-		    			" AND " +MysqlUtils.toMysqlString(venta.getFechaHasta())+ "AND ");
+		    	sqlString.append("AND fechVenta BETWEEN "+MysqlUtils.toMysqlString(venta.getFechaDesde())+
+		    			" AND " +MysqlUtils.toMysqlString(venta.getFechaHasta()));
 		    }
 		    
 		    Iterator it=consulta.keySet().iterator();
 		    
 		    while(it.hasNext()){
+		    	sqlString.append(" AND ");
 		    	String key=(String) it.next();
 		        sqlString.append(key +"="+
 		                      MysqlUtils.toMysqlString((String) consulta.get(key)));
 		        if (milog.isInfoEnabled()){
 		 			milog.info(consulta.get(key));
 		 		}  
-		        if (it.hasNext())
-		            sqlString.append(" AND ");
+		        /*if (it.hasNext())
+		            sqlString.append(" AND ");*/
 		    }
 		    rs=stmt.executeQuery(sqlString.toString());
 		    
