@@ -22,10 +22,11 @@ import com.inmobis.struts.form.VenderPisoForm;
 import com.inmobis.bbdd.*;
 import com.inmobis.bbdd.empleado.ContableBD;
 import com.inmobis.bbdd.empleado.GestorContableBD;
+import com.inmobis.bbdd.inmueble.GestorInmuebleBD;
 
 import java.util.Vector;
 
-import com.inmobis.bbdd.inmueble.VentasBean;
+import com.inmobis.bbdd.inmueble.InmuebleBean;
 
 
 import com.inmobis.INMOCTES;
@@ -69,28 +70,31 @@ public class VenderPisoPrevAction extends Action {
 		
 		//((VenderPisoForm)form).setIdInmueble(session.getAttribute(INMOCTES.idUsuario).toString());
 		
-		VentasBean i = new VentasBean();
+		InmuebleBean i = new InmuebleBean();
 		if (log.isInfoEnabled()){
 			log.info("VenderPisoPrevAction2: es el idInmueble: "+ ((VenderPisoForm)form).getIdInmueble());
 		}
-		i.setIdInmueble(((VenderPisoForm)form).getIdInmueble());
-		i.setIdAgente(null);
-		i.setPrecioFinal(null);
-		i.setPrecioInicial(null);
-		i.setGanancia(null);
-		i.setFechaDesde(null);
-		i.setFechaHasta(null);
-		GestorContableBD gestorContable = (GestorContableBD)CreadorGestores.crearGestor("contable",i);
+		i.setIdInmueble(((VenderPisoForm)form).getIdInmueble());		
+		i.setDatosDeInteres(null);
+		i.setMetros(null);
+		i.setNumHab(null);
+		i.setPrecio(null);
+		i.setRegimen(null);
+		i.setTipo(null);
+		i.setZona(null);		
+		GestorInmuebleBD gestorInmueble = (GestorInmuebleBD)CreadorGestores.crearGestor("inmueble",i);
 		//ContableBD cont = new ContableBD();
 		
 		
-		VentasBean datosPiso2;
+		//VentasBean datosPiso2;
+		InmuebleBean datosPiso2;
 		
 		if (log.isInfoEnabled()){
 			log.info("VenderPisoPrevAction 1: Antes de entrar en la base de datos");
 		}		
 		
-		Vector listaInmuebles = gestorContable.BusquedaDetallada(i);
+		Vector listaInmuebles = gestorInmueble.BusquedaDetallada();
+		//Vector listaInmuebles = gestorContable.BusquedaDetallada(i);
 		
 		//if (log.isInfoEnabled()){
 		//	log.info("VenderPisoPrevAction11: inmueble conseguido 1 "+((VentasBean)listaInmuebles.get(0)).getIdInmueble());
@@ -119,20 +123,25 @@ public class VenderPisoPrevAction extends Action {
 			if (log.isInfoEnabled()){
 				int i2 = 0;
 				while (i2<listaInmuebles.size()){
-					log.info("VenderPisoPrevAction 3: "+((VentasBean)listaInmuebles.get(i2)).getIdInmueble());
+					log.info("VenderPisoPrevAction 3: "+((InmuebleBean)listaInmuebles.get(i2)).getIdInmueble());
+					datosPiso2 = (InmuebleBean)listaInmuebles.get(0);
+					VenderPisoForm datosPiso = new VenderPisoForm();					
+					datosPiso.setIdInmueble(((InmuebleBean)datosPiso2).getIdInmueble());
+					//datosPiso.setIdAgente(((InmuebleBean)datosPiso2).getIdAgente());
+					session.setAttribute("datosPiso",datosPiso);
 					i2=i2+1;
 				}
 				
 			}
-			datosPiso2 = (VentasBean)listaInmuebles.get(0);
-			VenderPisoForm datosPiso = new VenderPisoForm();
-			datosPiso.setIdAgente(((VentasBean)datosPiso2).getIdAgente());
-			datosPiso.setIdInmueble(((VentasBean)datosPiso2).getIdInmueble());
-			datosPiso.setPrecioFinal(((VentasBean)datosPiso2).getPrecioFinal());
-			datosPiso.setPrecioInicial(((VentasBean)datosPiso2).getPrecioInicial());
-			datosPiso.setGanancia(((VentasBean)datosPiso2).getGanancia());
-			datosPiso.setFechVenta(((VentasBean)datosPiso2).getFechVenta());
-			session.setAttribute("datosPiso",datosPiso);
+			//datosPiso2 = (VentasBean)listaInmuebles.get(0);
+			//VenderPisoForm datosPiso = new VenderPisoForm();
+			//datosPiso.setIdAgente(((VentasBean)datosPiso2).getIdAgente());
+			//datosPiso.setIdInmueble(((VentasBean)datosPiso2).getIdInmueble());
+			//datosPiso.setPrecioFinal(((VentasBean)datosPiso2).getPrecioFinal());
+			//datosPiso.setPrecioInicial(((VentasBean)datosPiso2).getPrecioInicial());
+			//datosPiso.setGanancia(((VentasBean)datosPiso2).getGanancia());
+			//datosPiso.setFechVenta(((VentasBean)datosPiso2).getFechVenta());
+			//session.setAttribute("datosPiso",datosPiso);
 			target = "exito";			
 			}
 			else {

@@ -60,9 +60,11 @@ public class VerPisosAction extends Action {
 			if (log.isInfoEnabled()){
 				log.info("VerPisosAction2: Ha habido un error en la búsqueda en la bbdd");
 			}
-			errors.add("verPisos", new ActionMessage("errors.listainmuebles.bbdd"));
+			errors.add("verPisos", new ActionMessage("errors.listainmuebles.vacia"));
 			saveErrors(request,errors);
-			return (mapping.findForward("error"));
+	//		return (mapping.findForward("error"));
+			session.setAttribute("listaInmuebles",listaInmuebles);
+			return (mapping.findForward("exito"));
 		}
 		else{
 			if (log.isInfoEnabled()){

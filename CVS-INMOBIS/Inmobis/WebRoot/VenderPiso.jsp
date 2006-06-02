@@ -14,6 +14,7 @@ CON UN ANCHO DE 767 px -->
 <%
 HttpSession sesion=request.getSession();
 String tipoU=(String)sesion.getAttribute("tipoUsuario");
+String idAgenteP=(String)sesion.getAttribute("idUsuario");
 %>
 <%if (tipoU != null) {%>
 <%	tipoMenu = tipoU;%>
@@ -41,10 +42,10 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<!--Los ids se pasan ocultos-->
 							<html:hidden property="idInmueble" value="<%=form.getIdInmueble()%>"/>
 							<html:errors property="idInmueble" />
-							<html:hidden property="idAgente" value="<%=form.getIdAgente()%>"/>
+							<html:hidden property="idAgente" value="<%=idAgenteP%>"/>
 							<html:errors property="idAgente" />
 							<!--El campo que se ve de esta celda-->
-							<html:text 	property="fechVenta" size="15" maxlength="30" value="<%=form.getFechVenta()%>" />
+							<html:text 	property="fechVenta" size="15" maxlength="30" />
 							<html:errors property="fechVenta" />
 						</td>
 					</tr>
@@ -53,7 +54,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="venderPiso.precioInicial"/>	
 						</td>
 						<td>
-							<html:text 	property="precioInicial" size="15"	maxlength="10" value="<%=form.getPrecioInicial()%>" />
+							<html:text 	property="precioInicial" size="15"	maxlength="30"  />
 							<html:errors property="precioInicial" />
 						</td>
 					</tr>
@@ -62,7 +63,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="venderPiso.precioFinal"/>	
 						</td>
 						<td>
-							<html:text 	property="precioFinal" size="15"	maxlength="20" value="<%=form.getPrecioFinal()%>"/>
+							<html:text 	property="precioFinal" size="15"	maxlength="20" />
 							<html:errors property="precioFinal" />
 						</td>
 					</tr>
@@ -71,7 +72,7 @@ String tipoU=(String)sesion.getAttribute("tipoUsuario");
 							<fmt:message key="venderPiso.ganancia"/>	
 						</td>
 						<td>
-							<html:text 	property="ganancia" size="15" maxlength="30" value="<%=form.getGanancia()%>"/>
+							<html:text 	property="ganancia" size="15" maxlength="30" />
 							<html:errors property="ganancia" />
 						</td>
 					</tr>
