@@ -113,10 +113,10 @@ public class ContableBD implements BDObject,GestorContableBD{
 		    StringBuffer sqlString = new StringBuffer("SELECT TInmueble.*,TVentas.idAgente," +
     		"TVentas.fechVenta,TVentas.precioInicial,TVentas.precioFinal," +
     		" TVentas.ganancia FROM TInmueble,TVentas " +
-    		"WHERE TInmueble.idInmueble=TVentas.idInmueble ");
+    		"WHERE TInmueble.idInmueble=TVentas.idInmueble");
 		    		    
 		    if(fecha){//hay que hacer un rango entre fechadesde y fechahasta
-		    	sqlString.append("AND fechVenta BETWEEN "+MysqlUtils.toMysqlString(venta.getFechaDesde())+
+		    	sqlString.append(" AND fechVenta BETWEEN "+MysqlUtils.toMysqlString(venta.getFechaDesde())+
 		    			" AND " +MysqlUtils.toMysqlString(venta.getFechaHasta()));
 		    }
 		    

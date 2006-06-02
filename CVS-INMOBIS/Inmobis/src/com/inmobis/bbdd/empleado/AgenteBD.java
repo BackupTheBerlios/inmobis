@@ -298,11 +298,19 @@ public class AgenteBD implements BDObject,GestorAgenteBD{
 		     Connection conn = ConnectionManager.getConection();
 		     Statement stmt = conn.createStatement();
 		     ResultSet rs = null;
-		  
+		     String sb=new String("select TInmueble.* from TInmueble,TAgentesClientes,TClientesInmuebles " +
+			     		"where TInmueble.idInmueble=TClientesInmuebles.IdInmueble " +
+			     		"and TClientesInmuebles.idCliente=TAgentesClientes.idCliente " +
+			     		"and TAgentesClientes.idAgente= " + MysqlUtils.toMysqlString(agente.getIdAgente()) +
+			     		" and TInmueble.idInmueble not in (select IdInmueble from TVentas)");
+		     if (milog.isInfoEnabled()){
+		  			milog.info("comando sql: "+sb.toString());
+		          }
 		     
-		     rs = stmt.executeQuery("select * from TInmueble where idInmueble in (select idInmueble from TClientesInmuebles where idCliente in(select idCliente from TAgentesClientes where idAgente="
-		                            +MysqlUtils.toMysqlString(agente.getIdAgente())+"))");
-
+		     //rs = stmt.executeQuery("select * from TInmueble where idInmueble in (select idInmueble from TClientesInmuebles where idCliente in(select idCliente from TAgentesClientes where idAgente="
+		                          //  +MysqlUtils.toMysqlString(agente.getIdAgente())+"))");
+		     rs=stmt.executeQuery(sb.toString());
+		     
 		    
 		     while (rs.next()) {
 		       InmuebleBean inmueble = new InmuebleBean();

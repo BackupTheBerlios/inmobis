@@ -323,20 +323,21 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	      		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
+	      		"WHERE idInmueble not in (select idInmueble from TVentas) ");
 	      Iterator it=consulta.keySet().iterator();
 
 
 	  	while(it.hasNext())
 	  	{
 	  	String key=(String) it.next();
+	  	      sqlString.append(" AND ");
 	          sqlString.append(key +"="+
 	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
 		        if (milog.isInfoEnabled()){
 		 			milog.info(consulta.get(key));
 		 		}  
-	          if (it.hasNext())
-	              sqlString.append(" AND ");
+	         // if (it.hasNext())
+	           //   sqlString.append(" AND ");
 	  	}
 
 
@@ -396,7 +397,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	        consulta.put("zona",inmueble.getZona());
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	      		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
+	      		"WHERE idInmueble not in (select idInmueble from TVentas) ");
 	      Iterator it=consulta.keySet().iterator();
 
 
@@ -404,14 +405,14 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          {
 	          String key=(String) it.next();
 
-
+	          sqlString.append(" AND ");
 	          sqlString.append(key +"="+
 	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
 		        if (milog.isInfoEnabled()){
 		 			milog.info(consulta.get(key));
 		 		}  
-	          if (it.hasNext())
-	              sqlString.append(" AND ");
+	          //if (it.hasNext())
+	            //  sqlString.append(" AND ");
 	          }
 	          if(consulta.size()>0){
 	            sqlString.append(" AND ");
@@ -476,7 +477,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	        consulta.put("precio",inmueble.getPrecio());
 
 	      StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	      		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
+	      		"WHERE idInmueble not in (select idInmueble from TVentas) ");
 	      Iterator it=consulta.keySet().iterator();
 
 
@@ -484,14 +485,14 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          {
 	          String key=(String) it.next();
 
-
+	          sqlString.append(" AND ");
 	          sqlString.append(key +"="+
 	                        MysqlUtils.toMysqlString((String) consulta.get(key)));
 		        if (milog.isInfoEnabled()){
 		 			milog.info(consulta.get(key));
 		 		}  
-	          if (it.hasNext())
-	              sqlString.append(" AND ");
+	          //if (it.hasNext())
+	              //sqlString.append(" AND ");
 	          }
 	          if(consulta.size()>0){
 	            sqlString.append(" AND ");
@@ -555,7 +556,7 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	          consulta.put("zona",inmueble.getZona());
 
 	        StringBuffer sqlString = new StringBuffer("SELECT * from TInmueble " +
-	        		"WHERE idInmueble not in (select idInmueble from TVentas) AND ");
+	        		"WHERE idInmueble not in (select idInmueble from TVentas) ");
 	        Iterator it=consulta.keySet().iterator();
 
 
@@ -563,14 +564,14 @@ public class InmuebleBD implements BDObject,GestorInmuebleBD{
 	            {
 	            String key=(String) it.next();
 
-
+	            sqlString.append(" AND ");
 	            sqlString.append(key +"="+
 	                          MysqlUtils.toMysqlString((String) consulta.get(key)));
 		        if (milog.isInfoEnabled()){
 		 			milog.info(consulta.get(key));
 		 		}  
-	            if (it.hasNext())
-	                sqlString.append(" AND ");
+	            //if (it.hasNext())
+	              //  sqlString.append(" AND ");
 	            }
 	            if(consulta.size()>0){
 	              sqlString.append(" AND ");
